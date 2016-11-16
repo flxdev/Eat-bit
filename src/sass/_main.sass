@@ -1,0 +1,98 @@
+input[type='number']
+  -moz-appearance: textfield;
+input::-webkit-clear-button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+  -webkit-appearance: none;
+input
+  box-shadow : none
+a
+  text-decoration: none
+  color: $main
+  transition: color .3s
+  &:hover
+    color: $maind
+*
+  -webkit-tap-highlight-color: transparent
+  +placeholder 
+    font-family: 'Open Sans'
+    +rem(letter-spacing, 0.2px)
+    font-size: 11px
+  +rm(768)
+    +scrollbar
+      +rem(width,4px)
+      background: $graybg
+    ::-webkit-scrollbar-thumb 
+      +rem(width,6px)
+      +rem(border-radius,3px)
+      background: #888888
+      cursor: pointer
+textarea
+  line-height: 1.5
+ul
+  li>a 
+    display: inline-block
+    width: 100%
+html
+  font-size: 16px
+  line-height: 1
+  // +r(1366)
+  //   font-size: 15px
+  // +r(1280)
+  //   font-size: 14px
+  // +r(991)
+  //   font-size: 16px
+  // +r(769)
+  //   font-size: 15px
+  // +r(544)
+  //   font-size: 14px
+
+body
+  background-color: #fff
+  +box
+  +font-smoothing
+  text-rendering: optimizeLegibility
+  & ::selection
+    background-color: #eaf6ef
+    color:#1e2521
+  & ::-moz-selection
+    background-color: #eaf6ef
+    color:#1e2521
+body
+  font-family: 'Open Sans'
+  overflow: hidden
+  position: relative
+body, .out,html
+  width: 100%
+  height: 100%
+  &.modal-opened
+    overflow: hidden
+.out
+  overflow-y: scroll
+  overflow-x: hidden
+  position: relative
+  -webkit-overflow-scrolling: touch;
+  +rm(768)
+    +scrollbar
+      +rem(width,10px)
+      background: $graybg
+    ::-webkit-scrollbar-thumb 
+      +rem(width,10px)
+      border-radius: 10px !important
+      cursor: pointer
+
+// main page layout
+.page
+  &__wrapper
+    background-color: #fff
+  &__outer
+    width: 100%
+    display: block
+  &__header
+  &__wrapper-inner
+  &__content
+
+
+//utility
+
+   
