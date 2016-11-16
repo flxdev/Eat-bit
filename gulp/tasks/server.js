@@ -12,6 +12,6 @@ gulp.task('server', function() {
         notify: false,
         ghostMode: false,
         online: true,
-        open: false
+        open: true
     });
 });

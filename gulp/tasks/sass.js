@@ -5,6 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var notify = require('gulp-notify');
 var mqpacker = require("css-mqpacker");
+var flexibility =require('postcss-flexibility');
 var config = require('../config');
 var cssnano = require('cssnano');
 
@@ -13,6 +14,7 @@ gulp.task('sass', function() {
 
     var processors = [
         autoprefixer({browsers: ['last 10 versions'], cascade: false}),
+        flexibility(),
         mqpacker({
             sort: function (a, b) {
                 a = a.replace(/\D/g,'');

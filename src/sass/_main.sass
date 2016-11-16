@@ -8,20 +8,18 @@ input
   box-shadow : none
 a
   text-decoration: none
-  color: $main
   transition: color .3s
-  &:hover
-    color: $maind
+  // &:hover
 *
   -webkit-tap-highlight-color: transparent
   +placeholder 
-    font-family: 'Open Sans'
+    font-family: 'cerar'
     +rem(letter-spacing, 0.2px)
     font-size: 11px
   +rm(768)
     +scrollbar
       +rem(width,4px)
-      background: $graybg
+      // background: $graybg
     ::-webkit-scrollbar-thumb 
       +rem(width,6px)
       +rem(border-radius,3px)
@@ -36,16 +34,16 @@ ul
 html
   font-size: 16px
   line-height: 1
-  // +r(1366)
-  //   font-size: 15px
-  // +r(1280)
-  //   font-size: 14px
-  // +r(991)
-  //   font-size: 16px
-  // +r(769)
-  //   font-size: 15px
-  // +r(544)
-  //   font-size: 14px
+  +r(1366)
+    font-size: 15px
+  +r(1280)
+    font-size: 14px
+  +r(991)
+    font-size: 16px
+  +r(769)
+    font-size: 15px
+  +r(544)
+    font-size: 14px
 
 body
   background-color: #fff
@@ -59,7 +57,7 @@ body
     background-color: #eaf6ef
     color:#1e2521
 body
-  font-family: 'Open Sans'
+  font-family: 'cerar'
   overflow: hidden
   position: relative
 body, .out,html
@@ -73,26 +71,215 @@ body, .out,html
   position: relative
   -webkit-overflow-scrolling: touch;
   +rm(768)
-    +scrollbar
-      +rem(width,10px)
-      background: $graybg
-    ::-webkit-scrollbar-thumb 
-      +rem(width,10px)
-      border-radius: 10px !important
-      cursor: pointer
+    // +scrollbar
+    //   +rem(width,10px)
+    // ::-webkit-scrollbar-thumb 
+    //   +rem(width,10px)
+    //   border-radius: 10px !important
+    //   cursor: pointer
 
 // main page layout
 .page
   &__wrapper
     background-color: #fff
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: column
   &__outer
     width: 100%
     display: block
   &__header
+    position: fixed
+    +rem(height,100px)
+    left: 0
+    right: 0
+    top: 0
+    background: $white
+    display: flex
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-items: center
+    z-index: 20
+    +rem(padding,32.5px 50px 30px 50px)
   &__wrapper-inner
+  &__footer
+    background: yellow
+    height: 300px
   &__content
+    background: $white
+    +rem(padding,100px 50px 103px 50px)
+    p 
+      font-family: cerar
+      +rem(font-size,100px)
+
 
 
 //utility
+//text-types
+.u-number
+  font-family: 'Fira Sans', sans-serif;
+  +rem(letter-spacing,0.3px)
+.u-light
+  font-family: ceral
+.u-reg
+  font-family: cerar
+.u-bold
+  font-family: cerabold
+.u-title
+  font-family: cerat
+//size types
+.u-title,.u-reg,.u-light
+.s-text
+  +rem(font-size,16px)
+.s-small
+  +rem(font-size,12px)
+.h1
+  +rem(font-size,56px)
+.h2
+  +rem(font-size,42px)
+.h2
+  +rem(font-size,20px)
+//color types
+.u-halfgray
+  color: $halfgray
+.u-halfblack
+  color: $text
+.u-black
+  color: $text2
+.u-white
+  color: $white
 
-   
+.link-tel
+  color: $text
+  span
+    text-transform: uppercase
+
+.header
+  &__hamburger
+    position: relative
+    vertical-align: top
+    display: inline-block
+    +rem(padding-top,20px)
+    margin-right: 10.5%
+  &__logo
+    padding-left: 11.8%
+    position: relative
+    +rem(margin-top,-55px)
+    .logo-outer
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      .logo-middle
+        position: relative
+        padding-bottom: 85.5%
+        &:before
+          content: ''
+          position: absolute
+          +vcenter
+          border-radius: 50%
+          background: $white
+          width: 80%
+          height: 80%
+        .logo-inner
+          position: absolute
+          left: 0
+          right: 0
+          bottom: 0
+          top: 0
+          z-index: 21
+          background-image: url(../img/icons/logo.svg)
+          +contain 
+  &__navs
+    width: 80%
+    display: flex
+    flex-flow: row wrap;
+    justify-content: flex-end
+    &--phone,&--nav,&--cart
+      display: inline-block
+    &--phone
+      display: flex
+      align-items: center
+      .link-tel 
+        vertical-align: bottom
+    &--nav
+      display: flex
+      align-items: center
+      margin: 0 6% 0 5.5%
+    .nav-link
+      font-family: ceral
+      color: $halfgray
+      +rem(font-size,16px) 
+      +rem(margin-top,2px) 
+      +padlr(14px) 
+    &--login
+      text-align: right
+      transform: translateY(-12px)
+
+    .cart
+      &-icon,.u-light
+        display: inline-block
+        vertical-align: top
+      .u-light
+        +rem(margin-left,20px)
+        +rem(padding-bottom,10px)
+      &-icon
+        +rem(width,34px)
+        +rem(height,27px)
+        position: relative
+        +rem(margin-top,-10px)
+        .u-number
+          position: absolute
+          +rem(bottom,2px)
+          left: 0
+          right: 0
+          text-align: center
+
+.hamburger
+  +rem(width, 42px)
+  +rem(height, 20px)
+  position: absolute
+  // +rem(left, 25px)
+  // +rem(top, 30px)
+  left: 0
+  top: 0
+  &-inner 
+    width: 100%
+    height: 100%
+    +rem(padding, 15px 10px)
+    cursor: pointer
+    position: relative
+    text-align: center
+    div 
+      display: block
+      position: relative
+      +rem(width, 30px)
+      +rem(height, 22px)
+    span 
+      height: 3px
+      width: 100%
+      display: block
+      background-color: #000
+      position: absolute
+      opacity: 1
+      left: 0
+      transform: rotate(0deg)
+      transition: 0.2s ease-in-out
+      &:nth-child(1) 
+        top: 0
+      &:nth-child(2)
+        +rem(top, 10px)
+      &:nth-child(3)
+        +rem(top, 20px)
+    &.open 
+      span 
+        &:nth-child(1) 
+          transform: rotate(135deg)
+          +rem(top, 9px)
+        &:nth-child(2)
+          opacity: 0
+          left: -60px
+          +rem(left, -60px)
+        &:nth-child(3)
+          transform: rotate(-135deg)
+          +rem(top, 9px)  
