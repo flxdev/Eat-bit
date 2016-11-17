@@ -77,7 +77,6 @@ body, .out,html
     //   +rem(width,10px)
     //   border-radius: 10px !important
     //   cursor: pointer
-
 // main page layout
 .page
   &__wrapper
@@ -101,10 +100,13 @@ body, .out,html
     align-items: center
     z-index: 20
     +rem(padding,32.5px 50px 30px 50px)
-  &__wrapper-inner
   &__footer
-    background: yellow
-    height: 300px
+    +cover
+    position: relative
+    &:before
+      content: ''
+      +coverdiv
+      background-color: rgba(45,45,45, .9)
   &__content
     background: $white
     +rem(padding,100px 50px 103px 50px)
@@ -113,31 +115,43 @@ body, .out,html
       +rem(font-size,100px)
 
 
-
 //utility
 //text-types
-.u-number
-  font-family: 'Fira Sans', sans-serif;
-  +rem(letter-spacing,0.3px)
 .u-light
   font-family: ceral
 .u-reg
   font-family: cerar
 .u-bold
   font-family: cerabold
+  +rem(letter-spacing,0.2px)
 .u-title
   font-family: cerat
+.describe-text
+  +rem(font-size,16px)
+  color: $white
+  opacity: 0.3
+  font-family: ceral
+  line-height: 1.3 
+.smalllight
+  +rem(font-size,12px)
+  color: #a0a0a0
+  font-family: ceral
+
+.u-number
+  font-family: 'Fira Sans', sans-serif;
+  +rem(letter-spacing,0.3px)
 //size types
-.u-title,.u-reg,.u-light
 .s-text
   +rem(font-size,16px)
+.s-medium
+  +rem(font-size,14px)
 .s-small
   +rem(font-size,12px)
 .h1
   +rem(font-size,56px)
 .h2
   +rem(font-size,42px)
-.h2
+.h3
   +rem(font-size,20px)
 //color types
 .u-halfgray
@@ -165,6 +179,8 @@ body, .out,html
     padding-left: 11.8%
     position: relative
     +rem(margin-top,-55px)
+    +r(991)
+      margin: auto
     .logo-outer
       position: absolute
       left: 0
@@ -195,6 +211,8 @@ body, .out,html
     display: flex
     flex-flow: row wrap;
     justify-content: flex-end
+    +r(991)
+      width: auto
     &--phone,&--nav,&--cart
       display: inline-block
     &--phone
@@ -202,10 +220,14 @@ body, .out,html
       align-items: center
       .link-tel 
         vertical-align: bottom
+      +r(991)
+        display: none
     &--nav
       display: flex
       align-items: center
       margin: 0 6% 0 5.5%
+      +r(991)
+        display: none
     .nav-link
       font-family: ceral
       color: $halfgray
@@ -215,6 +237,8 @@ body, .out,html
     &--login
       text-align: right
       transform: translateY(-12px)
+      +r(991)
+        display: none
 
     .cart
       &-icon,.u-light
@@ -223,6 +247,8 @@ body, .out,html
       .u-light
         +rem(margin-left,20px)
         +rem(padding-bottom,10px)
+        +r(991)
+          display: none
       &-icon
         +rem(width,34px)
         +rem(height,27px)
@@ -282,4 +308,320 @@ body, .out,html
           +rem(left, -60px)
         &:nth-child(3)
           transform: rotate(-135deg)
-          +rem(top, 9px)  
+          +rem(top, 9px) 
+
+//footer block
+
+.footer
+  &__main
+    display: block
+    margin: 0 auto
+    +rem(width,1220px)
+    max-width: 100%
+    +rem(padding,90px 10px 85px)
+    position: relative
+    z-index: 1
+    +r(544)
+      +rem(padding,40px 10px 50px)
+    &-content 
+      display: flex
+      flex-flow: row nowrap
+      justify-content: space-between
+      +rem(padding,0 20px)
+      +rem(margin,0 -10px)
+      +r(768)
+        flex-wrap: wrap
+  &-content-block
+    +rem(max-width,723px)
+    display: flex
+    flex-wrap: nowrap
+    +r(991)
+      order: 2
+      width: 50% 
+      flex-wrap: wrap
+    +r(768)
+      width: 100%
+      +rem(padding-top,25px)
+  &-contact
+    &-block
+      +rem(max-width,376px)
+      +rem(margin-top,-3px)
+      +r(991)
+        order: 1
+        width: 50%
+        max-width: 100%
+        +rem(padding-right,20px)
+      +r(768)
+        width: 100%
+      +r(480)
+        +rem(padding-right,0px)
+    &-svyaz
+      +rem(margin-bottom,38px)
+      .u-number
+        font-weight: 300
+        +rem(margin,12px 0 11px)
+        display: block
+        +r(375)
+          +rem(font-size,32px)
+    &-mail
+      .footer-form
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+        align-content: flex-start
+        +rem(border-radius,17px)
+        +rem(height,35px)
+        border: 1px solid $white
+        +rem(margin-top,21px)
+        // +rem(margin-right,-21px)
+        &-input
+          background: 0 0
+          color: $white
+          +rem(padding,0 17px)
+          +r(480)
+            width: 50%
+        &-submit
+          background: 0 0
+          +rem(padding,0 17px)
+          border-left: 1px solid $white
+          +rem(width,140px)
+          text-transform: uppercase
+          +rem(font-size,14px)
+          +rm(768)
+            +rem(padding-bottom,2px)
+  &-mailto
+    .u-light
+      display: inline-block
+    .dot-divider
+      +rem(padding,0 10px)
+  &-nav
+    &-block
+      +rem(margin-top,-3px)
+      +r(768)
+        +rem(margin-top,25px)
+        display: flex
+        flex-flow: row nowrap
+        width: 100%
+      +r(480)
+        flex-wrap: wrap
+      ul
+        +rem(margin-bottom,23px)
+        +r(768)
+          width: 50%
+          +rem(margin-top,-23px)
+        li 
+          +r(768)
+            +rem(padding,10px 0)
+      .u-bold
+        text-transform: uppercase
+        +rem(padding-bottom,8px)
+        +rem(margin-bottom,13px)
+        +rem(font-size,14px)
+    &-payment
+      display: flex
+      flex-wrap: wrap
+      +rem(max-width,420px)
+      +r(768)
+        width: 50%
+        max-width: 100%
+        align-items: center
+        align-content: flex-start
+      // +r(480)
+      //   width: 100%
+      //   justify-content: center
+      .payment-item
+        +rem(min-width,80px)
+        +rem(height,45px)
+        +rem(margin-right,0px)
+        +rem(padding-bottom,20px)
+        position: relative
+        &:hover
+          +rm(991)
+            img:first-child
+              opacity: 0
+            img:last-child
+              opacity: 1
+        &:nth-child(n+4)
+          +rem(width,50px)
+          min-width: 0
+        img
+          display: block
+          +rem(max-width,70px)
+          +rem(max-height,25px)
+          margin: 0 auto
+          position: absolute
+          top: 0
+          left: 0
+          +tr(opacity .3s)
+          &:last-child
+            opacity: 0
+            z-index: 1
+  &-list
+    width: 36% 
+    +r(991)
+      width: 50%
+    .u-bold
+      +rem(margin-bottom,20px)
+      text-transform: uppercase
+      +rem(font-size,14px)
+    li
+      +rem(padding,5px 0)
+      +rem(margin-bottom,15px)
+      line-height: 1.07
+  &__footer
+    background: #000
+    position: relative
+    z-index: 1
+    .content-wrapp
+      display: flex
+      flex-flow: row wrap
+      justify-content: space-between
+      align-content: center
+      +rem(padding,30px 0 35px)
+      .copyright
+        +r(544)
+          width: 100%
+          +rem(margin-bottom,20px)
+      .social
+        display: flex
+        flex-flow: row nowrap
+        +rem(margin-left,60px)
+        +r(991)
+          margin: 0
+        +r(544)
+          align-self: flex-start
+
+      .soc-icon
+        &-wrapp
+          +rem(width,52px)
+          +rem(height,30px)
+          +rem(padding,0 11px)
+          +r(544)
+            &:first-child
+              padding-left: 0
+              +rem(width,41px)
+          &:hover
+            .soc-icon-item
+              &:after
+                +scale(1.05)
+            .stsoc1
+              fill: $white
+          &.insta
+            .soc-icon-item
+              +vertical
+              &:after
+                background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+            svg
+              +rem(width,17px)
+              +rem(height,17px)
+              vertical-align: middle 
+          &.vk
+            .soc-icon-item
+              &:after
+                background: radial-gradient(circle at 33% 100%,#507299 4%,#507299 30%,#507299 62%,#8fa7c1 85%,#b8d4f5);
+          &.fb
+            .soc-icon-item
+              &:after
+                background: radial-gradient(circle at 33% 100%,#3b5998 4%,#3b5998 30%,#3b5998 62%,#9b36b7 85%,#3b5998);
+        &-item
+          display: inline-block
+          width: 100%
+          height: 100%
+          border-radius: 60%
+          background: $white
+          position: relative
+          overflow: hidden
+          svg
+            display: inline-block
+            width: 100%
+            height: 100%
+            position: relative
+            z-index: 2
+            overflow: hidden
+          .stsoc
+            fill: transparent
+          .stsoc1
+            position: relative
+            z-index: 2
+            +tr(fill .3s)
+          &:after
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            +rem(width,30px)
+            +rem(height,30px)
+            border-radius: 50%
+            +tr(transform .3s)
+            +scale(0)
+            transform-origin: 50%
+            z-index: 1
+    .developer
+      &:hover
+        .flex
+          fill: red
+          stroke: red
+        .u-bold
+          color: red
+      .dev
+        &-icon,&-text
+          display: inline-block
+          vertical-align: top
+        &-icon
+          +rem(margin-top,-1px)
+          +rem(margin-right,17px)
+          svg
+            display: inline-block
+            +rem(width,33px)
+            +rem(height,34px)
+          .flex
+            +tr(fill .3s)
+      .u-bold
+        +tr(color .3s)
+      .u-bold,.smalllight
+        +r(544)
+          +hidetext  
+            
+.box-standart
+  display: block
+  margin: 0 auto
+  +rem(max-width,1220px)
+  width: 100%
+  +rem(padding, 0 20px)
+      
+.scroll-to-top
+  +rem(width,50px)
+  +rem(height,50px)
+  border-radius: 50%
+  border: 1px solid #777777
+  position: fixed
+  z-index: 2
+  +rem(right, 50px)
+  // +rem(bottom, 50px)
+  transform: translateY(100px)
+  +tr(transform .3s)
+  +r(544)
+    +rem(width,40px)
+    +rem(height,40px)
+    +rem(right, 25px)
+  &:hover
+    &:before
+      background: #e6e6e6
+  &.visible
+    transform: translateY(0)
+  &:before
+    +rem(width,40px)
+    +rem(height,40px)
+    +rem(margin-top,4px)
+    +rem(margin-left,4px)
+    background: $white
+    border-radius: 50%
+    content: ''
+    display: inline-block
+    +tr(background .3s)
+    +r(544)
+      +rem(width,30px)
+      +rem(height,30px)
+  
+
+
