@@ -4,7 +4,114 @@ block title
   title Index
 
 block content
-  p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  .box-full
+    .index-slider-wrapper
+      .index-slider
+        mixin indexmain(img,title,list1,list2,list3,val)
+          .index-slide(class= val)
+            .index-slide-inner(style='background-image: url('+img+ ')')
+              .index-slide-text
+                .title.h1 #{title}
+                ul.list
+                  li #{list1}
+                  li #{list2}
+                  li #{list3}
+                a(href="#").btn.t-white Программы питания
+        +indexmain('img/index-slide/1.png','Здоровое питание на весь день','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство')
+        +indexmain('img/index-slide/1.png','Здоровое питание на весь-весь день2','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство')
+        +indexmain('img/index-slide/1.png','Здоровое питание на весь-весь-вусь день3','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство')
+        +indexmain('img/index-slide/4.png','Здоровое питание на весь-весь-вусь день3','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство','white')
+        +indexmain('img/index-slide/3.png','Здоровое питание на весь-весь-вусь день3','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство','white')
+        +indexmain('img/index-slide/2.png','Здоровое питание на весь-весь-вусь день3','Сбалансированный рацион','Ежедневная доставка (бесплатно в пределах МКАД)','Максимальное удобство','white')
+      .index-add-wrapper
+        .index-add
+          mixin indexadd(title,text)
+            .index-add-slide
+              .u-light.u-white.s-text #{title}
+              .smalllight #{text}
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9')
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9')
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9')
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9')
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9')
+          +indexadd('Овсяная каша с какао и бананом','БЖУ: 19.9, 10.9, 42.5, Ккал: 347.9 ')
+        .i-arrows
+          .slider-counter
+            .slider-curr
+            .slider-divider /
+            .slider-total
+      script.
+        function news(){
+          $( ".index-slider").each( function() {
+            var _this = $(this);
+            slidesCount(_this);
+            _this.slick({
+              accessibility: true,
+              arrows: true,
+              draggable: false,
+              touchMove: false,
+              asNavFor:_this.siblings().find('.index-add'),
+              infinite: true,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              appendArrows: _this.siblings().find('.i-arrows'),
+              nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill-rule:evenodd;clip-rule:evenodd;fill:#353535;}</style><g><g><polygon class="slider-arr" points="45.9,6.8 38.9,0 37.9,1 42.9,6 0,6 0,7.5 43,7.5 37.6,12.9 38.7,14 45.7,7 "/></g></g></svg></div></button>',
+              prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill:#353535;}</style><g><g><polygon class="slider-arr" points="0.2,7 7.2,14 8.3,12.9 2.9,7.5 45.9,7.5 45.9,6 3,6 8,1 7,0 0,6.8     "/></g></g></svg></div></button>',
+            }); 
+
+            _this.siblings().find('.index-add').slick({
+              arrows: false,
+              draggable: false,
+              asNavFor: _this,
+              touchMove: false,
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            });
+          }); 
+        } news();
+  section.box-standart.box-section
+    a(href="#").icon-link.repeat
+      i
+      span Повторить заказ
+    h2.box-title Программы питания
+    .box-title-small Всегда разнообразный рацион от нашего Шеф-повара. Ежедневная доставка прямо в руки в любую точку Москвы и МО. Доставка бесплатна в пределах МКАД.
+    .color-wrapper
+      mixin colorBlock(kal,icon, text,value,img,color)
+        a(href="#").color-block
+          .color-block-bg(style='background-image: url('+img+')')
+          .color-block-main(style='background-color:#'+color+';')
+            .u-light
+              span.u-number.h2 #{kal}
+              span Ккал/день
+            .color-block-icon
+              i(style='bakground-img: url('+icon+')')
+            .color-text.u-halfgray #{text}
+            buttom(type='buttom').btn.btn-go от  
+              span.u-number #{value}
+              |  ₽/день
+            .u-light.s-text.u-halfgray.doptext 
+              span Меню на 2 недели
+      +colorBlock('800–1600','','3 программы питания рассчитаны для людей, желающих активно снизить вес','1500','img/index-slide/bg1.png','fcf7eb')
+      +colorBlock('1600–2000','','Программы питания рассчитаны для  поддер- жания веса у девушек и снижения веса у мужчин','1700','img/index-slide/bg1.png','eaf6ef')
+      +colorBlock('2100–2300','','Самая популярная программа для людей, посещающих фитнес-клуб, или занимающихся спортом','1750','img/index-slide/bg1.png','e3e9f9')
+      +colorBlock('2300–2900','','Программы питания рассчитаны на активный набор мышечной массы','1800','img/index-slide/bg1.png','faebeb')
+      +colorBlock('2900–3500','','Программы питания для профессиональных спортсменов','2000','img/index-slide/bg1.png','faebeb')
+      .color-block.calc
+        .box-title Какая программа мне подойдёт?
+        a(href="#").icon-link.calc
+          i
+          span Калькулятор
+
+
+
+
+
+
+
+
+
+
 
 
 

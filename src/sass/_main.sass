@@ -57,7 +57,7 @@ body
     background-color: #eaf6ef
     color:#1e2521
 body
-  font-family: 'cerar'
+  font-family: 'cera'
   overflow: hidden
   position: relative
 body, .out,html
@@ -84,9 +84,11 @@ body, .out,html
     display: flex
     flex-wrap: nowrap
     flex-direction: column
+    height: 100%
   &__outer
     width: 100%
     display: block
+    height: 100%
   &__header
     position: fixed
     +rem(height,100px)
@@ -103,6 +105,7 @@ body, .out,html
   &__footer
     +cover
     position: relative
+    flex: 0 0 auto
     &:before
       content: ''
       +coverdiv
@@ -110,32 +113,43 @@ body, .out,html
   &__content
     background: $white
     +rem(padding,100px 50px 103px 50px)
-    p 
-      font-family: cerar
-      +rem(font-size,100px)
+    flex: 1 0 auto
+    +r(1150)
+      +rem(padding,100px 25px 103px 25px)
+    +r(544)
+      +rem(padding,100px 15px 103px 15px)
+
 
 
 //utility
 //text-types
 .u-light
-  font-family: ceral
+  font-weight: 300
 .u-reg
-  font-family: cerar
+  font-weight: 400
 .u-bold
-  font-family: cerabold
   +rem(letter-spacing,0.2px)
 .u-title
-  font-family: cerat
+  font-weight: 300
 .describe-text
   +rem(font-size,16px)
   color: $white
   opacity: 0.3
-  font-family: ceral
   line-height: 1.3 
+  font-weight: 300
 .smalllight
   +rem(font-size,12px)
   color: #a0a0a0
-  font-family: ceral
+  font-weight: 300
+
+.box-title
+  font-weight: 100
+  +rem(font-size,42px)
+  text-align: center
+.box-title-small
+  font-weight: 100
+  +rem(font-size,20px)
+  text-align: center
 
 .u-number
   font-family: 'Fira Sans', sans-serif;
@@ -153,6 +167,9 @@ body, .out,html
   +rem(font-size,42px)
 .h3
   +rem(font-size,20px)
+.title
+  font-weight: 300
+
 //color types
 .u-halfgray
   color: $halfgray
@@ -162,7 +179,6 @@ body, .out,html
   color: $text2
 .u-white
   color: $white
-
 .link-tel
   color: $text
   span
@@ -229,7 +245,7 @@ body, .out,html
       +r(991)
         display: none
     .nav-link
-      font-family: ceral
+      font-weight: 300
       color: $halfgray
       +rem(font-size,16px) 
       +rem(margin-top,2px) 
@@ -387,8 +403,7 @@ body, .out,html
           +rem(width,140px)
           text-transform: uppercase
           +rem(font-size,14px)
-          +rm(768)
-            +rem(padding-bottom,2px)
+
   &-mailto
     .u-light
       display: inline-block
@@ -435,6 +450,8 @@ body, .out,html
         +rem(margin-right,0px)
         +rem(padding-bottom,20px)
         position: relative
+        +r(768)
+           +rem(min-width,50px)
         &:hover
           +rm(991)
             img:first-child
@@ -496,6 +513,9 @@ body, .out,html
           +rem(width,52px)
           +rem(height,30px)
           +rem(padding,0 11px)
+          &:not(.insta)
+            svg
+              border-radius: 100%
           +r(544)
             &:first-child
               padding-left: 0
@@ -527,17 +547,18 @@ body, .out,html
           display: inline-block
           width: 100%
           height: 100%
-          border-radius: 60%
+          border-radius: 100%
           background: $white
           position: relative
           overflow: hidden
+
           svg
             display: inline-block
             width: 100%
             height: 100%
             position: relative
             z-index: 2
-            overflow: hidden
+            
           .stsoc
             fill: transparent
           .stsoc1
@@ -588,7 +609,24 @@ body, .out,html
   +rem(max-width,1220px)
   width: 100%
   +rem(padding, 0 20px)
+  position: relative
+  &.box-section
+    +rem(padding, 80px 20px)
+    &>.repeat
+      position: absolute
+      +rem(left,20px)
+      top: 9%
       
+  .box-title
+    +rem(margin-bottom,20px)
+    +rem(letter-spacing,-1px)
+  .box-title-small
+    +rem(margin-bottom,35px)
+    line-height: 1.4
+.box-title,.box-title-small
+  +rem(max-width,663px)  
+  margin: 0 auto  
+
 .scroll-to-top
   +rem(width,50px)
   +rem(height,50px)
@@ -597,7 +635,7 @@ body, .out,html
   position: fixed
   z-index: 2
   +rem(right, 50px)
-  // +rem(bottom, 50px)
+  +rem(bottom, 40px)
   transform: translateY(100px)
   +tr(transform .3s)
   +r(544)
@@ -622,6 +660,301 @@ body, .out,html
     +r(544)
       +rem(width,30px)
       +rem(height,30px)
+.index
+  &-slider
+    &-wrapper
+      position: relative
+  &-slide
+    position: relative
+    padding-bottom: 5.7%
+    &.white
+      .title,.list
+        color: $white
+    +r(1600)
+      padding-bottom: 5.5%
+    +r(768)
+      padding-bottom: 10.5%
+    +r(544)
+      padding-bottom: 15.5%
+    &-text
+      position: absolute
+      left: 12.9%
+      top: 25%
+      +rem(max-width,515px)
+      width: 38%
+      +r(1366)
+        top: 15%
+        width: 38%
+        left: 10.9%
+      +r(991)
+        left: 4.9%
+        top: 15%
+        width: 42%
+      +r(768)
+        width: 75%
+      +r(544)
+        width: 95%
+      .title
+        margin-bottom: 11%
+        +r(1150)
+          +rem(font-size,45px)
+        +r(768)
+          +rem(font-size,35px)
+        +r(544)
+          font-weight: 600
+      .btn 
+        margin-top: 7%
+      .list
+        +rem(max-width,285px)
+        li 
+          +rem(padding-bottom,17px)
+          line-height: 1.3 
+    &-inner
+      +cover
+      +coverdiv
+  &-add
+    background-color: $text
+    +rem(width,225px)
+    +rem(padding,15px 22px 20px 20px)
+    order: 2
+    &-wrapper
+      position: absolute
+      +rem(right,-17px)
+      +rem(bottom,46px)
+      display: flex
+      flex-flow: row nowrap
+      align-items: stretch
+      .i-arrows
+        background: $white
+        order: 1
+        +rem(padding,0 10px)
+    .u-light
+      line-height: 1.35
+    .smalllight
+      +rem(margin-top, 5px)   
+.list
+  li 
+    +rem(padding-left,40px)
+    position: relative
+    display: block
+    +rem(letter-spacing,0.4px)
+    &:before
+      content: ''
+      display: inline-block
+      +rem(width,22px)
+      +rem(height,22px)
+      position: absolute
+      left: 0
+      +rem(top,-3px)
+      +rem(margin-right,15px)
+      vertical-align: sub
+      background-image: url(../img/icons/list.svg)
+      +contain
+
+.i-arrows
+  +vertical
+  .slider-counter,.slick-arrow
+    display: inline-block
+    vertical-align: middle
+  &.white
+    .slider-arr
+      fill: $white
+    .slider-counter
+      color: $white
+  .slider-counter
+    font-size: 0
+    +rem(padding,0 5px)
+    .slider-curr,.slider-divider,.slider-total
+      display: inline-block
+      vertical-align: top
+      font-weight: 300
+    .slider-curr
+      +rem(font-size,35.5px)
+      line-height: 0.5
+    .slider-total
+      +rem(font-size,16px)
+    .slider-divider
+      +rem(font-size,16px)
+  .slick-arrow
+    +rem(width,7px)
+    +rem(height,10px)
+    background: 0 0
+    +rem(padding,0 10px)
+    
+.icon-link
+  font-weight: 100
+  color: $text
+  display: inline-block
+  +rem(font-size,16px)
+  cursor: pointer
+  background: 0 0
+  &>span
+    position: relative
+    transition: color .3s
+    display: inline-block
+    vertical-align: top
+    &:after
+      content: ''
+      display: inline-block
+      left: 0
+      right: 0
+      width: 100%
+      +rem(height,1px)
+      background: #cccccc
+      +rem(bottom,-3px)
+      position: absolute 
+  &>i
+    display: inline-block
+    vertical-align: top
+    position: relative
+    +rem(width,16px)
+    +rem(height,16px)
+    +rem(margin-right,11px)
+    &:after,&:before
+      content: ''
+      position: absolute
+      display: inline-block
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center
+      +rem(width,16px)
+      +rem(height,16px)
+      +rem(top,1px)
+      transition: opacity .3s
+      left: 0
+    &:before
+      opacity: 0  
+  &:hover
+    i
+      // color: $maind
+      &:after
+        opacity: 0 
+      &:before
+        opacity: 1 
+  &.calc 
+    i 
+      &:after
+        background-image: url(../img/icons/Calc.svg) 
+  &.repeat
+    font-weight: 700
+    +rem(font-size,14px)
+    color: $text
+    text-transform: uppercase
+    span
+      &:after
+        opacity: 0
+    i 
+      +rem(width,30px)
+      +rem(height,30px)
+      +rem(margin-right,15px)
+      &:after,&:before
+        +rem(width,30px)
+        +rem(height,30px)
+        +rem(top,-7px)
+      &:after
+        background-image: url(../img/icons/repeat.svg) 
+        
+    &:hover
+      i 
+        &:after
+          +tr(transform .3s)
+          opacity: 1
+          transform: rotate(360deg)
+.btn 
+  font-family: cerablk
+  text-transform: uppercase
+  +rem(font-size,14px) 
+  text-align: center
+  +rem(padding,20px 33px)
+  +rem(border-radius,27px)
+  display: inline-block
+  transition: background .3s, box-shadow .3s, color .3s
+  &> .u-number
+    font-weight: 700
+  &.t-white
+    color: $text
+    background-color: $white
+    box-shadow: 3px 5.196px 15px 0px rgba( 0, 0, 0, .1 );
+  &.btn-go
+    border: 2px solid $text
+    +rem(padding,10px 32px 10px 17px)
+    +rem(font-size,14px)
+    color: $text
+    &:hover
+      background: $text
+      color: $white
+.color 
+  &-wrapper
+    +rem(padding-top,35px)
+    display: flex
+    flex-flow: row wrap
+    align-items: stretch
+    align-content: stretch
+  &-block
+    width: 33%
+    position: relative
+    +rem(height,340px)
+    text-align: center
+    &:hover
+      z-index: 1
+      .color-block-bg
+        transform: scale(1.05)
+      .color-block-main
+        background: $white !important
+      .doptext
+        opacity: 1
+      .btn-go
+        background: $text
+        color: $white 
+    &.calc 
+      .box-title
+        display: inline-block
+        
+        +rem(max-width,300px)
+        +rem(margin, 88px 0 30px)
+    &-bg,&-main
+      position: absolute
+      +coverdiv
+    &-bg
+      +cover
+      +tr(transform .3s)
+    &-main
+      +tr(background .3s)
+      +rem(padding,50px 0 40px)
+      .u-light
+        color: $text
+        span
+          text-transform: uppercase
+          font-weight: 400
+        .u-number
+          display: block
+          font-weight: 300
+      .doptext
+        opacity: 0
+        +tr(opacity .3s)
+        color: #585858
+        +rem(margin,15px auto 0)
+        text-align: center
+        span
+          position: relative
+          display: inline-block
+          text-transform: none
+          &:after
+            content: ''
+            position: absolute
+            +rem(height,1px)
+            left: 0
+            right: 0
+            width: 100%
+            background: #585858
+            +rem(bottom, -2px)
+  &-text
+    +rem(max-width,236px)
+    +rem(height,75px) 
+    +rem(margin, 22px auto)  
+    line-height: 1.3    
+
+
   
 
 
