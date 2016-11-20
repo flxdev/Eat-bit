@@ -77,6 +77,7 @@ body, .out,html
     //   +rem(width,10px)
     //   border-radius: 10px !important
     //   cursor: pointer
+
 // main page layout
 .page
   &__wrapper
@@ -102,6 +103,11 @@ body, .out,html
     align-items: center
     z-index: 20
     +rem(padding,32.5px 50px 30px 50px)
+    +r(1150)
+      +rem(padding,32.5px 25px 30px 25px)
+    +r(768)
+      +rem(padding,15px 25px 15px 25px)
+      +rem(height,60px)
   &__footer
     +cover
     position: relative
@@ -116,8 +122,10 @@ body, .out,html
     flex: 1 0 auto
     +r(1150)
       +rem(padding,100px 25px 103px 25px)
+    +r(768)
+      +rem(padding,60px 25px 103px 25px)
     +r(544)
-      +rem(padding,100px 15px 103px 15px)
+      +rem(padding,60px 15px 103px 15px)
 
 
 
@@ -129,6 +137,7 @@ body, .out,html
   font-weight: 400
 .u-bold
   +rem(letter-spacing,0.2px)
+  font-weight: 700
 .u-title
   font-weight: 300
 .describe-text
@@ -197,6 +206,9 @@ body, .out,html
     +rem(margin-top,-55px)
     +r(991)
       margin: auto
+      padding-left: 18.8%
+    +r(544)
+      transform: translateX(8%)
     .logo-outer
       position: absolute
       left: 0
@@ -211,7 +223,7 @@ body, .out,html
           +vcenter
           border-radius: 50%
           background: $white
-          width: 80%
+          width: 70%
           height: 80%
         .logo-inner
           position: absolute
@@ -238,10 +250,32 @@ body, .out,html
         vertical-align: bottom
       +r(991)
         display: none
+    &--cart
+      +rem(margin,-42px -50px -19px 0)
+      +rem(padding,42px 50px 25px 40px)
+      +r(991)
+        +rem(padding,42px 50px 35px 40px)
+        +rem(margin,-42px -50px -35px 0)
+      +r(768)
+        +rem(margin,-25px -25px -17px 0)
+        +rem(padding,25px 25px 17px 25px)
+      &.active
+        background: $text
+        .u-reg
+          color: $halfwhite
+        .u-light,.u-number
+          color: $white
+          &+ .u-number
+            color: #8a8a8a !important
+        .stcart1,.stcart
+          stroke: $white
+
+        
+
     &--nav
       display: flex
       align-items: center
-      margin: 0 6% 0 5.5%
+      margin: 0 3% 0 5.5%
       +r(991)
         display: none
     .nav-link
@@ -252,7 +286,7 @@ body, .out,html
       +padlr(14px) 
     &--login
       text-align: right
-      transform: translateY(-12px)
+      transform: translateY(-5px)
       +r(991)
         display: none
 
@@ -262,14 +296,21 @@ body, .out,html
         vertical-align: top
       .u-light
         +rem(margin-left,20px)
-        +rem(padding-bottom,10px)
+        +rem(margin-top,5px)
         +r(991)
           display: none
+        &+ .u-number
+          text-align: right
+          +rem(letter-spacing,0.4px)
+          +rem(margin-top,3px)
+          color: transparent
+          +r(991)
+            +hidetext
       &-icon
         +rem(width,34px)
         +rem(height,27px)
         position: relative
-        +rem(margin-top,-10px)
+        +rem(margin-top,-3px)
         .u-number
           position: absolute
           +rem(bottom,2px)
@@ -612,10 +653,16 @@ body, .out,html
   position: relative
   &.box-section
     +rem(padding, 80px 20px)
+    +r(991)
+      +rem(padding, 30px 0)
     &>.repeat
-      position: absolute
-      +rem(left,20px)
-      top: 9%
+      +rem(margin,20px auto)
+      display: block
+      +rem(width,180px)
+      +rm(991)
+        position: absolute
+        +rem(left,20px)
+        top: 9%
       
   .box-title
     +rem(margin-bottom,20px)
@@ -664,6 +711,9 @@ body, .out,html
   &-slider
     &-wrapper
       position: relative
+      +r(991)
+        +rem(margin-left,-25px)
+        +rem(margin-right,-25px)
   &-slide
     position: relative
     padding-bottom: 5.7%
@@ -672,26 +722,33 @@ body, .out,html
         color: $white
     +r(1600)
       padding-bottom: 5.5%
+    +r(991)
+      padding-bottom: 7.5%
     +r(768)
       padding-bottom: 10.5%
     +r(544)
-      padding-bottom: 15.5%
+      padding-bottom: 17.5%
     &-text
       position: absolute
       left: 12.9%
       top: 25%
       +rem(max-width,515px)
       width: 38%
-      +r(1366)
+      +r(1460)
         top: 15%
         width: 38%
         left: 10.9%
       +r(991)
         left: 4.9%
         top: 15%
-        width: 42%
+        width: 60%
       +r(768)
-        width: 75%
+        width: 100%
+        text-align: center
+        min-width: 100%
+        left: 0
+        right: 0
+        +rem(padding,20px)
       +r(544)
         width: 95%
       .title
@@ -700,23 +757,33 @@ body, .out,html
           +rem(font-size,45px)
         +r(768)
           +rem(font-size,35px)
-        +r(544)
-          font-weight: 600
+          margin-bottom: 5%
       .btn 
         margin-top: 7%
+        +r(768)
+          +rem(padding,15px 20px 12px)
       .list
         +rem(max-width,285px)
+        +r(768)
+          margin: 0 auto
+          +rem(max-width,295px)
         li 
           +rem(padding-bottom,17px)
           line-height: 1.3 
+          text-align: left
+
     &-inner
       +cover
       +coverdiv
+      +r(768)
+        background-position: 19% 50%;
   &-add
     background-color: $text
     +rem(width,225px)
     +rem(padding,15px 22px 20px 20px)
     order: 2
+    +r(991)
+      display: none
     &-wrapper
       position: absolute
       +rem(right,-17px)
@@ -724,10 +791,17 @@ body, .out,html
       display: flex
       flex-flow: row nowrap
       align-items: stretch
+      +r(991)
+        left: 0 
+        right: 0
+        justify-content: center
+        +rem(bottom,40px)
       .i-arrows
         background: $white
         order: 1
         +rem(padding,0 10px)
+        +r(991)
+          background: transparent
     .u-light
       line-height: 1.35
     .smalllight
@@ -757,17 +831,19 @@ body, .out,html
     display: inline-block
     vertical-align: middle
   &.white
-    .slider-arr
-      fill: $white
+    .starr
+      stroke: $white
     .slider-counter
       color: $white
   .slider-counter
     font-size: 0
     +rem(padding,0 5px)
+    +tr(color .15s)
     .slider-curr,.slider-divider,.slider-total
       display: inline-block
       vertical-align: top
       font-weight: 300
+
     .slider-curr
       +rem(font-size,35.5px)
       line-height: 0.5
@@ -776,10 +852,15 @@ body, .out,html
     .slider-divider
       +rem(font-size,16px)
   .slick-arrow
-    +rem(width,7px)
-    +rem(height,10px)
     background: 0 0
-    +rem(padding,0 10px)
+    +rem(padding,10px)
+    +rem(margin-top,8px)
+    .icon
+      display: inline-block
+      +rem(width,7px)
+      +rem(height,10px)
+    .starr
+      +tr(stroke .15s)
     
 .icon-link
   font-weight: 100
@@ -844,12 +925,12 @@ body, .out,html
       &:after
         opacity: 0
     i 
-      +rem(width,30px)
-      +rem(height,30px)
+      +rem(width,25px)
+      +rem(height,25px)
       +rem(margin-right,15px)
       &:after,&:before
-        +rem(width,30px)
-        +rem(height,30px)
+        +rem(width,25px)
+        +rem(height,25px)
         +rem(top,-7px)
       &:after
         background-image: url(../img/icons/repeat.svg) 
@@ -857,9 +938,12 @@ body, .out,html
     &:hover
       i 
         &:after
-          +tr(transform .3s)
-          opacity: 1
-          transform: rotate(360deg)
+          opacity: 1        
+      +rm(991)
+        i 
+          &:after
+            +tr(transform .3s)
+            transform: rotate(360deg)
 .btn 
   font-family: cerablk
   text-transform: uppercase
@@ -868,6 +952,8 @@ body, .out,html
   +rem(padding,20px 33px)
   +rem(border-radius,27px)
   display: inline-block
+  position: relative
+  white-space: nowrap
   transition: background .3s, box-shadow .3s, color .3s
   &> .u-number
     font-weight: 700
@@ -880,9 +966,29 @@ body, .out,html
     +rem(padding,10px 32px 10px 17px)
     +rem(font-size,14px)
     color: $text
+    +r(544)
+      +rem(padding,10px 32px 8px 17px)
+    &:before,&:after
+      content: ''
+      position: absolute
+      +rem(width,8px)
+      +rem(height,16px)
+      +contain
+      +tr(opacity .3s)
+      +rem(right, 16px)
+      +rem(top, 9px)
+      +r(544)
+        +rem(top, 7px)
+    &:before
+      background-image: url(../img/icons/arrow_forward.svg)
+    &:after
+      background-image: url(../img/icons/arrow_forwardw.svg) 
+      opacity: 0     
     &:hover
       background: $text
       color: $white
+      &:after
+        opacity: 1
 .color 
   &-wrapper
     +rem(padding-top,35px)
@@ -890,22 +996,28 @@ body, .out,html
     flex-flow: row wrap
     align-items: stretch
     align-content: stretch
+    justify-content: center
   &-block
-    width: 33%
+    +rem(width,390px)
     position: relative
     +rem(height,340px)
     text-align: center
+    +r(768)
+      +rem(margin-bottom,15px)
     &:hover
-      z-index: 1
-      .color-block-bg
-        transform: scale(1.05)
-      .color-block-main
-        background: $white !important
-      .doptext
-        opacity: 1
-      .btn-go
-        background: $text
-        color: $white 
+      +rm(991)
+        z-index: 1
+        .color-block-bg
+          transform: scale(1.05)
+        .color-block-main
+          background: $white !important
+        .doptext
+          opacity: 1
+        .btn-go
+          background: $text
+          color: $white 
+          &:after
+            opacity: 1
     &.calc 
       .box-title
         display: inline-block
@@ -918,6 +1030,7 @@ body, .out,html
     &-bg
       +cover
       +tr(transform .3s)
+      transform: scale(0.9)
     &-main
       +tr(background .3s)
       +rem(padding,50px 0 40px)

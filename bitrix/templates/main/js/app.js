@@ -143,5 +143,21 @@ function slidesCount(elem){
 			totatSlideCont.text(totalPages)
 			curSlideCont.text(curPage + 1)
 	});
-
+}
+function ArrColor(elem){
+    var cont = elem.parent().find('.i-arrows'),
+        slides = elem.find('.slick-slide');
+    elem.on('init reInit breakpoint afterChange', function (event, slick, currentSlide, nextSlide) {
+        CheckSize();
+    });
+    $(window).on('resize',function(){
+        CheckSize();
+    });
+    function CheckSize(){
+        if (window.matchMedia("(max-width: 991px)").matches) {
+                $('.slick-current').hasClass('white') ? cont.addClass('white') : cont.removeClass('white');  
+        }else{
+            cont.removeClass('white');
+        }
+    }
 }
