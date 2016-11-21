@@ -3,4 +3,5 @@
 //=include lib/jquery.matchHeight-min.js
 //=include lib/jquery-ui.min.js
 //=include lib/flexibility.js
+//=include lib/isotope.pkgd.min.js
 //=include common.js

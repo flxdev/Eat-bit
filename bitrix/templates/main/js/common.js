@@ -82,6 +82,53 @@ $('.out').scroll(function() {
             scrollTop: 0
         }, 800);
     });
+
+if($('.sort_wrapper').length){
+
+    var sortItem = function(){
+        var trigger = $('.js-select-item');
+
+        trigger.on('click', function(){
+            var _ = $(this);
+            var textCont = _.find('.value');
+            var target = _.parent().find('.dropdown-target');
+            var item = target.find('.sort-select-item a');
+
+            _.toggleClass('active');
+
+            item.on('click',function(e){
+                var _ = $(this),
+                    altLext = _.data('text');
+
+                textCont.text(altLext);
+
+                _.parent().addClass('active').siblings().removeClass('active');
+                e.preventDefault();
+                setTimeout(function(){
+
+                    target.removeClass('active');
+                    trigger.removeClass('active');
+
+                },300);
+            });
+        $(document).on('mouseup', function (e){
+            if (!trigger.is(e.target)
+                && trigger.has(e.target).length === 0) {
+                trigger.removeClass('active');
+            }
+        });
+
+        });
+    };
+    sortItem();
+ } 
+function Grid(){
+$('.menu-grid').isotope({
+  layoutMode: 'fitRows',
+  itemSelector: '.menu-item-wrap'
+});
+}Grid();
+
 //end of document ready
 });
 //end of document ready
@@ -101,5 +148,21 @@ function slidesCount(elem){
 			totatSlideCont.text(totalPages)
 			curSlideCont.text(curPage + 1)
 	});
-
+}
+function ArrColor(elem){
+    var cont = elem.parent().find('.i-arrows'),
+        slides = elem.find('.slick-slide');
+    elem.on('init reInit breakpoint afterChange', function (event, slick, currentSlide, nextSlide) {
+        CheckSize();
+    });
+    $(window).on('resize',function(){
+        CheckSize();
+    });
+    function CheckSize(){
+        if (window.matchMedia("(max-width: 991px)").matches) {
+                $('.slick-current').hasClass('white') ? cont.addClass('white') : cont.removeClass('white');  
+        }else{
+            cont.removeClass('white');
+        }
+    }
 }

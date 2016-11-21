@@ -1,0 +1,61 @@
+extends _layout
+
+block title
+  title Index
+
+block content
+  .pagehead-wrap.text-left(style='background-image: url(img/hbg.png)')
+    .pagehead-content
+      h1.
+  section.box-standart.box-section
+    a(href="#").icon-link.repeat
+      i
+      span Повторить заказ
+    h2.box-title Программы питания
+    .box-title-small Всегда разнообразный рацион от нашего Шеф-повара. Ежедневная доставка прямо в руки в любую точку Москвы и МО. Доставка бесплатна в пределах МКАД.
+    .color-wrapper
+      mixin colorBlock(kal,icon, text,value,img,color)
+        a(href="#").color-block
+          .color-block-bg(style='background-image: url('+img+')')
+          .color-block-main(style='background-color:#'+color+';')
+            .u-light
+              span.u-number.h2 #{kal}
+              span Ккал/день
+            .color-block-icon
+              i(style='bakground-img: url('+icon+')')
+            .color-text.u-halfgray #{text}
+            buttom(type='buttom').btn.btn-go от  
+              span.u-number #{value}
+              |  ₽/день
+            .u-light.s-text.u-halfgray.doptext 
+              span Меню на 2 недели
+      +colorBlock('800–1600','','3 программы питания рассчитаны для людей, желающих активно снизить вес','1500','img/index-slide/bg1.png','fcf7eb')
+      +colorBlock('1600–2000','','Программы питания рассчитаны для  поддер- жания веса у девушек и снижения веса у мужчин','1700','img/index-slide/bg1.png','eaf6ef')
+      +colorBlock('2100–2300','','Самая популярная программа для людей, посещающих фитнес-клуб, или занимающихся спортом','1750','img/index-slide/bg1.png','e3e9f9')
+      +colorBlock('2300–2900','','Программы питания рассчитаны на активный набор мышечной массы','1800','img/index-slide/bg1.png','faebeb')
+      +colorBlock('2900–3500','','Программы питания для профессиональных спортсменов','2000','img/index-slide/bg1.png','faebeb')
+      .color-block.calc
+        .box-title Какая программа мне подойдёт?
+        a(href="#").icon-link.calc
+          i
+          span Калькулятор
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -45,6 +45,7 @@ block content
           $( ".index-slider").each( function() {
             var _this = $(this);
             slidesCount(_this);
+            ArrColor(_this);
             _this.slick({
               accessibility: true,
               arrows: true,
@@ -55,8 +56,8 @@ block content
               slidesToShow: 1,
               slidesToScroll: 1,
               appendArrows: _this.siblings().find('.i-arrows'),
-              nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill-rule:evenodd;clip-rule:evenodd;fill:#353535;}</style><g><g><polygon class="slider-arr" points="45.9,6.8 38.9,0 37.9,1 42.9,6 0,6 0,7.5 43,7.5 37.6,12.9 38.7,14 45.7,7 "/></g></g></svg></div></button>',
-              prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill:#353535;}</style><g><g><polygon class="slider-arr" points="0.2,7 7.2,14 8.3,12.9 2.9,7.5 45.9,7.5 45.9,6 3,6 8,1 7,0 0,6.8     "/></g></g></svg></div></button>',
+              nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+              prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
             }); 
 
             _this.siblings().find('.index-add').slick({
@@ -71,10 +72,10 @@ block content
           }); 
         } news();
   section.box-standart.box-section
+    h2.box-title Программы питания
     a(href="#").icon-link.repeat
       i
       span Повторить заказ
-    h2.box-title Программы питания
     .box-title-small Всегда разнообразный рацион от нашего Шеф-повара. Ежедневная доставка прямо в руки в любую точку Москвы и МО. Доставка бесплатна в пределах МКАД.
     .color-wrapper
       mixin colorBlock(kal,icon, text,value,img,color)
@@ -102,6 +103,82 @@ block content
         a(href="#").icon-link.calc
           i
           span Калькулятор
+  section.box-full.box-section.gray
+    h2.box-title Меню на завтра
+    .box-title-small Наше меню полностью сбалансировано по нутриентам. Ваш рацион каждый день будет максимально разнообразным и необычными. 
+    .menu-nav
+      .menu-nav-inner
+        .m-nav-link.left.disabled Предыдущий день
+        .sort_wrapper
+          .sort-select.js-select-item
+            .sort-select-title
+              span.name Рацион: 
+              span.value.u-number 1000-1200 ккал
+              i.bread-arrow
+            .dropdown-target
+              .dropdown-inner
+                .dropdown-content
+                  .sort-select-item
+                    a(href="#",data-text="1000-1200 ккал")
+                      span.u-number 1000-1200
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="1400-1600 ккал")
+                      span.u-number 1400-1600
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="1600-1800 ккал")
+                      span.u-number 1600-1800
+                      |ккал
+                  .sort-select-item.active
+                    a(href="#",data-text="1800-2000 ккал")
+                      span.u-number 1800-2000
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="2100-2300 ккал")
+                      span.u-number 2100-2300
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="2300-2500 ккал")
+                      span.u-number 2300-2500
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="2700-2900 ккал")
+                      span.u-number 2700-2900
+                      |ккал                  
+                  .sort-select-item
+                    a(href="#",data-text="2900-3200 ккал")
+                      span.u-number 2900-3200
+                      |ккал
+        .m-nav-link.right Следующий день
+    .menu-grid
+      mixin menuItems(img, type,name,val ,bgu)
+        .menu-item-wrap
+          .menu-item
+            .menu-type-wrap
+              .menu-type-item #{type}
+            .menu-img-wrap
+              .menu-img-img(style='background-image:url(img/menu/'+img+')')
+              .menu-item-bgu #{bgu}
+            .menu-text-wrap
+              .menu-text-name #{name}
+              .menu-text-val
+                span.u-number #{val}
+                | ккал
+      +menuItems('1.png','Завтрак','Английский завтрак из 3-х яиц','180 г / 306.8','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('2.png','Перекус 1','Пудинг творожный х1,5','260 г / 389','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('3.png','Перекус 2','Ролл с курицей','210 г / 347.9','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('4.png','Обед','Тыквенный крем суп','250 г / 153.7','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('6.png','Обед','Орзо паста с морепродуктами','200 г / 305.2','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('5.png','Перекус 3','Куриный рулет с томатами','150 г / 148.5','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('7.png','Перекус 4','Тар-тар с гречкой и авокадо','225 г / 314','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      +menuItems('8.png','Ужин','Котлета по киевски с рататуем','190 г / 177','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+
+
+
+
+
+
 
 
 

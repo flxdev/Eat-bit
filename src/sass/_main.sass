@@ -77,6 +77,7 @@ body, .out,html
     //   +rem(width,10px)
     //   border-radius: 10px !important
     //   cursor: pointer
+
 // main page layout
 .page
   &__wrapper
@@ -102,6 +103,11 @@ body, .out,html
     align-items: center
     z-index: 20
     +rem(padding,32.5px 50px 30px 50px)
+    +r(1150)
+      +rem(padding,32.5px 25px 30px 25px)
+    +r(768)
+      +rem(padding,15px 25px 15px 25px)
+      +rem(height,60px)
   &__footer
     +cover
     position: relative
@@ -116,8 +122,10 @@ body, .out,html
     flex: 1 0 auto
     +r(1150)
       +rem(padding,100px 25px 103px 25px)
+    +r(768)
+      +rem(padding,60px 25px 103px 25px)
     +r(544)
-      +rem(padding,100px 15px 103px 15px)
+      +rem(padding,60px 15px 103px 15px)
 
 
 
@@ -129,6 +137,7 @@ body, .out,html
   font-weight: 400
 .u-bold
   +rem(letter-spacing,0.2px)
+  font-weight: 700
 .u-title
   font-weight: 300
 .describe-text
@@ -141,16 +150,18 @@ body, .out,html
   +rem(font-size,12px)
   color: #a0a0a0
   font-weight: 300
-
 .box-title
   font-weight: 100
   +rem(font-size,42px)
   text-align: center
+  +rem(margin,0 auto 20px )
+  +rem(letter-spacing,-1px)
 .box-title-small
   font-weight: 100
   +rem(font-size,20px)
   text-align: center
-
+  +rem(margin,0 auto 35px)
+  line-height: 1.4
 .u-number
   font-family: 'Fira Sans', sans-serif;
   +rem(letter-spacing,0.3px)
@@ -166,10 +177,33 @@ body, .out,html
 .h2
   +rem(font-size,42px)
 .h3
+  +rem(font-size,24px)
+.h4
+  font-weight: 700
+  +rem(font-size,16px)
+.h5
+  font-weight: 700
+  text-transform: uppercase
+  +rem(font-size,14px)
+.text1
   +rem(font-size,20px)
+  line-height: 1.4
+  font-weight: 300
+  color: $halfgray
+.text2
+  +rem(font-size,16px)
+  color: $text
+  font-weight: 300
+  line-height: 1.438
 .title
   font-weight: 300
 
+.h-title
+  font-family: cera
+  font-weight: 100
+  line-height: 1
+.gray
+  background-color: $gray
 //color types
 .u-halfgray
   color: $halfgray
@@ -197,6 +231,9 @@ body, .out,html
     +rem(margin-top,-55px)
     +r(991)
       margin: auto
+      padding-left: 18.8%
+    +r(544)
+      transform: translateX(8%)
     .logo-outer
       position: absolute
       left: 0
@@ -211,7 +248,7 @@ body, .out,html
           +vcenter
           border-radius: 50%
           background: $white
-          width: 80%
+          width: 70%
           height: 80%
         .logo-inner
           position: absolute
@@ -238,10 +275,32 @@ body, .out,html
         vertical-align: bottom
       +r(991)
         display: none
+    &--cart
+      +rem(margin,-42px -50px -19px 0)
+      +rem(padding,42px 50px 25px 40px)
+      +r(991)
+        +rem(padding,42px 50px 35px 40px)
+        +rem(margin,-42px -50px -35px 0)
+      +r(768)
+        +rem(margin,-25px -25px -17px 0)
+        +rem(padding,25px 25px 17px 25px)
+      &.active
+        background: $text
+        .u-reg
+          color: $halfwhite
+        .u-light,.u-number
+          color: $white
+          &+ .u-number
+            color: #8a8a8a !important
+        .stcart1,.stcart
+          stroke: $white
+
+        
+
     &--nav
       display: flex
       align-items: center
-      margin: 0 6% 0 5.5%
+      margin: 0 3% 0 5.5%
       +r(991)
         display: none
     .nav-link
@@ -252,7 +311,7 @@ body, .out,html
       +padlr(14px) 
     &--login
       text-align: right
-      transform: translateY(-12px)
+      transform: translateY(-5px)
       +r(991)
         display: none
 
@@ -262,14 +321,21 @@ body, .out,html
         vertical-align: top
       .u-light
         +rem(margin-left,20px)
-        +rem(padding-bottom,10px)
+        +rem(margin-top,5px)
         +r(991)
           display: none
+        &+ .u-number
+          text-align: right
+          +rem(letter-spacing,0.4px)
+          +rem(margin-top,3px)
+          color: transparent
+          +r(991)
+            +hidetext
       &-icon
         +rem(width,34px)
         +rem(height,27px)
         position: relative
-        +rem(margin-top,-10px)
+        +rem(margin-top,-3px)
         .u-number
           position: absolute
           +rem(bottom,2px)
@@ -610,22 +676,25 @@ body, .out,html
   width: 100%
   +rem(padding, 0 20px)
   position: relative
-  &.box-section
-    +rem(padding, 80px 20px)
-    &>.repeat
+.box-section
+  +rem(padding, 80px 20px)
+  +r(991)
+    +rem(padding, 30px 0)
+  &>.repeat
+    +rem(margin,20px auto)
+    display: block
+    +rem(width,180px)
+    +rm(991)
       position: absolute
       +rem(left,20px)
       top: 9%
-      
-  .box-title
-    +rem(margin-bottom,20px)
-    +rem(letter-spacing,-1px)
-  .box-title-small
-    +rem(margin-bottom,35px)
-    line-height: 1.4
+.box-full
+  &.gray 
+    +rem(margin,0 -50px)
+    +r(1150)
+      +rem(margin,0 -25px)
 .box-title,.box-title-small
   +rem(max-width,663px)  
-  margin: 0 auto  
 
 .scroll-to-top
   +rem(width,50px)
@@ -664,6 +733,9 @@ body, .out,html
   &-slider
     &-wrapper
       position: relative
+      +r(991)
+        +rem(margin-left,-25px)
+        +rem(margin-right,-25px)
   &-slide
     position: relative
     padding-bottom: 5.7%
@@ -672,26 +744,33 @@ body, .out,html
         color: $white
     +r(1600)
       padding-bottom: 5.5%
+    +r(991)
+      padding-bottom: 7.5%
     +r(768)
       padding-bottom: 10.5%
     +r(544)
-      padding-bottom: 15.5%
+      padding-bottom: 17.5%
     &-text
       position: absolute
       left: 12.9%
       top: 25%
       +rem(max-width,515px)
       width: 38%
-      +r(1366)
+      +r(1460)
         top: 15%
         width: 38%
         left: 10.9%
       +r(991)
         left: 4.9%
         top: 15%
-        width: 42%
+        width: 60%
       +r(768)
-        width: 75%
+        width: 100%
+        text-align: center
+        min-width: 100%
+        left: 0
+        right: 0
+        +rem(padding,20px)
       +r(544)
         width: 95%
       .title
@@ -700,23 +779,33 @@ body, .out,html
           +rem(font-size,45px)
         +r(768)
           +rem(font-size,35px)
-        +r(544)
-          font-weight: 600
+          margin-bottom: 5%
       .btn 
         margin-top: 7%
+        +r(768)
+          +rem(padding,15px 20px 12px)
       .list
         +rem(max-width,285px)
+        +r(768)
+          margin: 0 auto
+          +rem(max-width,295px)
         li 
           +rem(padding-bottom,17px)
           line-height: 1.3 
+          text-align: left
+
     &-inner
       +cover
       +coverdiv
+      +r(768)
+        background-position: 19% 50%;
   &-add
     background-color: $text
     +rem(width,225px)
     +rem(padding,15px 22px 20px 20px)
     order: 2
+    +r(991)
+      display: none
     &-wrapper
       position: absolute
       +rem(right,-17px)
@@ -724,10 +813,17 @@ body, .out,html
       display: flex
       flex-flow: row nowrap
       align-items: stretch
+      +r(991)
+        left: 0 
+        right: 0
+        justify-content: center
+        +rem(bottom,40px)
       .i-arrows
         background: $white
         order: 1
         +rem(padding,0 10px)
+        +r(991)
+          background: transparent
     .u-light
       line-height: 1.35
     .smalllight
@@ -757,17 +853,19 @@ body, .out,html
     display: inline-block
     vertical-align: middle
   &.white
-    .slider-arr
-      fill: $white
+    .starr
+      stroke: $white
     .slider-counter
       color: $white
   .slider-counter
     font-size: 0
     +rem(padding,0 5px)
+    +tr(color .15s)
     .slider-curr,.slider-divider,.slider-total
       display: inline-block
       vertical-align: top
       font-weight: 300
+
     .slider-curr
       +rem(font-size,35.5px)
       line-height: 0.5
@@ -776,10 +874,15 @@ body, .out,html
     .slider-divider
       +rem(font-size,16px)
   .slick-arrow
-    +rem(width,7px)
-    +rem(height,10px)
     background: 0 0
-    +rem(padding,0 10px)
+    +rem(padding,10px)
+    +rem(margin-top,8px)
+    .icon
+      display: inline-block
+      +rem(width,7px)
+      +rem(height,10px)
+    .starr
+      +tr(stroke .15s)
     
 .icon-link
   font-weight: 100
@@ -844,12 +947,12 @@ body, .out,html
       &:after
         opacity: 0
     i 
-      +rem(width,30px)
-      +rem(height,30px)
+      +rem(width,25px)
+      +rem(height,25px)
       +rem(margin-right,15px)
       &:after,&:before
-        +rem(width,30px)
-        +rem(height,30px)
+        +rem(width,25px)
+        +rem(height,25px)
         +rem(top,-7px)
       &:after
         background-image: url(../img/icons/repeat.svg) 
@@ -857,9 +960,12 @@ body, .out,html
     &:hover
       i 
         &:after
-          +tr(transform .3s)
-          opacity: 1
-          transform: rotate(360deg)
+          opacity: 1        
+      +rm(991)
+        i 
+          &:after
+            +tr(transform .3s)
+            transform: rotate(360deg)
 .btn 
   font-family: cerablk
   text-transform: uppercase
@@ -868,6 +974,8 @@ body, .out,html
   +rem(padding,20px 33px)
   +rem(border-radius,27px)
   display: inline-block
+  position: relative
+  white-space: nowrap
   transition: background .3s, box-shadow .3s, color .3s
   &> .u-number
     font-weight: 700
@@ -880,9 +988,29 @@ body, .out,html
     +rem(padding,10px 32px 10px 17px)
     +rem(font-size,14px)
     color: $text
+    +r(544)
+      +rem(padding,10px 32px 8px 17px)
+    &:before,&:after
+      content: ''
+      position: absolute
+      +rem(width,8px)
+      +rem(height,16px)
+      +contain
+      +tr(opacity .3s)
+      +rem(right, 16px)
+      +rem(top, 9px)
+      +r(544)
+        +rem(top, 7px)
+    &:before
+      background-image: url(../img/icons/arrow_forward.svg)
+    &:after
+      background-image: url(../img/icons/arrow_forwardw.svg) 
+      opacity: 0     
     &:hover
       background: $text
       color: $white
+      &:after
+        opacity: 1
 .color 
   &-wrapper
     +rem(padding-top,35px)
@@ -890,22 +1018,28 @@ body, .out,html
     flex-flow: row wrap
     align-items: stretch
     align-content: stretch
+    justify-content: center
   &-block
-    width: 33%
+    +rem(width,390px)
     position: relative
     +rem(height,340px)
     text-align: center
+    +r(768)
+      +rem(margin-bottom,15px)
     &:hover
-      z-index: 1
-      .color-block-bg
-        transform: scale(1.05)
-      .color-block-main
-        background: $white !important
-      .doptext
-        opacity: 1
-      .btn-go
-        background: $text
-        color: $white 
+      +rm(991)
+        z-index: 1
+        .color-block-bg
+          transform: scale(1.05)
+        .color-block-main
+          background: $white !important
+        .doptext
+          opacity: 1
+        .btn-go
+          background: $text
+          color: $white 
+          &:after
+            opacity: 1
     &.calc 
       .box-title
         display: inline-block
@@ -918,6 +1052,7 @@ body, .out,html
     &-bg
       +cover
       +tr(transform .3s)
+      transform: scale(0.9)
     &-main
       +tr(background .3s)
       +rem(padding,50px 0 40px)
@@ -952,9 +1087,250 @@ body, .out,html
     +rem(max-width,236px)
     +rem(height,75px) 
     +rem(margin, 22px auto)  
-    line-height: 1.3    
+    line-height: 1.3 
+
+.dropdown-trigger
+  position: relative
+  &:hover
+    .dropdown-target
+      transition-delay: 0.15s
+      +rem(max-height,1000px)
+      +rem(padding-top,15px)
+      +rem(padding-bottom,15px)
+.dropdown-target.active
+  // overflow: visible
+  transition-delay: 0.15s
+  +rem(max-height,1000px)
+  +rem(padding-bottom,15px)
+.js-select-trigger.active,.js-select-item.active,.js-select-custom.active
+  .dropdown-target
+    transition-delay: 0.15s
+    +rem(max-height,1000px)
+    +rem(padding, 15px 15px 15px 15px) 
+.dropdown-target
+  position: absolute
+  overflow: hidden
+  z-index: 2
+  +rem(margin,-15px)
+  +padlr(15px)
+  +rem(padding-top,15px)
+  max-height: 0
+  left: 0
+  right: 0
+  transition-property: max-height,padding-top,padding-bottom
+  transition-timing-function: $tr
+  transition-duration: .35s
+  transition-delay: 0 ,.35s, .35s
+  will-change: max-height, padding
+  +gpu
+  +clr
+  .dropdown-inner
+    +rem(margin-top,10px)
+    +rem(margin-bottom,2px)
+    float: right
+    width: 100%
+    +rem(padding,22px 10px 22px 20px)
+    background: $white
+    box-shadow: 2px 3.464px 20px 0px rgba( 0, 0, 0,0.17 );
+.sort-select
+  position: relative
+  &.active
+    .bread-arrow
+      transform: scale(1, -1)
+  .dropdown-content
+    +rem(max-height,155px)
+    overflow-y: auto
+  &-title
+    +rem(border-radius,35px)
+    display: inline-block
+    +rem(padding, 8px 20px 8px 20px)
+    border: 1px solid $borderl
+    cursor: pointer
+    position: relative
+    .name,.value
+      +rem(font-size,14px)
+      text-transform: uppercase
+      color: $text
+    .name
+      font-weight: 400
+    .value
+      font-weight: 700
+      +rem(letter-spacing,0.5px)
+    .bread-arrow
+      +rem(margin-left,19px)
+      vertical-align: baseline
+      
+  &-item
+    &.active
+      a 
+        font-weight: 700
+        color: $lightgray
+        &:after
+          opacity: 1
+    a
+      color: $lightgray
+      +rem(font-size,16px)
+      position: relative
+      +rem(padding-bottom,10px)
+      +rem(margin-bottom,5px)
+      display: inline-block
+      &:after
+        position: absolute
+        content: ''
+        +rem(width,20px)
+        +rem(height,15px)
+        +contain
+        +tr(opacity .3s)
+        opacity: 0
+      span
+        display: inline-block
+        +rem(padding-right,5px)
+      &:hover
+        color: #000000
+.bread-arrow
+  display: inline-block
+  +contain
+  background-image: url(../img/icons/arrow_down.svg)
+  background-position: top center
+  +rem(width,13px)
+  +rem(height,8px)
+.menu-nav
+  display: block
+  +rem(max-width,1180px)
+  margin: 0 auto
+  +rem(padding, 0 10px)
+  &-inner
+    display: flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    +r(768)
+      justify-content: center
+     
+      .m-nav-link
+        position: absolute
+        +rem(bottom,-25px)
+        &.left
+          +rem(left,10px)
+        &.right
+          +rem(right,10px)      
 
 
-  
+.m-nav-link
+  +rem(font-size,14px)
+  text-transform: uppercase
+  font-weight: 700
+  color: #000
+  position: relative
+  +tr(opacity .3s)
+  opacity: 0.7
+  cursor: pointer
+  &.disabled
+    opacity: .5
+  &.left
+    +rem(padding-left,20px)
+    text-align: left
+    &:after
+      left: 0
+      +rem(top,2px)
+      transform: scale(-1,1)
+  &.right
+    +rem(padding-right,20px)
+    text-align: right
+    &:after
+      right: 0
+      +rem(top,2px)
+  &:hover
+    opacity: 1
+  &:after
+    content: ''
+    position: absolute
+    display: inline-block
+    +contain
+    +rem(height,11.5px)
+    +rem(width,7px)
+  &:after
+    background-image: url(../img/icons/arrow_forwardb.svg)
+.menu
+  &-grid 
+    +rem(padding,110px 0 0 0)
+    +rem(max-width,1525px)
+    margin: 0 auto
+  &-item
+    +rem(min-width,275px)
+    position: relative
+    &-wrap
+      +rem(padding,12.5px)
+      display: inline-block
+      width: 20%
+      +r(1500)
+        width: 25%
+      +r(1150)
+        width: 33.333%
+      +r(900)
+        width: 50%
+      +r(544)
+        width: 100%
+      +rm(1500)
+        &:nth-of-type(2),&:nth-of-type(5),&:nth-of-type(7)
+          margin-top: -5%
+        &:nth-child(4),&:nth-child(9)
+          margin-top: 5%
+    &-bgu
+      position: absolute
+      +rem(bottom,20px)
+      left: 0
+      right: 0
+      +rem(padding,0 15px)
+      z-index: 1
+      color: $white
+  &-type
+    &-wrap
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      +rem(padding, 15px)
+      z-index: 1
+    &-item
+      color: $white
+      display: inline-block
+      background: $text
+      +rem(border-radius,25px)
+      +rem(padding,6px 15px 7px)
+      +rem(font-size,12px)
+      +rem(letter-spacing,0.4px)
+      font-weight: 300
+
+  &-img
+    &-wrap
+      +rem(height,300px)
+      position: relative
+      overflow: hidden
+    &-img
+      +coverdiv
+      +cover
+  &-text
+    &-wrap
+      background: $white
+      +rem(padding, 25px 15px)
+    &-name
+      font-weight: 700
+      +rem(font-size,16px)
+    &-val 
+      +rem(margin-top,5px)
+      .u-number
+        display: inline-block
+        +rem(padding-right,5px)
+
+
+
+
+
+
+
+
+
+
 
 

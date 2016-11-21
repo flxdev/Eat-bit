@@ -7,8 +7,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta content="True" name="HandheldFriendly">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#0432da">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#0432da">
+    <meta name="theme-color" content="#2d2d2d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d2d2d">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <link rel="shortcut icon" href="img/fav/48x48.png" type="image/x-icon">
@@ -39,7 +39,8 @@
             <div class="header__navs">
               <div class="header__navs--phone"><a class="link-tel" href="tel:89260201481"> <span class="u-number">8 (926) 02-01-481</span></a></div>
               <nav class="header__navs--nav"><a class="nav-link" href="#">Программы питания </a><a class="nav-link" href="#">Меню </a><a class="nav-link" href="#">О сервисе</a></nav>
-              <div class="header__navs--cart">
+              <!-- .active когда товар добавлен-->
+              <div class="header__navs--cart active">
                 <div class="header__navs--login"><a class="js-modal-trigger u-reg u-halfgray s-small" href="#">Войти</a></div>
                 <div class="header__navs--cart-inner"><a class="cart" href="#">
                     <div class="cart-icon"><i class="cart-i">
@@ -53,7 +54,8 @@
                           </g>
                           <path class="stcart1" d="M8,9.1l8.7-8.4l8.7,8.4"></path>
                         </svg></i><span class="u-number s-small u-halfgray"> 0</span></div>
-                    <div class="u-light s-text u-halfgray">Мой заказ</div></a></div>
+                    <div class="u-light s-text u-halfgray">Мой заказ</div>
+                    <div class="u-number u-halfgray s-small">45 000 ₽</div></a></div>
               </div>
             </div>
           </header>
@@ -174,6 +176,7 @@
                     $( ".index-slider").each( function() {
                       var _this = $(this);
                       slidesCount(_this);
+                      ArrColor(_this);
                       _this.slick({
                         accessibility: true,
                         arrows: true,
@@ -184,8 +187,8 @@
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         appendArrows: _this.siblings().find('.i-arrows'),
-                        nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill-rule:evenodd;clip-rule:evenodd;fill:#353535;}</style><g><g><polygon class="slider-arr" points="45.9,6.8 38.9,0 37.9,1 42.9,6 0,6 0,7.5 43,7.5 37.6,12.9 38.7,14 45.7,7 "/></g></g></svg></div></button>',
-                        prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 45.9 14" style="enable-background:new 0 0 45.9 14;" xml:space="preserve"><style type="text/css">.slider-arr{fill:#353535;}</style><g><g><polygon class="slider-arr" points="0.2,7 7.2,14 8.3,12.9 2.9,7.5 45.9,7.5 45.9,6 3,6 8,1 7,0 0,6.8     "/></g></g></svg></div></button>',
+                        nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+                        prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
                       }); 
                   
                       _this.siblings().find('.index-add').slick({
@@ -202,8 +205,8 @@
                 </script>
               </div>
             </div>
-            <section class="box-standart box-section"><a class="icon-link repeat" href="#"><i></i><span>Повторить заказ</span></a>
-              <h2 class="box-title">Программы питания</h2>
+            <section class="box-standart box-section">
+              <h2 class="box-title">Программы питания</h2><a class="icon-link repeat" href="#"><i></i><span>Повторить заказ</span></a>
               <div class="box-title-small">Всегда разнообразный рацион от нашего Шеф-повара. Ежедневная доставка прямо в руки в любую точку Москвы и МО. Доставка бесплатна в пределах МКАД.</div>
               <div class="color-wrapper"><a class="color-block" href="#">
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
@@ -249,6 +252,157 @@
                 <div class="color-block calc">
                   <div class="box-title">Какая программа мне подойдёт?</div><a class="icon-link calc" href="#"><i></i><span>Калькулятор</span></a>
                 </div>
+              </div>
+            </section>
+            <section class="box-full box-section gray">
+              <h2 class="box-title">Меню на завтра</h2>
+              <div class="box-title-small">Наше меню полностью сбалансировано по нутриентам. Ваш рацион каждый день будет максимально разнообразным и необычными. </div>
+              <div class="menu-nav">
+                <div class="menu-nav-inner">
+                  <div class="m-nav-link left disabled">Предыдущий день</div>
+                  <div class="sort_wrapper">
+                    <div class="sort-select js-select-item">
+                      <div class="sort-select-title"><span class="name">Рацион: </span><span class="value u-number">1000-1200 ккал</span><i class="bread-arrow"></i></div>
+                      <div class="dropdown-target">
+                        <div class="dropdown-inner">
+                          <div class="dropdown-content">
+                            <div class="sort-select-item"><a href="#" data-text="1000-1200 ккал"><span class="u-number">1000-1200</span>ккал</a></div>
+                            <div class="sort-select-item"><a href="#" data-text="1400-1600 ккал"><span class="u-number">1400-1600</span>ккал</a></div>
+                            <div class="sort-select-item"><a href="#" data-text="1600-1800 ккал"><span class="u-number">1600-1800</span>ккал</a></div>
+                            <div class="sort-select-item active"><a href="#" data-text="1800-2000 ккал"><span class="u-number">1800-2000</span>ккал</a></div>
+                            <div class="sort-select-item"><a href="#" data-text="2100-2300 ккал"><span class="u-number">2100-2300</span>ккал</a></div>
+                            <div class="sort-select-item"><a href="#" data-text="2300-2500 ккал"><span class="u-number">2300-2500</span>ккал</a></div>
+                            <div class="sort-select-item"><a href="#" data-text="2700-2900 ккал"><span class="u-number">2700-2900</span>ккал                  </a></div>
+                            <div class="sort-select-item"><a href="#" data-text="2900-3200 ккал"><span class="u-number">2900-3200</span>ккал</a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-nav-link right">Следующий день</div>
+                </div>
+              </div>
+              <div class="menu-grid">
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Завтрак</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/1.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Английский завтрак из 3-х яиц</div>
+                                      <div class="menu-text-val"><span class="u-number">180 г / 306.8</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Перекус 1</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/2.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Пудинг творожный х1,5</div>
+                                      <div class="menu-text-val"><span class="u-number">260 г / 389</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Перекус 2</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/3.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Ролл с курицей</div>
+                                      <div class="menu-text-val"><span class="u-number">210 г / 347.9</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Обед</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/4.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Тыквенный крем суп</div>
+                                      <div class="menu-text-val"><span class="u-number">250 г / 153.7</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Обед</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/6.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Орзо паста с морепродуктами</div>
+                                      <div class="menu-text-val"><span class="u-number">200 г / 305.2</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Перекус 3</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/5.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Куриный рулет с томатами</div>
+                                      <div class="menu-text-val"><span class="u-number">150 г / 148.5</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Перекус 4</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/7.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Тар-тар с гречкой и авокадо</div>
+                                      <div class="menu-text-val"><span class="u-number">225 г / 314</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="menu-item-wrap">
+                                  <div class="menu-item">
+                                    <div class="menu-type-wrap">
+                                      <div class="menu-type-item">Ужин</div>
+                                    </div>
+                                    <div class="menu-img-wrap">
+                                      <div class="menu-img-img" style="background-image:url(img/menu/8.png)"></div>
+                                      <div class="menu-item-bgu">БЖУ: 19.9 г, 10.9 г, 42.5 г</div>
+                                    </div>
+                                    <div class="menu-text-wrap">
+                                      <div class="menu-text-name">Котлета по киевски с рататуем</div>
+                                      <div class="menu-text-val"><span class="u-number">190 г / 177</span>ккал</div>
+                                    </div>
+                                  </div>
+                                </div>
               </div>
             </section>
           </main>
