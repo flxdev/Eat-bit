@@ -693,6 +693,27 @@ body, .out,html
     +rem(margin,0 -50px)
     +r(1150)
       +rem(margin,0 -25px)
+
+  &.box-section
+    +rem(padding, 80px 20px)
+    +r(991)
+      +rem(padding, 30px 0)
+    &>.repeat
+      +rem(margin,20px auto)
+      display: block
+      +rem(width,180px)
+      +rm(991)
+        position: absolute
+        +rem(left,20px)
+        top: 9%
+      
+  .box-title
+    +rem(margin-bottom,20px)
+    +rem(letter-spacing,-1px)
+  .box-title-small
+    +rem(margin-bottom,35px)
+    line-height: 1.4
+>>>>>>> a4392d9461e4d6511513b23ada3f326c24ae2d27
 .box-title,.box-title-small
   +rem(max-width,663px)  
 
@@ -1214,8 +1235,6 @@ body, .out,html
           +rem(left,10px)
         &.right
           +rem(right,10px)      
-
-
 .m-nav-link
   +rem(font-size,14px)
   text-transform: uppercase
