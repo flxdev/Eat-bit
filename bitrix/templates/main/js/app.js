@@ -176,12 +176,30 @@ if($('.sort_wrapper').length){
     };
     sortItem();
  } 
+
 function Grid(){
-$('.menu-grid').isotope({
-  layoutMode: 'fitRows',
-  itemSelector: '.menu-item-wrap'
-});
-}Grid();
+    if(!$('.menu-grid').attr("style")){
+        $('.menu-grid').isotope({
+          layoutMode: 'fitRows',
+          itemSelector: '.menu-item-wrap',
+        });
+    }
+
+}
+$(window).on('load resize', function(){
+    if(window.matchMedia("(min-width: 545px)").matches){
+        Grid();
+        setTimeout(function(){
+            $('.menu-grid').isotope('resize').isotope('layout');
+        },100)
+        
+    }
+     else{
+        if($('.menu-grid').attr("style")){
+            $('.menu-grid').isotope('destroy');
+        }
+    }
+})
 
 //end of document ready
 });
@@ -199,7 +217,7 @@ function slidesCount(elem){
 			totalSlides = parseInt(slick.slideCount),
 			totalPages = Math.ceil(totalSlides / slidesShown),
 			curPage = event.type == 'init' || event.type == 'reInit' || event.type == 'breakpoint'? 0 : parseInt(slidesNext/slidesScroll);
-			totatSlideCont.text(totalPages)
+			totatSlideCont.text(totalSlides)
 			curSlideCont.text(curPage + 1)
 	});
 }

@@ -173,6 +173,197 @@ block content
       +menuItems('5.png','Перекус 3','Куриный рулет с томатами','150 г / 148.5','БЖУ: 19.9 г, 10.9 г, 42.5 г')
       +menuItems('7.png','Перекус 4','Тар-тар с гречкой и авокадо','225 г / 314','БЖУ: 19.9 г, 10.9 г, 42.5 г')
       +menuItems('8.png','Ужин','Котлета по киевски с рататуем','190 г / 177','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+      .menu-item-wrap.total
+        .menu-item
+          .box-title Итого
+          .props
+            .props-item
+              |Белки:
+              span 93.9 г 
+            .props-item
+              |Жиры:
+              span 59.2 г
+            .props-item
+              |Углеводы:
+              span 151.8 г
+          .menu-text-name Всего ккал: 2298.2
+          a(href="#").btn.btn-go Попробовать рацион
+    .i-arrows
+      .slider-counter
+        .slider-curr
+        .slider-divider /
+        .slider-total
+    .box-standart
+      .u-light.s-small.u-halfgray Внимание: рекомендуем хранить еду при температуре +2 …+4 градуса!
+  script.
+    function menu(){
+      $( ".menu-grid").each(function() {
+        if(window.matchMedia("(max-width: 543px)").matches){
+          var _this = $(this);
+            gridslider();
+        }
+      });
+    }
+      $(window).on('load resize',function(){
+        menu();
+      })
+    function gridslider(){
+      var item = $(".menu-grid");
+      if(!item.hasClass('slick-initialized')){
+        slidesCount(item);
+        item.slick({
+            accessibility: true,
+            arrows: true,
+            draggable: true,
+            touchMove: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            mobileFirst: true,
+            appendArrows: item.siblings('.i-arrows'),
+            nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+            prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+            responsive: [
+              {
+                breakpoint: 544,
+                settings: 'unslick'
+              }
+            ]
+          });
+
+      }
+    }
+  section.box-standart.box-section
+    h2.box-title Eat Bit – это проект, который заботится о вашем рационе и экономит время
+    .box-title-small Оформление подписки на рацион составит не более 3-х минут. И каждое утро на вашем столе будут только свежие здоровые блюда.
+    .step-wrapper
+      mixin steps(img,title,text,link)
+        .step-row
+          .step-img(style='background-image:url(img/step/'+img+')')
+          .step-content
+            .circle-elem.u-number
+            h5.h-title.h4 #{title}
+            .text2 #{text}
+            a(href="#").icon-link
+              span #{link}
+      
+      +steps('1.jpg','Выбор программы питания','Выберите подходящий вам рацион в зависимости от ваших желаний на определенный период времени.','Программы питания')
+      .step-row
+        .step-img(style='background-image:url(img/step/2.jpg)')
+        .step-content
+          .circle-elem.u-number
+          h5.h-title.h4 Оформление заказа и оплата
+          p.text2 Оформите заказ на сайте и оплатите его удобным способом или свяжитесь с нашим менеджером по телефону 
+            span 8 (926) 02-01-481
+          a(href="#").icon-link
+            span Способы оплаты
+      +steps('3.jpg','Доставка курьером','Мы приготовим для вас порционные блюда только из свежих продуктов и доставим их в любую точку Москвы (бесплатно в пределах МКАД) каждый день.','Зоны доставки')
+  .box-review
+    .box-bg(style='background-image: url(img/mbg.jpg)')
+      .title-wrapper.center
+        .box-title.u-white Любимые клиенты
+        .box-title-small.u-white Более сотни довольних клиентов, которые по-достоинству оценили наш труд и заботу.
+    .box-review-content
+      .i-arrows.white
+        .slider-counter
+          .slider-curr
+          .slider-divider /
+          .slider-total
+      .review-slider
+        mixin review(img,name,title,text)
+          .review-item
+            .review-content(style='background-color:#eaf6ef')
+              .review-who
+                .review-who-img
+                  img(src=img, alt="")
+                .h-title.h4 #{name}
+                .social
+                  .soc-icon-wrapp.fb
+                    a(href="#").soc-icon-item
+                      svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 30 30', style='enable-background:new 0 0 30 30;', xml:space='preserve')
+                        style(type='text/css').
+                          .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                          .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                        path.stsoc(d='M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z')
+                        path.stsoc1(d='M16.1,23.5h-3.4c-0.2,0-0.4-0.2-0.4-0.4v-7.4h-1.5c-0.2,0-0.4-0.2-0.4-0.4v-3c0-0.2,0.2-0.4,0.4-0.4h1.5l0-1.9\
+                        c0-1.1,0.3-2,0.9-2.6c0.7-0.7,1.7-1,3.1-1h2.7c0.2,0,0.4,0.2,0.4,0.4v3c0,0.2-0.2,0.4-0.4,0.4h-2c-0.2,0-0.5,0.2-0.6,0.4l0,1.5H19\
+                        c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3c-0.1,1.5-0.3,3-0.3,3c0,0.2-0.2,0.3-0.4,0.3h-2.2v7.4C16.5,23.3,16.3,23.5,16.1,23.5z\
+                        ')
+                  .soc-icon-wrapp.vk
+                    a(href="#").soc-icon-item
+                      svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 30 30', style='enable-background:new 0 0 30 30;', xml:space='preserve')
+                        style(type='text/css').
+                          .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+                          .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                        path.stsoc(d='M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z')
+                        path.stsoc1(d='M15,21h1.1c0,0,0.3,0,0.5-0.2c0.2-0.2,0.2-0.5,0.2-0.5s0-1.6,0.7-1.9c0.7-0.2,1.6,1.6,2.5,2.3\
+                        c0.7,0.5,1.2,0.4,1.2,0.4l2.5,0c0,0,1.3-0.1,0.7-1.2c-0.1-0.1-0.4-0.8-1.8-2.3c-1.5-1.6-1.3-1.3,0.5-4c1.1-1.7,1.6-2.7,1.4-3.1\
+                        c-0.1-0.4-1-0.3-1-0.3l-2.8,0c0,0-0.2,0-0.4,0.1c-0.1,0.1-0.2,0.4-0.2,0.4s-0.4,1.3-1,2.4c-1.2,2.3-1.7,2.4-1.9,2.3\
+                        c-0.5-0.3-0.4-1.3-0.4-2c0-2.2,0.3-3.2-0.6-3.4c-0.3-0.1-0.5-0.1-1.3-0.1c-1,0-1.8,0-2.3,0.3c-0.3,0.2-0.6,0.5-0.4,0.6\
+                        c0.2,0,0.6,0.1,0.8,0.5c0.3,0.4,0.3,1.4,0.3,1.4s0.2,2.6-0.4,2.9c-0.4,0.2-0.9-0.2-2-2.3c-0.6-1.1-1-2.3-1-2.3s-0.1-0.2-0.2-0.3\
+                        C9.5,10,9.2,10,9.2,10l-2.6,0c0,0-0.4,0-0.5,0.2c-0.1,0.2,0,0.5,0,0.5s2.1,5.3,4.4,8C12.6,21.1,15,21,15,21z')         
+                  .soc-icon-wrapp.insta
+                    a(href="#").soc-icon-item
+                      svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 34 34', style='enable-background:new 0 0 34 34;', xml:space='preserve')
+                        style(type='text/css').
+                          .stsoc1{fill:#2D2D2D;}
+                        g
+                          path.stsoc1(d='M26.5,6h-1C24.7,6,24,6.7,24,7.5v1c0,0.8,0.7,1.5,1.5,1.5h1c0.8,0,1.5-0.7,1.5-1.5v-1C28,6.7,27.3,6,26.5,6\
+                          L26.5,6z')
+                        g
+                          path.stsoc1(d='M17,12.5c3,0,5.5,2.5,5.5,5.5S20,23.5,17,23.5S11.5,21,11.5,18S14,12.5,17,12.5 M17,10c-4.4,0-8,3.6-8,8\
+                          s3.6,8,8,8s8-3.6,8-8S21.4,10,17,10L17,10z')
+                        g
+                          path.stsoc1(d='M25,2.5c3.6,0,6.5,2.9,6.5,6.5v16c0,3.6-2.9,6.5-6.5,6.5H9c-3.6,0-6.5-2.9-6.5-6.5V9c0-3.6,2.9-6.5,6.5-6.5H25\
+                          M25,0H9C4,0,0,4,0,9v16c0,5,4,9,9,9h16c5,0,9-4,9-9V9C34,4,30,0,25,0L25,0z')
+              .review-text
+                .star-wrapper
+                  .star-item.active
+                  .star-item.active
+                  .star-item.active
+                  .star-item.active
+                  .star-item.active
+                .review-title #{title}
+                .text2 #{text}
+                .review-date.s-small.u-light 12 октября 2016
+        +review('img/person.jpg','Мариана Носова','Однозначно рекомендую!','Хочу отметить, что вести здоровый образ жизни и продумывать свое ежедневное меню таким образом, чтобы все критерии были соблюдены, — сложно. С «Eat-bit» эта задача по sdfsd ss dds fsd sdf sdf sdf sdfлностью решается. Я получила разнообразное ежедневное меню из любимых продуктов, профессиональные повара подарили мне совершенно новые вкусовые ощущения.')
+        +review('img/person.jpg','Мариана Носова','Однозначно рекомендую!','Хочу отметить, что вести здоровый образ жизни и продумывать свое ежедневное меню таким образом, чтобы все критерии были соблюдены, — сложно. С «Eat-bit» эта задача полностью решается. Я получила разнообразное ежедневное меню из любимых продуктов, профессиональные повара подарили мне совершенно новые вкусовые ощущения.')
+        +review('img/person.jpg','Мариана Носова','Однозначно рекомендую22!','Хочу отметить, что вести здоровый образ жизни и продумывать свое ежедневное меню таким образом, чтобы все критерии были соблюдены, — сложно. С «Eat-bit» эта задача полностью решается. Я получила разнообразное ежедневное меню из любимых продуктов, профессиональные повара подарили мне совершенно новые вкусовые ощущения.')
+        +review('img/person.jpg','Мариана Носова','Однозначно рекоменду444ю!','Хочу отметить, что вести здоровый образ жизни и продумывать свое ежедневное меню таким образом, чтобы все критерии были соблюдены, — сложно. С «Eat-bit» эта задача полностью решается. Я получила разнообразное ежедневное меню из любимых продуктов, профессиональные повара подарили мне совершенно новые вкусовые ощущения.')
+      script.
+        function reviews(){
+          $(".review-slider").each( function() {
+            var _this = $(this);
+            slidesCount(_this);
+            _this.slick({
+              accessibility: true,
+              arrows: true,
+              draggable: false,
+              touchMove: false,
+              fade: true,
+              speed: 0,
+              infinite: true,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              appendArrows: _this.siblings('.i-arrows'),
+              nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+              prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+            }); 
+          }); 
+        } reviews();
+  section.box-standart.box-section
+    h2.box-title Новости и акции
+    .box-title-small Будьте в курсе всех событий нашей компании.  
+
+
+
+
+
+ 
+
+
+
+
 
 
 
