@@ -150,6 +150,22 @@ $(window).on('load resize', function(){
 //end of document ready
 });
 //end of document ready
+function reverse(elem){
+    elem.on("afterChange breakpoint", function(event, slick, currentSlide) { 
+        slidesShown = parseInt(slick.slickGetOption('slidesToShow'));
+        setTimeout(function(){
+            // if(window.matchMedia("(min-width: 544px)").matches ){
+            //     console.log(1)
+                if ((currentSlide + 1)  === slidesShown) { 
+                        elem.slick("slickSetOption", "slidesToScroll", -1); 
+                    } 
+                if(currentSlide === 1){
+                    elem.slick("slickSetOption", "slidesToScroll", 1);
+                }
+            // }
+        },10)
+    });
+}
 function slidesCount(elem){
 	var container = elem.parent().find('.slider-counter'),
 			curSlideCont = container.find('.slider-curr'),
@@ -163,7 +179,7 @@ function slidesCount(elem){
 			totalSlides = parseInt(slick.slideCount),
 			totalPages = Math.ceil(totalSlides / slidesShown),
 			curPage = event.type == 'init' || event.type == 'reInit' || event.type == 'breakpoint'? 0 : parseInt(slidesNext/slidesScroll);
-			totatSlideCont.text(totalSlides)
+			totatSlideCont.text(slidesShown == 1 ? totalSlides : totalPages)
 			curSlideCont.text(curPage + 1)
 	});
 }

@@ -177,6 +177,7 @@
                       var _this = $(this);
                       slidesCount(_this);
                       ArrColor(_this);
+                  
                       _this.slick({
                         accessibility: true,
                         arrows: true,
@@ -751,6 +752,154 @@
             <section class="box-standart box-section">
               <h2 class="box-title">Новости и акции</h2>
               <div class="box-title-small">Будьте в курсе всех событий нашей компании.  </div>
+              <div class="news-wrap"><a class="news-item-wrap" href="#">
+                                  <div class="news-item-bg" style="background-image: url(img/news/1.jpg)"></div>
+                                  <div class="news-item-content">
+                                    <div class="news-item-content-inner">
+                                      <div class="news-item-content-text">
+                                        <div class="h-title h4 u-white">Встречайте новинку в нашем меню!</div>
+                                        <div class="smalllight">12 октября 2016</div>
+                                      </div>
+                                    </div>
+                                  </div></a><a class="news-item-wrap" href="#">
+                                  <div class="news-item-bg" style="background-image: url(img/news/2.jpg)"></div>
+                                  <div class="news-item-content">
+                                    <div class="news-item-content-inner">
+                                      <div class="news-item-content-text">
+                                        <div class="h-title h4 u-white">Как приготовить рис терияки в домашних условиях</div>
+                                        <div class="smalllight">12 октября 2016</div>
+                                      </div>
+                                    </div>
+                                  </div></a><a class="news-item-wrap" href="#">
+                                  <div class="news-item-bg" style="background-image: url(img/news/3.jpg)"></div>
+                                  <div class="news-item-content">
+                                    <div class="news-item-content-inner">
+                                      <div class="news-item-content-text">
+                                        <div class="h-title h4 u-white">Конкурс на лучший рецепт шоколадного торта</div>
+                                        <div class="smalllight">12 октября 2016</div>
+                                      </div>
+                                    </div>
+                                  </div></a>
+              </div>
+            </section>
+            <section class="box-full box-section gray">
+              <h2 class="box-title">Мы в instagram @eat_bit</h2>
+              <div class="box-title-small">Подписывайтесь на нас и будьте в курсе вкусных новостей от Eat-bit. Делитесь с нами вашими достижениями.</div>
+              <ul class="instagram-wrapper js-scrolling">
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/2.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/3.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/4.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/5.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/6.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/3.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/4.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/5.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/6.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/5.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/3.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/4.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/5.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/6.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/4.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/2.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/6.jpg)"></div>
+                                </li>
+                                <li class="instagram-column">
+                                  <div class="instagram-item" style="background-image: url(img/insta/5.jpg)"></div>
+                                  <div class="instagram-item" style="background-image: url(img/insta/1.jpg)"></div>
+                                </li>
+              </ul>
+              <div class="arrow-wrapper">
+                <div class="i-arrows">
+                  <div class="slider-counter">
+                    <div class="slider-curr"></div>
+                    <div class="slider-divider">/</div>
+                    <div class="slider-total"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <script>
+              function insta(){
+                $( ".instagram-wrapper").each( function() {
+                  var _this = $(this);
+                  slidesCount(_this);
+                  _this.slick({
+                    accessibility: true,
+                    arrows: true,
+                    draggable: false,
+                    touchMove: false,
+                    infinite: false,
+                    autoplay: true,
+                    pauseOnFocus: false,
+                    pauseOnHover: false,
+                    autoplaySpeed: !0,
+                    speed: 10000,
+                    cssEase: 'linear',
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    appendArrows: _this.siblings().find('.i-arrows'),
+                    nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+                    prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+                    responsive: [
+                      {
+                        breakpoint: 991,
+                        settings: {
+                          slidesToShow: 5
+                        }
+                      },
+                      {
+                        breakpoint: 768,
+                        settings: {
+                          slidesToShow: 4
+                        }
+                      },
+                      {
+                        breakpoint: 543,
+                        settings: {
+                          slidesToShow: 2,
+                          slidesToScroll: 2,
+                          autoplay: false,
+                          speed: 300,
+                          autoplaySpeed: 0,
+                          cssEase: 'ease-in',
+                        }
+                      }
+                    ]
+                  }); 
+                  reverse(_this);
+                }); 
+              } insta();
+            </script>
+            <section class="box-standart box-section box-epilog">
+              <h2 class="box-title">Оставьте все заботы нам и бывайте здоровы, живите богато!</h2>
+              <div class="box-title-small">Мы знаем, что здоровое питание — это вкусно и разнообразно. Убедитесь в этом сами.</div><a class="btn btn-go no-arr" href="#">Выбрать программу</a>
             </section>
           </main>
           <footer class="page__footer" style="background-image: url(img/fbg.jpg)">

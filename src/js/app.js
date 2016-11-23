@@ -4,4 +4,5 @@
 //=include lib/jquery-ui.min.js
 //=include lib/flexibility.js
 //=include lib/isotope.pkgd.min.js
+//=include lib/simplescroll.js
 //=include common.js

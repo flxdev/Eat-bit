@@ -34,6 +34,7 @@ ul
 html
   font-size: 16px
   line-height: 1
+  overflow: hidden
   +r(1366)
     font-size: 15px
   +r(1280)
@@ -221,6 +222,7 @@ body, .out,html
   font-weight: 700
   text-transform: uppercase
   +rem(font-size,14px)
+
 .header
   &__hamburger
     position: relative
@@ -617,7 +619,7 @@ body, .out,html
       &:hover
         .soc-icon-item
           &:after
-            +scale(1.05)
+            +scale(1.07)
         .stsoc1
           fill: $white
       &.insta
@@ -641,18 +643,16 @@ body, .out,html
       display: inline-block
       width: 100%
       height: 100%
-      border-radius: 100%
+      border-radius: 50%
       background: $white
       position: relative
       overflow: hidden
-
       svg
         display: inline-block
         width: 100%
         height: 100%
         position: relative
         z-index: 2
-        
       .stsoc
         fill: transparent
       .stsoc1
@@ -664,6 +664,8 @@ body, .out,html
         position: absolute
         left: 0
         top: 0
+        bottom: 0 
+        right: 0  
         width: 100%
         height: 100%
         border-radius: 50%
@@ -702,6 +704,8 @@ body, .out,html
   .box-title
     +rem(margin-bottom,20px)
     +rem(letter-spacing,-1px)
+    +r(544)
+      +rem(padding,0 20px)
   .box-title-small
     +rem(margin-bottom,35px)
     line-height: 1.4
@@ -1033,6 +1037,13 @@ body, .out,html
       color: $white
       &:after
         opacity: 1
+    &.no-arr
+      +rm(544)
+        +rem(padding,10px 17px)
+      &:before,&:after
+        display: none
+
+            
 .color 
   &-wrapper
     +rem(padding-top,35px)
@@ -1393,7 +1404,8 @@ body, .out,html
 .step
   &-wrapper
     counter-reset: num
-    +rem(padding-top,65px)
+    +rm(991)
+      +rem(padding-top,65px)
   &-row
     display: flex
     flex-flow: row wrap 
@@ -1473,8 +1485,12 @@ body, .out,html
     z-index: 0
     background-color: rgba(0,0,0,.4)
 .box-review
+  +r(991)
+    +rem(margin,0 -30px)
   .box-bg
     +rem(height,440px)
+  &+ .box-standart
+    +rem(padding-top,60px)
   &-content
     position: relative
     z-index: 2
@@ -1486,18 +1502,18 @@ body, .out,html
       +rem(right,-10px)
       top: 0
       z-index: 2
-      
-      
-      
+      +r(991)
+        +rem(right,10px) 
 .review
   &-slider
     width: 100%
+    +r(991)
+      +rem(padding, 0 25px)
   &-item
     +rem(padding-top,55px)
     &.slick-current
       .review-who-img
         transform: scale(1)
-
       .star-item
         opacity: 1
         &:nth-child(1)
@@ -1514,20 +1530,34 @@ body, .out,html
     display: flex
     flex-flow: row nowrap
     align-items: flex-start
+    align-items: stretch
+    +r(768)
+      flex-flow: row wrap
+
   &-who
     +rem(width,300px)
     text-align: center
     +rem(padding,0 15px)
+    +r(768)
+      width: 100% 
+      text-align: left
+      +rem(padding,30px 25px)
+      display: flex
+      flex-flow: row wrap
+
     &-img
       display: inline-block
-      +rem(width,110px)
-      +rem(height,110px)
+      +rem(width,50px)
+      +rem(height,50px)
       border-radius: 50%
       overflow: hidden
       transform: scale(0)
       +tr(transform .35s $tr)
-      +rm(544)
+      +rm(768)
         +rem(margin-top,-55px)
+        +rem(width,110px)
+        +rem(height,110px)
+
       img
         display: block
         max-width: 100%
@@ -1536,6 +1566,10 @@ body, .out,html
         transform: none
     .h-title
       +rem(margin,25px 0 18px)
+      +r(768)
+        +rem(margin,0 0 0 20px)
+        width: 50% 
+        white-space: nowrap
     .stsoc1
       fill: #fff
     .social
@@ -1543,6 +1577,10 @@ body, .out,html
       margin: 0 auto
       display: flex
       justify-content: center
+      +r(768)
+        display: inline-block 
+        +rem(margin,-20px 0 0 65px)
+        width: 50% 
     .soc
       &-icon-item
         background: #000
@@ -1550,6 +1588,13 @@ body, .out,html
         +rem(width,35px)
         +rem(height,21px)
         +rem(padding,0 7px)
+        +r(768)
+          display: inline-block
+          vertical-align: top
+        &:first-child
+          +r(544)
+            +rem(width,35px)
+            +rem(padding,0 7px)
         &.insta svg
           +rem(width,11px)
           +rem(height,11px)
@@ -1557,9 +1602,14 @@ body, .out,html
     +rem(padding,32px 70px 50px 5px)
     +rem(width,600px)
     position: relative
+    +r(768)
+      +rem(padding,0 13px 20px)
+      width: 100% 
     .star-wrapper
       position: absolute
       +rem(top,-44px)
+      +r(768)
+        +rem(top,-150px)
     .star-item
       opacity: 0
       +tr(opacity .15s $tr)
@@ -1583,10 +1633,117 @@ body, .out,html
       +rem(margin-left,3px)
     &.active
       background-image: url(../img/icons/star-yellow.svg)
-      
+.news
+  &-wrap
+    +rem(margin-right,-20px)
+    font-size:  0
+    +rm(991)
+      +rem(padding-top,35px)
+  &-item
+    &-wrap
+      padding-bottom: 33%
+      +rem(padding-right,20px)
+      width: 33%  
+      position: relative
+      display: inline-block
+      vertical-align: top
+      +r(768)
+        width: 50%  
+        +rem(margin-bottom,20px)
+        padding-bottom: 40%
+      +r(544)
+         width: 100%  
+         padding-bottom: 70% 
+      &:hover
+        +rm(768)
+          .news-item-bg
+            &:after
+              background: rgba(0,0,0,.6)
+    &-bg 
+      +coverdiv
+      +cover
+      z-index: 0
+      max-width: 95%  
+      &:after
+        content: ''
+        +coverdiv
+        background: rgba(0,0,0,.3)
+        +tr(background .3s)
+        z-index: 1
+    &-content 
+      max-width: 95%  
+      +coverdiv
+      z-index: 2
+      &-inner
+        position: relative
+        width: 100% 
+        height: 100%  
+      &-text
+        position: absolute
+        bottom: 0 
+        left: 0 
+        right: 0  
+        +rem(padding,0 35px 44px)    
+        .h-title
+          +rem(max-width,245px)
+          line-height:  1.35
+          +rem(margin-bottom,14px)
      
+.instagram
+  &-wrapper
+    font-size: 0  
+    position: relative
+    overflow: hidden
+    white-space: nowrap
+    +rm(544)
+      +rem(padding, 70px 0)
+    +rm(991)
+      +rem(margin,0 -25px)
+    .slick-list
+      +rm(544)
+        +rem(padding, 100px 0)
+        +rem(margin-top,-40px)
+        +rem(margin-bottom,-40px)
+        overflow-y: visible
+    &+ .arrow-wrapper
+      +rm(544)
+        display: none
 
+  &-column
+    +rem(width,294px)
+    display: inline-block
+    vertical-align: top
+    font-size: 0  
+    white-space: normal
+    outline: none
+    +nosel
+    +rm(544)
+      &:nth-child(3n+1)
+        transform: translateY(15%)
+      &:nth-child(3n)
+        transform: translateY(-15%) 
+      // &:nth-child(3n-1)
+      //   transform: translateY(-5%) 
+    +r(544)
+      width: 50%
+  &-item
+    display: inline-block
+    vertical-align: top
+    width: 100% 
+    padding-bottom: 100%
+    font-size: 0  
+    +cover
+    // +r(544)
+    //   width: 50%  
+.simply-scroll-clip  
+  overflow: hidden
+.box-epilog
+  text-align: center
+  padding-bottom: 0 
+  .btn 
+    +rem(margin-top,25px)
 
+      
 
 
 
