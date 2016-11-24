@@ -34,7 +34,6 @@ ul
 html
   font-size: 16px
   line-height: 1
-  overflow: hidden
   +r(1366)
     font-size: 15px
   +r(1280)
@@ -59,18 +58,20 @@ body
     color:#1e2521
 body
   font-family: 'cera'
-  overflow: hidden
   position: relative
 body, .out,html
   width: 100%
   height: 100%
+  +r(991)
+    overflow: hidden
   &.modal-opened
     overflow: hidden
 .out
-  overflow-y: scroll
-  overflow-x: hidden
+  
   position: relative
   -webkit-overflow-scrolling: touch;
+  +r(991)
+    overflow-y: scroll  
   +rm(768)
     // +scrollbar
     //   +rem(width,10px)
@@ -103,10 +104,31 @@ body, .out,html
     justify-content: space-between
     align-items: center
     z-index: 20
+    transition: height .3s, padding .3s,box-shadow .3s
+    will-change: height, padding, box-shadow
     +rem(padding,32.5px 50px 30px 50px)
+    &.is-hidden
+      +rm(991)
+        +rem(height,70px)
+        +rem(padding-top,15px)
+        +rem(padding-bottom,15px)
+        box-shadow: 0px 0px 32px 0px rgba( 0, 0, 0,.2 );
+        .header__navs--nav
+          width: 0
+          margin: 0
+          opacity: 0
+        .header__navs--phone
+          +rem(margin-right,50px)
+        .header__logo
+          padding-left: 8%
+        .header__navs--cart
+          +rem(padding-top, 5px)
+          +rem(padding-bottom, 10px)
+          +rem(margin-top, -18px)
+          +rem(margin-bottom, -18px)
     +r(1150)
       +rem(padding,32.5px 25px 30px 25px)
-    +r(768)
+    +r(991)
       +rem(padding,15px 25px 15px 25px)
       +rem(height,60px)
   &__footer
@@ -123,12 +145,10 @@ body, .out,html
     flex: 1 0 auto
     +r(1150)
       +rem(padding,100px 25px 103px 25px)
-    +r(768)
+    +r(991)
       +rem(padding,60px 25px 103px 25px)
     +r(544)
       +rem(padding,60px 15px 103px 15px)
-
-
 
 //utility
 //text-types
@@ -234,10 +254,12 @@ body, .out,html
     padding-left: 11.8%
     position: relative
     +rem(margin-top,-55px)
+    +tr(padding .3s)
     +r(991)
       margin: auto
+      padding-left: 12.8%
+    +r(768)
       padding-left: 18.8%
-    +r(544)
       transform: translateX(8%)
     .logo-outer
       position: absolute
@@ -276,6 +298,7 @@ body, .out,html
     &--phone
       display: flex
       align-items: center
+      +tr(margin .3s)
       .link-tel 
         vertical-align: bottom
       +r(991)
@@ -283,10 +306,10 @@ body, .out,html
     &--cart
       +rem(margin,-42px -50px -19px 0)
       +rem(padding,42px 50px 25px 40px)
+      height: 100%  
+      transition: margin .3s, padding .3s
+      will-change: margin, padding
       +r(991)
-        +rem(padding,42px 50px 35px 40px)
-        +rem(margin,-42px -50px -35px 0)
-      +r(768)
         +rem(margin,-25px -25px -17px 0)
         +rem(padding,25px 25px 17px 25px)
       &.active
@@ -299,13 +322,14 @@ body, .out,html
             color: #8a8a8a !important
         .stcart1,.stcart
           stroke: $white
-
-        
-
     &--nav
       display: flex
       align-items: center
       margin: 0 3% 0 5.5%
+      opacity: 1
+      overflow: hidden
+      transition: width .3s, margin .3s, opacity .15s
+      will-change: width, margin, opacity
       +r(991)
         display: none
     .nav-link
@@ -945,16 +969,11 @@ body, .out,html
       +rem(height,16px)
       +rem(top,1px)
       transition: opacity .3s
-      left: 0
-    &:before
-      opacity: 0  
+      left: 0 
   &:hover
     i
-      // color: $maind
       &:after
-        opacity: 0 
-      &:before
-        opacity: 1 
+        opacity: 1  
     span
       &:after
         right: 0
@@ -1009,6 +1028,9 @@ body, .out,html
     color: $text
     background-color: $white
     box-shadow: 3px 5.196px 15px 0px rgba( 0, 0, 0, .1 );
+    &:hover
+      background-color: #000
+      color: $white
   &.btn-go
     border: 2px solid $text
     +rem(padding,10px 32px 10px 17px)
@@ -1743,7 +1765,270 @@ body, .out,html
   .btn 
     +rem(margin-top,25px)
 
+.modal-layout
+  position: fixed
+  left: 0
+  right: 0
+  bottom: 0
+  top: 0
+  width: 100%
+  height: 100%
+  margin: 0
+  background: rgba(0,0,0,0.3)
+  z-index: 200
+  opacity: 0
+  visibility: hidden
+  transition: opacity .2s, transform .2s, visibility .2s
+  +vertical
+  &.active
+    visibility: visible
+    opacity: 1
+  .modal-container
+    display: inline-block
+    vertical-align: middle 
+    +rem(min-width,320px)
+    +rem(margin-top,-200px)
+    max-height: 100%;
+    overflow-y: auto 
+    width: 100%
+    background: $white
+    &.modal-small
+      +rem(max-width,490px)
+      .modal-container-content
+        +rem(padding,0 45px 65px 45px)   
+    +r(544)
+      margin-top: 0
+    &-content 
+      +clr 
+      display: block
+      +rem(min-height,20px)
+    &-content,&-header 
+      text-align: left
+    &-header
+      +rem(padding,30px 45px 20px)
+      position: relative
+      .small-link
+        position: absolute
+        +rem(top,10px)
+        +rem(right,10px)
+        +rem(padding,5px)
+
+.small-link
+  display: inline-block
+  +contain
+  opacity: .7
+  cursor: pointer
+  +tr(opacity .3s)
+  &:hover
+    opacity: 1
+  &.pop-close
+    +rem(width,20px)
+    +rem(height,20px)
+    background-image: url(../img/icons/close_popup.svg)
+
+.bread-container
+  .icon-link
+    span
+      color: $white
+      +rem(font-size,12px)
+      &:after
+        +rem(bottom,-5px)
+        background-color: $white
+    &:first-child
+      i 
+        display: none
+    i
+      +rem(margin, 0 5px)
+      text-align: center
+      &:before
+        content: ''
+        display: inline-block
+        height: 100%
+        width: 100%
+        background-image: url(../img/icons/crop.svg)
+        +contain
+        background-size:  3px 3px
+    &:last-child
+      pointer-events: none
+      span
+        &:after
+          width: 0  
+
+.inner-content
+  +rem(max-width,1500px)
+  margin: 0 auto
+  +rem(padding,0 25px)
+  flex: auto;
+.half
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  +r(991)
+    flex-direction: column
+
+  &-base
+    margin-left: 9%
+    flex: 1 0 22.5rem
+    +r(991)
+      margin: 0
+      order: 2
+  &-side
+    flex: 0 0 25.5rem
+    +rem(margin-top,-280px)
+    position: relative
+    +r(991)
+      flex: 1 0 0
+      margin: 0 auto
+      order: 1
+    .sticky-wrap
+      position: sticky
+      +rem(top,110px)
+      .white-box 
+        +rem(padding,39px 48px)
+        .checkbox-wrap
+          +rem(margin-top,35px)
+          +rem(margin-bottom,28px)
+
+.pagehead
+  &-content
+    +rem(padding,97px 0 55px)
+    .h-title
+      text-transform: uppercase 
+      +rem(letter-spacing,-1.8px)
+    .u-number
+      display: block
+      font-weight: 100  
+      font-family: cera
+      line-height: .5 
+      .programm-value
+        font-family:  cera
+        display: inline-block
+        vertical-align: middle
+        +rem(font-size,14px)
+        +rem(padding-left,5px)
+        line-height: 1  
+  &-wrap
+    .inner-content
+      +rem(padding-bottom,45px)
+.white-box
+  background: $white
+  box-shadow: 
+  box-shadow: 0px 5px 43px 0px rgba( 0, 0, 0,.15 );
+  .h-title
+    +rem(letter-spacing, -1px)
+.checkbox
+  &-wrap
+    font-size: 0
+    +rem(margin-left,-3px)
+    +rem(margin-right,-3px)
+  &-item
+    display: inline-block
+    vertical-align: top
+    +rem(margin-left,1.5px)
+    +rem(margin-right,1.5px)
+    +rem(margin-bottom,9px)
+  &-outer   
+    position: relative
+    cursor: pointer
+    +nosel
+    +clr
+    .input-real
+      position: absolute
+      left: 0 
+      right: 0  
+      opacity: 0
+      width: 100%
+      height: 100%
+      &:checked + .input-fake
+        background: $borderl
+      &:not(:checked):hover + .input-fake
+        border-color: #000
+    .input-fake
+      display: inline-block
+      border: 2px solid $borderl
+      +rem(font-size,14px)
+      color: $text
+      +rem(padding, 10px 17px)
+      +rem(border-radius, 30px)
+      transition: background .3s, border-color .3s
+      text-transform: uppercase 
+
+//ui-slider styles
+.ui
+  &-slider
+    +rem(height,2px)
+    border: none!important 
+    background: 0 0 !important
+    position: relative
+    cursor: pointer
+    +rem(padding,10px 0)
+    &:before
+      position: absolute
+      left: 0
+      right: 0
+      width: 100%
+      +rem(height,2px)
+      content: ''
+      background: $borderl
+    .dot25
+      left: 25%
+    .dot50
+      left: 50%
+    .dot100
+      left: 100%
+    .dot0
+      left: 0%     
+    .dot
+      content: ''
+      display: inline-block
+      position: absolute
+      +rem(top,8px)
+      background: #000
+      +rem(width,5px)
+      +rem(height,5px)
+      border-radius: 50%
+    &:after
+      right: 0
+    &-range
+      background: #000
+      +rem(max-height,2px)
+      top: 50% !important
+    &-handle
+      border-radius: 50%
+      background: #000 !important
+      border: none !important
+      +rem(margin-top,5px)
+      +tr(transform .2s)
+      +rem(min-height,22px)
+      +rem(min-width,22px)
+      cursor: pointer !important
+      &:hover
+        transform: scale(1.2)
       
+.slider
+  &-wrap
+  &-text-wrapper
+    font-size: 0
+    +rem(margin-bottom,20px)
+  &-weeks,&-amount
+    display: inline-block
+    vertical-align: top
+    width: 50%
+    +rem(font-size,14px)
+    font-weight: 700
+    text-transform: uppercase
+    .discount
+      color: #0ea550
+      display: inline-block
+      +rem(padding-left,5px)
+
+  &-amount
+    text-align: right
+
+
+
+
+
 
 
 

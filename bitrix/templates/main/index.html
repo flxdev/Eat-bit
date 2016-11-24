@@ -885,9 +885,8 @@
                         settings: {
                           slidesToShow: 2,
                           slidesToScroll: 2,
-                          autoplay: false,
                           speed: 300,
-                          autoplaySpeed: 0,
+                          autoplaySpeed: 4500,
                           cssEase: 'ease-in',
                         }
                       }
@@ -1021,7 +1020,61 @@
         </div>
       </div>
     </div>
-    <div class="modals"></div>
+    <div class="modals">
+      <div class="modal-layout js-popup-container" data-modal="subscribe">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Вы подписались на рассылку новостей от Eat-bit. Настроить подписку вы можете в личном кабинете.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="callback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Обратная связь</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="js-validate"> </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.     </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="oneclick">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Купить в 1 клик</div>
+            <div class="text1">
+               Программа:<span class="u-number">2300-2600 ккал</span></div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="js-validate"> </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Спасибо. Заказ принят. С вами свяжется наш менеджер.</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--END out-->
   </body>
 </html>

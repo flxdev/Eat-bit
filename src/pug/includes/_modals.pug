@@ -1,0 +1,41 @@
+.modal-layout(data-modal='subscribe').js-popup-container
+  //контейнер модалки
+  .modal-container.modal-small
+    .modal-container-header
+      .h-title.h2 Спасибо
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .text1 Вы подписались на рассылку новостей от Eat-bit. Настроить подписку вы можете в личном кабинете.
+.modal-layout(data-modal='callback').js-popup-container
+  //контейнер модалки
+  .modal-container.modal-small
+    .modal-container-header
+      .h-title.h2 Обратная связь
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      form.js-validate  
+  //контейнер модалки  
+  .modal-container.modal-small(style='display: none')
+    .modal-container-header
+      .h-title.h2 Спасибо
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .text1 Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.     
+.modal-layout(data-modal='oneclick').js-popup-container
+  //контейнер модалки
+  .modal-container.modal-small
+    .modal-container-header
+      .h-title.h2 Купить в 1 клик
+      .text1 
+        |Программа:
+        span.u-number 2300-2600 ккал
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      form.js-validate 
+  //контейнер модалки
+  .modal-container.modal-small(style='display: none')
+    .modal-container-header
+      .h-title.h2 Спасибо
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .text1 Спасибо. Заказ принят. С вами свяжется наш менеджер.
