@@ -716,7 +716,7 @@ $(window).on('load resize', function(){
         Grid();
         setTimeout(function(){
             $('.menu-grid').isotope('resize').isotope('layout');
-        },100)
+        },10)
         
     }
      else{
@@ -766,37 +766,49 @@ function stopStick(){
     }));
 }(jQuery));
 function sliderRange(){
-$( "#rangeinput" ).slider({
+    var slider = $("#rangeinput" );
+
+
+    slider.slider({
         animate: true,
         range: "min",
-        value: 2,
+        value: 1,
         step: 1,
         dragAnimate: true,
         min: 1,
         max: 5,
         create: function( event, ui ) {
-            // $(this).slider( "option", "value", 300  );
-            // amount.val( (price / 1000 * 300).toFixed(2));
-            // target.text((price / 1000 * 300).toFixed(2));
-            // $(this).find('.ui-slider-handle').attr('data-persent',30  + '%');
+            calcWeek(ui.value)
         },
         slide: function(event, ui) {
-            if(ui.value > 3 && ui.value <= 4 || ui.value < 2){
+            if(ui.value > 3 && ui.value <= 4){
                 return false;
             }
+            calcWeek(ui.value)
         },
         change: function( event, ui ) {
-            // if (ui.value < 300) {
-            //     $("#rangeinput").slider('option','value',300)
-            //     return false
-            // }else if(ui.value > 300){
-            //     return true
-            //     amount.parent().removeClass('error');
-            // }
             
         }
     });
 }sliderRange();
+
+function calcWeek(value){
+    var values = $('.js-slider-info'),
+        totalSum = $('.js-slider-wrap').parent().find('.form-total-count'),
+        totalWeek = $('.js-slider-wrap').parent().find('.form-total-week');
+    values.each(function(){
+        var _ = $(this);
+        _.text(!value ? _.data('index-1') : _.data('index-'+ value));
+        if(_.hasClass('js-slider-week')){
+            totalWeek.text(!value ? _.data('index-1') : _.data('index-'+ value))
+        }
+    });
+    var dayPrice = parseInt($('.js-slider-price').text()),
+        x = parseInt($('.js-slider-x').text());
+
+    totalSum.text((dayPrice * x) +' ₽');
+}
+
 //end of document ready
 });
 //end of document ready

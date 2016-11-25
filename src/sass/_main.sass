@@ -6,6 +6,8 @@ input::-webkit-inner-spin-button
   -webkit-appearance: none;
 input
   box-shadow : none
+button
+  background: 0 0
 a
   text-decoration: none
   transition: color .3s
@@ -738,6 +740,10 @@ body, .out,html
     
 .box-title  
   +rem(max-width,755px) 
+  &.left
+    text-align: left
+    display: flex
+    min-width: 100%
 .box-title-small
   +rem(max-width,663px) 
 .scroll-to-top
@@ -872,12 +878,14 @@ body, .out,html
       line-height: 1.35
     .smalllight
       +rem(margin-top, 5px)   
-.list
+.list,.side-content ul
   li 
     +rem(padding-left,40px)
     position: relative
     display: block
     +rem(letter-spacing,0.4px)
+    +rem(font-size,16px)
+    color: $text
     &:before
       content: ''
       display: inline-block
@@ -948,7 +956,7 @@ body, .out,html
       width: 100%
       +rem(height,1px)
       background: #cccccc
-      +rem(bottom,-3px)
+      +rem(bottom,-5px)
       position: absolute 
       +tr(all .3s)
   &>i
@@ -1064,9 +1072,16 @@ body, .out,html
         +rem(padding,10px 17px)
       &:before,&:after
         display: none
-
-            
-.color 
+  &.btn-black
+    background: #000
+    color: $white
+    +rem(padding,12px 40px 12px 40px)
+    opacity: .8
+    +tr(opacity .3s)
+    +rem(letter-spacing,0.8px)
+    &:hover
+      opacity: 1
+.color
   &-wrapper
     +rem(padding-top,35px)
     display: flex
@@ -1288,14 +1303,14 @@ body, .out,html
     text-align: left
     &:after
       left: 0
-      +rem(top,2px)
+      +rem(top,1.5px)
       transform: scale(-1,1)
   &.right
     +rem(padding-right,20px)
     text-align: right
     &:after
       right: 0
-      +rem(top,2px)
+      +rem(top,1.5px)
   &:hover
     opacity: 1
   &:after
@@ -1312,6 +1327,7 @@ body, .out,html
     +rem(padding,110px 0 0 0)
     +rem(max-width,1525px)
     margin: 0 auto
+    font-size: 0
     +r(544)
       +rem(padding-top,35px)
     & + .i-arrows
@@ -1322,7 +1338,32 @@ body, .out,html
         +r(544)
           text-align: center
           +rem(margin-top,15px)
-
+    &.main-grid
+      .menu-item-wrap
+        width: 20%
+        +r(1500)
+          width: 25%
+        +r(1150)
+          width: 33.333%
+        +r(900)
+          width: 50%
+        +r(544)
+          width: 100%
+          +rem(padding,15px)
+        +rm(1500)
+          &:nth-of-type(2),&:nth-of-type(5),&:nth-of-type(7)
+            transform: translate3d(0,-20%,0)
+          &:nth-child(4),&:nth-child(9)
+            transform: translate3d(0,17%,0)
+        +screen(1150px,1499px)
+          &:nth-child(even)
+            transform: translate3d(0,-20%,0)
+        +screen(900px,1149px)
+          &:nth-child(3n-1)
+            transform: translate3d(0,-20%,0)
+        +screen(544px,899px)
+          &:nth-child(2n)
+            transform: translate3d(0,-15%,0)
   &-item
     +rem(min-width,275px)
     position: relative
@@ -1337,30 +1378,7 @@ body, .out,html
     &-wrap
       +rem(padding,12.5px)
       display: inline-block
-      width: 20%
-      +r(1500)
-        width: 25%
-      +r(1150)
-        width: 33.333%
-      +r(900)
-        width: 50%
-      +r(544)
-        width: 100%
-        +rem(padding,15px)
-      +rm(1500)
-        &:nth-of-type(2),&:nth-of-type(5),&:nth-of-type(7)
-          transform: translate3d(0,-20%,0)
-        &:nth-child(4),&:nth-child(9)
-          transform: translate3d(0,17%,0)
-      +screen(1150px,1499px)
-        &:nth-child(even)
-          transform: translate3d(0,-20%,0)
-      +screen(900px,1149px)
-        &:nth-child(3n-1)
-          transform: translate3d(0,-20%,0)
-      +screen(544px,899px)
-        &:nth-child(2n)
-          transform: translate3d(0,-15%,0)
+      vertical-align: top
       &.total
         text-align: center
         +rem(padding,55px 15px )
@@ -1374,6 +1392,7 @@ body, .out,html
       +rem(padding,0 15px)
       z-index: 1
       color: $white
+      +rem(font-size,14px)
       +rm(991)
         transform: translateY(260%)
         +tr(transform .3s $tr)
@@ -1420,9 +1439,13 @@ body, .out,html
       +rem(font-size,16px)
     &-val 
       +rem(margin-top,5px)
+      +rem(font-size,14px)
+      color: $halfgray 
       .u-number
         display: inline-block
         +rem(padding-right,5px)
+        
+
 .step
   &-wrapper
     counter-reset: num
@@ -1489,6 +1512,8 @@ body, .out,html
     
 .props
   +rem(margin,15px 0)
+  +rem(font-size,16px)
+  font-weight: 300
   &-item
     +rem(padding-bottom,5px)
     span
@@ -1857,21 +1882,67 @@ body, .out,html
 .inner-content
   +rem(max-width,1500px)
   margin: 0 auto
-  +rem(padding,0 25px)
   flex: auto;
+  +rm(991)
+    +rem(padding, 0 25px)
 .half
   display: flex
   flex-wrap: wrap
   justify-content: center
   +r(991)
     flex-direction: column
-
   &-base
     margin-left: 9%
     flex: 1 0 22.5rem
+    +rem(padding-right,30px)
+    +r(1450)
+      margin-left: 2%
     +r(991)
       margin: 0
       order: 2
+      padding: 0
+  &-section
+    .box-review-content
+      margin: 0
+    .box-title-small
+      +rem(padding-top,18px)
+      +rem(letter-spacing,.2px)
+    .checkbox-wrap
+      text-align: center
+    .menu-nav-inner
+      height: 0
+      transform: translateY(2.9375rem)
+      z-index: 2
+    .color-wrapper
+      +rem(padding-top,25px)
+    .color-block
+      +rem(width,290px)
+      +rem(height,290px)
+      &.calc 
+        .box-title
+          +rem(margin-top,20px)
+          +rem(padding,0 15px)
+    .menu-grid
+      & + .i-arrows
+        &+ .box-standart
+          .u-light
+            text-align: right
+    .menu-item-wrap
+      +rm(1560)
+        width: 33.33%
+        &:nth-child(3n-1)
+          // transform: translateY(-20%)
+      +screen(991px,1560px)
+        width: 50%
+      +r(991)
+        width: 33.33%
+      +r(890)
+        width: 50%
+    &:not(:last-child)
+      border-bottom: 1px solid $borderd
+      +rem(padding,73px 0)
+    &:last-child
+       +rem(padding-top,75px)
   &-side
     flex: 0 0 25.5rem
     +rem(margin-top,-280px)
@@ -1888,10 +1959,49 @@ body, .out,html
         .checkbox-wrap
           +rem(margin-top,35px)
           +rem(margin-bottom,28px)
+        .form-footer
+          +rem(margin,0 -50px)
+          +rem(padding,35px 50px 0)
+        &+.offer-feachure
+          +rem(padding, 0 45px)
+          .footer-nav-payment
+            +rem(margin,40px 0 20px)
+          li
+            color: $text
+            &:not(:first-child)
+              +rem(margin-top,30px)
+    .payment-item
+      width: 25%
+      img
+        opacity: 1 !important
 
+.profit
+  &-wrap
+    font-size: 0
+  &-item
+    display: inline-block
+    vertical-align: top
+    width: 33%
+    text-align: center
+    +rem(padding, 0 15px)
+    &:last-child
+      +rem(padding, 0 0 0 30px)
+  &-img
+    display: inline-block
+    +rem(width,58px)
+    +rem(height,58px)
+    +rem(margin-bottom,27px)
+    img
+      display: block
+      margin: 0 auto
+      max-width: 100%
+      max-height: 100%
 .pagehead
+  &-wrap
+    +cover
   &-content
-    +rem(padding,97px 0 55px)
+    +rm(991)
+      +rem(padding,97px 0 55px)
     .h-title
       text-transform: uppercase 
       +rem(letter-spacing,-1.8px)
@@ -1927,11 +2037,20 @@ body, .out,html
     +rem(margin-left,1.5px)
     +rem(margin-right,1.5px)
     +rem(margin-bottom,9px)
+    &.link
+      .checkbox-outer 
+        &:not(.active):hover
+          .input-fake
+            border-color: #000
+        &.active
+          .input-fake
+            background: $borderl
   &-outer   
     position: relative
     cursor: pointer
     +nosel
     +clr
+
     .input-real
       position: absolute
       left: 0 
@@ -1961,7 +2080,7 @@ body, .out,html
     background: 0 0 !important
     position: relative
     cursor: pointer
-    +rem(padding,10px 0)
+    +rem(padding,15px 0)
     &:before
       position: absolute
       left: 0
@@ -1982,10 +2101,10 @@ body, .out,html
       content: ''
       display: inline-block
       position: absolute
-      +rem(top,8px)
+      +rem(top,13px)
       background: #000
-      +rem(width,5px)
-      +rem(height,5px)
+      +rem(width,6px)
+      +rem(height,6px)
       border-radius: 50%
     &:after
       right: 0
@@ -1997,7 +2116,7 @@ body, .out,html
       border-radius: 50%
       background: #000 !important
       border: none !important
-      +rem(margin-top,5px)
+      +rem(margin-top,10px)
       +tr(transform .2s)
       +rem(min-height,22px)
       +rem(min-width,22px)
@@ -2007,6 +2126,7 @@ body, .out,html
       
 .slider
   &-wrap
+    +rem(margin-bottom,45px)
   &-text-wrapper
     font-size: 0
     +rem(margin-bottom,20px)
@@ -2021,17 +2141,96 @@ body, .out,html
       color: #0ea550
       display: inline-block
       +rem(padding-left,5px)
-
   &-amount
     text-align: right
 
+.js-slider-info.js-slider-x
+  +hidetext
+.form
+  &-footer
+    border-top: 1px solid $borderl
+    font-size: 0
+    +clr
+  &-total-count
+    +rem(font-size,24px)
+    font-weight: 700
+    color: $text
+    text-transform: uppercase
+  &-total,&-buttons
+    display: inline-block
+    vertical-align: top
+  &-total-week
+    text-transform: uppercase
+    font-weight: 400
+    +rem(margin-top,5px)
+  &-buttons
+    text-align: center
+    float: right
+    .icon-link
+      display: block
+      +rem(max-width,115px)
+      +rem(margin,10px auto )
 
+.side
+  &-wrap
+    font-size: 0
+  &-title,&-content 
+    display: inline-block
+    vertical-align: top
+    li
+      +rem(margin-bottom,22px)
+  &-title
+    width: 34%
+    +rem(padding-right,20px)
+    .h-title
+      +rem(letter-spacing,-1px)
+  &-content 
+    width: 66%
+    .text1
+      +rem(margin-bottom,21px)
+    p:not([class])
+      +rem(font-size,16px)
+      color: $text
+      font-weight: 300
+      line-height: 1.438
+      +rem(margin-bottom,18px)
 
-
-
-
-
-
+.options
+  &-wrap
+    display: flex
+    flex-flow: row wrap
+    justify-content: stretch
+    align-items: stretch
+    +rem(margin, 0 -10px)
+  &-item
+    flex-shrink: 1
+    flex-grow: 1
+    flex-basis: 300px
+    +rem(margin,20px 10px 0 10px)
+    width: 50%
+    font-size: 0
+    justify-content: space-between
+  &-text
+    +rem(font-size,20px)
+    line-height: 1.4
+    color: $text
+    +rem(padding,40px 0 73px 35px)
+    font-weight: 300
+    +rem(max-width,254px)
+    width: 60%
+    display: inline-block
+    vertical-align: top
+  &-img
+    background-size: contain
+    +rem(max-width,173px)
+    width: 40%
+    height: 100%
+    background-position: right center
+    background-repeat: no-repeat
+    display: inline-block
+    vertical-align: top
+    float: right
+    
 
 
 

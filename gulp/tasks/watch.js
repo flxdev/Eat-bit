@@ -3,7 +3,6 @@ var rimraf = require('rimraf');
 var config = require('../config');
 
 gulp.task('watch', [
-    'sprite:watch',
     'sass:watch',
     'copy:watch',
     'pug:watch',
