@@ -5,4 +5,5 @@
 //=include lib/flexibility.js
 //=include lib/isotope.pkgd.min.js
 //=include lib/sticky-fill.js
+//=include lib/jquery.form-validator.min.js
 //=include common.js

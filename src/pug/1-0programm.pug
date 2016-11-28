@@ -55,10 +55,32 @@ block content
               //вот сюда active 
               a(href="#").checkbox-outer
                 span.input-fake 2900-2600 ккал 
-              .menu-nav
-          .menu-nav-inner
-            .m-nav-link.left.disabled Предыдущий день
-            .m-nav-link.right Следующий день
+                  .sort_wrapper
+          //на мобилке тут вылазит эта лабуда с индекса
+          .sort-select.js-select-item
+            .sort-select-title
+              span.name Рацион: 
+              span.value.u-number 1000-1200 ккал
+              i.bread-arrow
+            .dropdown-target
+              .dropdown-inner
+                .dropdown-content
+                  .sort-select-item
+                    a(href="#",data-text="1000-1200 ккал")
+                      span.u-number 1000-1200
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="1400-1600 ккал")
+                      span.u-number 1400-1600
+                      |ккал
+                  .sort-select-item
+                    a(href="#",data-text="1600-1800 ккал")
+                      span.u-number 1600-1800
+                      |ккал
+          .menu-nav
+            .menu-nav-inner
+              .m-nav-link.left.disabled Предыдущий день
+              .m-nav-link.right Следующий день
           .menu-grid
             mixin menuItems(img, type,name,val ,bgu)
               .menu-item-wrap
@@ -268,11 +290,16 @@ block content
         .half-section   
           .box-title Остались вопросы?
             .box-title-small Напишите или позвоните нашему менеджеру. Он с радостью ответит на все интересующие вас вопросы! 
-          a(href="tel:89260201481").link-tel 
-            span.u-number 8 (926) 02-01-481
-          button(type='button').btn.btn-go.no-arr задать вопрос
+          .questions-cont
+            a(href="tel:89260201481").link-tel 
+              span.u-number 8 (926) 02-01-481
+            button(type='button').btn.btn-go.no-arr задать вопрос
+            .soc-btns
+              button(type='button').soc-btn.fb.small 35
+              button(type='button').soc-btn.vk.small 734
         .half-section
           .box-title.left Программы питания
+          //.disabled для отсутсвующего блока
           .color-wrapper
             mixin colorBlock(kal,icon,value,img,color)
               a(href="#").color-block
@@ -282,22 +309,24 @@ block content
                     span.u-number.h2 #{kal}
                     span Ккал/день
                   .color-block-icon
-                    i(style='bakground-img: url('+icon+')')
+                    i(style='background-image: url(img/smalli/'+icon+')')
                   buttom(type='buttom').btn.btn-go от  
                     span.u-number #{value}
                     |  ₽/день
                   .u-light.s-text.u-halfgray.doptext 
                     span Меню на 2 недели
-            +colorBlock('800–1600','','1500','img/index-slide/bg1.png','fcf7eb')
-            +colorBlock('1600–2000','','1700','img/index-slide/bg1.png','eaf6ef')
-            +colorBlock('2100–2300','','1750','img/index-slide/bg1.png','e3e9f9')
-            +colorBlock('2300–2900','','1800','img/index-slide/bg1.png','faebeb')
-            +colorBlock('2900–3500','','2000','img/index-slide/bg1.png','faebeb')
+            +colorBlock('800–1600','1.png','1500','img/index-slide/bg1.png','fcf7eb')
+            +colorBlock('1600–2000','2.png','1700','img/index-slide/bg1.png','eaf6ef')
+            +colorBlock('2100–2300','3.png','1750','img/index-slide/bg1.png','e3e9f9')
+            +colorBlock('2300–2900','4.png','1800','img/index-slide/bg1.png','faebeb')
+            +colorBlock('2900–3500','5.png','2000','img/index-slide/bg1.png','faebeb')
             .color-block.calc
               .box-title Какая программа мне подойдёт?
               a(href="#").icon-link.calc
                 i
                 span Калькулятор
+        button.btn-calc-fixed.js-popup-button(type='button',data-modal='calc')
+          .btn-calc-icon
       .half-side
         .sticky-wrap.js-sticky
           .white-box
@@ -337,7 +366,7 @@ block content
                   .form-total-week.s-medium.u-halfgray
                 .form-buttons
                   a(href="#").btn.btn-black Заказать
-                  a(href="#").icon-link
+                  a(href="#").icon-link.js-popup-button(type='button',data-modal='oneclick')
                     span Купить в 1 клик
           .offer-feachure
             .footer-nav-payment

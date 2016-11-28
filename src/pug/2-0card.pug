@@ -1,0 +1,84 @@
+extends _layout
+
+block title
+  title Мой заказ
+
+block content
+  .pagehead-wrap.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Мой заказ
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+  .inner-content.center-content
+    .center-box
+      .white-box
+        .h-title.h2 Программы в заказе
+        .table
+          .table-head
+            .table-item.table-name Рацион
+            .table-item.table-period Период
+            .table-item.table-count Кол-во
+            .table-item.table-total Стоимость
+            .table-item.table-delete
+            mixin cartTable(name,period,total)
+              .table-row
+                .table-item.table-name
+                  .elem-price #{name}
+                    span.s-medium.u-reg.u-halfgray ккал/день
+                .table-item.table-period
+                  .text1
+                    | #{period}
+                .table-item.table-count
+                  .number-wrap
+                    .number.js-number(data-max-number='100', data-step='1')
+                      button.number__minus.js-minus-number(type='button', tabindex='0')
+                      input.number__input.js-price-input(type='number', tabindex='0')
+                      button.number__plus.js-plus-number(type='button', tabindex='0')
+                .table-item.table-total
+                  .elem-price
+                    |#{total}
+                .table-item.table-delete
+                  i.small-link.close
+          +cartTable('2300-2600','2 недели','45 000 ₽')
+          +cartTable('2300-2600','2 недели','45 000 ₽')
+          +cartTable('2300-2600','2 недели','45 000 ₽')
+          +cartTable('2300-2600','2 недели','45 000 ₽')
+        .u-light.s-medium.u-halfgray Внимание: заказ обмену или возврату не подлежит.
+        .form-footer
+          .form-buttons
+            //.error для ошибки
+            form.promo-form
+              input(type="text" placeholder='Промокод').promo-form-input.js-focus
+              button(type="submit").promo-form-submit.u-bold.u-white.s-text Ок
+          .form-total 
+            .form-total-count 45 000 ₽
+            .form-total-week.s-medium.u-halfgray за 2 недели
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

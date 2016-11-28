@@ -212,7 +212,7 @@
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
                                   <div class="color-block-main" style="background-color:#fcf7eb">
                                     <div class="u-light"><span class="u-number h2">800–1600</span><span>Ккал/день</span></div>
-                                    <div class="color-block-icon"><i style="bakground-img: url()"></i></div>
+                                    <div class="color-block-icon"><i style="background-image: url(img/smalli/1.png)"></i></div>
                                     <div class="color-text u-halfgray">3 программы питания рассчитаны для людей, желающих активно снизить вес</div>
                                     <buttom class="btn btn-go" type="buttom">от  <span class="u-number">1500</span> ₽/день</buttom>
                                     <div class="u-light s-text u-halfgray doptext"> <span>Меню на 2 недели</span></div>
@@ -220,7 +220,7 @@
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
                                   <div class="color-block-main" style="background-color:#eaf6ef">
                                     <div class="u-light"><span class="u-number h2">1600–2000</span><span>Ккал/день</span></div>
-                                    <div class="color-block-icon"><i style="bakground-img: url()"></i></div>
+                                    <div class="color-block-icon"><i style="background-image: url(img/smalli/2.png)"></i></div>
                                     <div class="color-text u-halfgray">Программы питания рассчитаны для  поддер- жания веса у девушек и снижения веса у мужчин</div>
                                     <buttom class="btn btn-go" type="buttom">от  <span class="u-number">1700</span> ₽/день</buttom>
                                     <div class="u-light s-text u-halfgray doptext"> <span>Меню на 2 недели</span></div>
@@ -228,7 +228,7 @@
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
                                   <div class="color-block-main" style="background-color:#e3e9f9">
                                     <div class="u-light"><span class="u-number h2">2100–2300</span><span>Ккал/день</span></div>
-                                    <div class="color-block-icon"><i style="bakground-img: url()"></i></div>
+                                    <div class="color-block-icon"><i style="background-image: url(img/smalli/3.png)"></i></div>
                                     <div class="color-text u-halfgray">Самая популярная программа для людей, посещающих фитнес-клуб, или занимающихся спортом</div>
                                     <buttom class="btn btn-go" type="buttom">от  <span class="u-number">1750</span> ₽/день</buttom>
                                     <div class="u-light s-text u-halfgray doptext"> <span>Меню на 2 недели</span></div>
@@ -236,7 +236,7 @@
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
                                   <div class="color-block-main" style="background-color:#faebeb">
                                     <div class="u-light"><span class="u-number h2">2300–2900</span><span>Ккал/день</span></div>
-                                    <div class="color-block-icon"><i style="bakground-img: url()"></i></div>
+                                    <div class="color-block-icon"><i style="background-image: url(img/smalli/4.png)"></i></div>
                                     <div class="color-text u-halfgray">Программы питания рассчитаны на активный набор мышечной массы</div>
                                     <buttom class="btn btn-go" type="buttom">от  <span class="u-number">1800</span> ₽/день</buttom>
                                     <div class="u-light s-text u-halfgray doptext"> <span>Меню на 2 недели</span></div>
@@ -244,7 +244,7 @@
                                   <div class="color-block-bg" style="background-image: url(img/index-slide/bg1.png)"></div>
                                   <div class="color-block-main" style="background-color:#faebeb">
                                     <div class="u-light"><span class="u-number h2">2900–3500</span><span>Ккал/день</span></div>
-                                    <div class="color-block-icon"><i style="bakground-img: url()"></i></div>
+                                    <div class="color-block-icon"><i style="background-image: url(img/smalli/5.png)"></i></div>
                                     <div class="color-text u-halfgray">Программы питания для профессиональных спортсменов</div>
                                     <buttom class="btn btn-go" type="buttom">от  <span class="u-number">2000</span> ₽/день</buttom>
                                     <div class="u-light s-text u-halfgray doptext"> <span>Меню на 2 недели</span></div>
@@ -956,7 +956,7 @@
                   <div class="footer-contact-mail">
                     <div class="describe-text">Подпишитесь на акции, обещаем только полезную информацию! </div>
                     <form class="footer-form js-validate">
-                      <input class="footer-form-input" type="email" placeholder="E-mail">
+                      <input class="footer-form-input" type="email" placeholder="E-mail" data-validation="email">
                       <button class="footer-form-submit u-bold u-white s-text" type="submit">Подписаться</button>
                     </form>
                   </div>
@@ -1038,7 +1038,25 @@
             <div class="h-title h2">Обратная связь</div><i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="js-validate"> </form>
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя</label>
+              </div>
+              <div class="input-wrapper">
+                <input class="input-main" type="email">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="input-wrapper req">
+                <textarea class="input-main" rows="4" data-validation="length required" data-validation-error-msg="Не заполнено"></textarea>
+                <label class="input-label">Сообщение  </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить          </button>
+            </form>
           </div>
         </div>
         <!--контейнер модалки  -->
@@ -1060,7 +1078,25 @@
                Программа:<span class="u-number">2300-2600 ккал</span></div><i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="js-validate"> </form>
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя    </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="form-footer">
+                <div class="form-total"> 
+                  <div class="form-total-count">45 000 ₽</div>
+                  <div class="form-total-week s-medium u-halfgray">за 2 недели</div>
+                </div>
+                <div class="form-buttons">
+                  <button class="btn no-arr btn-black" type="submit">Заказать</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <!--контейнер модалки-->
@@ -1070,6 +1106,121 @@
           </div>
           <div class="modal-container-content">
             <div class="text1">Спасибо. Заказ принят. С вами свяжется наш менеджер.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout modal-right js-popup-container" data-modal="calc">
+        <!--контейнер модалки-->
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="h-title h2">Калькулятор</div>
+            <div class="header__hamburger closePopup">
+              <div class="hamburger">
+                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <form class="js-validate">
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Мужской"><span class="btn-name">Ваш пол</span><span class="btn-text">Мужской</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group" value="val1"><span>Мужской</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group" value="val2"><span>Женский</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Возраст</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Рост</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Вес</label>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Ваша цель</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group1" value="val1"><span>Сохранение формы</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val2"><span>Похудение</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val3"><span>Набор массы</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Уровень физических нагрузок</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group2" value="val1"><span>Сидячий образ жизни</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val2"><span>Тренировки 1-2 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val3"><span>Тренировки 3-5 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val4"><span>Тренировки 6-7 р. в неделю</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Рассчитать                                      </button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Результат</div>
+            <div class="header__hamburger closePopup">
+              <div class="hamburger">
+                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <div class="calc-result">
+              <div class="u-light u-halfgray s-text">Ваша дневная норма<span class="result">2300 ккал</span></div>
+            </div>
+            <div class="color-block inner"><a class="color-block-main" href="#">
+                <div class="u-light u-halfgray s-text">Подходящий рацион</div>
+                <div class="u-light result-price"><span class="u-number h2">1600–2000</span><span>Ккал/день</span></div>
+                <buttom class="btn btn-go" type="buttom">от  <span class="u-number">2000</span> ₽/день</buttom></a></div>
+            <div class="menu-nav">
+              <div class="menu-nav-inner">
+                <div class="m-nav-link left">Новый расчёт</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -217,6 +217,84 @@ function stopStick(){
         Stickyfill.init('.js-sticky');
     }
 }stopStick();
+function validateForms(){
+var form_form = $('.js-validate');
+if (form_form.length) {
+    form_form.each(function () {
+        var form_this = $(this);
+        $.validate({
+            form : form_this,
+            borderColorOnError : true,
+            scrollToTopOnError : false,
+        });
+    });
+};
+}validateForms();
+function FocusInput(){
+    var input = $('.input-main');
+        input.each(function(){
+            var _ = $(this);
+            _.on('focus',function(){
+                var parent = _.parent();
+                parent.addClass('in-focus');
+
+                _.focusout(function(){
+                    parent.removeClass('in-focus')
+                })
+            })
+        })
+} FocusInput();
+function initCustomSelectList() {
+    var _conf = {
+            initClass: 'cs-active',
+            f: {}
+        },
+        _items = $('.js-select-custom');
+
+    $.each(_items, function () {
+        var _select = $(this),
+            _button = _select.find('button'),
+            placeholder = _button.data('placeholder'),
+            _list = _select.find('.select-list');
+
+        _select.on('reinit', function() {
+            var _active = _list.find('input:checked');
+
+            if(_active.length) {
+                _select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
+                
+            }
+            else {
+                _button.children('.btn-text').text(_button.data('placeholder')).parent().removeClass('is-checked');
+            }
+        });
+
+        _button.on('click', function() {
+           _button.parent().toggleClass('active').siblings().removeClass('active');
+            return(false);
+        });
+
+        _select.on('click', 'label', function() {
+           var _label = $(this),
+               _input = _label.find('input');
+
+            _input.prop('checked', true);
+            _select.trigger('reinit');
+            _button.parent().removeClass('active');
+        });
+        _select.trigger('reinit');
+        _select.addClass(_conf.initClass);
+
+         $(document).on('mouseup', function (e){
+            if (!_select.is(e.target)
+                && _select.has(e.target).length === 0) {
+                _select.removeClass('active');
+            }
+        });
+    });
+
+} initCustomSelectList() ;
+
 //extends jquery-ui slider drag animation
 (function( $, undefined ) {
     $.extend($.ui.slider.prototype.options, {
@@ -274,7 +352,20 @@ function calcWeek(value){
 
     totalSum.text((dayPrice * x) +' ₽');
 }
-
+popUpsInit();
+function FocusInput(){
+var input = $('.js-focus');
+    input.each(function(){
+        var _ = $(this);
+        _.on('focus',function(){
+            var parent = _.parent();
+            parent.addClass('in-focus');
+            _.focusout(function(){
+                parent.removeClass('in-focus')
+            })
+        })
+    })
+} FocusInput();
 //end of document ready
 });
 //end of document ready
@@ -369,7 +460,6 @@ function popUpsInit() {
             _modal = _this.c.popup.filter('[data-modal="' + modalID + '"]');
  
         _this.f.openModal(_modal);
-
         return false;
     });
 }

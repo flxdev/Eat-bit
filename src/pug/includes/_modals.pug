@@ -13,7 +13,20 @@
       .h-title.h2 Обратная связь
       i.small-link.pop-close.closePopup
     .modal-container-content
-      form.js-validate  
+      form.modal-form.js-validate
+        .input-wrapper.req
+          input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+          label.input-label Ваше имя
+        .input-wrapper
+          input.input-main(type="email")
+          label.input-label E-mail      
+        .input-wrapper.req
+          input.input-main(type="tel",data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+          label.input-label Телефон 
+        .input-wrapper.req
+          textarea.input-main(rows='4',data-validation="length required",data-validation-error-msg="Не заполнено")
+          label.input-label Сообщение  
+        button(type='submit').btn.no-arr.btn-black Отправить          
   //контейнер модалки  
   .modal-container.modal-small(style='display: none')
     .modal-container-header
@@ -31,7 +44,19 @@
         span.u-number 2300-2600 ккал
       i.small-link.pop-close.closePopup
     .modal-container-content
-      form.js-validate 
+      form.modal-form.js-validate
+        .input-wrapper.req
+          input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+          label.input-label Ваше имя    
+        .input-wrapper.req
+          input.input-main(type="tel",data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+          label.input-label Телефон 
+        .form-footer
+          .form-total 
+            .form-total-count 45 000 ₽
+            .form-total-week.s-medium.u-halfgray за 2 недели
+          .form-buttons
+            button(type='submit').btn.no-arr.btn-black Заказать
   //контейнер модалки
   .modal-container.modal-small(style='display: none')
     .modal-container-header
@@ -39,3 +64,106 @@
       i.small-link.pop-close.closePopup
     .modal-container-content
       .text1 Спасибо. Заказ принят. С вами свяжется наш менеджер.
+.modal-layout.modal-right(data-modal='calc').js-popup-container
+  //контейнер модалки
+  .modal-container
+    .modal-container-header
+      .h-title.h2 Калькулятор
+      .header__hamburger.closePopup
+        .hamburger
+          .hamburger-inner.open
+            span
+            span
+            span
+    .modal-container-content
+      form.js-validate
+        .input-wrapper.select-check.js-select-custom.req
+          button.selects(data-placeholder = 'Мужской')
+            span.btn-name Ваш пол
+            span.btn-text Мужской
+            i.select-img
+          .dropdown-target
+            .dropdown-inner
+              .dropdown-content
+                .select-u-body.select-list
+                  label.option
+                    input(type="radio",name='group',value ='val1') 
+                    span Мужской
+                  label.option
+                    input(type="radio",name='group',value ='val2') 
+                    span Женский
+        .input-wrapper.w33.req
+          input.input-main(type="number",data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+          label.input-label Возраст
+        .input-wrapper.w33.req
+          input.input-main(type="number",data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+          label.input-label Рост
+        .input-wrapper.w33.req
+          input.input-main(type="number",data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+          label.input-label Вес
+        .input-wrapper.select-check.js-select-custom.req
+          button.selects(data-placeholder = 'Выберите')
+            span.btn-name Ваша цель
+            span.btn-text Выберите
+            i.select-img
+          .dropdown-target
+            .dropdown-inner
+              .dropdown-content
+                .select-u-body.select-list
+                  label.option
+                    input(type="radio",name='group1',value ='val1') 
+                    span Сохранение формы
+                  label.option
+                    input(type="radio",name='group1',value ='val2') 
+                    span Похудение
+                  label.option
+                    input(type="radio",name='group1',value ='val3') 
+                    span Набор массы
+        .input-wrapper.select-check.js-select-custom.req
+          button.selects(data-placeholder = 'Выберите')
+            span.btn-name Уровень физических нагрузок
+            span.btn-text Выберите
+            i.select-img
+          .dropdown-target
+            .dropdown-inner
+              .dropdown-content
+                .select-u-body.select-list
+                  label.option
+                    input(type="radio",name='group2',value ='val1') 
+                    span Сидячий образ жизни
+                  label.option
+                    input(type="radio",name='group2',value ='val2') 
+                    span Тренировки 1-2 р. в неделю
+                  label.option
+                    input(type="radio",name='group2',value ='val3') 
+                    span Тренировки 3-5 р. в неделю
+                  label.option
+                    input(type="radio",name='group2',value ='val4') 
+                    span Тренировки 6-7 р. в неделю
+        button(type='submit').btn.no-arr.btn-black Рассчитать                                      
+  //контейнер модалки
+  .modal-container(style='display: none')
+    .modal-container-header
+      .h-title.h2 Результат
+      .header__hamburger.closePopup
+        .hamburger
+          .hamburger-inner.open
+            span
+            span
+            span
+    .modal-container-content
+      .calc-result
+        .u-light.u-halfgray.s-text Ваша дневная норма
+          span.result 2300 ккал
+      .color-block.inner
+        a(href="#").color-block-main
+          .u-light.u-halfgray.s-text Подходящий рацион
+          .u-light.result-price
+            span.u-number.h2 1600–2000
+            span Ккал/день
+          buttom(type='buttom').btn.btn-go от  
+            span.u-number 2000
+            |  ₽/день
+      .menu-nav
+        .menu-nav-inner
+          .m-nav-link.left Новый расчёт
