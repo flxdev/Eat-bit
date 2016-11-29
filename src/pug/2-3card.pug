@@ -1,0 +1,44 @@
+extends _layout
+
+block title
+  title Мой заказ
+
+block content
+  //.error-page для страниц ошибок типа этой и 404
+  .pagehead-wrap.error-page.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Мой заказ
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+  .error-wrap
+    .error-text
+      .h-title.h2 Ваша корзина пуста
+      .text1 Начните покупки прямо сейчас, выберите подходящий рацион и начните питаться вкусно и полезно!
+    a(href="#").btn.btn-medium.btn-black выбрать программу
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

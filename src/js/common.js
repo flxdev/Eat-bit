@@ -311,35 +311,37 @@ function initCustomSelectList() {
 }(jQuery));
 function sliderRange(){
     var slider = $("#rangeinput" );
-
-
-    slider.slider({
-        animate: true,
-        range: "min",
-        value: 1,
-        step: 1,
-        dragAnimate: true,
-        min: 1,
-        max: 5,
-        create: function( event, ui ) {
-            calcWeek(ui.value)
-        },
-        slide: function(event, ui) {
-            if(ui.value > 3 && ui.value <= 4){
-                return false;
+    slider.each(function(){
+        var _ = $(this);
+        _.slider({
+            animate: true,
+            range: "min",
+            value: 1,
+            step: 1,
+            dragAnimate: true,
+            min: 1,
+            max: 5,
+            create: function( event, ui ) {
+                calcWeek(ui.value,_)
+            },
+            slide: function(event, ui) {
+                if(ui.value > 3 && ui.value <= 4){
+                    return false;
+                }
+                calcWeek(ui.value,_)
+            },
+            change: function( event, ui ) {
+                
             }
-            calcWeek(ui.value)
-        },
-        change: function( event, ui ) {
-            
-        }
-    });
+        });
+    })
+   
 }sliderRange();
 
-function calcWeek(value){
-    var values = $('.js-slider-info'),
-        totalSum = $('.js-slider-wrap').parent().find('.form-total-count'),
-        totalWeek = $('.js-slider-wrap').parent().find('.form-total-week');
+function calcWeek(value,slider){
+    var values = slider.parent().find('.js-slider-info'),
+        totalSum = slider.parent().siblings().find('.form-total-count'),
+        totalWeek = slider.parent().siblings().find('.form-total-week');
     values.each(function(){
         var _ = $(this);
         _.text(!value ? _.data('index-1') : _.data('index-'+ value));
@@ -347,8 +349,8 @@ function calcWeek(value){
             totalWeek.text(!value ? _.data('index-1') : _.data('index-'+ value))
         }
     });
-    var dayPrice = parseInt($('.js-slider-price').text()),
-        x = parseInt($('.js-slider-x').text());
+    var dayPrice = parseInt(slider.parent().find('.js-slider-price').text()),
+        x = parseInt(slider.parent().find('.js-slider-x').text());
 
     totalSum.text((dayPrice * x) +' ₽');
 }
@@ -420,46 +422,64 @@ function ArrColor(elem){
     }
 }
 function popUpsInit() {
-    var _this = {
-        b: {
-            open: $('.js-popup-button'),
-        }, c: {
-            popup: $('.js-popup-container'),
-            body: $('body')
-        }, f: {}, conf: {
-            bodyClass: 'modal_open',
-            popupClass: 'active',
-            closeSelector: '.closePopup',
-            initClass: 'init-popup'
-        }
+    var _this = this;
+
+    _this.b = {open: $('.js-popup-button')};
+    _this.c = {
+        popup: $('.js-popup-container'),
+        body: $('body')
+    };
+    _this.f = {};
+    _this.conf = {
+        body_class: 'modal_open',
+        active_class: 'active',
+        close_selector: '.closePopup',
+        initial_class: 'popup-initialed'
     };
 
-    _this.f.openModal = function (_modal) {
-        _modal.addClass(_this.conf.popupClass);
-        _this.c.body.addClass(_this.conf.bodyClass);
 
-        _this.f.initActions(_modal);
-    };
-
-    _this.f.initActions = function (_modal) {
-        _modal.find(_this.conf.closeSelector).off('click.popup').on('click.popup', function () {
-            _this.f.closeModal(_modal);
-
-            return false;
+    _this.f.initModalActions = function (_popup) {
+        /**
+         * Close buttons.
+         */
+        _popup.find(_this.conf.close_selector).off('click.popup').on('click.popup', function () {
+            _this.f.closePopup(_popup);
         });
+
     };
 
-    _this.f.closeModal = function (_modal) {
-        _modal.removeClass(_this.conf.popupClass);
-        _this.c.body.removeClass(_this.conf.bodyClass);
+    _this.f.closePopup = function (_popup) {
+        _popup.removeClass(_this.conf.active_class);
+        _this.c.body.removeClass(_this.conf.body_class);
     };
+
+    _this.f.openPopup = function (_popup) {
+        _popup.addClass(_this.conf.active_class);
+        _this.c.body.addClass(_this.conf.body_class);
+    };
+
+
+    /**
+     * Initial.
+     */
+
+    $.each(_this.c.popup.not('.' + _this.conf.initial_class), function () {
+        var _popup = $(this);
+        _this.f.initModalActions(_popup);
+
+        _popup.off('reinit').on('reinit', function() {
+            _this.f.initModalActions(_popup);
+        });
+        _popup.addClass(_this.conf.initial_class);
+    });
 
     _this.b.open.off('click.popup').on('click.popup', function () {
         var _b = $(this),
-            modalID = _b.data('modal'),
-            _modal = _this.c.popup.filter('[data-modal="' + modalID + '"]');
- 
-        _this.f.openModal(_modal);
+            _popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');
+
+        _this.f.openPopup(_popup);
         return false;
     });
+
+
 }

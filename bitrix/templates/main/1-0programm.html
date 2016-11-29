@@ -838,7 +838,7 @@
                 <label class="input-label">Ваше имя</label>
               </div>
               <div class="input-wrapper">
-                <input class="input-main" type="email">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
                 <label class="input-label">E-mail      </label>
               </div>
               <div class="input-wrapper req">
@@ -1015,6 +1015,97 @@
                 <div class="m-nav-link left">Новый расчёт</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="programm">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium">
+          <div class="modal-container-header">
+            <div class="h-title h2">Добавить программу</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form">
+              <ul class="checkbox-wrap">
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="800-1000 ккал"><span class="input-fake">800-1000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1000-1200 ккал"><span class="input-fake">1000-1200 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1400-1600 ккал"><span class="input-fake">1400-1600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1600-1800 ккал"><span class="input-fake">1600-1800 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1800-2000 ккал"><span class="input-fake">1800-2000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2100-2300 ккал"><span class="input-fake">2100-2300 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2600-2900 ккал"><span class="input-fake">2600-2900 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2900-3200 ккал"><span class="input-fake">2900-3200 ккал</span>
+                                  </label>
+                                </li>
+              </ul>
+              <div class="slider-wrap js-slider-wrap">
+                <div class="slider-text-wrapper">
+                  <div class="slider-weeks"><span class="js-slider-info js-slider-week" data-index-1="1 день" data-index-2="1 неделя" data-index-3="2 недели" data-index-5="1 месяц"></span>
+                    <!--размер скидки--><span class="discount js-slider-info" data-index-1="0%" data-index-2="-4%" data-index-3="-16%" data-index-5="-32%"></span>
+                  </div>
+                  <div class="slider-amount">
+                    <!-- цена--><span class="js-slider-info js-slider-price" data-index-1="1600" data-index-2="1500" data-index-3="1400" data-index-5="1300"></span>₽/день
+                    <!--цена * значение отсюда =  .form-total-count-->
+                    <div class="js-slider-info js-slider-x" data-index-1="1" data-index-2="7" data-index-3="15" data-index-5="30"></div>
+                  </div>
+                </div>
+                <div id="rangeinput"><i class="dot dot25"></i><i class="dot dot50"></i><i class="dot dot0"></i><i class="dot dot100"></i></div>
+              </div>
+              <div class="form-footer">
+                <div class="form-total">
+                  <!--сюда сумма -->
+                  <div class="form-total-count"></div>
+                  <!--сюда недели-->
+                  <div class="form-total-week s-medium u-halfgray"></div>
+                </div>
+                <div class="form-buttons"><a class="btn btn-black" href="#">Добавить     </a></div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

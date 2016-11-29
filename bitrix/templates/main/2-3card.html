@@ -60,7 +60,8 @@
             </div>
           </header>
           <main class="page__content">
-            <div class="pagehead-wrap text-center" style="background-image: url(img/hbg.png)">
+            <!--.error-page для страниц ошибок типа этой и 404-->
+            <div class="pagehead-wrap error-page text-center" style="background-image: url(img/hbg.png)">
               <div class="inner-content">
                 <div class="pagehead-content">
                   <h1 class="h-title h1 u-white">Мой заказ</h1>
@@ -69,127 +70,11 @@
                 </div>
               </div>
             </div>
-            <div class="inner-content center-content">
-              <div class="center-box">
-                <div class="white-box">
-                  <div class="h-title h2">Программы в заказе</div>
-                  <div class="table">
-                    <div class="table-head">
-                      <div class="table-item table-name">Рацион</div>
-                      <div class="table-item table-period">Период</div>
-                      <div class="table-item table-count">Кол-во</div>
-                      <div class="table-item table-total">Стоимость</div>
-                      <div class="table-item table-delete"></div>
-                    </div>
-                                          <div class="table-row">
-                                            <div class="table-item table-name">
-                                              <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
-                                            </div>
-                                            <div class="table-item table-period">
-                                              <div class="text1">2 недели</div>
-                                            </div>
-                                            <div class="table-item table-count">
-                                              <div class="number-wrap">
-                                                <div class="number js-number" data-max-number="100" data-step="1">
-                                                  <button class="number__minus js-minus-number" type="button" tabindex="0"></button>
-                                                  <input class="number__input js-price-input" type="number" tabindex="0">
-                                                  <button class="number__plus js-plus-number" type="button" tabindex="0"></button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="table-item table-total">
-                                              <div class="elem-price">45 000 ₽</div>
-                                            </div>
-                                            <div class="table-item table-delete"><i class="small-link close"></i></div>
-                                          </div>
-                                          <div class="table-row">
-                                            <div class="table-item table-name">
-                                              <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
-                                            </div>
-                                            <div class="table-item table-period">
-                                              <div class="text1">2 недели</div>
-                                            </div>
-                                            <div class="table-item table-count">
-                                              <div class="number-wrap">
-                                                <div class="number js-number" data-max-number="100" data-step="1">
-                                                  <button class="number__minus js-minus-number" type="button" tabindex="0"></button>
-                                                  <input class="number__input js-price-input" type="number" tabindex="0">
-                                                  <button class="number__plus js-plus-number" type="button" tabindex="0"></button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="table-item table-total">
-                                              <div class="elem-price">45 000 ₽</div>
-                                            </div>
-                                            <div class="table-item table-delete"><i class="small-link close"></i></div>
-                                          </div>
-                                          <div class="table-row">
-                                            <div class="table-item table-name">
-                                              <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
-                                            </div>
-                                            <div class="table-item table-period">
-                                              <div class="text1">2 недели</div>
-                                            </div>
-                                            <div class="table-item table-count">
-                                              <div class="number-wrap">
-                                                <div class="number js-number" data-max-number="100" data-step="1">
-                                                  <button class="number__minus js-minus-number" type="button" tabindex="0"></button>
-                                                  <input class="number__input js-price-input" type="number" tabindex="0">
-                                                  <button class="number__plus js-plus-number" type="button" tabindex="0"></button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="table-item table-total">
-                                              <div class="elem-price">45 000 ₽</div>
-                                            </div>
-                                            <div class="table-item table-delete"><i class="small-link close"></i></div>
-                                          </div>
-                                          <div class="table-row">
-                                            <div class="table-item table-name">
-                                              <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
-                                            </div>
-                                            <div class="table-item table-period">
-                                              <div class="text1">2 недели</div>
-                                            </div>
-                                            <div class="table-item table-count">
-                                              <div class="number-wrap">
-                                                <div class="number js-number" data-max-number="100" data-step="1">
-                                                  <button class="number__minus js-minus-number" type="button" tabindex="0"></button>
-                                                  <input class="number__input js-price-input" type="number" tabindex="0">
-                                                  <button class="number__plus js-plus-number" type="button" tabindex="0"></button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="table-item table-total">
-                                              <div class="elem-price">45 000 ₽</div>
-                                            </div>
-                                            <div class="table-item table-delete"><i class="small-link close"></i></div>
-                                          </div>
-                  </div>
-                  <div class="u-light s-medium u-halfgray">Внимание: заказ обмену или возврату не подлежит.</div>
-                  <div class="form-footer">
-                    <div class="form-buttons">
-                      <!--.error для ошибки, .succes ,чтобы появилась кнопка ниже, либо какой класс попросишь-->
-                      <form class="promo-form">
-                        <input class="promo-form-input js-focus" type="text" placeholder="Промокод">
-                        <button class="promo-form-submit u-bold u-white s-text" type="submit">Ок</button>
-                      </form>
-                      <button class="trans-btn cancel">Отменить промокод</button>
-                    </div>
-                    <div class="form-total"> 
-                      <div class="form-total-count">45 000 ₽</div>
-                      <div class="form-total-week s-medium u-halfgray">90 000 ₽, Скидка -5%</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="menu-nav">
-                  <div class="menu-nav-inner">
-                    <button class="trans-btn add js-popup-button" type="button" data-modal="programm">Добавить программу</button><a class="btn btn-black btn-big" href="#">Оформить Заказ</a>
-                    <!--ну пусть для красоты будет-->
-                    <button class="trans-btn add" style="opacity: 0; ponter-events: none">Добавить программу</button>
-                  </div>
-                </div>
-              </div>
+            <div class="error-wrap">
+              <div class="error-text">
+                <div class="h-title h2">Ваша корзина пуста</div>
+                <div class="text1">Начните покупки прямо сейчас, выберите подходящий рацион и начните питаться вкусно и полезно!</div>
+              </div><a class="btn btn-medium btn-black" href="#">выбрать программу</a>
             </div>
           </main>
           <footer class="page__footer" style="background-image: url(img/fbg.jpg)">
