@@ -232,7 +232,7 @@
                 <textarea class="input-main" rows="4" data-validation="length required" data-validation-error-msg="Не заполнено"></textarea>
                 <label class="input-label">Сообщение  </label>
               </div>
-              <button class="btn no-arr btn-black" type="submit">Отправить          </button>
+              <button class="btn no-arr btn-black" type="submit">Отправить  </button>
             </form>
           </div>
         </div>
@@ -242,7 +242,54 @@
             <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.     </div>
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="login">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Войти в кабинет</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                <label class="input-label">Пароль </label>
+                <div class="link-pass-wrap">
+                  <button class="link-pass-forgot" type="button">Забыл(а) пароль</button>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="form modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail    </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить     </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">На ваш e-mail отправлено письмо для восстановления пароля. Проверьте вашу почту.              </div>
           </div>
         </div>
       </div>

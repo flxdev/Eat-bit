@@ -26,14 +26,48 @@
         .input-wrapper.req
           textarea.input-main(rows='4',data-validation="length required",data-validation-error-msg="Не заполнено")
           label.input-label Сообщение  
-        button(type='submit').btn.no-arr.btn-black Отправить          
+        button(type='submit').btn.no-arr.btn-black Отправить  
   //контейнер модалки  
   .modal-container.modal-small(style='display: none')
     .modal-container-header
       .h-title.h2 Спасибо
       i.small-link.pop-close.closePopup
     .modal-container-content
-      .text1 Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.     
+      .text1 Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  
+.modal-layout(data-modal='login').js-popup-container
+  //контейнер модалки
+  .modal-container.modal-small
+    .modal-container-header
+      .h-title.h2 Войти в кабинет
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      form.modal-form.js-validate
+        .input-wrapper
+          input.input-main(type="email",data-validation="email",data-validation-error-msg="Не заполнено")
+          label.input-label E-mail      
+        .input-wrapper.req
+          input.input-main(type="password",data-validation="required",data-validation-error-msg="Это обязательное поле")
+          label.input-label Пароль 
+          .link-pass-wrap
+            button(type='button').link-pass-forgot Забыл(а) пароль
+        button(type='submit').btn.no-arr.btn-black Войти
+  //контейнер модалки  
+  .modal-container.modal-small(style='display: none')
+    .modal-container-header
+      .h-title.h2 Восстановление пароля
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .form.modal-form.js-validate
+        .input-wrapper
+          input.input-main(type="email",data-validation="email",data-validation-error-msg="Не заполнено")
+          label.input-label E-mail    
+        button(type='submit').btn.no-arr.btn-black Отправить     
+  .modal-container.modal-small(style='display: none')
+    .modal-container-header
+      .h-title.h2 Восстановление пароля
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .text1 На ваш e-mail отправлено письмо для восстановления пароля. Проверьте вашу почту.              
 .modal-layout(data-modal='oneclick').js-popup-container
   //контейнер модалки
   .modal-container.modal-small

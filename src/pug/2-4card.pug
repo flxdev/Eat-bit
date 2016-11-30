@@ -41,13 +41,18 @@ block content
           .h-title.h5 Дата и адрес доставки
           .inputs-cont
             .input-item.s-50
-              .input-wrapper.req.js-date
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+              .input-wrapper.req.date
+                input#datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
                 label.input-label Дата первой доставки
+
             .input-item.s-50
-              .input-wrapper.req
+              .input-wrapper.req.js-text-input
                 input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
                 label.input-label Город
+                .dropdown-target
+                  .dropdown-inner
+                    .dropdown-content
+                      p сюда выплевываем список городов
             .input-item.s-50
               .input-wrapper.req
                 input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
@@ -78,7 +83,7 @@ block content
                 label.input-label Домофон
             .input-item.s-100
               .input-wrapper.s-100
-                textarea.input-main(rows='4')
+                textarea.input-main(rows='3')
                 label.input-label Комментарий для курьера
           .h-title.h5 Удобное время для доставки
           ul.checkbox-wrap
@@ -102,12 +107,11 @@ block content
           p.helptext Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.
           button(type='button').trans-btn.add.borderb
             span Добавить адрес доставки
-            .notify-btn.dropdown-trigger
-              i.notify-i
-              .dropdown-target
-                .dropdown-inner
-                 .dropdown-content
-                    .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
+          .notify-btn.dropdown-trigger
+            .dropdown-target
+              .dropdown-inner
+               .dropdown-content
+                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
         .white-box
           .h-title.h2 Способ оплаты
           .h-title.h5 При получении курьеру

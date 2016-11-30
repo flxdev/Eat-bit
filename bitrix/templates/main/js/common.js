@@ -230,11 +230,56 @@ if (form_form.length) {
     });
 };
 }validateForms();
-function FocusInput(){
+function updateToSelectMenu() {
+    $('.ui-datepicker-title select').selectmenu({
+    select: function(e) {
+      $(this).trigger('change');
+      updateToSelectMenu();
+    }
+  })
+  $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
+}
+function datepick(){
+var item = $( "#datepicker" );
+    item.each(function(){
+        var _ = $(this);
+        _.datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dayNamesMin: ["Вс" , "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+            monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            minDate: 0,
+            beforeShow: function() {
+                setTimeout(function() {
+                    updateToSelectMenu()
+                },0);
+            },
+            onChangeMonthYear: function() {
+                setTimeout(function() {
+                    updateToSelectMenu()
+                },0);
+           }
+        });
+    })
+$("body").add('.out').add('.page__outer').scroll(function() {
+  item.datepicker('hide');
+  $('#datepicker').blur();
+});
+
+$(window).resize(function() {
+  item.datepicker('hide');
+  $('#datepicker').blur();
+});
+}datepick();
+
+function FocusI(){
     var input = $('.input-main');
         input.each(function(){
             var _ = $(this);
             _.on('focus',function(){
+
                 var parent = _.parent();
                 parent.addClass('in-focus');
 
@@ -243,7 +288,8 @@ function FocusInput(){
                 })
             })
         })
-} FocusInput();
+} FocusI();
+
 function initCustomSelectList() {
     var _conf = {
             initClass: 'cs-active',

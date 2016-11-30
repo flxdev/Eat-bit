@@ -4,6 +4,9 @@ input::-webkit-clear-button,
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button 
   -webkit-appearance: none;
+input[type="password"]
+  font: small-caption
+
 input
   box-shadow : none
 button
@@ -1209,7 +1212,8 @@ body, .out,html
   transition-delay: 0.15s
   +rem(max-height,1000px)
   +rem(padding-bottom,15px)
-.js-select-trigger.active,.js-select-item.active,.js-select-custom.active
+
+.js-select-trigger.active,.js-select-item.active,.js-select-custom.active,.input-wrapper.in-focus
   .dropdown-target
     transition-delay: 0.15s
     +rem(max-height,1000px)
@@ -2581,6 +2585,7 @@ body, .out,html
     width: 100%
     opacity: 0
     color: #000
+    transition: padding .3s, font-size .3s
   &-label
     color: #999; 
     +rem(font-size,20px)
@@ -2617,6 +2622,8 @@ body, .out,html
   +rem(top,30px)
 .input-wrapper.has-success .input-main
   color: #000
+  +rem(font-size,20px)
+  +rem(padding-top,24px)
 .modal-form
   +rem(margin-top,20px)
 .btn-calc
@@ -2879,20 +2886,24 @@ body, .out,html
   font-weight: 300
   white-space: nowrap
   position: relative
-  .notify-btn
+  &+.notify-btn
     display: inline-block
     +rem(width,12px)
     +rem(height,12px)
     vertical-align: middle  
-    position: static
     +rem(margin-left,4px)
     +contain
+    cursor: pointer
     background-image: url(../img/icons/question.svg)
-  .dropdown-target
-    transition-delay: 0s
-    width: 150%
-    +rem(margin-top,15px)
-    padding-top:  0
+    .dropdown-target
+      transition-delay: 0s
+      +rem(width,380px)
+      +rem(right,-100px)
+      left: auto
+      +rem(margin-top,15px)
+      padding-top:  0
+      +r(544)
+        width: 130%
   .dropdown-content
     white-space: normal
     background: $white
@@ -2991,7 +3002,8 @@ body, .out,html
     display: inline-block
     vertical-align: top
     +rem(padding-right,25px)
-
+    .input-wrapper
+      +rem(margin-bottom,25px)
 .s
   &-100
     width: 100%
@@ -3067,4 +3079,166 @@ body, .out,html
   dt
     .s-text
       display: block 
-    
+
+select
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+.ui-datepicker-month, .ui-datepicker-year
+  border: none;
+  background-color: white;
+  border-color: none;
+#ui-datepicker-div .ui-selectmenu-menu, #ui-datepicker-div .ui-selectmenu-button
+  width: 35%;
+  +rem(font-size,16px)
+  +r(544)
+    width: 50%;
+.ui-menu
+  max-height: 200px !important;
+#ui-datepicker-div .ui-selectmenu-button
+  opacity: 0.7
+  &:hover
+    opacity: 1
+.ui-datepicker
+  +rem(font-size,16px)
+  font-weight: 300
+  border: none !important
+  box-shadow: 0px 1px 10px 0px rgba( 0, 0, 0, 0.15);
+  +rem(max-width,343px)
+  width: 80%
+  +rem(margin-top,11px)
+  +rem(padding-top,11px)
+  +r(480)
+    width: 70%
+  .ui-datepicker-calendar
+    +rem(margin, 0 0 20px)
+  & *:not(.ui-menu-item)
+    border: none !important
+    font-family: cera
+    &:hover
+      border: none 
+    &:active
+      background: $white
+      color: $text
+    a
+      border: none !important
+  th
+    span
+      +rem(font-size,12px)
+      font-family: cera
+  td 
+    +rem(padding,4px 2px 9px)
+  .ui-selectmenu-button
+    background: $white
+    text-align: center
+    +tr(opacity .3s)
+    &.ui-selectmenu-button-open
+      opacity: 1 !important
+      .ui-selectmenu-icon
+        transform: scale(1,-1)
+  .ui-selectmenu-text
+    +rem(font-size,16px)
+    font-weight: 300
+    margin: 0
+  .ui-selectmenu-icon
+    background-image: url(../img/icons/poligon.svg)
+    +contain
+    background-size: 8px 13px
+    left: auto
+    +rem(top,3px)
+  .ui-menu-item-wrapper
+    font-weight: 300
+  .ui-menu
+    +rem(max-width,100px)
+    +rem(margin-top,5px)
+    box-shadow: 0px 1px 10px 0px rgba( 0, 0, 0, 0.15);
+  .ui-state-active
+    background-color: #000
+.ui-datepicker-header
+  background: $white
+  .ui-button
+    padding: 0
+  .ui-datepicker-prev
+    transform: scale(-1,1)
+  .ui-datepicker-next,.ui-datepicker-prev
+    background: 0 0
+    cursor: pointer
+    &.ui-datepicker-next-hover
+      right: 2px 
+      top: 2px
+    &.ui-datepicker-prev-hover
+      left: 2px 
+      top: 2px
+    &.ui-state-active
+      .ui-icon
+        background-color: #FFF
+
+    .ui-icon
+      +contain
+      background-image: url(../img/icons/arrow_forward.svg)
+      +rem(height,11px)
+      margin-top: 0
+.ui-datepicker td a, .ui-datepicker td span
+  text-align: center
+  +rem(font-size,16px)
+  &.ui-state-default
+    border-radius: 50%
+    background: 0 0
+  &.ui-state-active
+    background: #000
+    opacity: 1
+.ui-datepicker td a
+  +rem(width,23px)
+  +rem(height,23px)
+  opacity: .7
+  display: block
+  margin: 0 auto
+  +rem(padding,2px)
+  &:hover,&.ui-state-active
+    opacity: 1
+.ui-state-highlight
+  color: #000 !important
+  font-weight: 400
+  &.ui-state-active
+    color: $white !important
+.ui-menu-item-wrapper
+  +tr(background .3s)
+
+.date
+  &:after
+    content: ''
+    display: inline-block
+    position: absolute
+    +rem(right,13px)
+    top: 0
+    bottom: 0
+    height: 100%
+    background-image: url(../img/icons/calendar.svg)
+    background-position: bottom 15px center 
+    background-repeat: no-repeat
+    +rem(background-size, 22px 22px)
+    +rem(width,30px)
+    z-index: 0
+  .input-main
+    cursor: pointer
+.link-pass
+  &-wrap
+    position: absolute
+    right: 0
+    bottom: 0
+    top: 0
+    height: 100%
+    +vertical
+  &-forgot
+    display: inline-block
+    vertical-align: middle
+    +rem(font-size,12px)
+    color: #585858
+    opacity: .7
+    +tr(opacity .3s)
+    +rem(padding-right,20px)
+    +rem(letter-spacing,0.4px)
+    &:hover
+      opacity: 1
+
+
