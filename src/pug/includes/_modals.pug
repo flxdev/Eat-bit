@@ -250,4 +250,18 @@
             //сюда недели
             .form-total-week.s-medium.u-halfgray
           .form-buttons
-            a(href="#").btn.btn-black Добавить     
+            a(href="#").btn.btn-black Добавить
+.modal-layout(data-modal='promo').js-popup-container
+  //контейнер модалки
+  .modal-container.modal-medium.modal-promo
+    .modal-container-header(style='background-image:url(img/news/3.jpg)')
+      i.small-link.pop-close.closePopup
+    .modal-container-content
+      .h-title.h2 Скидка 5% за репост
+      .text2 Сделайте репост при помощи кнопки «Поделиться» и сообщите об этом нашему менеджеру. И вы получите промокод на следующий заказ.
+      ul.list.promo-list
+        li Профиль должен быть открыт
+        li Репост можно сделать только 1 раз
+      .soc-btns
+        button(type='button').soc-btn.fb.share поделиться
+        button(type='button').soc-btn.vk.share поделиться

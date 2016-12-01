@@ -72,7 +72,7 @@
             <div class="inner-content center-content">
               <div class="center-box">
                 <form class="offer-form js-validate">
-                  <div class="white-box">
+                  <div class="white-box client">
                     <div class="h-title h2">Клиент
                       <button class="icon-link acc js-popup-button" type="button" data-modal="login"><i></i><span>Покупал(а) ранее</span></button>
                     </div>
@@ -103,7 +103,7 @@
                     <div class="inputs-cont">
                       <div class="input-item s-50">
                         <div class="input-wrapper req date">
-                          <input class="input-main" id="datepicker" type="text" readonly="true" data-validation="required" data-validation-error-msg="Не заполнено">
+                          <input class="datepicker input-main" type="text" readonly="true" data-validation="required" data-validation-error-msg="Не заполнено">
                           <label class="input-label">Дата первой доставки</label>
                         </div>
                       </div>
@@ -210,6 +210,126 @@
                         <div class="dropdown-inner">
                           <div class="dropdown-content">
                             <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-box">
+                    <div class="h-title h2">Дополнительный адрес
+                      <button class="icon-link close js-popup-button" type="button"><i></i><span>Удалить</span></button>
+                    </div>
+                    <div class="h-title h5">Дата и адрес доставки</div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req date">
+                          <input class="datepicker input-main" type="text" readonly="true" data-validation="required" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Дата первой доставки</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req js-text-input">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Город</label>
+                          <div class="dropdown-target">
+                            <div class="dropdown-inner">
+                              <div class="dropdown-content">
+                                <p>сюда выплевываем список городов</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Улица</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Дом   </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">     
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Корпус</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Подъезд</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Кв./оф</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Этаж</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Домофон</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-100">
+                        <div class="input-wrapper s-100">
+                          <textarea class="input-main" rows="3"></textarea>
+                          <label class="input-label">Комментарий для курьера</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-title h5">Удобное время для доставки</div>
+                    <ul class="checkbox-wrap">
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="06" data-validation="required"><span class="input-fake small"><span>06<sup>00</sup></span>- <span>07<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="08" data-validation="required"><span class="input-fake small"><span>08<sup>00</sup></span>- <span>09<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="10" data-validation="required"><span class="input-fake small"><span>10<sup>00</sup></span>- <span>11<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                                            <li class="checkbox-item">
+                                              <label class="checkbox-outer"> 
+                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                              </label>
+                                            </li>
+                    </ul>
+                    <p class="helptext">Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.</p>
+                    <p class="helptext">Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.</p>
+                    <button class="trans-btn add borderb" type="button"><span>Добавить адрес доставки</span></button>
+                    <div class="notify-btn dropdown-trigger">
+                      <div class="dropdown-target">
+                        <div class="dropdown-inner">
+                          <div class="dropdown-content">
+                            <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.                  </div>
                           </div>
                         </div>
                       </div>
@@ -737,9 +857,27 @@
                   <!--сюда недели-->
                   <div class="form-total-week s-medium u-halfgray"></div>
                 </div>
-                <div class="form-buttons"><a class="btn btn-black" href="#">Добавить     </a></div>
+                <div class="form-buttons"><a class="btn btn-black" href="#">Добавить</a></div>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="promo">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium modal-promo">
+          <div class="modal-container-header" style="background-image:url(img/news/3.jpg)"><i class="small-link pop-close closePopup"></i></div>
+          <div class="modal-container-content">
+            <div class="h-title h2">Скидка 5% за репост</div>
+            <div class="text2">Сделайте репост при помощи кнопки «Поделиться» и сообщите об этом нашему менеджеру. И вы получите промокод на следующий заказ.</div>
+            <ul class="list promo-list">
+              <li>Профиль должен быть открыт</li>
+              <li>Репост можно сделать только 1 раз</li>
+            </ul>
+            <div class="soc-btns">
+              <button class="soc-btn fb share" type="button">поделиться</button>
+              <button class="soc-btn vk share" type="button">поделиться</button>
+            </div>
           </div>
         </div>
       </div>

@@ -230,6 +230,28 @@ if (form_form.length) {
     });
 };
 }validateForms();
+
+function Accordeon(){
+if($('.js-accordion-trigger').length){
+    var maintrigger = $('.js-accordion-trigger'),
+        body = $('.js-accordion-body'),
+        truetrigger = maintrigger;
+        maintrigger.not('.active').siblings(body).hide();
+        truetrigger.on('click',function(event){
+            var parent = $(this).parent(),
+                target = parent.find(body);
+            if(parent.hasClass('active')){
+                parent.removeClass('active').find(body).slideUp(300);
+            }else{
+                parent.addClass('active').find(body).slideDown(300, function(){
+                        // var pos = parent.position().top;
+                        // jQuery(".out:not(:animated)").animate({scrollTop: pos + 200}, 500)
+                });
+            }
+        });
+    }
+}Accordeon();
+
 function updateToSelectMenu() {
     $('.ui-datepicker-title select').selectmenu({
     select: function(e) {
@@ -240,7 +262,7 @@ function updateToSelectMenu() {
   $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
 }
 function datepick(){
-var item = $( "#datepicker" );
+var item = $( ".datepicker" );
     item.each(function(){
         var _ = $(this);
         _.datepicker({

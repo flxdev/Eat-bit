@@ -18,7 +18,7 @@ block content
   .inner-content.center-content
     .center-box
       form.offer-form.js-validate
-        .white-box
+        .white-box.client
           .h-title.h2 Клиент
             button(type="button",data-modal='login').icon-link.acc.js-popup-button
               i
@@ -42,7 +42,7 @@ block content
           .inputs-cont
             .input-item.s-50
               .input-wrapper.req.date
-                input#datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
+                input.datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
                 label.input-label Дата первой доставки
 
             .input-item.s-50
@@ -112,6 +112,85 @@ block content
               .dropdown-inner
                .dropdown-content
                   .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
+        .white-box
+          .h-title.h2 Дополнительный адрес
+            button(type="button").icon-link.close.js-popup-button
+              i
+              span Удалить
+          .h-title.h5 Дата и адрес доставки
+          .inputs-cont
+            .input-item.s-50
+              .input-wrapper.req.date
+                input.datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
+                label.input-label Дата первой доставки
+
+            .input-item.s-50
+              .input-wrapper.req.js-text-input
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Город
+                .dropdown-target
+                  .dropdown-inner
+                    .dropdown-content
+                      p сюда выплевываем список городов
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Улица
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Дом   
+            .input-item.s-25      
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Корпус
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Подъезд
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Кв./оф
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Этаж
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Домофон
+            .input-item.s-100
+              .input-wrapper.s-100
+                textarea.input-main(rows='3')
+                label.input-label Комментарий для курьера
+          .h-title.h5 Удобное время для доставки
+          ul.checkbox-wrap
+            mixin Check(name,name2)
+              li.checkbox-item
+                label.checkbox-outer 
+                  input.input-real(type="radio",name='group',value = name,data-validation="required")
+                  span.input-fake.small
+                    span #{name}
+                      sup 00
+                    | - 
+                    span #{name2}
+                      sup 00
+            +Check('06','07')
+            +Check('07','08')
+            +Check('08','09')
+            +Check('10','11')
+            +Check('07','08')
+            +Check('07','08')
+          p.helptext Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.
+          p.helptext Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.
+          button(type='button').trans-btn.add.borderb
+            span Добавить адрес доставки
+          .notify-btn.dropdown-trigger
+            .dropdown-target
+              .dropdown-inner
+               .dropdown-content
+                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.                  
         .white-box
           .h-title.h2 Способ оплаты
           .h-title.h5 При получении курьеру

@@ -1,0 +1,59 @@
+extends _layout
+
+block title
+  title Мой заказ
+
+block content
+  .pagehead-wrap.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Оформление заказа
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+  .inner-content.center-content
+    .center-box
+      form.offer-form.js-validate
+        .white-box.client
+          .h-title.h2 Войти в кабинет
+            button(type="button",data-modal='login').icon-link.acc.js-popup-button
+              i
+              span Зарегистрироваться
+          .inputs-cont
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="email",data-validation="email required",data-validation-error-msg="Не заполнено")
+                label.input-label E-mail 
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="password",data-validation="required",data-validation-error-msg="Это обязательное поле")
+                label.input-label Пароль 
+                .link-pass-wrap
+                  button(type='button').link-pass-forgot Забыл(а) пароль    
+        .menu-nav
+          .menu-nav-inner
+            input(type="submit", value=' Войти').btn.btn-black.btn-big
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
