@@ -1,0 +1,206 @@
+extends _layout
+
+block title
+  title мои данные
+
+block content
+  .pagehead-wrap.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white мои данные
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+        +bread('мои данные')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Мои данные"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('История заказов')
+        +accmenu('Мои данные')
+        +accmenu('Изменить пароль')
+        +accmenu('Подписка')
+        a(href="#").icon-link.exit 
+          i
+          span Выйти
+  .inner-content.center-content
+    .center-box
+      form.offer-form.js-validate
+        .white-box.client
+          .h-title.h2 Персональные данные
+          .inputs-cont
+            .input-item.s-100
+              .input-wrapper.req.disabled
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Ваше имя
+            .input-item.s-50
+              .input-wrapper.req.disabled
+                input.input-main(type="email",data-validation="email required",data-validation-error-msg="Не заполнено")
+                label.input-label E-mail 
+            .input-item.s-50
+              .input-wrapper.req.disabled
+                input.input-main(type="tel",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Телефон 
+        .white-box
+          .h-title.h2 Основной адрес
+          .inputs-cont
+            .input-item.s-50
+              .input-wrapper.req.js-text-input
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Город
+                .dropdown-target
+                  .dropdown-inner
+                    .dropdown-content
+                      p сюда выплевываем список городов
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Улица
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Подъезд
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Кв./оф                
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Дом   
+            .input-item.s-25      
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Корпус
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Этаж
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Домофон 
+          button(type='button').trans-btn.add.borderb
+            span Добавить дополнительный адрес
+          .notify-btn.dropdown-trigger
+            .dropdown-target
+              .dropdown-inner
+               .dropdown-content
+                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
+        .white-box
+          .h-title.h2 Дополнительный адрес
+            button(type="button").icon-link.close
+              i
+              span Удалить
+          .inputs-cont
+            .input-item.s-50
+              .input-wrapper.req.js-text-input
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Город
+                .dropdown-target
+                  .dropdown-inner
+                    .dropdown-content
+                      p сюда выплевываем список городов
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Улица
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Дом   
+            .input-item.s-25      
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Корпус
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Подъезд
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Кв./оф
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Этаж
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Домофон 
+        .white-box
+          .h-title.h2 Дополнительный адрес
+            button(type="button").icon-link.close
+              i
+              span Удалить
+          .inputs-cont
+            .input-item.s-50
+              .input-wrapper.req.js-text-input
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Город
+                .dropdown-target
+                  .dropdown-inner
+                    .dropdown-content
+                      p сюда выплевываем список городов
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Улица
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Дом   
+            .input-item.s-25      
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Корпус
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Подъезд
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Кв./оф
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="number",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                label.input-label Этаж
+            .input-item.s-25
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                label.input-label Домофон                              
+        .menu-nav
+          .menu-nav-inner
+            a(href="#").btn.btn-black.btn-big Оплатить
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

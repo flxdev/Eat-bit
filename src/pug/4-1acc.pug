@@ -1,0 +1,58 @@
+extends _layout
+
+block title
+  title Заказ принят
+
+block content
+  .pagehead-wrap.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Заказ принят
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+        +bread('Оформление заказа')
+  .inner-content.center-content
+    .center-box
+      .offer-form
+        .white-box.result-box
+          .h-title.h2 Оплата заказа
+          p.text1 Ваш заказ от 07.11.2016 на рационы питания:  
+            span 2300-2600 
+            span.cal ккал/день 
+            |и 
+            span 1400-1600 
+            span.cal ккал/день 
+            | с помощью выбранного вами способа. Номер оплаты: 547.
+          .gray-cont
+            .offer-result-text
+              .text1 Банковские карты 
+                img(src="img/paysmall/2.jpg", alt="")
+              .form-total-count 89 000 ₽
+        .menu-nav
+          .menu-nav-inner
+            a(href="#").btn.btn-black.btn-big Оплатить
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -6,11 +6,12 @@ input::-webkit-inner-spin-button
   -webkit-appearance: none;
 input[type="password"]
   font: small-caption
-  line-height: 1.5
+  line-height: 1.65
 .input-wrapper.has-success
   input[type="password"]
-    line-height: 0
-    +rem(padding-top,22px)
+    line-height: 1.6
+    +rem(padding-top,24px)
+    +rem(font-size,16px)
 input
   box-shadow : none
 button
@@ -23,6 +24,7 @@ a
   -webkit-tap-highlight-color: transparent
   +placeholder 
     font-family: 'cerar'
+
     +rem(letter-spacing, 0.2px)
     font-size: 11px
   +rm(768)
@@ -1029,7 +1031,13 @@ body, .out,html
         +rem(top,-7px)
       &:after
         background-image: url(../img/icons/repeat.svg) 
-        
+    &.small
+      i  
+        &:after,&:before           
+          +rem(width,20px)
+          +rem(height,20px)
+          +rem(top, -3px)
+          +rem(left,10px)
     &:hover
       i 
         &:after
@@ -1039,6 +1047,29 @@ body, .out,html
           &:after
             +tr(transform .3s)
             transform: rotate(360deg)
+  &.exit
+    opacity: 0.7
+    +tr(opacity .3s)
+    i 
+      &:after
+        +rem(width,20px)
+        +rem(height,20px)
+        background-image: url(../img/icons/exit.svg)
+        +rem(margin-top,-3px)
+        +rem(margin-left,-10px)
+        opacity: 0.7
+    span
+      color: #000
+      font-weight: 300
+      &:after
+        display: none
+    &:hover
+      opacity: 1
+
+
+      
+
+      
 .btn 
   font-family: cera
   text-transform: uppercase
@@ -2233,6 +2264,8 @@ body, .out,html
     .h-title
       text-transform: uppercase 
       +rem(letter-spacing,-1.8px)
+      +r(544)
+        +rem(font-size,32px)
     .u-number
       display: block
       font-weight: 100  
@@ -2723,10 +2756,12 @@ body, .out,html
     .pagehead-content
       +rem(padding-bottom,15px)
       +rem(padding-top,85px)
-  &.error-page
-    +rem(padding-bottom,20px)
+  &.pagehead-center
+    +rem(padding-bottom,0px)
+    +rem(padding-top,20px)
     .pagehead-content
        +rem(padding-bottom,85px) 
+
 
 .center
   &-content
@@ -2742,7 +2777,6 @@ body, .out,html
         +rem(padding,25px 20px)
       .h-title
         +rem(margin-bottom,40px)
-
         .icon-link
           float: right
           +rem(letter-spacing,0.4px)
@@ -3065,6 +3099,75 @@ body, .out,html
       .text1
         +rem(margin-bottom, 30px)
         +rem(margin-top, -15px)
+    &.offer
+      +rem(padding-top,35px)
+      +rem(padding-bottom,50px)
+      .result-wrapp
+        +rem(max-width,555px)
+        .result-offer
+          dt,dd
+            +rem(padding,25px 0 19px)
+          img
+            display: inline-block
+            +rem(max-width,200px)
+            width: 50%
+            vertical-align: middle
+            +r(544)
+              width: 80%
+          &.total
+            +rem(padding,14px 0 29px)
+            border-bottom: 0
+            +rm(544)
+              dt
+                width: 70%
+              dd
+                width: 30%
+
+      .buttons
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        +r(544)
+          flex-direction: column
+          align-items: center
+          .icon-link
+            +rem(margin-bottom,5px)
+            +rem(margin-left,-10px)
+      .table
+        border-bottom: 1px solid $borderl
+        margin-bottom: 0
+        .length
+          display: block
+          +rem(font-size,14px)
+          font-weight: 400
+        .table-period
+          width: 30%
+        .table-item 
+          +r(580)
+            padding-bottom: 5px
+            text-align: center
+        .table-row
+          &:last-child
+            .table-item
+              +rm(580)
+                +rem(padding-bottom,45px)
+        .table-head
+          .table-item
+            +rem(padding-top,6px)
+        .table-total,.table-count
+          +r(580)
+            width: 48%
+        .table-name
+          width: 23%
+        .table-delete
+          +rem(width,165px)
+          +r(580)
+            width: 100%
+            text-align: center
+            border-bottom: 1px solid $borderl
+        .table-total
+          white-space: nowrap
+
     &.result-box
       +rem(padding-bottom,60px)
       .h-title
@@ -3072,7 +3175,6 @@ body, .out,html
         & + .text1
           +r(544)
             text-align: justify
-            
           +rem(margin-bottom,37px)
           +rm(544)
             max-width: 90%
@@ -3085,11 +3187,11 @@ body, .out,html
     .gray-cont
       +rem(padding,38px 34px 45px 34px)
       +rem(margin-bottom,30px)
+      +r(580)
+        +rem(padding,25px 18px 27px 18px)
       .offer-result-text
-        text-align: center
-        +rm(580)
-          +justify
-          white-space: nowrap
+        display: flex
+        justify-content: space-between
         .text1
           display: inline-block
           text-align: left
@@ -3098,11 +3200,11 @@ body, .out,html
             +rem(max-width,200px)
             vertical-align: middle
           +r(580)
-            text-align: center
-            +rem(margin-bottom,10px)
+            width: 50%
         .form-total-count
           display: inline-block
-          text-align: right      
+          text-align: right
+          white-space: nowrap
   .checkbox-wrap
     +rem(margin-bottom,30px)
   .trans-btn.add.borderb
@@ -3490,3 +3592,86 @@ select
       width: 0
 .gray-cont
   background: $gray
+.acc
+  &-wrap
+    border-bottom: 1px solid $borderl
+    &+ .center-content
+      +rem(margin-top, 56px)
+      +r(991)
+        +rem(margin-top, 28px)
+    .box-standart
+      +clr 
+    +r(991)
+      box-shadow: 0px 1px 10px 0px rgba( 0, 0, 0, 0.15);
+  &-menu
+    text-align: center
+    position: relative
+    +gpu
+    transition: max-height .3s, overflow .5s .1s
+    max-height: 0
+    overflow: hidden
+    +rm(991)
+      max-height: 1000px
+      overflow: visible
+      +padlr(60px)
+    &-item
+      +padlr(14px)
+      display: inline-block
+      +r(991)
+        width: 100%
+        +rem(margin-bottom,5px)
+        span    
+          +rem(padding,17px 0 10px)
+          width: auto
+      span
+        display: inline-block
+        width: 100%
+        height: 100%
+        font-weight: 400
+        color: #000
+        opacity: .7
+        +rem(font-size,14px)
+        text-transform: uppercase
+        +rem(margin-bottom,-1px)
+        +rem(padding,32px 0 28px)
+        border-bottom: 4px solid transparent
+        position: relative
+        +tr(opacity .3s)
+        &:hover
+          opacity: 1
+      &.active
+        span
+          border-bottom-color: #000
+          font-weight: 700
+          opacity: 1
+    .icon-link
+      position: absolute
+      right: 0
+      +rem(padding,32px 0 28px)
+      +r(991)
+        +rem(padding,15px 0)
+        position: static
+        +rem(margin-bottom,20px)
+.mobile-dropdowm-trigger
+  display: none
+  +r(991)
+    display: block
+    cursor: pointer
+    +rem(padding,20px 0 17px)
+    +rem(margin-bottom,5px)
+    text-transform: uppercase 
+    &.active
+      & +.acc-menu
+        +r(991)
+          max-height: 1000px
+          overflow: visible
+      .arrow-icon
+        transform: scale(1,-1)
+    .arrow-icon
+      display: inline-block
+      float: right
+      +rem(width,12px)
+      +rem(margin-top,4px)
+      +rem(height,12px)
+      background: url(../img/icons/arrow_down.svg) no-repeat center
+      transform-origin: 50%

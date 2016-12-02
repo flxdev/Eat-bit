@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Мой заказ</title>
+    <title>Иcтория заказов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta content="True" name="HandheldFriendly">
@@ -60,21 +60,256 @@
             </div>
           </header>
           <main class="page__content">
-            <!--.pagehead-center для страниц ошибок типа этой и 404 и страниц аккаунта-->
-            <div class="pagehead-wrap pagehead-center text-center" style="background-image: url(img/hbg.png)">
+            <!-- тут новый модификатор-->
+            <div class="pagehead-wrap text-center pagehead-center" style="background-image: url(img/hbg.png)">
               <div class="inner-content">
                 <div class="pagehead-content">
-                  <h1 class="h-title h1 u-white">Мой заказ</h1>
+                  <h1 class="h-title h1 u-white">Иcтория заказов</h1>
                 </div>
-                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Мой заказ</span></a>
+                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Кабинет</span></a><a class="icon-link" href="#"><i> </i><span>История заказов</span></a>
                 </div>
               </div>
             </div>
-            <div class="error-wrap">
-              <div class="error-text">
-                <div class="h-title h2">Ваша корзина пуста</div>
-                <div class="text1">Начните покупки прямо сейчас, выберите подходящий рацион и начните питаться вкусно и полезно!</div>
-              </div><a class="btn btn-medium btn-black" href="#">выбрать программу</a>
+            <div class="acc-wrap">
+              <div class="box-standart">
+                <div class="mobile-dropdowm-trigger"><span class="u-bold">Открыть меню</span><i class="arrow-icon"></i></div>
+                <div class="acc-menu"><a class="acc-menu-item active" href="#"><span>История заказов</span></a><a class="acc-menu-item" href="#"><span>Мои данные</span></a><a class="acc-menu-item" href="#"><span>Изменить пароль</span></a><a class="acc-menu-item" href="#"><span>Изменить пароль</span></a><a class="acc-menu-item" href="#"><span>Изменить пароль</span></a><a class="acc-menu-item" href="#"><span>Подписка</span></a><a class="icon-link exit" href="#"> <i></i><span>Выйти</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="inner-content center-content">
+              <div class="center-box">
+                <form class="offer-form js-validate">
+                  <div class="white-box offer">
+                    <div class="h-title h2">Заказ 07.11.2016</div>
+                    <div class="table">
+                      <div class="table-head">
+                        <div class="table-item table-name">Рацион</div>
+                        <div class="table-item table-period">Период</div>
+                        <div class="table-item table-count">Кол-во</div>
+                        <div class="table-item table-total">Стоимость</div>
+                        <div class="table-item table-delete"></div>
+                      </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                    </div>
+                    <div class="result-wrapp">
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Заказ на сумму</span></dt>
+                        <dd class="text1"> <span>90 000 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Скидка по промокоду</span></dt>
+                        <dd class="text1"> <span>4 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Доставка<span class="s-text h5 u-halfgray">250 ₽ х 2 недели</span></span></dt>
+                        <dd class="text1"> <span>3 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer total">
+                        <dt class="text1"> <span>Банковские карты </span><img src="img/paysmall/1.jpg" alt=""></dt>
+                        <dd class="form-total-count"><span>89 000 ₽</span></dd>
+                      </dl>
+                      <div class="buttons"><a class="icon-link repeat small" href="#"><i></i><span>Повторить весь заказ</span></a><a class="btn btn-black" href="#">Оплатить</a></div>
+                    </div>
+                  </div>
+                  <div class="white-box offer">
+                    <div class="h-title h2">Заказ 07.11.2016</div>
+                    <div class="table">
+                      <div class="table-head">
+                        <div class="table-item table-name">Рацион</div>
+                        <div class="table-item table-period">Период</div>
+                        <div class="table-item table-count">Кол-во</div>
+                        <div class="table-item table-total">Стоимость</div>
+                        <div class="table-item table-delete"></div>
+                      </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                    </div>
+                    <div class="result-wrapp">
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Заказ на сумму</span></dt>
+                        <dd class="text1"> <span>90 000 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Скидка по промокоду</span></dt>
+                        <dd class="text1"> <span>4 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Доставка<span class="s-text h5 u-halfgray">250 ₽ х 2 недели</span></span></dt>
+                        <dd class="text1"> <span>3 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer total">
+                        <dt class="text1"> <span>Оплата наличными курьеру</span></dt>
+                        <dd class="form-total-count"><span>89 000 ₽</span></dd>
+                      </dl>
+                      <div class="buttons"><a class="icon-link repeat small" href="#"><i></i><span>Повторить весь заказ</span></a><a class="btn btn-black" href="#">Оплатить</a></div>
+                    </div>
+                  </div>
+                  <div class="white-box offer">
+                    <div class="h-title h2">Заказ 07.11.2016</div>
+                    <div class="table">
+                      <div class="table-head">
+                        <div class="table-item table-name">Рацион</div>
+                        <div class="table-item table-period">Период</div>
+                        <div class="table-item table-count">Кол-во</div>
+                        <div class="table-item table-total">Стоимость</div>
+                        <div class="table-item table-delete"></div>
+                      </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                                              <div class="table-row">
+                                                <div class="table-item table-name">
+                                                  <div class="elem-price">2300-2600<span class="s-medium u-reg u-halfgray">ккал/день</span></div>
+                                                </div>
+                                                <div class="table-item table-period">
+                                                  <div class="text1">2 недели<span class="length">08.11.2016-14.11.2016</span></div>
+                                                </div>
+                                                <div class="table-item table-count">
+                                                  <div class="text1">1</div>
+                                                </div>
+                                                <div class="table-item table-total">
+                                                  <div class="elem-price">45 000 ₽</div>
+                                                </div>
+                                                <div class="table-item table-delete"><a class="icon-link repeat small" href="#"><i></i><span>Повторить</span></a></div>
+                                              </div>
+                    </div>
+                    <div class="result-wrapp">
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Заказ на сумму</span></dt>
+                        <dd class="text1"> <span>90 000 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Скидка по промокоду</span></dt>
+                        <dd class="text1"> <span>4 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer">
+                        <dt class="text2"> <span>Доставка<span class="s-text h5 u-halfgray">250 ₽ х 2 недели</span></span></dt>
+                        <dd class="text1"> <span>3 500 ₽</span></dd>
+                      </dl>
+                      <dl class="result-offer total">
+                        <dt class="text1"> <span>Оплата наличными курьеру</span></dt>
+                        <dd class="form-total-count"><span>89 000 ₽</span></dd>
+                      </dl>
+                      <div class="buttons"><a class="icon-link repeat small" href="#"><i></i><span>Повторить весь заказ</span></a><a class="btn btn-black" href="#">Оплатить</a></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </main>
           <footer class="page__footer" style="background-image: url(img/fbg.jpg)">

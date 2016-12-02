@@ -797,7 +797,13 @@ if($('.js-accordion-trigger').length){
         });
     }
 }Accordeon();
+function mobileFilter(){
+    var trigger = $('.mobile-dropdowm-trigger');
 
+    trigger.on('click', function(){
+        $(this).toggleClass('active');
+    })
+}mobileFilter();
 function updateToSelectMenu() {
     $('.ui-datepicker-title select').selectmenu({
     select: function(e) {

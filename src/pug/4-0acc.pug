@@ -1,0 +1,214 @@
+extends _layout
+
+block title
+  title Иcтория заказов
+
+block content
+  // тут новый модификатор
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Иcтория заказов
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Кабинет')
+        +bread('История заказов')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "История заказов"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('История заказов')
+        +accmenu('Мои данные')
+        +accmenu('Изменить пароль')
+        +accmenu('Изменить пароль')
+        +accmenu('Изменить пароль')
+        +accmenu('Подписка')
+        a(href="#").icon-link.exit 
+          i
+          span Выйти
+  .inner-content.center-content
+    .center-box
+      form.offer-form.js-validate
+        .white-box.offer
+          .h-title.h2 Заказ 07.11.2016
+          .table
+            .table-head
+              .table-item.table-name Рацион
+              .table-item.table-period Период
+              .table-item.table-count Кол-во
+              .table-item.table-total Стоимость
+              .table-item.table-delete
+              mixin cartTable(name,period,total)
+                .table-row
+                  .table-item.table-name
+                    .elem-price #{name}
+                      span.s-medium.u-reg.u-halfgray ккал/день
+                  .table-item.table-period
+                    .text1
+                      | #{period}
+                      span.length 08.11.2016-14.11.2016
+                  .table-item.table-count
+                      .text1 1
+                  .table-item.table-total
+                    .elem-price
+                      |#{total}
+                  .table-item.table-delete
+                    a(href="#").icon-link.repeat.small
+                      i
+                      span Повторить
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+          .result-wrapp
+            dl.result-offer
+              dt.text2 
+                span Заказ на сумму
+              dd.text1 
+                span 90 000 ₽
+            dl.result-offer
+              dt.text2 
+                span Скидка по промокоду
+              dd.text1 
+                span 4 500 ₽
+            dl.result-offer
+              dt.text2 
+                span Доставка
+                  span.s-text.h5.u-halfgray 250 ₽ х 2 недели
+              dd.text1 
+                span 3 500 ₽
+            dl.result-offer.total
+              dt.text1 
+                span Банковские карты 
+                img(src="img/paysmall/1.jpg", alt="")
+              dd.form-total-count
+                span 89 000 ₽
+            .buttons
+              a(href="#").icon-link.repeat.small
+                i
+                span Повторить весь заказ
+              a(href="#").btn.btn-black Оплатить
+        .white-box.offer
+          .h-title.h2 Заказ 07.11.2016
+          .table
+            .table-head
+              .table-item.table-name Рацион
+              .table-item.table-period Период
+              .table-item.table-count Кол-во
+              .table-item.table-total Стоимость
+              .table-item.table-delete
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+          .result-wrapp
+            dl.result-offer
+              dt.text2 
+                span Заказ на сумму
+              dd.text1 
+                span 90 000 ₽
+            dl.result-offer
+              dt.text2 
+                span Скидка по промокоду
+              dd.text1 
+                span 4 500 ₽
+            dl.result-offer
+              dt.text2 
+                span Доставка
+                  span.s-text.h5.u-halfgray 250 ₽ х 2 недели
+              dd.text1 
+                span 3 500 ₽
+            dl.result-offer.total
+              dt.text1 
+                span Оплата наличными курьеру
+              dd.form-total-count
+                span 89 000 ₽
+            .buttons
+              a(href="#").icon-link.repeat.small
+                i
+                span Повторить весь заказ
+              a(href="#").btn.btn-black Оплатить
+        .white-box.offer
+          .h-title.h2 Заказ 07.11.2016
+          .table
+            .table-head
+              .table-item.table-name Рацион
+              .table-item.table-period Период
+              .table-item.table-count Кол-во
+              .table-item.table-total Стоимость
+              .table-item.table-delete
+              mixin cartTable(name,period,total)
+                .table-row
+                  .table-item.table-name
+                    .elem-price #{name}
+                      span.s-medium.u-reg.u-halfgray ккал/день
+                  .table-item.table-period
+                    .text1
+                      | #{period}
+                      span.length 08.11.2016-14.11.2016
+                  .table-item.table-count
+                      .text1 1
+                  .table-item.table-total
+                    .elem-price
+                      |#{total}
+                  .table-item.table-delete
+                    a(href="#").icon-link.repeat.small
+                      i
+                      span Повторить
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+          .result-wrapp
+            dl.result-offer
+              dt.text2 
+                span Заказ на сумму
+              dd.text1 
+                span 90 000 ₽
+            dl.result-offer
+              dt.text2 
+                span Скидка по промокоду
+              dd.text1 
+                span 4 500 ₽
+            dl.result-offer
+              dt.text2 
+                span Доставка
+                  span.s-text.h5.u-halfgray 250 ₽ х 2 недели
+              dd.text1 
+                span 3 500 ₽
+            dl.result-offer.total
+              dt.text1 
+                span Оплата наличными курьеру
+              dd.form-total-count
+                span 89 000 ₽
+            .buttons
+              a(href="#").icon-link.repeat.small
+                i
+                span Повторить весь заказ
+              a(href="#").btn.btn-black Оплатить
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

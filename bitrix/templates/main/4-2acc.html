@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Мой заказ</title>
+    <title>мои данные</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta content="True" name="HandheldFriendly">
@@ -60,21 +60,247 @@
             </div>
           </header>
           <main class="page__content">
-            <!--.pagehead-center для страниц ошибок типа этой и 404 и страниц аккаунта-->
-            <div class="pagehead-wrap pagehead-center text-center" style="background-image: url(img/hbg.png)">
+            <div class="pagehead-wrap text-center" style="background-image: url(img/hbg.png)">
               <div class="inner-content">
                 <div class="pagehead-content">
-                  <h1 class="h-title h1 u-white">Мой заказ</h1>
+                  <h1 class="h-title h1 u-white">мои данные</h1>
                 </div>
-                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Мой заказ</span></a>
+                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Мой заказ</span></a><a class="icon-link" href="#"><i> </i><span>мои данные</span></a>
                 </div>
               </div>
             </div>
-            <div class="error-wrap">
-              <div class="error-text">
-                <div class="h-title h2">Ваша корзина пуста</div>
-                <div class="text1">Начните покупки прямо сейчас, выберите подходящий рацион и начните питаться вкусно и полезно!</div>
-              </div><a class="btn btn-medium btn-black" href="#">выбрать программу</a>
+            <div class="acc-wrap">
+              <div class="box-standart">
+                <div class="mobile-dropdowm-trigger"><span class="u-bold">Открыть меню</span><i class="arrow-icon"></i></div>
+                <div class="acc-menu"><a class="acc-menu-item" href="#"><span>История заказов</span></a><a class="acc-menu-item active" href="#"><span>Мои данные</span></a><a class="acc-menu-item" href="#"><span>Изменить пароль</span></a><a class="acc-menu-item" href="#"><span>Подписка</span></a><a class="icon-link exit" href="#"> <i></i><span>Выйти</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="inner-content center-content">
+              <div class="center-box">
+                <form class="offer-form js-validate">
+                  <div class="white-box client">
+                    <div class="h-title h2">Персональные данные</div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-100">
+                        <div class="input-wrapper req disabled">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Ваше имя</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req disabled">
+                          <input class="input-main" type="email" data-validation="email required" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">E-mail </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req disabled">
+                          <input class="input-main" type="tel" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Телефон </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-box">
+                    <div class="h-title h2">Основной адрес</div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req js-text-input">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Город</label>
+                          <div class="dropdown-target">
+                            <div class="dropdown-inner">
+                              <div class="dropdown-content">
+                                <p>сюда выплевываем список городов</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Улица</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Подъезд</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Кв./оф                </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Дом   </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">     
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Корпус</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Этаж</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Домофон </label>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="trans-btn add borderb" type="button"><span>Добавить дополнительный адрес</span></button>
+                    <div class="notify-btn dropdown-trigger">
+                      <div class="dropdown-target">
+                        <div class="dropdown-inner">
+                          <div class="dropdown-content">
+                            <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-box">
+                    <div class="h-title h2">Дополнительный адрес
+                      <button class="icon-link close" type="button"><i></i><span>Удалить</span></button>
+                    </div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req js-text-input">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Город</label>
+                          <div class="dropdown-target">
+                            <div class="dropdown-inner">
+                              <div class="dropdown-content">
+                                <p>сюда выплевываем список городов</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Улица</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Дом   </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">     
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Корпус</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Подъезд</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Кв./оф</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Этаж</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Домофон </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-box">
+                    <div class="h-title h2">Дополнительный адрес
+                      <button class="icon-link close" type="button"><i></i><span>Удалить</span></button>
+                    </div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req js-text-input">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Город</label>
+                          <div class="dropdown-target">
+                            <div class="dropdown-inner">
+                              <div class="dropdown-content">
+                                <p>сюда выплевываем список городов</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Улица</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Дом   </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">     
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Корпус</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Подъезд</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Кв./оф</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="number" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Этаж</label>
+                        </div>
+                      </div>
+                      <div class="input-item s-25">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <label class="input-label">Домофон                              </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="menu-nav">
+                    <div class="menu-nav-inner"><a class="btn btn-black btn-big" href="#">Оплатить</a></div>
+                  </div>
+                </form>
+              </div>
             </div>
           </main>
           <footer class="page__footer" style="background-image: url(img/fbg.jpg)">
