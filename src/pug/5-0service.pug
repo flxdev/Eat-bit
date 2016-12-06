@@ -1,0 +1,150 @@
+extends _layout
+
+block title
+  title О сервисе
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white О сервисе
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('О сервисе')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "О сервисе"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  section.box-standart.box-service
+    h2.box-title Мы изменим ваше представление о здоровой и полезной еде
+    .box-title-small  Наш шеф повар разработал необычные и разнообразные блюда, которые разрушат ваши стереотипы о диетическом питании. Команда Eat Bit против диет. Мы за здоровый 
+      br
+      |образ жизни.
+    .profit-wrap
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/1.png", alt="")
+        .text2 Мы считаем каллории в каждом блюде и балансируем белки, жиры и углеводы.
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/2.png", alt="")
+        .text2 Вам не надо бегать по магазинам и ломать голову, что приготовить на ужин.
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/3.png", alt="")
+        .text2 Мы используем только экологические продукты высокого качества.  
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/4.png", alt="")
+        .text2 Eat-bit — это вкусные и разнообразные блюда с уникальными рецептами.
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/5.png", alt="")
+        .text2 У вас появится дополнительное свободное время, ведь тратить на готовку его не надо.
+      .profit-item
+        .profit-img
+          img(src="img/5-0service/6.png", alt="")
+        .text2 Забудьте о каждодневном мытье посуды.
+  .box-full.black.povor-wrap
+    .box-standart
+      .povor-slider
+        mixin povor(name,text)
+          .povor-item
+            .povor-inner
+              .povor-img
+                img(src="img/5-0service/povor.jpg", alt="")
+              .povor-text
+                .h-title.h2 #{name}
+                .u-reg.s-text шеф-повар
+                .dots 
+                .text2 #{text}
+                .i-arrows.white
+                  .slider-counter
+                    .slider-curr
+                    .slider-divider /
+                    .slider-total
+        +povor('Кирилл Иванов','Я не по наслышке знаю, что такое здоровое питание и как сделать блюдо полезным, чтобы в нём сохранились все полезные микроэлементы для организма. В Eat-bit воплотилась моя мечта — здесь я могу применить все свои знания и талант, чтобы показать, что питаться правильно — это круто!')
+        +povor('Кирилл Иванов2','Я не по наслsfdsfышке знаю, что такое здоровое питание и как сделать блюдо полезным, чтобы в нём сохранились все полезные микроэлементы для организма. В Eat-bit воплотилась моя мечта — здесь яsfsdfsd могу применить все свои знания и талант, чтобы sfsdfпоказать, чdsfsdfsто питаться правильно — это круто!')
+        +povor('Кирилл Иванов3','Я не по наслышке знаю, что такое здоровое питан знания и талант, чтобы показать, что питаться правильно — это круто!')
+        +povor('Кирилл Иванов4','Я не по наслышке знаю, что такое sdfsdf  здоровое питание и как сделать блюдо полезным, чтобы в нём сохранились вsdfsdfсе полезные микроэлемsdfsdf енты для организма. В Eat-bit воплотилась моя мечта — здесь я мо sdfsгу применить все свои знания и талант, чтобы показать, что питаться правильно — это круто!')
+    script.
+      povor();
+  .content-box
+    .side-wrap
+      .side-title 
+         .h-title.h2 Наши преиму- щества                  
+      .side-content  
+        p.text1 Такой рацион даст организму весь необходмый суточный набор белков, жиров и углеводов. Кроме этого вы получите: 
+        ul
+          li Ускорение метаболизма.
+          li Безопасное похудение без вреда организму.
+          li Быстрый и стабильный результат.
+          li Профилактика заболеваний в будущем.
+          li Здоровый сияющий внешний вид.
+          li Стройная фигура.
+          li Хорошее настроение и заряд энергии.
+    blockquote Питайтесь вкусно, правильно и хорошейте! Здоровый, сбалансированный рацион – залог сохранения молодости и красоты.
+  .box-full.gray
+    .box-standart.box-section
+      .about-cont
+        .about-item
+          .h-title.h2 3 года
+          .text2 Успешной и яркой работы. Выберите подходящий вам рацион, в зависимости от ваших желаний на определенный период времени: 1 день, 1-2 неделю, 1 месяц.
+        .about-item
+          .h-title.h2 
+            |>100 клиентов
+          .text2 Довольных клиентов, которые оценили наш труд. Оставьте заявку на сайте и оплатите её online или свяжитесь с нашим менеджером по телефону.
+        .about-item
+          .h-title.h2 
+            |5 энтузиастов
+          .text2 Наша dream team. Мы приготовим для вас порционные блюда только из свежих продуктов, и доставим их в любую точку Москвы бесплатно каждый день.
+  .box-standart.box-section.box-service
+    h2.box-title Наша команда
+    .box-title-small Мы создали сервис по доставке питания, чтобы заботиться о вашем здоровье. 
+    .team-wrap
+      .team-item
+        .team-img(style='background-image: url(img/team/1.jpg)')
+        .whois
+          .whois-name Алексей Павлов
+          .whois-who Учрелитель
+      .team-item
+        .team-img(style='background-image: url(img/team/2.jpg)')
+        .whois
+          .whois-name Снежанна Белоусова
+          .whois-who Директор
+      .team-item
+        .team-img(style='background-image: url(img/team/3.jpg)')
+        .whois
+          .whois-name Юрий Сухоруков
+          .whois-who Менеджер
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

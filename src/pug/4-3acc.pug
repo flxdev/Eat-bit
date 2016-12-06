@@ -1,0 +1,81 @@
+extends _layout
+
+block title
+  title Изменить пароль
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Изменить пароль
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Мой заказ')
+        +bread('мои данные')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Изменить пароль"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('История заказов')
+        +accmenu('Мои данные')
+        +accmenu('Изменить пароль')
+        +accmenu('Подписка')
+        a(href="#").icon-link.exit 
+          i
+          span Выйти
+  .inner-content.center-content
+    .center-box
+      form.offer-form.js-validate
+        .white-box.client
+          .h-title.h2 Пароль
+          .form-msg.succ 
+            i.form-i
+            | Изменения сохранены
+          .inputs-cont
+            .input-item.s-100
+              .input-wrapper.req
+                input.input-main(type="password",data-validation="required",data-validation-error-msg="Это обязательное поле")
+                label.input-label Старый пароль 
+                .link-pass-wrap
+                  button(type='button').link-pass-forgot Забыл(а) пароль
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="password",data-validation="required",data-validation-error-msg="Это обязательное поле")
+                label.input-label Новый пароль 
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="password",data-validation="required",data-validation-error-msg="Это обязательное поле")
+                label.input-label Повторите пароль                         
+        .menu-nav
+          .menu-nav-inner
+            a(href="#").btn.btn-black.btn-big Сохранить
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

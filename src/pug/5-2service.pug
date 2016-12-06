@@ -1,0 +1,100 @@
+extends _layout
+
+block title
+  title Способы оплаты
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Способы оплаты
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('О сервисе')
+        +bread('Способы оплаты')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Способы оплаты"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  section.box-standart.box-service
+    h2.box-title Как получить заказ
+    .box-title-small  Вы можете оплатить ваш заказ как наличными курьеру, так и с помощью online платежей.
+    .about-cont.about-delivery
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 Выберите программу питания
+        .text2 Выберите подходящий вам рацион, в зависимости от ваших желаний на определенный период времени.
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 Заполните форму заказа или свяжитесь с нами
+        .text2 Оставьте заявку на сайте и оплатите её online или свяжитесь с нашим менеджером по телефону: 8 (926) 02-01-481.
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 Произведите оплату onlineили наличными
+        .text2 Мы приготовим для вас порционные блюда только из свежих продуктов, и доставим их в любую точку Москвы.
+  .box-full.gray.bg-wrapper(style='background-image: url(img/paybg.jpg')
+    .box-title Любые варианты оплаты
+    .box-title-small Вы можете оплатить ваш заказ как наличными курьеру, так и с помощью online платежей.
+    .box-standart.box-service
+      .profit-wrap
+        .profit-item
+          .profit-img
+            img(src="img/5-2pay/1.png", alt="")
+          .text2 Оплата наличными курьеру при получении вашего заказа.
+        .profit-item
+          .profit-img
+            img(src="img/5-2pay/2.png", alt="")
+          .text2 Online платёж c помощью банковских карт Visa, MasterCard.
+        .profit-item
+          .profit-img
+            img(src="img/5-2pay/3.png", alt="")
+          .text2 Электронные деньги: Яндекс.Деньги, WebMoney, QIWI.
+        .profit-item
+          .profit-img
+            img(src="img/5-2pay/4.png", alt="")
+          .text2 Интернет-банкинг: Сбербанк Онлайн, Альфа-Клик, Промсвязьбанк, MasterPass.
+  .content-box
+    .side-wrap
+      .side-title 
+         .h-title.h2 Условия оплаты              
+      .side-content  
+        p.text1 Вы можете оплатить ваш заказ как наличными курьеру, так и с помощью online платежей. Мы принимаем:
+        ul
+          li Наличные курьеру при получении заказа.
+          li Банковские карты с помощью интернет-платежа: Visa, MasterCard, Maestro.
+          li Электронные деньги: Яндекс.Деньги, WebMoney, QIWI.
+          li Интернет-банкинг.
+  .box-standart.box-service
+    blockquote Оплачивайте привычным способом и наслаждайтесь вкусной и здоровой пищей каждый день!.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

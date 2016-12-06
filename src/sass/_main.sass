@@ -352,6 +352,25 @@ body, .out,html
     &--login
       text-align: right
       transform: translateY(-5px)
+      z-index: 7
+      cursor: pointer
+      .dropdown-target
+        left: auto
+        +rem(width,220px)
+        z-index: 2
+      .dropdown-inner
+        text-align: left
+        .menu-item
+          opacity: .6
+          +tr(opacity .3s)
+          color: #010101
+          display: block
+          +rem(font-size,16px)
+          font-weight: 300
+          &:hover,&.active
+            opacity: 1
+          &:not(:last-child)
+            +rem(padding-bottom,15px)
       +r(991)
         display: none
 
@@ -728,8 +747,14 @@ body, .out,html
       +rem(left,25px)
       top: 8%
 .box-full
+  overflow: hidden
   &.gray 
-    +rem(margin,0 -45px)
+    +rem(margin,0 -50px)
+    +r(1150)
+      +rem(margin,0 -25px)
+  &.black
+    background-color: $text
+    +rem(margin,0 -50px)
     +r(1150)
       +rem(margin,0 -25px)
   &.box-section
@@ -950,6 +975,7 @@ body, .out,html
   +rem(font-size,16px)
   cursor: pointer
   background: 0 0
+  +rem(padding-bottom, 3px)
   &>span
     position: relative
     transition: color .3s
@@ -1301,6 +1327,7 @@ body, .out,html
     border: 1px solid $borderl
     cursor: pointer
     position: relative
+    z-index: 7
     .name,.value
       +rem(font-size,14px)
       text-transform: uppercase
@@ -2287,6 +2314,8 @@ body, .out,html
   box-shadow: 0px 5px 43px 0px rgba( 0, 0, 0,.15 );
   .h-title
     +rem(letter-spacing, -1px)
+    +r(544)
+      +rem(font-size,36px)
 .checkbox
   &-wrap
     font-size: 0
@@ -2675,6 +2704,7 @@ body, .out,html
     opacity: 0
     color: #000
     transition: padding .3s, font-size .3s
+    background: 0 0
   &-label
     color: #999; 
     +rem(font-size,20px)
@@ -2814,6 +2844,7 @@ body, .out,html
           margin: auto
           cursor: pointer
           +rem(padding,19px 79px)
+          +rem(width,273px)
           +r(480)
             +rem(padding,19px 49px)
 .promo-form
@@ -3032,8 +3063,12 @@ body, .out,html
       vertical-align: sub
   &.borderb
     z-index: 5
+    +r(375)
+      +rem(font-size,14px)
     &:before
-        +rem(margin-right,15px)
+      +rem(margin-right,15px)
+      +r(375)
+        +rem(margin-right,5px)
     span
       position: relative
       &:after
@@ -3522,12 +3557,14 @@ select
       position: relative;
       display: inline-block;
   .input-text
-    +rem(font-size, 11px)
+    +rem(font-size, 16px)
     color: $text;
     display: block;
     overflow: hidden;
     cursor: pointer;
     +rem(padding-left, 10px)
+    font-weight: 300
+    +rem(line-height,20px)
     transition: color .3s;
     +r(768)
       +rem(font-size, 13px)
@@ -3675,3 +3712,383 @@ select
       +rem(height,12px)
       background: url(../img/icons/arrow_down.svg) no-repeat center
       transform-origin: 50%
+.form-msg
+  +rem(font-size,20px)
+  font-weight: 300
+  color: $text
+  +rem(margin-top, -5px)
+  +rem(margin-bottom, 40px)
+  +rem(padding-left,45px)
+  +rem(letter-spacing, -0.4px)
+  position: relative
+  .form-i
+    position: absolute
+    display: inline-block
+    +rem(width,31px)
+    +rem(height,31px)
+    +contain
+    left: 0
+    top: -1px
+  &.succ
+    .form-i
+      background-image: url(../img/icons/success.svg)
+
+.subscribe-wrapper
+  .select-u-item
+    width: auto
+    +rem(min-width,160px)
+  .inputs-cont
+    +rem(margin-top,20px)
+.box-service
+  +rem(padding-top,45px)
+  .box-title
+    +rem(max-width,540px)
+    &-small
+      +rem(max-width,630px)
+      +rem(padding-top,5px)
+  .profit
+    &-wrap
+      text-align: center
+      +rem(margin-bottom,80px)
+      +r(544)
+        +rem(margin-bottom,30px)
+    &-item
+      width: 25%
+      +rem(margin-top, 30px)
+      +r(991)
+         width: 33.33%
+      +r(680)
+        width: 50%
+      +r(480)
+        width: 100%
+      &:last-child
+        padding: 0 0.9375rem;
+    &-img
+      +rem(margin-bottom,25px)
+.povor
+  &-slider
+  &-item
+    height: 100%
+  &-inner
+    display: flex
+    align-items: stretch
+    align-content: stretch
+    height: 100%
+    +r(650)
+      flex-direction: column
+      align-content: flex-end
+  &-img
+    +rem(flex-basis, 750px)
+    flex-shrink: 1
+    // flex-grow: 1
+    font-size: 0
+    align-self: flex-end
+    +r(1150)
+      +rem(flex-basis, 50px)
+      min-width: 60%
+      align-items: flex-end
+    +r(650)
+      order: 2
+      flex-basis: auto
+      min-width: 100%
+    img
+      width: 100%
+      +rem(margin-left,-100px)
+      +r(880)
+        margin-bottom: -5%
+        margin-left: -5%
+      +r(544)
+        transform: scale(1.2)
+  &-wrap
+    .box-standart
+      padding-left: 0
+      position: relative
+      +r(650)
+        padding-right: 0
+    .slick-list
+      overflow: visible !important
+      height: 100%
+    .i-arrows
+      position: absolute
+      +rem(bottom,75px)
+      left: 0
+      right: 0
+      +r(1150)
+        +rem(bottom,20px) 
+      +r(544)
+        bottom: auto
+        +rem(top, 105px)
+  &-text
+    +rem(flex-basis, 450px)
+    flex-shrink: 1
+    text-align: center
+    align-items: center
+    +rem(padding-top,80px)
+    +rem(margin-left, -65px)
+    position: relative
+    z-index: 2
+    +r(1150)
+      min-width: 40%
+    +r(991)
+      +rem(padding-bottom,60px)
+      +rem(padding-top,40px)
+    +r(650)
+      order: 1
+      margin-left: 0
+      +padlr(25px)
+      min-width: 100%
+      padding-bottom: 0
+    .h-title,.u-reg,.dots,.text2
+      color: $white
+    .u-reg
+      opacity: .5
+      text-transform: uppercase
+      +rem(font-size,15px)
+      +r(544)
+        +rem(padding-bottom,40px)
+    .text2
+      +rm(991)
+        +rem(margin, 0 -30px)
+    .h-title
+      +rem(margin-bottom,10px)
+      +rem(letter-spacing,-1.3px)
+      +r(544)
+        +rem(margin-left,-10px)
+        +rem(margin-right,-10px)
+    .dots
+      +rem(margin-top,45px)
+      +rem(margin-bottom,20px)
+      display: inline-block
+      +rem(width,28px)
+      +rem(height,24px)
+      +contain
+      background-image: url(../img/5-0service/quote.svg)
+      +r(880)
+        +rem(margin-top,25px)
+.content-box
+  +rem(max-width,800px)
+  +rem(margin,65px auto 85px)
+  .side-content
+    width: 61.5%
+    +r(544)
+      width: 100%
+    li 
+      font-weight: 300
+      line-height: 1
+  blockquote
+    +rem(margin-top,55px)
+  .side-title
+    width: 38.5%
+    +r(544)
+      width: 100%
+blockquote
+  +rem(font-size,24px)
+  +rem(padding,50px 20px 66px)
+  +rem(max-width,800px)
+  display: inline-block
+  color: $text
+  font-style: italic
+  text-align: center
+  line-height: 1.35
+  font-weight: 900
+  border-top: 2px solid #000
+  border-bottom: 2px solid #000
+.about
+  &-cont
+    font-size: 0
+    +rem(padding, 52px 0 70px)
+    +rem(margin, 0 -20px)
+    +r(991)
+      +rem(padding, 25px 0 30px)
+    &.colored
+      .about-item
+        .circle-elem
+          border: 0
+        &:nth-of-type(1)
+          .circle-elem
+            background-color: #94f7b0
+        &:nth-of-type(2)
+          .circle-elem
+            background-color: #f6fa86       
+        &:nth-of-type(3)
+          .circle-elem
+            background-color: #ffd67f
+    &.about-delivery
+      counter-reset: num
+      +rem(padding, 15px 0 85px)
+      .about-item
+        counter-increment: num
+        .text2
+          +rem(max-width,350px)
+          +rem(margin,0 auto)
+        .h-title
+          font-weight: 700
+          text-transform: none
+          +rem(max-width,250px)
+          +rem(margin,18px auto)
+          line-height: 1.4
+      &.colored
+        +rem(padding, 52px 0 55px)
+        +rem(margin-top,52px)
+  &-item
+    display: inline-block
+    vertical-align: top
+    text-align: center
+    width: 33.33%
+    +rem(padding, 0 25px)
+    +r(991)
+      width: 100%
+      +rem(padding, 20px 55px)
+    .h-title
+      color: $text
+      +rem(margin-bottom,35px)
+      font-weight: 300
+      +r(991)
+        +rem(margin-bottom,18px)
+    .text2
+      +rem(max-width,450px)
+      margin: 0 auto
+.box-full.gray
+  &+ .box-service
+    +rem(padding-top,90px)
+    padding-bottom: 0
+.team
+  &-wrap
+    +rem(margin-right,-20px)
+    font-size: 0
+    +rem(margin-top,68px)
+  &-item
+    display: inline-block
+    vertical-align: top
+    width: 33.33%
+    +rem(padding-right,20px)
+    +r(544)
+      width: 100%
+      &:not(:last-child)
+        +rem(margin-bottom,20px)
+    .whois
+      +rem(margin-top,25px)
+  &-img
+    +cover
+    padding-bottom: 102.5%
+.whois
+  &-name
+    font-weight: 700
+    +rem(font-size,16px)
+    color: $text
+  &-who
+    +rem(font-size,14px)
+    text-transform: uppercase
+    font-weight: 400 
+    color: $halfgray
+    +rem(margin-top,10px)
+#map
+  +rem(height,600px)
+.map-wrapper,.bg-wrapper
+  &+ .content-box
+    margin-bottom: 0
+    li 
+      +rem(line-height,1.4)
+      +rem(padding-bottom,0)
+      +rem(padding-bottom,0)
+      &:before
+        +rem(top,2px)
+    &+.box-standart
+      +rem(margin-top,15px)
+      +rem(padding-top,15px)
+      +padlr(0)
+      text-align: center
+      
+.bg-wrapper
+  +cover
+  position: relative
+  +rem(padding-top,72px)
+  .box-standart
+    +rem(padding-top,15px)
+    +rem(padding-bottom,30px)
+  &:before
+    content: ''
+    +coverdiv
+    z-index: 1
+    background-color: rgba(0,0,0,0.7)
+  .box-standart,.box-title-small,.box-title,.text2
+    position: relative
+    z-index: 1
+    color: $white
+.box-review
+  +rem(margin-top,15px)
+  border-bottom: 1px solid $borderl
+  .review-who-img
+    transform: scale(1)
+  .star-item
+    opacity: 1
+  .review-text
+    +rem(padding-left,0)
+    width: 80%
+    +r(768)
+      width: 100%
+      +padlr(10px)
+  .review-item
+    +rem(padding-left,5px)
+    &:not(:first-child)
+      +rem(margin-top,40px)
+.pagination 
+  &-wrapper
+    text-align: center
+    +rem(margin-top,40px)
+  &-inner
+    display: inline-block
+    white-space: nowrap
+    +r(544)
+      +rem(margin, 0 -15px)
+
+    .pagination-container
+      margin: 0
+      max-width: 600px
+      .pagination-counter
+        display: inline-block
+        vertical-align: top
+        +padlr(5px)
+        +rem(margin-top,4px)
+        &-item
+          +rem(width,35px)
+          +rem(height,25px)
+          display: inline-block
+          +rem(line-height,25px)
+          +rem(font-size,16px)
+          font-weight: 300
+          text-align: center
+          vertical-align: middle
+          color: $halfgray
+          +tr(color .3s)
+          +r(544)
+            +rem(width,30px)
+          &:hover
+            color: #000
+          &.active
+            color: $text
+            +rem(font-size,35px)
+        .dots
+          display: inline-block
+          +rem(font-size,17px)
+  &-arr
+    display: inline-block
+    vertical-align: top
+    +contain
+    background-image: url(../img/icons/arrow_forward.svg)
+    +rem(background-size, 8px 12px)
+    +rem(width,35px)
+    +rem(height,15px)
+    +rem(padding,20px 5px 15px 0)
+    // +rem(margin-top,10px)
+    +tr(background-size .2s)
+    +r(544)
+      +rem(width,25px)
+    &.arr-l
+      transform: scale(-1,1)
+    &:hover
+     +rem(background-size, 12px 16px)
+
+
+
+  

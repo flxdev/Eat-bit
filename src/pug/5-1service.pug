@@ -1,0 +1,98 @@
+extends _layout
+
+block title
+  title Доставка
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Доставка
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('О сервисе')
+        +bread('Доставка')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Доставка"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  section.box-standart.box-service
+    h2.box-title Зоны доставки
+    .box-title-small  Мы доставляем ваш рацион ежедневно с 06:00 до 11:00. Найдите вашу зону для доставки рациона и узнайте стоимость.
+    .about-cont.about-delivery.colored
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 Москва в пределах МКАД — бесплатно
+        .text2 Выберите подходящий вам рацион, в зависимости от ваших желаний на определенный период времени.
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 В радиусе 20 км от МКАД — 250 ₽
+        .text2 Оставьте заявку на сайте и оплатите её online или свяжитесь с нашим менеджером по телефону: 8 (926) 02-01-481.
+      .about-item
+        .circle-elem.u-number
+        .h-title.h4 В радиусе 30 км от МКАД — 350 ₽
+        .text2 Мы приготовим для вас порционные блюда только из свежих продуктов, и доставим их в любую точку Москвы.
+  .box-full.gray.map-wrapper
+    #map
+  .content-box
+    .side-wrap
+      .side-title 
+         .h-title.h2 Условия доставки               
+      .side-content  
+        p.text1 Доставку осуществляют курьеры, которые утром забирают ваш заказ и доставляют его на указан- ный вами алрес и время.
+        ul
+          li Доставка заказа осуществляется каждый день с 600 до 1100 в удобный для вас интервал.
+          li Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.
+          li Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.
+          li Если вы сделаете заказ до 1800, то вы сможете получить рацион уже на следующий день. Если заказ оформляется после 1800, то ближайший день доставки будет осуществлён послезавтра.
+  .box-standart.box-service
+    .profit-wrap
+      .profit-item
+        .profit-img
+          img(src="img/5-1delivery/1.png", alt="")
+        .text2 Ежедневная доставка с 600 до 1100 по Москве (бесплатно в пределах МКАД) и МО.
+      .profit-item
+        .profit-img
+          img(src="img/5-1delivery/2.png", alt="")
+        .text2 При заказе рациона более чем на 1 день, вы получаете сумки-холодильники.
+      .profit-item
+        .profit-img
+          img(src="img/5-1delivery/3.png", alt="")
+        .text2 На каждый заказа мы предоставляем чек со всеми товарными позициями. 
+      .profit-item
+        .profit-img
+          img(src="img/5-1delivery/4.png", alt="")
+        .text2 Все блюда промаркерованы. Вам не надо думать, что и когда скушать.
+    blockquote Питайтесь вкусно, правильно и хорошейте! Здоровый, сбалансированный рацион – залог сохранения молодости и красоты.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

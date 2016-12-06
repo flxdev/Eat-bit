@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Изменить пароль</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="True" name="HandheldFriendly">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2d2d2d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d2d2d">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="shortcut icon" href="img/fav/48x48.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/fav/57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
+    <link rel="stylesheet" media="all" href="css/screen.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <!--BEGIN out-->
+    <div class="out" id="top">
+      <div class="page__outer">
+        <div class="page__wrapper">
+          <header class="page__header cd-auto-hide-header">
+            <div class="header__hamburger">
+              <div class="hamburger">
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="header__logo">
+              <div class="logo-outer">
+                <div class="logo-middle"><a class="logo-inner" href="#"></a></div>
+              </div>
+            </div>
+            <div class="header__navs">
+              <div class="header__navs--phone"><a class="link-tel" href="tel:89260201481"> <span class="u-number">8 (926) 02-01-481</span></a></div>
+              <nav class="header__navs--nav"><a class="nav-link" href="#">Программы питания </a><a class="nav-link" href="#">Меню </a><a class="nav-link" href="#">О сервисе</a></nav>
+              <!-- .active когда товар добавлен-->
+              <div class="header__navs--cart active">
+                <!--.js-popup-button когда нужна модалка логина, когда человек уже зашел, убираем ее-->
+                <div class="header__navs--login dropdown-trigger js-popup-button" data-modal="login"><a class="u-reg u-halfgray s-small" href="#">Войти</a>
+                  <div class="dropdown-target">
+                    <div class="dropdown-inner">
+                      <div class="dropdown-content"><a class="menu-item" href="#">История заказов</a><a class="menu-item active" href="#">Мои данные</a><a class="menu-item" href="#">Изменить пароль</a><a class="menu-item" href="#">Выйти</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="header__navs--cart-inner"><a class="cart" href="#">
+                    <div class="cart-icon"><i class="cart-i">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 33.5 27" style="enable-background:new 0 0 33.5 27" xml:space="preserve">
+                          <style type="text/css">
+                            .stcart{fill:#2D2D2D;}
+                            .stcart1{fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}
+                          </style>
+                          <g>
+                            <path class="stcart" d="M32.1,9.8c0.1,0.2,0.2,0.7,0.2,1.8c0,0.9-0.2,1-0.4,1.1c-0.5,0.2-0.8,0.5-0.9,0.9l-4.3,12.1l-0.1,0.2H6.5v-0.1                L2.9,13.6c-0.1-0.5-0.4-0.8-1-1c-0.4-0.1-0.6-0.2-0.6-1c0-1,0.1-1.5,0.2-1.8H32.1 M1.2,8.5c-0.4,0-1.2,0.3-1.2,3                c0,2.2,1.7,2.1,1.7,2.3L5.4,26c0,0.5,0.5,1,1,1h20.4c0.6,0,1-0.4,1-1l4.4-12.2c0-0.2,1.3-0.1,1.3-2.3c0-2.8-0.7-3-1.3-3                C32.2,8.5,1.3,8.5,1.2,8.5L1.2,8.5z"></path>
+                          </g>
+                          <path class="stcart1" d="M8,9.1l8.7-8.4l8.7,8.4"></path>
+                        </svg></i><span class="u-number s-small u-halfgray"> 0</span></div>
+                    <div class="u-light s-text u-halfgray">Мой заказ</div>
+                    <div class="u-number u-halfgray s-small">45 000 ₽</div></a></div>
+              </div>
+            </div>
+          </header>
+          <main class="page__content">
+            <div class="pagehead-wrap text-center pagehead-center" style="background-image: url(img/hbg.png)">
+              <div class="inner-content">
+                <div class="pagehead-content">
+                  <h1 class="h-title h1 u-white">Изменить пароль</h1>
+                </div>
+                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Мой заказ</span></a><a class="icon-link" href="#"><i> </i><span>мои данные</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="acc-wrap">
+              <div class="box-standart">
+                <div class="mobile-dropdowm-trigger"><span class="u-bold">Открыть меню</span><i class="arrow-icon"></i></div>
+                <div class="acc-menu"><a class="acc-menu-item" href="#"><span>История заказов</span></a><a class="acc-menu-item" href="#"><span>Мои данные</span></a><a class="acc-menu-item active" href="#"><span>Изменить пароль</span></a><a class="acc-menu-item" href="#"><span>Подписка</span></a><a class="icon-link exit" href="#"> <i></i><span>Выйти</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="inner-content center-content">
+              <div class="center-box">
+                <form class="offer-form js-validate">
+                  <div class="white-box client">
+                    <div class="h-title h2">Пароль</div>
+                    <div class="form-msg succ"> <i class="form-i"></i>Изменения сохранены</div>
+                    <div class="inputs-cont">
+                      <div class="input-item s-100">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                          <label class="input-label">Старый пароль </label>
+                          <div class="link-pass-wrap">
+                            <button class="link-pass-forgot" type="button">Забыл(а) пароль</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                          <label class="input-label">Новый пароль </label>
+                        </div>
+                      </div>
+                      <div class="input-item s-50">
+                        <div class="input-wrapper req">
+                          <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                          <label class="input-label">Повторите пароль                         </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="menu-nav">
+                    <div class="menu-nav-inner"><a class="btn btn-black btn-big" href="#">Сохранить</a></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </main>
+          <footer class="page__footer" style="background-image: url(img/fbg.jpg)">
+            <div class="footer__main">
+              <div class="footer__main-content">
+                <!--левая колонка-->
+                <div class="footer-content-block">
+                                    <div class="footer-list">
+                                      <div class="u-bold u-white">Программы</div>
+                                      <ul>
+                                        <li><a class="u-light s-text u-white" href="#">1000-1600 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">1600-2000 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">2100-2300 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">2300-3500 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">3500-4500 ккал</a></li>
+                                      </ul>
+                                    </div>
+                                    <div class="footer-list">
+                                      <div class="u-bold u-white">О сервисе</div>
+                                      <ul>
+                                        <li><a class="u-light s-text u-white" href="#">Доставка</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Способы оплаты</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Отзывы</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Подарочные сертификаты</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Новости</a></li>
+                                      </ul>
+                                    </div>
+                  <div class="footer-nav-block">
+                    <ul>
+                      <li><a class="u-bold u-white" href="#">Клуб Eat-bit</a></li>
+                      <li><a class="u-bold u-white" href="#">Личный кабинет</a></li>
+                      <li><a class="u-bold u-white" href="#">Карта сайта</a></li>
+                      <li><a class="u-bold u-white" href="#">Контакты</a></li>
+                    </ul>
+                    <!-- картинок 2 штуки в каждом блоке, загрейскейлили не все-->
+                    <div class="footer-nav-payment">
+                                            <div class="payment-item"><img src="img/payment/visa.svg" alt=""><img alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/masterm.png" alt=""><img src="img/payment/master.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/maestrom.png" alt=""><img src="img/payment/maestro.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/ya2m.png" alt=""><img src="img/payment/ya2.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/webmm.png" alt=""><img src="img/payment/webm.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/qiwi2m.png" alt=""><img src="img/payment/qiwi2.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/am.png" alt=""><img alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/bpsm.png" alt=""><img alt=""></div>
+                    </div>
+                  </div>
+                </div>
+                <!--правая колонка      -->
+                <div class="footer-contact-block">
+                  <div class="footer-contact-svyaz">
+                    <div class="describe-text">Свяжитесь с нами</div><a class="u-number u-white h2" href="tel:89260201481">8 (926) 02-01-481</a>
+                    <div class="footer-mailto">
+                      <div class="u-light u-white s-text">Обратная связь </div><span class="dot-divider u-light u-white s-text">. </span><a class="u-light u-white" href="mailto:info@eat-bit.ru">info@eat-bit.ru</a>
+                    </div>
+                  </div>
+                  <div class="footer-contact-mail">
+                    <div class="describe-text">Подпишитесь на акции, обещаем только полезную информацию! </div>
+                    <form class="footer-form js-validate">
+                      <input class="footer-form-input" type="email" placeholder="E-mail" data-validation="email">
+                      <button class="footer-form-submit u-bold u-white s-text" type="submit">Подписаться</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer__footer">
+              <div class="box-standart">
+                <div class="content-wrapp">
+                  <div class="copyright u-light s-text u-white">© 2016 Eat-bit.ru</div>
+                  <div class="social">
+                    <div class="soc-icon-wrapp fb"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                          <style type="text/css">
+                            .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                            .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                          </style>
+                          <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                          <path class="stsoc1" d="M16.1,23.5h-3.4c-0.2,0-0.4-0.2-0.4-0.4v-7.4h-1.5c-0.2,0-0.4-0.2-0.4-0.4v-3c0-0.2,0.2-0.4,0.4-0.4h1.5l0-1.9              c0-1.1,0.3-2,0.9-2.6c0.7-0.7,1.7-1,3.1-1h2.7c0.2,0,0.4,0.2,0.4,0.4v3c0,0.2-0.2,0.4-0.4,0.4h-2c-0.2,0-0.5,0.2-0.6,0.4l0,1.5H19              c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3c-0.1,1.5-0.3,3-0.3,3c0,0.2-0.2,0.3-0.4,0.3h-2.2v7.4C16.5,23.3,16.3,23.5,16.1,23.5z              "></path>
+                        </svg></a></div>
+                    <div class="soc-icon-wrapp vk"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                          <style type="text/css">
+                            .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+                            .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                          </style>
+                          <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                          <path class="stsoc1" d="M15,21h1.1c0,0,0.3,0,0.5-0.2c0.2-0.2,0.2-0.5,0.2-0.5s0-1.6,0.7-1.9c0.7-0.2,1.6,1.6,2.5,2.3              c0.7,0.5,1.2,0.4,1.2,0.4l2.5,0c0,0,1.3-0.1,0.7-1.2c-0.1-0.1-0.4-0.8-1.8-2.3c-1.5-1.6-1.3-1.3,0.5-4c1.1-1.7,1.6-2.7,1.4-3.1              c-0.1-0.4-1-0.3-1-0.3l-2.8,0c0,0-0.2,0-0.4,0.1c-0.1,0.1-0.2,0.4-0.2,0.4s-0.4,1.3-1,2.4c-1.2,2.3-1.7,2.4-1.9,2.3              c-0.5-0.3-0.4-1.3-0.4-2c0-2.2,0.3-3.2-0.6-3.4c-0.3-0.1-0.5-0.1-1.3-0.1c-1,0-1.8,0-2.3,0.3c-0.3,0.2-0.6,0.5-0.4,0.6              c0.2,0,0.6,0.1,0.8,0.5c0.3,0.4,0.3,1.4,0.3,1.4s0.2,2.6-0.4,2.9c-0.4,0.2-0.9-0.2-2-2.3c-0.6-1.1-1-2.3-1-2.3s-0.1-0.2-0.2-0.3              C9.5,10,9.2,10,9.2,10l-2.6,0c0,0-0.4,0-0.5,0.2c-0.1,0.2,0,0.5,0,0.5s2.1,5.3,4.4,8C12.6,21.1,15,21,15,21z">        </path>
+                        </svg></a></div>
+                    <div class="soc-icon-wrapp insta"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 34 34" style="enable-background:new 0 0 34 34" xml:space="preserve">
+                          <style type="text/css">.stsoc1{fill:#2D2D2D;}</style>
+                          <g>
+                            <path class="stsoc1" d="M26.5,6h-1C24.7,6,24,6.7,24,7.5v1c0,0.8,0.7,1.5,1.5,1.5h1c0.8,0,1.5-0.7,1.5-1.5v-1C28,6.7,27.3,6,26.5,6                L26.5,6z"></path>
+                          </g>
+                          <g>
+                            <path class="stsoc1" d="M17,12.5c3,0,5.5,2.5,5.5,5.5S20,23.5,17,23.5S11.5,21,11.5,18S14,12.5,17,12.5 M17,10c-4.4,0-8,3.6-8,8                s3.6,8,8,8s8-3.6,8-8S21.4,10,17,10L17,10z"></path>
+                          </g>
+                          <g>
+                            <path class="stsoc1" d="M25,2.5c3.6,0,6.5,2.9,6.5,6.5v16c0,3.6-2.9,6.5-6.5,6.5H9c-3.6,0-6.5-2.9-6.5-6.5V9c0-3.6,2.9-6.5,6.5-6.5H25                M25,0H9C4,0,0,4,0,9v16c0,5,4,9,9,9h16c5,0,9-4,9-9V9C34,4,30,0,25,0L25,0z"></path>
+                          </g>
+                        </svg></a></div>
+                  </div><a class="developer" href="#">
+                    <div class="dev-icon">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 200 186.5" style="enable-background:new 0 0 200 186.5" xml:space="preserve">
+                        <style type="text/css">.flex{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#FFFFFF;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}</style>
+                        <path class="flex" d="M165.5,165v-39L100,164.7L34.5,126v39L3,183.5V77.4l97,56.1l97-56.1v105.8L165.5,165z"></path>
+                        <path class="flex" d="M100,90.2L3,34.1V3l97,56.1L197,3v30.8L100,90.2z"></path>
+                      </svg>
+                    </div>
+                    <div class="dev-text">
+                      <div class="u-bold u-white s-text">FLEX.MEDIA</div>
+                      <div class="smalllight">Разработка сервиса</div>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-to-top"></div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="modals">
+      <div class="modal-layout js-popup-container" data-modal="subscribe">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Вы подписались на рассылку новостей от Eat-bit. Настроить подписку вы можете в личном кабинете.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="callback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Обратная связь</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя</label>
+              </div>
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="input-wrapper req">
+                <textarea class="input-main" rows="4" data-validation="length required" data-validation-error-msg="Не заполнено"></textarea>
+                <label class="input-label">Сообщение  </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить  </button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="login">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Войти в кабинет</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                <label class="input-label">Пароль </label>
+                <div class="link-pass-wrap">
+                  <button class="link-pass-forgot" type="button">Забыл(а) пароль</button>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="form modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail    </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить     </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">На ваш e-mail отправлено письмо для восстановления пароля. Проверьте вашу почту.              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="oneclick">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Купить в 1 клик</div>
+            <div class="text1">
+               Программа:<span class="u-number">2300-2600 ккал</span></div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя    </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="form-footer">
+                <div class="form-total"> 
+                  <div class="form-total-count">45 000 ₽</div>
+                  <div class="form-total-week s-medium u-halfgray">за 2 недели</div>
+                </div>
+                <div class="form-buttons">
+                  <button class="btn no-arr btn-black" type="submit">Заказать</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Спасибо. Заказ принят. С вами свяжется наш менеджер.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout modal-right js-popup-container" data-modal="calc">
+        <!--контейнер модалки-->
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="h-title h2">Калькулятор</div>
+            <div class="header__hamburger closePopup">
+              <div class="hamburger">
+                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <form class="js-validate">
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Мужской"><span class="btn-name">Ваш пол</span><span class="btn-text">Мужской</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group" value="val1"><span>Мужской</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group" value="val2"><span>Женский</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Возраст</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Рост</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Вес</label>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Ваша цель</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group1" value="val1"><span>Сохранение формы</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val2"><span>Похудение</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val3"><span>Набор массы</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Уровень физических нагрузок</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group2" value="val1"><span>Сидячий образ жизни</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val2"><span>Тренировки 1-2 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val3"><span>Тренировки 3-5 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val4"><span>Тренировки 6-7 р. в неделю</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Рассчитать                                      </button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Результат</div>
+            <div class="header__hamburger closePopup">
+              <div class="hamburger">
+                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <div class="calc-result">
+              <div class="u-light u-halfgray s-text">Ваша дневная норма<span class="result">2300 ккал</span></div>
+            </div>
+            <div class="color-block inner"><a class="color-block-main" href="#">
+                <div class="u-light u-halfgray s-text">Подходящий рацион</div>
+                <div class="u-light result-price"><span class="u-number h2">1600–2000</span><span>Ккал/день</span></div>
+                <buttom class="btn btn-go" type="buttom">от  <span class="u-number">2000</span> ₽/день</buttom></a></div>
+            <div class="menu-nav">
+              <div class="menu-nav-inner">
+                <div class="m-nav-link left">Новый расчёт</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="programm">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium">
+          <div class="modal-container-header">
+            <div class="h-title h2">Добавить программу</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form">
+              <ul class="checkbox-wrap">
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="800-1000 ккал"><span class="input-fake">800-1000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1000-1200 ккал"><span class="input-fake">1000-1200 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1400-1600 ккал"><span class="input-fake">1400-1600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1600-1800 ккал"><span class="input-fake">1600-1800 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1800-2000 ккал"><span class="input-fake">1800-2000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2100-2300 ккал"><span class="input-fake">2100-2300 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2600-2900 ккал"><span class="input-fake">2600-2900 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2900-3200 ккал"><span class="input-fake">2900-3200 ккал</span>
+                                  </label>
+                                </li>
+              </ul>
+              <div class="slider-wrap js-slider-wrap">
+                <div class="slider-text-wrapper">
+                  <div class="slider-weeks"><span class="js-slider-info js-slider-week" data-index-1="1 день" data-index-2="1 неделя" data-index-3="2 недели" data-index-5="1 месяц"></span>
+                    <!--размер скидки--><span class="discount js-slider-info" data-index-1="0%" data-index-2="-4%" data-index-3="-16%" data-index-5="-32%"></span>
+                  </div>
+                  <div class="slider-amount">
+                    <!-- цена--><span class="js-slider-info js-slider-price" data-index-1="1600" data-index-2="1500" data-index-3="1400" data-index-5="1300"></span>₽/день
+                    <!--цена * значение отсюда =  .form-total-count-->
+                    <div class="js-slider-info js-slider-x" data-index-1="1" data-index-2="7" data-index-3="15" data-index-5="30"></div>
+                  </div>
+                </div>
+                <div id="rangeinput"><i class="dot dot25"></i><i class="dot dot50"></i><i class="dot dot0"></i><i class="dot dot100"></i></div>
+              </div>
+              <div class="form-footer">
+                <div class="form-total">
+                  <!--сюда сумма -->
+                  <div class="form-total-count"></div>
+                  <!--сюда недели-->
+                  <div class="form-total-week s-medium u-halfgray"></div>
+                </div>
+                <div class="form-buttons"><a class="btn btn-black" href="#">Добавить</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="promo">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium modal-promo">
+          <div class="modal-container-header" style="background-image:url(img/news/3.jpg)"><i class="small-link pop-close closePopup"></i></div>
+          <div class="modal-container-content">
+            <div class="h-title h2">Скидка 5% за репост</div>
+            <div class="text2">Сделайте репост при помощи кнопки «Поделиться» и сообщите об этом нашему менеджеру. И вы получите промокод на следующий заказ.</div>
+            <ul class="list promo-list">
+              <li>Профиль должен быть открыт</li>
+              <li>Репост можно сделать только 1 раз</li>
+            </ul>
+            <div class="soc-btns">
+              <button class="soc-btn fb share" type="button">поделиться</button>
+              <button class="soc-btn vk share" type="button">поделиться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END out-->
+  </body>
+</html>

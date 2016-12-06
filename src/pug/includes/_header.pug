@@ -18,8 +18,16 @@
     a(href="#").nav-link О сервисе
   // .active когда товар добавлен
   .header__navs--cart.active
-    .header__navs--login
-      a(href="#").js-modal-trigger.u-reg.u-halfgray.s-small Войти
+    //.js-popup-button когда нужна модалка логина, когда человек уже зашел, убираем ее
+    .header__navs--login.dropdown-trigger.js-popup-button(data-modal='login')
+      a(href="#").u-reg.u-halfgray.s-small Войти
+      .dropdown-target
+        .dropdown-inner
+         .dropdown-content
+            a(href="#").menu-item История заказов
+            a(href="#").menu-item.active Мои данные
+            a(href="#").menu-item Изменить пароль
+            a(href="#").menu-item Выйти
     .header__navs--cart-inner
       a(href="#").cart
         .cart-icon

@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
     <link rel="stylesheet" media="all" href="css/screen.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDanQ-UHb2wM8kRInfW5Dt0cO-3f1a7nH4"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
@@ -41,7 +41,14 @@
               <nav class="header__navs--nav"><a class="nav-link" href="#">Программы питания </a><a class="nav-link" href="#">Меню </a><a class="nav-link" href="#">О сервисе</a></nav>
               <!-- .active когда товар добавлен-->
               <div class="header__navs--cart active">
-                <div class="header__navs--login"><a class="js-modal-trigger u-reg u-halfgray s-small" href="#">Войти</a></div>
+                <!--.js-popup-button когда нужна модалка логина, когда человек уже зашел, убираем ее-->
+                <div class="header__navs--login dropdown-trigger js-popup-button" data-modal="login"><a class="u-reg u-halfgray s-small" href="#">Войти</a>
+                  <div class="dropdown-target">
+                    <div class="dropdown-inner">
+                      <div class="dropdown-content"><a class="menu-item" href="#">История заказов</a><a class="menu-item active" href="#">Мои данные</a><a class="menu-item" href="#">Изменить пароль</a><a class="menu-item" href="#">Выйти</a></div>
+                    </div>
+                  </div>
+                </div>
                 <div class="header__navs--cart-inner"><a class="cart" href="#">
                     <div class="cart-icon"><i class="cart-i">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 33.5 27" style="enable-background:new 0 0 33.5 27" xml:space="preserve">
