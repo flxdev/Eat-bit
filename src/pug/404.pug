@@ -1,0 +1,48 @@
+extends _layout
+
+block title
+  title ошибка
+
+block content
+  //.pagehead-center для страниц ошибок типа этой и 404 и страниц аккаунта
+  .pagehead-wrap.pagehead-center.text-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white ошибка
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Ошибка')
+  .error-wrap
+    .error-text
+      .img404
+        span 4
+        .apple-wrap
+          img(src="img/404.png", alt="")
+        span 4
+      .h-title.h2 Ой, страница не найдена!
+    a(href="#").btn.btn-medium.btn-black Вернуться на главную
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

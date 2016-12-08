@@ -33,7 +33,7 @@ block content
         +accmenu('Подарочные сертификаты')
         +accmenu('Новости')
   section.box-standart.box-service
-    .box-review
+    .box-review-list
       mixin review(img,name,title,text)
         .review-item
           .review-content(style='background-color:#eaf6ef')
@@ -112,8 +112,47 @@ block content
             a(href="#").pagination-counter-item 27
             a(href="#").pagination-counter-item 28
           a(href="#").pagination-arr.arr-r
-
-
+  .box-standart.feddback-wrap
+    h2.box-title Поделитесь впечатлениями
+    .box-title-small  Расскажите, что вы думаете о нашем сервисе и блюдах. Для нас важно каждое мнение. Помогите нам стать лучше.
+    .inner-content
+      .center-box
+        form(action="some_target_url").offer-form.js-validate.feedback-form
+          .white-box.client
+            .inputs-cont
+              .input-rating.input-wrapper.req.js-stars
+                .input-label Оценка сервиса
+                .star-wrapper
+                  #rev-star-1.star-item(data-num='1')
+                  #rev-star-2.star-item(data-num='2')
+                  #rev-star-3.star-item(data-num='3')
+                  #rev-star-4.star-item(data-num='4')
+                  #rev-star-5.star-item(data-num='5')
+                  input(type='number',style='display: none;').rev-hidden
+              .input-item.s-100
+                .input-wrapper.req
+                  input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                  label.input-label Заголовок отзыва
+              .input-item.s-100
+                .input-wrapper.req
+                  textarea.input-main(data-validation="required",rows='3',data-validation-error-msg="Не заполнено")
+                  label.input-label Отзыв
+              .input-item.s-100
+                .input-wrapper.req
+                  input.input-main(type="text",data-validation="required",data-validation-error-msg="Не заполнено")
+                  label.input-label Ваше имя и фамилия
+              .input-item.s-100
+                .input-wrapper.req
+                  input.input-main(type="url",data-validation="required url",data-validation-error-msg="Не заполнено")
+                  label.input-label Ссылка на соц.сеть
+            button(type='button').trans-btn.add.borderb
+              span Добавить ссылку
+            button(type='button').link-dotted.light Добавить фото
+            .js-dropzone
+              .text1.your-photo Ваше фото
+          .menu-nav
+            .menu-nav-inner
+              input(type="submit", value='оставить отзыв').btn.btn-black
 
 
 

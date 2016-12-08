@@ -125,12 +125,12 @@ body, .out,html
         +rem(padding-top,15px)
         +rem(padding-bottom,15px)
         box-shadow: 0px 0px 32px 0px rgba( 0, 0, 0,.2 );
-        .header__navs--nav
-          width: 0
-          margin: 0
-          opacity: 0
-        .header__navs--phone
-          +rem(margin-right,50px)
+        // .header__navs--nav
+        //   width: 0
+        //   margin: 0
+        //   opacity: 0
+        // .header__navs--phone
+        //   +rem(margin-right,50px)
         .header__logo
           padding-left: 8%
         .header__navs--cart
@@ -158,9 +158,9 @@ body, .out,html
     +r(1150)
       +rem(padding,100px 25px 103px 25px)
     +r(991)
-      +rem(padding,60px 25px 103px 25px)
+      +rem(padding,60px 25px 73px 25px)
     +r(544)
-      +rem(padding,60px 15px 103px 15px)
+      +rem(padding,60px 15px 63px 15px)
 
 //utility
 //text-types
@@ -269,9 +269,15 @@ body, .out,html
     +r(991)
       margin: auto
       padding-left: 12.8%
+      transform: translateX(-18%)
     +r(768)
-      padding-left: 18.8%
-      transform: translateX(8%)
+      padding-left: 17.8%
+      transform: translateX(-15%)
+    +r(480)
+      transform: translateX(-8%)
+      // transform: translateX(5%)
+    +r(375)
+      transform: translateX(10%)
     .logo-outer
       position: absolute
       left: 0
@@ -310,6 +316,7 @@ body, .out,html
       display: flex
       align-items: center
       +tr(margin .3s)
+      margin-right: 5.5%
       .link-tel 
         vertical-align: bottom
       +r(991)
@@ -336,7 +343,7 @@ body, .out,html
     &--nav
       display: flex
       align-items: center
-      margin: 0 3% 0 5.5%
+      margin: 0 3% 0 0
       opacity: 1
       overflow: hidden
       transition: width .3s, margin .3s, opacity .15s
@@ -673,7 +680,7 @@ body, .out,html
       &:hover
         .soc-icon-item
           &:after
-            +scale(1.07)
+            +scale(1)
         .stsoc1
           fill: $white
       &.insta
@@ -700,7 +707,7 @@ body, .out,html
       border-radius: 50%
       background: $white
       position: relative
-      overflow: hidden
+      // overflow: hidden
       svg
         display: inline-block
         width: 100%
@@ -910,7 +917,7 @@ body, .out,html
       line-height: 1.35
     .smalllight
       +rem(margin-top, 5px)   
-.list,.side-content ul
+.list,.side-content ul,.news-inner-text ul
   li 
     +rem(padding-left,40px)
     position: relative
@@ -1743,6 +1750,8 @@ body, .out,html
     .soc
       &-icon-item
         background: #000
+        vertical-align: top
+
       &-icon-wrapp
         +rem(width,35px)
         +rem(height,21px)
@@ -1795,19 +1804,20 @@ body, .out,html
 .news
   &-wrap
     +rem(margin-right,-20px)
-    font-size:  0
+    font-size: 0
     +rm(991)
       +rem(padding-top,35px)
   &-item
     &-wrap
-      padding-bottom: 33%
+      padding-bottom: 32.5%
       +rem(padding-right,20px)
-      width: 33%  
+      font-size: 0
+      width: 33.33%  
       position: relative
       display: inline-block
       vertical-align: top
       +r(768)
-        width: 50%  
+        width: 49.9%  
         +rem(margin-bottom,20px)
         padding-bottom: 40%
       +r(544)
@@ -1842,7 +1852,7 @@ body, .out,html
         bottom: 0 
         left: 0 
         right: 0  
-        +rem(padding,0 35px 44px)    
+        +rem(padding,0 32px 38px)    
         .h-title
           +rem(max-width,245px)
           line-height:  1.35
@@ -1983,8 +1993,8 @@ body, .out,html
         .input-real
           cursor: pointer
 
-    .ui-slider-handle
-        +rem(top, -5px)
+    // .ui-slider-handle
+    //     +rem(top, -5px)
 
     &.modal-small
       +rem(max-width,490px)
@@ -2081,10 +2091,16 @@ body, .out,html
     background-image: url(../img/icons/close_popup.svg)
 
 .bread-container
+  +r(991)
+    text-align: center
+    +padlr(10px)
   .icon-link
     span
       color: $white
       +rem(font-size,12px)
+      +r(768)
+        +rem(font-size,18px)
+        +rem(margin-bottom,8px)
       &:after
         +rem(bottom,-5px)
         background-color: $white
@@ -2120,6 +2136,45 @@ body, .out,html
   justify-content: center
   +r(991)
     flex-direction: column
+  &.half-contact
+    +rem(margin-bottom,-45px)
+    .half-section:not(:first-child)
+      +rem(padding,50px 0 10px)
+      p 
+        +rem(margin-bottom,11px)
+    .half-side
+      flex: 0 0 30.5rem
+      .h-title.h2
+        +rem(margin-bottom,37px)
+        +rem(margin-top,15px)
+      .form-footer
+        border: 0
+        padding-top: 0 !important
+        .btn
+          +rem(margin-bottom,25px)
+    .side-title
+      +rm(991)
+        width: 38%
+    .side-content 
+      p 
+        +rem(font-size,20px)
+      +r(768)
+        display: block
+        +rem(max-width,400px)
+        margin: 0 auto
+      +rm(991)
+        width: 62%
+      .stsoc1
+        fill: #fff
+      .soc
+        &-icon-item
+          background: #000
+      .social
+        +rem(margin-left,-10px)
+        +rem(margin-top,30px)
+        +r(544)
+          margin: 30px auto 15px
+          justify-content: center
   &-base
     margin-left: 9%
     flex: 1 1 22.5rem
@@ -2229,10 +2284,13 @@ body, .out,html
     .sticky-wrap
       position: sticky
       +rem(top,110px)
+      z-index: 3
       .white-box 
         +rem(padding,39px 48px)
         +r(1450)
           +rem(padding,30px 40px)
+        +r(544)
+          +rem(padding,20px)
         .checkbox-wrap
           +rem(margin-top,35px)
           +rem(margin-bottom,28px)
@@ -2282,17 +2340,45 @@ body, .out,html
       margin: 0 auto
       max-width: 100%
       max-height: 100%
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) 
+  .pagehead-wrap
+    background-attachment: scroll 
 .pagehead
   &-wrap
-    +cover
+    position: relative
+    backface-visibility: hidden;
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    +rm(1024)
+      background-attachment: fixed
+    +r(544)
+      +rem(margin, 0 -15px)
+    &:before
+      content: ''
+      +coverdiv
+      z-index: 1
+      background: rgba(0,0,0, .3)
+    .inner-content
+      +r(991)
+        .half-base
+          flex: 1 1 13.5rem !important
   &-content
     +rm(991)
       +rem(padding,97px 0 55px)
+    +r(991)
+      text-align: center
+      +rem(padding,100px 0 45px)
+    +r(544)
+      +rem(padding,45px 0 25px)
     .h-title
       text-transform: uppercase 
       +rem(letter-spacing,-1.8px)
       +r(544)
-        +rem(font-size,32px)
+        +rem(font-size,64px)
+      +r(321)
+        +rem(font-size,48px)
     .u-number
       display: block
       font-weight: 100  
@@ -2307,6 +2393,8 @@ body, .out,html
         line-height: 1  
   &-wrap
     .inner-content
+      position: relative
+      z-index: 2
       +rem(padding-bottom,45px)
 .white-box
   background: $white
@@ -2410,15 +2498,20 @@ body, .out,html
       background: #000
       +rem(max-height,2px)
       top: 50% !important
+      border: 0
+      +rem(height, 2px)
+      position: absolute
     &-handle
       border-radius: 50%
       background: #000 !important
       border: none !important
-      +rem(margin-top,10px)
+      // +rem(margin-top,-50px)
       +tr(transform .2s)
       +rem(min-height,22px)
       +rem(min-width,22px)
+      +rem(top, 5px)
       cursor: pointer !important
+      position: absolute
       &:hover
         transform: scale(1.2)
       
@@ -2605,6 +2698,7 @@ body, .out,html
     +rem(padding-bottom,10px)
   &.active
     border: 1.5px solid $text
+    z-index: 10
     .select-img
       transform: scale(1,-1)
 .selects
@@ -2766,6 +2860,11 @@ body, .out,html
     cursor: pointer
     &:hover
       background-color: #000
+    +r(544)
+      +rem(left,10px)
+      +rem(bottom,20px)
+      +rem(width,50px)
+      +rem(height,50px)
   &-icon
     display: inline-block
     width: 100%
@@ -2780,17 +2879,27 @@ body, .out,html
     &:before
       background-image: url(../img/icons/Calc.svg)
 .pagehead-wrap
+  .h-title
+    +rem(min-height,85px)
+    +r(544)
+      min-height: 0
   &.text-center
     text-align: center
     +rem(padding-bottom,90px)
     .pagehead-content
       +rem(padding-bottom,15px)
       +rem(padding-top,85px)
+      +r(544)
+        +rem(padding-top,35px)
   &.pagehead-center
     +rem(padding-bottom,0px)
     +rem(padding-top,20px)
     .pagehead-content
-       +rem(padding-bottom,85px) 
+      +rem(padding-bottom,85px)
+      +r(544)
+        +rem(padding-bottom,25px)
+    .inner-content
+      +rem(padding-bottom,40px)
 
 
 .center
@@ -2834,7 +2943,8 @@ body, .out,html
         +rem(margin-top,25px)
         +rem(padding-top,35px)
       &+.menu-nav
-        +rem(margin-top,32px)
+        +rem(margin-top,35px)
+        +rem(margin-bottom,-10px)
         .menu-nav-inner
           +r(544)
             flex-direction: column
@@ -2844,7 +2954,7 @@ body, .out,html
           margin: auto
           cursor: pointer
           +rem(padding,19px 79px)
-          +rem(width,273px)
+          +rem(min-width,273px)
           +r(480)
             +rem(padding,19px 49px)
 .promo-form
@@ -3096,8 +3206,12 @@ body, .out,html
     margin: 0 auto
     +rem(padding-top,70px)
     text-align: center
+    +r(544)
+      +rem(padding-top,30px)      
   &-text
     +rem(margin-bottom,45px)
+    +r(544)
+      +rem(margin-bottom,25px)
     .btn 
       +rem(padding-left, 42px)
       +rem(padding-right, 42px)
@@ -3254,6 +3368,14 @@ body, .out,html
     +rem(padding-right,25px)
     .input-wrapper
       +rem(margin-bottom,25px)
+    .select-check
+      .dropdown-content
+        +rem(max-height,170px)
+        overflow-y: auto
+    //   z-index: 10
+    //   .dropdown-target
+    //     z-index: 11
+
 .s
   &-100
     width: 100%
@@ -3627,6 +3749,12 @@ select
     &:after
       right: 0
       width: 0
+  &.light 
+    font-family:  cera
+    font-weight: 300
+    color: $halfgray
+    +rem(font-size,20px)
+    text-transform: none  
 .gray-cont
   background: $gray
 .acc
@@ -3697,6 +3825,9 @@ select
     +rem(padding,20px 0 17px)
     +rem(margin-bottom,5px)
     text-transform: uppercase 
+    span
+      +rem(padding-top,6px)
+      display: inline-block
     &.active
       & +.acc-menu
         +r(991)
@@ -4015,9 +4146,11 @@ blockquote
     position: relative
     z-index: 1
     color: $white
-.box-review
+.box-review-list
   +rem(margin-top,15px)
   border-bottom: 1px solid $borderl
+  +r(544)
+    +rem(margin, -25px -20px 0)
   .review-who-img
     transform: scale(1)
   .star-item
@@ -4027,11 +4160,19 @@ blockquote
     width: 80%
     +r(768)
       width: 100%
-      +padlr(10px)
+      +padlr(20px)
+  .text2
+    +r(544)
+      text-align: justify
+  .review-title
+    +r(544)
+      text-align: center
   .review-item
     +rem(padding-left,5px)
     &:not(:first-child)
       +rem(margin-top,40px)
+      +r(544)
+        +rem(margin-top,20px)
 .pagination 
   &-wrapper
     text-align: center
@@ -4041,7 +4182,7 @@ blockquote
     white-space: nowrap
     +r(544)
       +rem(margin, 0 -15px)
-
+        
     .pagination-container
       margin: 0
       max-width: 600px
@@ -4088,7 +4229,305 @@ blockquote
       transform: scale(-1,1)
     &:hover
      +rem(background-size, 12px 16px)
+.input-rating
+  border: 0
+  .star-wrapper,.input-label
+    display: inline-block
+    vertical-align: top
+    position: static
+  .star-item
+    cursor: pointer
+    +nosel
+  .input-label
+    +rem(padding-right,20px)
+    +r(544)
+      display: block
+      +rem(margin-bottom,10px)
+  &.has-success
+    .input-label  
+      +rem(font-size,20px)
+.feedback-form
+  .white-box.client
+    .inputs-cont
+        +rem(margin-bottom,-15px)
+    .trans-btn.add.borderb
+      +rem(margin-top,-10px)
+      display: block
+    .link-dotted 
+      opacity: .7
+      +rem(margin-bottom,40px)
+    &+ .menu-nav
+      .btn
+        +padlr(50px)
+
+.feddback-wrap
+  border-top: 1px solid $borderl
+  +rem(margin-top,50px)
+  +rem(padding-top,70px)
+  +r(544)
+    +rem(margin-top,20px)
+    +rem(padding,20px 0 0 0)
+  .center-box
+    +rm(544)
+      +rem(margin-top,75px)  
+.box-service
+  .center-box
+    +rm(544)
+      +rem(margin-top,75px) 
+    +r(544)
+      .white-box
+        +rem(margin,0 -25px)    
+.your-photo
+  display: none 
+.dz-clickable
+  min-height: 40px
+  padding: 0
+  border: 0
+  position: relative
+  z-index:  1
+  cursor: pointer
+  +rem(margin-top,-60px)
+  &.dz-started
+    background: $white
+    +rem(padding-top,40px)
+    .your-photo
+      display: block
+      position: absolute
+      z-index: 2
+      top: 0  
+  .dz-preview
+    display: inline-block
+    position: relative
+    +rem(width,140px)
+  .dz-details,.dz-success-mark,.dz-error-mark
+    display: none
+  .dz-remove
+    position: absolute;
+    font-size: 0;
+    display: inline-block;
+    +rem(width, 15px);
+    +rem(height, 15px);
+    right: 0;
+    +rem(top,-5px)
+    &:before,&:after
+      content: '';
+      display: inline-block;
+      +rem(width, 14px);
+      height: 1px;
+      background-color: #9d9c9c; 
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    &:before
+      transform: rotate(45deg);
+    &:after
+      transform: rotate(-45deg);
+.sertificat-total
+  text-align: center
+  +rem(padding, 25px 0 26px)
+.newsfeed-box
+  border-bottom: 1px solid $borderl
+  +rem(margin-bottom,-20px)
+  +rem(padding-bottom,50px)
+  .pagination-wrapper
+    +rem(margin-top,20px)
+  .news-wrap
+    +rem(margin-top,5px)
+
+    +screen(544,991)
+      +rem(padding-top,60px)
+  .news-item-wrap
+    +rem(margin-bottom,20px)
+    +rm(768)
+      &:nth-of-type(3n-1)
+        +rem(margin-top,-73px)
+    // +screen(768,991)
+    //   &:nth-of-type(1), &:nth-of-type(3)
+    //     +rem(margin-top,73px)
+    //   &:nth-of-type(3n-1):not(:nth-of-type(3))
+    //     +rem(margin-top,-73px)     
+    +screen(544,768)
+      &:nth-of-type(2n)
+        +rem(margin-top,-73px)
+    +r(544)
+      padding-right: 0
+.news-inner
+  &-wrapper
+    display: block
+    margin: 0 auto
+    +rem(padding-top,47px)
+    +rem(max-width,780px)
+  &-text
+    .smalllight
+      +rem(margin,23px auto 28px)
+      display: block
+      text-align: center
+      +r(544)
+        +rem(margin,15px auto 15px)
+    .box-title-small
+      +rem(margin-bottom,50px)
+    p 
+      +rem(font-size, 16px)
+      color: $text
+      font-weight: 300
+      line-height: 1.438;
+      +rem(max-width, 580px)
+      +rem(margin,15px auto)
+      a
+        position: relative
+        color: #000
+        opacity: .7
+        display: inline-block
+        +rem(padding-bottom,2px)
+        line-height: 1
+        +tr(opacity .3s)
+        &:after
+          content: ''
+          display: inline-block
+          right: auto
+          left: 0
+          width: 100%
+          +rem(height,1px)
+          background: #cccccc
+          +rem(bottom,0px)
+          position: absolute 
+          +tr(all .3s)
+        &:hover
+          opacity: 1
+          &:after
+            right: 0
+            width: 0
 
 
+    ul 
+      +rem(max-width, 580px)
+      line-height: 1.3
+      +rem(margin,25px auto)     
+      li:not(:last-child)
+        +rem(margin-bottom,17px)
+    img
+      display: block
+      width: 100%
+      +rem(margin,16px auto)
+      +r(544)
+        +rem(margin,0 -15px)
+  &-nav
+    display: flex
+    justify-content: space-between
+    border-top: 1px solid $borderl
+    +rem(padding-top,50px)
+    +rem(margin-top,55px)
+    +r(544)
+      +rem(padding-top,30px)
+      +rem(margin-top,35px)
 
-  
+.news-inner-slider
+  &-item
+    +cover
+    padding-bottom: 8.3%
+    +r(544)
+      padding-bottom: 9.6%
+  &-wrapper
+    +rem(margin, 50px 0)
+    +r(544)
+      +rem(margin, 30px -15px)
+    .i-arrows
+      +rem(margin-top,15px)
+.news-image
+  &-cont
+    +rem(margin-top,130px)
+    +rem(margin-bottom,30px)
+    font-size: 0
+    +rem(margin-right,-20px)
+    +r(544)
+      +rem(margin-top,25px)
+      +rem(margin-bottom,25px)
+    .image-left,.image-right
+      display: inline-block
+      vertical-align: top
+      width: 50%
+      +rem(padding-right,20px)
+      +r(544)
+        width: 100%
+    .image-left
+      +rm(544)
+        margin-top: -10%
+      .news-image-item
+        padding-bottom: 140%
+    .image-right
+      .news-image-item
+        padding-bottom: 77%       
+  &-item
+    +cover
+    +rem(margin-bottom,20px)
+.icon-text
+  position: relative
+  +rem(font-size,20px)
+  font-weight: 300
+  color: $text
+  +rem(padding-left,42px)
+  line-height: 1.3
+  +rem(margin,15px 0)
+  span
+    display: inline-block
+  &:before
+    content: ''
+    position: absolute
+    +contain
+    top: 0
+    +rem(width,25px)
+    +rem(height,25px)
+    left: 0
+  &.tel 
+    &:before
+      background-image: url(../img/icons/phone.svg)
+  &.mail
+    &:before
+      background-image: url(../img/icons/write.svg)
+  &.hoverable
+    span
+      position: relative
+      &:after
+        content: ''
+        display: inline-block
+        right: auto
+        left: 0
+        width: 100%
+        +rem(height,1px)
+        background: #cccccc
+        +rem(bottom,-3px)
+        position: absolute 
+        +tr(all .3s)
+    &:hover
+      span
+        &:after
+          width: 0
+          right: 0
+.img404
+  white-space: nowrap
+  +rem(margin-bottom,90px)
+  +r(768)
+    +rem(margin-bottom,50px)  
+  span,.apple-wrap
+    display: inline-block
+    vertical-align: top
+  .apple-wrap
+    +rem(max-width,260px)
+    +rem(padding-right,10px)
+    +r(768)
+      +rem(max-width,180px)
+    +r(480)
+      +rem(max-width,100px)      
+    img
+      display: block
+      max-width: 100%
+      margin: 0 auto
+  span
+    font-weight: 300
+    +rem(font-size,314px)
+    line-height: .8
+    +r(768)
+      +rem(font-size,207px)
+    +r(480)  
+       +rem(font-size,110px)  

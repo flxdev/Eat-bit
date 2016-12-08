@@ -38,6 +38,7 @@
             </div>
             <div class="header__navs">
               <div class="header__navs--phone"><a class="link-tel" href="tel:89260201481"> <span class="u-number">8 (926) 02-01-481</span></a></div>
+              <!-- display: none на всех страницах кроме главной-->
               <nav class="header__navs--nav"><a class="nav-link" href="#">Программы питания </a><a class="nav-link" href="#">Меню </a><a class="nav-link" href="#">О сервисе</a></nav>
               <!-- .active когда товар добавлен-->
               <div class="header__navs--cart active">
@@ -327,6 +328,42 @@
           </div>
           <div class="modal-container-content">
             <div class="text1">Вы подписались на рассылку новостей от Eat-bit. Настроить подписку вы можете в личном кабинете.</div>
+          </div>
+        </div>
+      </div>
+      <!--модалка обратной связи после заполнения формы в контактах, такой же блок есть в отдельной модалке обратной связи-->
+      <div class="modal-layout js-popup-container" data-modal="callback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  </div>
+          </div>
+        </div>
+      </div>
+      <!--модалка после оставленного отзыва-->
+      <div class="modal-layout js-popup-container" data-modal="feedback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Мы очень рады, что вы оставили отзыв о нашем проекте. После прохождения модерации ваш отзыв будет опубликован.</div>
+          </div>
+        </div>
+      </div>
+      <!--модалка после сертификата-->
+      <div class="modal-layout js-popup-container" data-modal="sertificat">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за заказ сертификата. В ближайшее время с вами свяжется наш менеджер.</div>
           </div>
         </div>
       </div>
@@ -646,7 +683,7 @@
                     <div class="js-slider-info js-slider-x" data-index-1="1" data-index-2="7" data-index-3="15" data-index-5="30"></div>
                   </div>
                 </div>
-                <div id="rangeinput"><i class="dot dot25"></i><i class="dot dot50"></i><i class="dot dot0"></i><i class="dot dot100"></i></div>
+                <div class="rangeinput"><i class="dot dot25"></i><i class="dot dot50"></i><i class="dot dot0"></i><i class="dot dot100"></i></div>
               </div>
               <div class="form-footer">
                 <div class="form-total">

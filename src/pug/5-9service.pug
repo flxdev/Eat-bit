@@ -1,0 +1,90 @@
+extends _layout
+
+block title
+  title Новости
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Новости
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Новости')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Новости"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  section.box-standart.box-section.newsfeed-box
+    .news-wrap.js-news
+      mixin news(img,text,date)
+        a(href="#").news-item-wrap
+          .news-item-bg(style='background-image: url(img/news/'+img+')')
+          .news-item-content
+            .news-item-content-inner
+              .news-item-content-text
+                .h-title.h4.u-white #{text}
+                .smalllight #{date}
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('2.jpg','Как приготовить рис терияки в домашних условиях','12 октября 2016')
+      +news('2.jpg','Как приготовить рис терияки в домашних условиях','12 октября 2016')
+      +news('2.jpg','Как приготовить рис терияки в домашних условиях','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('3.jpg','Конкурс на лучший рецепт шоколадного торта','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+      +news('1.jpg','Встречайте новинку в нашем меню!','12 октября 2016')
+    script.
+      NewsGrid() 
+    .pagination-wrapper
+      .pagination-inner
+        .pagination-container
+          a(href="#").pagination-arr.arr-l
+          .pagination-counter
+            a(href="#").pagination-counter-item 1
+            a(href="#").pagination-counter-item 2
+            a(href="#").pagination-counter-item.active 3
+            a(href="#").pagination-counter-item 4
+            a(href="#").pagination-counter-item 5
+            span.dots ...
+            a(href="#").pagination-counter-item 27
+            a(href="#").pagination-counter-item 28
+          a(href="#").pagination-arr.arr-r
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

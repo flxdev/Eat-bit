@@ -6,4 +6,5 @@
 //=include lib/isotope.pkgd.min.js
 //=include lib/sticky-fill.js
 //=include lib/jquery.form-validator.min.js
+//=include lib/dropzone.min.js
 //=include common.js

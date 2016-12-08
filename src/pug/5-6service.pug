@@ -1,0 +1,143 @@
+extends _layout
+
+block title
+  title Подарочные сертификаты
+
+block content
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.png)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Подарочные сертификаты
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('О сервисе')
+        +bread('Подарочные сертификаты')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Подарочные сертификаты"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  .box-standart.box-service
+    h2.box-title Дарите подарки
+    .box-title-small  У вас есть прекрасная возможность сделать близким людям и деловым партнерам подарок — сертификат на любую программу Eat-bit.
+    .inner-content
+      .center-box
+        form(action="some_target_url").offer-form.js-validate.feedback-form
+          .white-box.client
+            .inputs-cont
+              .input-item.s-100
+                .input-wrapper.req
+                  input.input-main(type="text",data-validation="required",data-validation-error-msg="Не заполнено")
+                  label.input-label Ваше имя и фамилия
+              .input-item.s-50
+                .input-wrapper.req
+                  input.input-main(type="email",data-validation="email required",data-validation-error-msg="Не заполнено")
+                  label.input-label E-mail
+              .input-item.s-50
+                .input-wrapper.req
+                  input.input-main(type="tel",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+                  label.input-label Телефон
+              .input-item.s-50
+                .input-wrapper.select-check.js-select-custom.req
+                  button.selects(data-placeholder = 'Выберите')
+                    span.btn-name Рацион
+                    span.btn-text Выберите
+                    i.select-img
+                  .dropdown-target
+                    .dropdown-inner
+                      .dropdown-content
+                        .select-u-body.select-list
+                          label.option
+                            input(type="radio",name='group2',value ='val1') 
+                            span 1000-1200 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val2') 
+                            span 1400-1600 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val3') 
+                            span 1600-1800 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val4') 
+                            span 1800-2000 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val5') 
+                            span 2100-2300 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val6') 
+                            span 2300-2500 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val7') 
+                            span 2500-2900 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val8') 
+                            span 2900-3200 ккал
+                          label.option
+                            input(type="radio",name='group2',value ='val9') 
+                            span 3200-3500 ккал 
+              .input-item.s-50
+                .input-wrapper.select-check.js-select-custom.req
+                  button.selects(data-placeholder = 'Выберите')
+                    span.btn-name Период
+                    span.btn-text Выберите
+                    i.select-img
+                  .dropdown-target
+                    .dropdown-inner
+                      .dropdown-content
+                        .select-u-body.select-list
+                          label.option
+                            input(type="radio",name='groupы',value ='val1') 
+                            span 1 день
+                          label.option
+                            input(type="radio",name='groupы',value ='val2') 
+                            span 1 неделя
+                          label.option
+                            input(type="radio",name='groupы',value ='val3') 
+                            span 2 недели
+                          label.option
+                            input(type="radio",name='groupы',value ='val4') 
+                            span 1 месяц
+              .input-item.s-100
+                .input-wrapper.req
+                  input.input-main(type="text",data-validation="required",data-validation-error-msg="Не заполнено")
+                  label.input-label Имя и фамилия получателя
+              .input-item.s-100
+                .input-wrapper
+                  textarea.input-main(rows='3')
+                  label.input-label Комментарий
+            .sertificat-total
+              .text2 Номинал сертификата
+              .form-total-count 90 000 ₽
+          .menu-nav
+            .menu-nav-inner
+              input(type="submit", value='Получить сертификат').btn.btn-black
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
