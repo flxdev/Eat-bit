@@ -104,6 +104,8 @@ body, .out,html
     width: 100%
     display: block
     height: 100%
+    +r(991)
+      overflow-x: hidden
   &__header
     position: fixed
     +rem(height,100px)
@@ -255,12 +257,267 @@ body, .out,html
   +rem(font-size,14px)
 
 .header
+  &__content-wrap
+    +r(991)
+      overflow-y: auto
+  &__menu
+    &-mobile
+      &-login
+        +rem(font-size,24px)
+        font-weight: 300
+        color: $text
+        +rem(padding-left,40px)
+        position: relative
+        +rem(margin-top,15px)
+        display: inline-block
+        &:before
+          content: ''
+          position: absolute
+          height: 100%
+          +rem(width,29px)
+          +contain
+          left: 0
+          top: 0
+          background-image: url(../img/icons/account.svg)
+      &-contact
+        // +rem(margin-top,70px)
+        border-top: 1px solid $borderl
+        border-bottom: 1px solid $borderl
+        width: 100%
+        text-align: center
+        +rem(padding, 30px 10px 40px 10px)
+        a.h2
+          +rem(font-size,40px)
+          +rem(margin-bottom,15px)
+          display: inline-block
+        .u-white
+          color: $text
+        .footer-mailto
+          .u-light
+            +rem(font-size,24px)
+      &-contact,&-head
+        +rm(991)
+          display: none
+      &-head
+        position: absolute
+        text-align: right
+        +rem(height,58.5px)
+        width: 100%
+        left: 0
+        top: 0
+        right: 0
+        z-index: 20
+        background-color: $white
+        +rem(padding-right,20px)
+    &--wrap
+      position: fixed
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: rgba(0,0,0,.3);
+      z-index: 20;
+      opacity: 0;
+      will-change: opacity, visibility
+      visibility: hidden;
+      -webkit-transition: opacity .2s,visibility .2s,-webkit-transform .2s;
+      transition: opacity .2s,visibility .2s,-webkit-transform .2s;
+      transition: opacity .2s,transform .2s,visibility .2s;
+      transition: opacity .2s,transform .2s,visibility .2s,-webkit-transform .2s;
+      font-size: 0;
+      text-align: left
+      &.open
+        opacity: 1
+        visibility: visible
+        .header__menu--cont
+          transition-delay: .25s
+          transform: translateX(0);
+    &--cont 
+      transform: translateX(-100%);
+      transition: transform .3s ease-in-out;
+      margin-top: 0;
+      will-change: transform
+      +rem(max-width,947px)
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      background: $white
+      display: flex
+      align-items: flex-end
+      justify-content: center
+      +r(991)
+        +rem(padding-top,58.5px)
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+
+    &--inner
+      flex-grow: 0
+      flex-shrink: 1
+      +rem(flex-basis,735px)
+      +rem(padding,0 20px)
+      +r(991)
+        width: 100%
+        +rem(padding,0 30px)
+    &__links
+      align-self: center
+      +rem(margin-top,100px)
+      +r(544)
+        +rem(margin-top,20px)       
+      &-item,.header__menu__links-bold
+        display: inline-block
+        vertical-align: top
+        li 
+          font-size: 0
+        a 
+          +rem(font-size,16px)
+          color: #747474
+          font-weight: 300
+          line-height: 1.438;
+          +tr(color .3s)
+          display: inline-block
+          width: 100%
+          height: 100%
+          +rem(padding,8.5px 0)
+          +r(544)
+            +rem(font-size,24px)   
+          &:hover
+            color: #000
+      &-item
+        width: 40%
+        +r(991)
+          width: 33.33%
+        +r(544)
+          width: 100%
+          text-align: center                
+        &:first-child
+          width: 38%
+          +r(991)
+            width: 33.33%
+          +r(544)
+            width: 100%
+            text-align: center            
+        &:nth-child(2)
+          width: 42%
+          +r(991)
+            width: 33.33%    
+          +r(544)
+            width: 100%
+            text-align: center      
+      .header__menu__links-bold
+        width: 20%
+        +r(991)
+          width: 33.33%
+        +r(544)
+          width: 100%
+          text-align: center
+            
+        li 
+          +rem(margin-bottom,20px)
+        a:first-child
+          padding-top: 0
+      &-head,.header__menu__links-bold a
+        +rem(font-size, 24px)
+        font-weight: 300
+        color: #747474
+        line-height: 1.667;
+        +r(544)
+          +rem(font-size,40px)
+    &__footer
+      display: flex
+      justify-content: space-between
+      align-items: center
+      +rem(padding, 50px 0 90px)
+      border-top: 1px solid $borderl
+      margin-top: 21%
+      +rm(1620)
+        margin-top: 31%
+      +r(768)
+        +rem(margin-top,30px)
+        +rem(padding, 45px 0 45px)
+      // +rem(margin-right,-2px)
+      // +rem(margin-left,-20px)
+      .social
+        +rem(margin-left,-12px)
+        +r(991)
+          width: 100%
+          margin: 0
+          justify-content: center
+          display: flex
+          padding-left: .6875rem
+      .stsoc1
+        fill: #fff
+      .soc
+        &-icon-item
+          background: #000 !important
+      // .soc-icon-wrapp
+      //   +r(991)
+      //     display: flex
+            
+      .icon-link
+        +rem(margin-right,7px)
+        opacity: 1 !important
+        +tr(opacity .3s)
+        +r(991)
+          display: none
+        span
+          color: $text
+          +rem(letter-spacing,1.2px)
+        i 
+          &:before,&:after
+            +rem(top,3px)
+        &:hover
+          opacity: .7 !important
   &__hamburger
     position: relative
     vertical-align: top
     display: inline-block
-    +rem(padding-top,20px)
-    margin-right: 10.5%
+    // +rem(padding-top,20px)
+    padding-right: 8.5%
+    margin-right: 2%
+    padding-bottom: 5%
+    +rem(margin-top,-25px)
+    +rem(margin-bottom,-25px)
+    cursor: pointer
+    +r(991)
+      +rem(padding-bottom,25px)
+      +rem(padding-top,25px)
+    &:hover
+      +rm(991)
+        &:not(.open)
+          .hamburger-inner
+            span
+              &:nth-child(2) 
+                transform: translateX(8px)
+
+        &.toclose
+          .hamburger-inner
+            &:before,&:after
+              opacity: 1
+            &:before
+              animation: hovone .1s .15s linear forwards
+            &:after
+              animation: hovtwo .1s .3s linear forwards     
+    &.open
+      position: relative
+      z-index: 50
+      .hamburger-inner
+        span 
+          &:nth-child(1) 
+            transform: rotate(135deg)
+            +rem(top, 9px)
+          &:nth-child(2)
+            opacity: 0
+            left: -60px
+            +rem(left, -60px)
+          &:nth-child(3)
+            transform: rotate(-135deg)
+            +rem(top, 9px) 
+     
   &__logo
     padding-left: 11.8%
     position: relative
@@ -300,7 +557,7 @@ body, .out,html
           right: 0
           bottom: 0
           top: 0
-          z-index: 21
+          z-index: 10
           background-image: url(../img/icons/logo.svg)
           +contain 
   &__navs
@@ -408,15 +665,28 @@ body, .out,html
           left: 0
           right: 0
           text-align: center
-
+@keyframes hovone
+  0%
+    transform: rotate(-135deg)  scale(1)
+  100%
+    transform: rotate(-135deg)  scale(0)  
+@keyframes hovtwo
+  0%
+    transform: rotate(135deg)  scale(1)
+  100%
+    transform: rotate(135deg)  scale(0)  
 .hamburger
   +rem(width, 42px)
   +rem(height, 20px)
   position: absolute
   // +rem(left, 25px)
-  // +rem(top, 30px)
+  // +rem(top, 28px)
+  top: 39%
   left: 0
-  top: 0
+  +r(1366)
+    top: 35%   
+  +r(991)
+    +rem(top, 15px)
   &-inner 
     width: 100%
     height: 100%
@@ -424,6 +694,31 @@ body, .out,html
     cursor: pointer
     position: relative
     text-align: center
+    &:before,&:after
+      content: ''
+      height: 8px
+      width: 108%
+      display: block
+      background-color: #FFF
+      position: absolute
+      bottom: 0
+      opacity: 0
+      +tr(transform .15s)
+
+    &:before
+      +rem(right,-38px)
+      +rem(bottom,-8px)
+      // +rem(right,-34px)
+      transform: rotate(-135deg)    
+      transform-origin: 0 0
+      z-index: 5
+    &:after
+      +rem(left,-39px)
+      // +rem(left,-35px)
+      // +rem(top, -3px)
+      transform: rotate(135deg) 
+      transform-origin: 100%
+      z-index: 3
     div 
       display: block
       position: relative
@@ -437,26 +732,17 @@ body, .out,html
       position: absolute
       opacity: 1
       left: 0
+      will-change: transform
       transform: rotate(0deg)
-      transition: 0.2s ease-in-out
+      transition: 0.2s ease-in
       &:nth-child(1) 
         top: 0
+
       &:nth-child(2)
         +rem(top, 10px)
       &:nth-child(3)
         +rem(top, 20px)
-    &.open 
-      span 
-        &:nth-child(1) 
-          transform: rotate(135deg)
-          +rem(top, 9px)
-        &:nth-child(2)
-          opacity: 0
-          left: -60px
-          +rem(left, -60px)
-        &:nth-child(3)
-          transform: rotate(-135deg)
-          +rem(top, 9px) 
+        z-index: 4
 
 //footer block
 
@@ -755,6 +1041,10 @@ body, .out,html
       top: 8%
 .box-full
   overflow: hidden
+  &:not(.gray ),&:not(.black),&:not(.box-section)
+    +rm(1150)
+      +rem(padding-right,30px)
+      +rem(margin-right,-30px)
   &.gray 
     +rem(margin,0 -50px)
     +r(1150)
