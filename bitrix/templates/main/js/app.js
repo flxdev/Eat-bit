@@ -723,29 +723,21 @@ if($('.sort_wrapper').length){
 	sortItem();
  } 
 
-function Grid(){
-	if(!$('.menu-grid').attr("style")){
-		$('.menu-grid').isotope({
-		  layoutMode: 'fitRows',
-		  itemSelector: '.menu-item-wrap',
-		});
-	}
 
-}
-$(window).on('load resize', function(){
-	if(window.matchMedia("(min-width: 545px)").matches){
-		Grid();
-		setTimeout(function(){
-			$('.menu-grid').isotope('resize').isotope('layout');
-		},10)
+// $(window).on('load resize', function(){
+// 	if(window.matchMedia("(min-width: 545px)").matches){
+// 		Grid();
+// 		setTimeout(function(){
+// 			$('.menu-grid').isotope('resize').isotope('layout');
+// 		},10)
 		
-	}
-	 else{
-		if($('.menu-grid').attr("style")){
-			$('.menu-grid').isotope('destroy');
-		}
-	}
-})
+// 	}
+// 	 else{
+// 		if($('.menu-grid').attr("style")){
+// 			$('.menu-grid').isotope('destroy');
+// 		}
+// 	}
+// })
 function stick(){
 	// $(".white-box").Stickyfill();
 	var stickyElements = document.getElementsByClassName('js-sticky');
@@ -761,10 +753,12 @@ function stick(){
 		}
 	})
 }stick();
+
 $(window).on('resize',function(){
 	stopStick();
 	Stickyfill.rebuild('.js-sticky');
-})
+});
+
 function stopStick(){
 	if(window.matchMedia("(max-width: 991px)").matches){
 		Stickyfill.stop('.js-sticky');
@@ -773,17 +767,17 @@ function stopStick(){
 	}
 }stopStick();
 function validateForms(){
-var form_form = $('.js-validate');
-if (form_form.length) {
-	form_form.each(function () {
-		var form_this = $(this);
-		$.validate({
-			form : form_this,
-			borderColorOnError : true,
-			scrollToTopOnError : false,
+	var form_form = $('.js-validate');
+	if (form_form.length) {
+		form_form.each(function () {
+			var form_this = $(this);
+			$.validate({
+				form : form_this,
+				borderColorOnError : true,
+				scrollToTopOnError : false,
+			});
 		});
-	});
-};
+	};
 }validateForms();
 
 function Accordeon(){
@@ -806,6 +800,7 @@ if($('.js-accordion-trigger').length){
 		});
 	}
 }Accordeon();
+
 function mobileFilter(){
 	var trigger = $('.mobile-dropdowm-trigger');
 
@@ -813,6 +808,7 @@ function mobileFilter(){
 		$(this).toggleClass('active');
 	})
 }mobileFilter();
+
 function updateToSelectMenu() {
 	$('.ui-datepicker-title select').selectmenu({
 	select: function(e) {
@@ -822,7 +818,9 @@ function updateToSelectMenu() {
   })
   $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
 }
+
 function datepick(){
+
 var item = $( ".datepicker" );
 	item.each(function(){
 		var _ = $(this);
@@ -938,6 +936,7 @@ function initCustomSelectList() {
 		}
 	}));
 }(jQuery));
+
 function sliderRange(){
 	var slider = $(".rangeinput" );
 	slider.each(function(){
@@ -984,6 +983,7 @@ function calcWeek(value,slider){
 	totalSum.text((dayPrice * x) +' ₽');
 }
 popUpsInit();
+
 function subscribe(){
 	var parent = $('.js-subscribe'),
 		trigger = parent.find('.select-u-item'),
@@ -1007,6 +1007,12 @@ function subscribe(){
 	});
 	parent.trigger('reinit');
 }subscribe();
+$(".header__navs--nav a").on('click', function () {
+    var elementClick = $(this).attr("href")
+    var destination = $(elementClick).offset().top;
+    console.log(elementClick,destination )
+    $("body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
+	});
 function FocusInput(){
 var input = $('.js-focus');
 	input.each(function(){
@@ -1361,6 +1367,7 @@ function newsSlider(){
 } newsSlider();
 Menu();
 ToClose();
+isMobile();
 //end of document ready
 });
 //end of document ready
@@ -1509,7 +1516,7 @@ function NewsGrid(){
 
 }
 function Menu() {
-	var trigger = $('.header__hamburger'),
+	var trigger = $('.js-menu'),
 		triggerInner = trigger.find('.hamburger-inner'),
 		target = $('.header__menu--wrap');
 		body = $('body'),
@@ -1536,3 +1543,159 @@ function ToClose(){
 				_.removeClass(clas);
 		});		
 }
+function news(){
+	$( ".index-slider").each( function() {
+		var _this = $(this);
+		slidesCount(_this);
+		ArrColor(_this);
+		_this.slick({
+			accessibility: true,
+			arrows: true,
+			draggable: false,
+			touchMove: false,
+			asNavFor:_this.siblings().find('.index-add'),
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			appendArrows: _this.siblings().find('.i-arrows'),
+			nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+			prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+		}); 
+
+		_this.siblings().find('.index-add').slick({
+			arrows: false,
+			draggable: false,
+			asNavFor: _this,
+			touchMove: false,
+			vertical: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+		});
+	}); 
+}
+function isMobile()
+{
+   return (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
+}
+function GridorSlider(){
+	$( ".menu-grid").each(function(){
+		var _this = $(this);
+			isMobile() ? gridslider(_this) : Grid(_this)
+	});
+}
+function Grid(item){
+	if(!item.attr("style")){
+		item.isotope({
+		  layoutMode: 'fitRows',
+		  itemSelector: '.menu-item-wrap',
+		});
+		setTimeout(function(){
+			item.isotope('resize').isotope('layout');
+		},10)
+
+	}
+}
+function gridslider(item){
+	if(!item.hasClass('slick-initialized')){
+		slidesCount(item);
+		item.slick({
+				accessibility: true,
+				arrows: true,
+				draggable: true,
+				touchMove: false,
+				infinite: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				mobileFirst: true,
+				appendArrows: item.siblings('.i-arrows'),
+				nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+				prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+				responsive: [
+					{
+						breakpoint: 544,
+			      settings: {
+			        slidesToShow: 2,
+			        slidesToScroll: 2
+			      }
+					},
+					{
+						breakpoint: 768,
+			      settings: {
+			        slidesToShow: 3,
+			        slidesToScroll: 3
+			      }
+					},
+				]
+			});
+	}
+}
+function reviews(){
+	$(".review-slider").each( function() {
+		var _this = $(this);
+		slidesCount(_this);
+		_this.slick({
+			accessibility: true,
+			arrows: true,
+			draggable: false,
+			touchMove: false,
+			fade: true,
+			speed: 300,
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			appendArrows: _this.siblings('.i-arrows'),
+			nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+			prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+		}); 
+	}); 
+} 
+function insta(){
+	$( ".instagram-wrapper").each( function() {
+		var _this = $(this);
+		slidesCount(_this);
+		_this.slick({
+			accessibility: true,
+			arrows: true,
+			draggable: false,
+			touchMove: false,
+			infinite: false,
+			autoplay: true,
+			pauseOnFocus: false,
+			pauseOnHover: false,
+			autoplaySpeed: !0,
+			speed: 10000,
+			cssEase: 'linear',
+			slidesToShow: 6,
+			slidesToScroll: 1,
+			appendArrows: _this.siblings().find('.i-arrows'),
+			nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',
+			prevArrow:'<button type="button" class="carousel-prev"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>',
+			responsive: [
+				{
+					breakpoint: 991,
+					settings: {
+						slidesToShow: 5
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 4
+					}
+				},
+				{
+					breakpoint: 543,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						speed: 300,
+						autoplaySpeed: 4500,
+						cssEase: 'ease-in',
+					}
+				}
+			]
+		}); 
+		reverse(_this);
+	}); 
+} 

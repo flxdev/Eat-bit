@@ -82,15 +82,7 @@ body, .out,html
   // overflow-x: hidden
   position: relative
   -webkit-overflow-scrolling: touch;
-  +r(991)
-    overflow-y: scroll  
-  +rm(768)
-    // +scrollbar
-    //   +rem(width,10px)
-    // ::-webkit-scrollbar-thumb 
-    //   +rem(width,10px)
-    //   border-radius: 10px !important
-    //   cursor: pointer
+
 
 // main page layout
 .page
@@ -100,6 +92,8 @@ body, .out,html
     flex-wrap: nowrap
     flex-direction: column
     height: 100%
+    +r(991)
+      overflow-x: hidden
   &__outer
     width: 100%
     display: block
@@ -137,7 +131,7 @@ body, .out,html
           padding-left: 8%
         .header__navs--cart
           +rem(padding-top, 5px)
-          +rem(padding-bottom, 10px)
+          +rem(padding-bottom, 11px)
           +rem(margin-top, -18px)
           +rem(margin-bottom, -18px)
     +r(1150)
@@ -157,6 +151,8 @@ body, .out,html
     background: $white
     +rem(padding,100px 50px 103px 50px)
     flex: 1 0 auto
+    +r(991)
+      overflow-x: hidden
     +r(1150)
       +rem(padding,100px 25px 103px 25px)
     +r(991)
@@ -258,8 +254,10 @@ body, .out,html
 
 .header
   &__content-wrap
+    width: 78%
     +r(991)
       overflow-y: auto
+      width: 100%
   &__menu
     &-mobile
       &-login
@@ -499,7 +497,7 @@ body, .out,html
             &:before,&:after
               opacity: 1
             &:before
-              animation: hovone .1s .15s linear forwards
+              animation: hovone .1s .2s linear forwards
             &:after
               animation: hovtwo .1s .3s linear forwards     
     &.open
@@ -582,13 +580,18 @@ body, .out,html
       +rem(margin,-42px -50px -19px 0)
       +rem(padding,42px 50px 25px 40px)
       height: 100%  
-      transition: margin .3s, padding .3s
+      transition: margin .3s, padding .3s, background .3s
       will-change: margin, padding
       +r(991)
-        +rem(margin,-25px -25px -17px 0)
-        +rem(padding,25px 25px 17px 25px)
+        +rem(margin,-16px -25px -15px 0)
+        +rem(padding,16px 25px 15px 25px)
+      .cart
+        display: inline-block
+        
       &.active
         background: $text
+        &:hover
+          background: #000
         .u-reg
           color: $halfwhite
         .u-light,.u-number
@@ -600,7 +603,9 @@ body, .out,html
     &--nav
       display: flex
       align-items: center
-      margin: 0 3% 0 0
+      margin-right: 3%
+      +rem(margin-top,-32.5px)
+      +rem(margin-bottom,-30px)
       opacity: 1
       overflow: hidden
       transition: width .3s, margin .3s, opacity .15s
@@ -613,6 +618,11 @@ body, .out,html
       +rem(font-size,16px) 
       +rem(margin-top,2px) 
       +padlr(14px) 
+      +rem(padding-top,40px)
+      +rem(padding-bottom,40px)
+      +tr(color .3s)
+      &:hover
+        color: #000
     &--login
       text-align: right
       transform: translateY(-5px)
@@ -747,6 +757,13 @@ body, .out,html
 //footer block
 
 .footer
+  &-mailto
+    display: inline-block
+    &:hover
+      +rm(991)
+        .u-light:not(:hover):not(.dot-divider)
+          opacity: .5
+          cursor: pointer
   &__main
     display: block
     margin: 0 auto
@@ -807,11 +824,16 @@ body, .out,html
         +rem(height,35px)
         border: 1px solid $white
         +rem(margin-top,21px)
-        // +rem(margin-right,-21px)
+        &:hover
+          +rm(991)
+            box-shadow: 0px 1.5px 8px 0px rgba(255, 255, 255, 0.35);
         &-input
           background: 0 0
           color: $white
           +rem(padding,0 17px)
+          font-family: cera
+          +placeholder
+            font-family: cera
           +r(480)
             width: 50%
         &-submit
@@ -825,6 +847,7 @@ body, .out,html
   &-mailto
     .u-light
       display: inline-block
+      +tr(opacity .3s)
     .dot-divider
       +rem(padding,0 10px)
   &-nav
@@ -839,10 +862,15 @@ body, .out,html
         flex-wrap: wrap
       ul
         +rem(margin-bottom,23px)
+        &:hover
+          +rm(991)
+            li:not(:hover)
+              opacity: 0.5
         +r(768)
           width: 50%
           +rem(margin-top,-23px)
         li 
+          +tr(opacity .25s)
           +r(768)
             +rem(padding,10px 0)
       .u-bold
@@ -895,14 +923,21 @@ body, .out,html
     width: 36% 
     +r(991)
       width: 50%
+    &:hover
+      +rm(991)
+        li:not(:hover)
+          opacity: 0.5
     .u-bold
       +rem(margin-bottom,20px)
       text-transform: uppercase
       +rem(font-size,14px)
     li
-      +rem(padding,5px 0)
-      +rem(margin-bottom,15px)
+      +rem(margin-bottom,10px)
       line-height: 1.07
+      +tr(opacity .25s)
+      a 
+        +rem(padding,5px 0 10px)       
+
   &__footer
     background: #000
     position: relative
@@ -981,11 +1016,11 @@ body, .out,html
       &.vk
         .soc-icon-item
           &:after
-            background: radial-gradient(circle at 33% 100%,#507299 4%,#507299 30%,#507299 62%,#8fa7c1 85%,#b8d4f5);
+            background: #507299
       &.fb
         .soc-icon-item
           &:after
-            background: radial-gradient(circle at 33% 100%,#3b5998 4%,#3b5998 30%,#3b5998 62%,#9b36b7 85%,#3b5998);
+            background: #3b5998
     &-item
       display: inline-block
       width: 100%
@@ -1040,9 +1075,10 @@ body, .out,html
       +rem(left,25px)
       top: 8%
 .box-full
-  overflow: hidden
+  +rm(991)
+    overflow: hidden
   &:not(.gray ),&:not(.black),&:not(.box-section)
-    +rm(1150)
+    +rm(991)
       +rem(padding-right,30px)
       +rem(margin-right,-30px)
   &.gray 
@@ -1112,6 +1148,10 @@ body, .out,html
       +rem(height,30px)
 .index
   &-slider
+    opacity: 0
+    +tr(opacity .25s)
+    &.slick-initialized
+      opacity: 1
     &-wrapper
       position: relative
       +r(991)
@@ -1121,7 +1161,7 @@ body, .out,html
     position: relative
     padding-bottom: 5.6%
     &.white
-      .title,.list
+      .title,.list li
         color: $white
     +r(1600)
       padding-bottom: 5.4%
@@ -1130,7 +1170,9 @@ body, .out,html
     +r(768)
       padding-bottom: 10.5%
     +r(544)
-      padding-bottom: 17.5%
+      padding-bottom: 15.5%
+    +r(350)
+      padding-bottom: 17.5%     
     &-text
       position: absolute
       left: 12.9%
@@ -1150,16 +1192,18 @@ body, .out,html
         text-align: center
         min-width: 100%
         left: 0
+        top: 10%
         right: 0
         +rem(padding,20px)
       +r(544)
+        top: 4%
         width: 95%
       .title
         margin-bottom: 11%
         +r(1150)
           +rem(font-size,45px)
         +r(768)
-          +rem(font-size,35px)
+
           margin-bottom: 5%
       .btn 
         margin-top: 7%
@@ -1185,6 +1229,12 @@ body, .out,html
     order: 2
     +r(991)
       display: none
+    &-slide
+      +rem(padding,1px 0)
+      +tr(opacity .3s)
+      opacity: 0
+      &.slick-current,&.slick-cloned
+        opacity: 1
     &-wrapper
       position: absolute
       +rem(right,-17px)
@@ -1200,7 +1250,11 @@ body, .out,html
       .i-arrows
         background: $white
         order: 1
-        +rem(padding,0 10px)
+        // +rem(padding,0 10px)
+        .slick-arrow
+          +rm(991)
+            // margin-top: 0
+            height: 100%   
         +r(991)
           background: transparent
     .u-light
@@ -1522,6 +1576,10 @@ body, .out,html
         display: inline-block
         +rem(max-width,300px)
         +rem(margin, 88px 0 30px)
+        +r(768)
+          +rem(margin, 25px 0 25px)
+      +r(768)
+        height: auto
     &-bg,&-main
       position: absolute
       +coverdiv
@@ -1688,10 +1746,9 @@ body, .out,html
     position: relative
     +r(768)
       justify-content: center
-     
       .m-nav-link
         position: absolute
-        +rem(bottom,-25px)
+        +rem(bottom,-30px)
         &.left
           +rem(left,10px)
         &.right
@@ -1738,10 +1795,11 @@ body, .out,html
     margin: 0 auto
     font-size: 0
     +r(544)
-      +rem(padding-top,35px)
+      +rem(padding-top,45px)
     & + .i-arrows
-      +rm(544)
-        display: none
+      display: none
+    &.slick-initialized + .i-arrows
+      display: block
       & + .box-standart
         +rem(margin-top,35px)
         +r(544)
@@ -1751,7 +1809,7 @@ body, .out,html
       .menu-item-wrap
         width: 20%
         +r(1500)
-          width: 25%
+          width: 24.9%
         +r(1150)
           width: 33.333%
         +r(900)
@@ -1759,20 +1817,25 @@ body, .out,html
         +r(544)
           width: 100%
           +rem(padding,15px)
-        +rm(1500)
-          &:nth-of-type(2),&:nth-of-type(5),&:nth-of-type(7)
-            transform: translate3d(0,-20%,0)
-          &:nth-child(4),&:nth-child(9)
-            transform: translate3d(0,17%,0)
-        +screen(1150px,1499px)
-          &:nth-child(even)
-            transform: translate3d(0,-20%,0)
-        +screen(900px,1149px)
-          &:nth-child(3n-1)
-            transform: translate3d(0,-20%,0)
-        +screen(544px,899px)
-          &:nth-child(2n)
-            transform: translate3d(0,-15%,0)
+        &:not(.slick-initialized)
+          +rm(1500)
+            &:nth-of-type(2),&:nth-of-type(5)
+              margin-top: -5%
+            &:nth-of-type(7)
+              margin-top: -8.6%
+            &:nth-child(4)
+              margin-top: 3.5%
+            &:nth-child(6),&:nth-child(8)
+              margin-top: -3.8%
+          +screen(1150px,1499px)
+            &:nth-child(even)
+              margin-top: -5%
+          +screen(900px,1149px)
+            &:nth-child(3n-1)
+              margin-top: -7%
+          +screen(544px,899px)
+            &:nth-child(2n)
+              margin-top: -7%
   &-item
     +rem(min-width,275px)
     position: relative
@@ -1790,8 +1853,14 @@ body, .out,html
       vertical-align: top
       &.total
         text-align: center
-        +rem(padding,55px 15px )
+        +rem(padding,30px 15px)
+        .props
+          +rem(margin,30px 0 15px)
+          .props-item
+            +rem(padding-bottom,10px)
         .menu-text-name
+          display: block
+          text-align: center
           +rem(margin-bottom,25px)
     &-bgu
       position: absolute
@@ -1842,14 +1911,18 @@ body, .out,html
   &-text
     &-wrap
       background: $white
-      +rem(padding, 25px 15px)
+      +rem(padding, 22px 15px)
     &-name
       font-weight: 700
       +rem(font-size,16px)
+      +rem(margin-bottom,4px)
+      display: inline-block
+      
     &-val 
       +rem(margin-top,5px)
       +rem(font-size,14px)
       color: $halfgray 
+      text-transform: uppercase
       .u-number
         display: inline-block
         +rem(padding-right,5px)
@@ -1965,23 +2038,31 @@ body, .out,html
     width: 100%
     +r(991)
       +rem(padding, 0 25px)
+
   &-item
     +rem(padding-top,55px)
     &.slick-current
+      .review-text
+        .text2
+          opacity: 1
+          transform: translateY(0)
       .review-who-img
         transform: scale(1)
+      .h-title,.social
+        opacity: 1
+        transform: translateY(0)
       .star-item
         opacity: 1
         &:nth-child(1)
-          transition-delay: .2s
+          transition-delay: .3s
         &:nth-child(2)
-          transition-delay: .25s
+          transition-delay: .45s
         &:nth-child(3)
-          transition-delay: .30s
+          transition-delay: .60s
         &:nth-child(4)
-          transition-delay: .35s
+          transition-delay: .70s
         &:nth-child(5)
-          transition-delay: .40s
+          transition-delay: .80s
   &-content
     display: flex
     flex-flow: row nowrap
@@ -2008,7 +2089,7 @@ body, .out,html
       border-radius: 50%
       overflow: hidden
       transform: scale(0)
-      +tr(transform .35s $tr)
+      +tr(transform .35s .2s $tr)
       +rm(768)
         +rem(margin-top,-55px)
         +rem(width,110px)
@@ -2020,11 +2101,18 @@ body, .out,html
         max-height: 100%
         margin: 0 auto
         transform: none
+    .h-title,.social
+      opacity: 0
+      +rm(768)
+        transform: translateY(-125%)
+      transition: transform .3s .5s, opacity .3s .5s
+      +r(768)
+        transform: translateX(-5%)
     .h-title
       +rem(margin,25px 0 18px)
       +r(768)
         +rem(margin,0 0 0 20px)
-        width: 50% 
+        width: 70% 
         white-space: nowrap
     .stsoc1
       fill: #fff
@@ -2036,7 +2124,7 @@ body, .out,html
       +r(768)
         display: inline-block 
         +rem(margin,-20px 0 0 65px)
-        width: 50% 
+        width: 70% 
     .soc
       &-icon-item
         background: #000
@@ -2071,6 +2159,10 @@ body, .out,html
     .star-item
       opacity: 0
       +tr(opacity .15s $tr)
+    .text2
+      transform: translateY(5%)
+      opacity: 0
+      transition: transform .3s .7s, opacity .3s .7s
   &-title
     +rem(font-size,24px)
     font-weight: 700
@@ -2434,6 +2526,8 @@ body, .out,html
         +rem(margin-bottom,11px)
     .half-side
       flex: 0 0 30.5rem
+      +rm(991)
+        +rem(min-width,320px)
       .h-title.h2
         +rem(margin-bottom,37px)
         +rem(margin-top,15px)
@@ -2529,6 +2623,11 @@ body, .out,html
           +rem(padding,0 15px)
         +r(544)
           +rem(max-height,200px)
+    .m-nav-link
+      +r(768)
+        +rem(bottom, 5px)
+      +r(544)
+        +rem(bottom, -30px)  
     .menu-grid
       & + .i-arrows
         &+ .box-standart
@@ -2538,16 +2637,25 @@ body, .out,html
       +rm(1560)
         width: 33.33%
         &:nth-child(3n-1)
-          // transform: translateY(-20%)
+          margin-top: -9%
       +screen(991px,1560px)
         width: 50%
+        &:nth-child(2n)
+          margin-top: -6%
       +r(991)
         width: 33.33%
       +r(890)
-        width: 50%
+        width: 49.9%
       +r(544)
         width: 100%
         +rem(padding, 12px 0)
+        margin: 0
+      +screen(890px,991px)
+        &:nth-child(3n-1)
+          margin-top: -9%
+      +screen(544px,889px)     
+        &:nth-child(2n)
+          margin-top: -8%
     &:not(:last-child)
       border-bottom: 1px solid $borderd
       +rem(padding,73px 0)

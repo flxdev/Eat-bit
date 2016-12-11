@@ -26,7 +26,7 @@
       <div class="page__outer">
         <div class="page__wrapper">
           <header class="page__header cd-auto-hide-header">
-            <div class="header__hamburger">
+            <div class="header__hamburger js-menu">
               <div class="hamburger">
                 <div class="hamburger-inner"><span></span><span></span><span></span></div>
               </div>
@@ -39,7 +39,7 @@
             <div class="header__navs">
               <div class="header__navs--phone"><a class="link-tel" href="tel:89260201481"> <span class="u-number">8 (926) 02-01-481</span></a></div>
               <!-- display: none на всех страницах кроме главной-->
-              <nav class="header__navs--nav"><a class="nav-link" href="#">Программы питания </a><a class="nav-link" href="#">Меню </a><a class="nav-link" href="#">О сервисе</a></nav>
+              <nav class="header__navs--nav"><a class="nav-link" href="#programms">Программы питания </a><a class="nav-link" href="#menu">Меню </a><a class="nav-link" href="#about">О сервисе</a></nav>
               <!-- .active когда товар добавлен-->
               <div class="header__navs--cart active">
                 <!--.js-popup-button когда нужна модалка логина, когда человек уже зашел, убираем ее-->
@@ -227,9 +227,7 @@
                 <div class="footer-contact-block">
                   <div class="footer-contact-svyaz">
                     <div class="describe-text">Свяжитесь с нами</div><a class="u-number u-white h2" href="tel:89260201481">8 (926) 02-01-481</a>
-                    <div class="footer-mailto">
-                      <div class="u-light u-white s-text">Обратная связь </div><span class="dot-divider u-light u-white s-text">. </span><a class="u-light u-white" href="mailto:info@eat-bit.ru">info@eat-bit.ru</a>
-                    </div>
+                    <div class="footer-mailto"><a class="u-light u-white s-text" href="#" data-popup="callback">Обратная связь </a><span class="dot-divider u-light u-white s-text">. </span><a class="u-light u-white" href="mailto:info@eat-bit.ru">info@eat-bit.ru</a></div>
                   </div>
                   <div class="footer-contact-mail">
                     <div class="describe-text">Подпишитесь на акции, обещаем только полезную информацию! </div>
@@ -475,9 +473,9 @@
         <div class="modal-container">
           <div class="modal-container-header">
             <div class="h-title h2">Калькулятор</div>
-            <div class="header__hamburger closePopup">
+            <div class="header__hamburger closePopup open">
               <div class="hamburger">
-                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
               </div>
             </div>
           </div>
@@ -563,9 +561,9 @@
         <div class="modal-container" style="display: none">
           <div class="modal-container-header">
             <div class="h-title h2">Результат</div>
-            <div class="header__hamburger closePopup">
+            <div class="header__hamburger closePopup open">
               <div class="hamburger">
-                <div class="hamburger-inner open"><span></span><span></span><span></span></div>
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
               </div>
             </div>
           </div>
