@@ -74,16 +74,14 @@ body
 body, .out,html
   width: 100%
   height: 100%
-  +r(991)
-    overflow: hidden
+
   &.modal_open
     overflow: hidden
 .out
-  // overflow-x: hidden
   position: relative
   -webkit-overflow-scrolling: touch;
-
-
+  +r(991)
+    overflow-x: hidden
 // main page layout
 .page
   &__wrapper
@@ -91,15 +89,14 @@ body, .out,html
     display: flex
     flex-wrap: nowrap
     flex-direction: column
-    height: 100%
-    +r(991)
-      overflow-x: hidden
+    // height: 100%
+    // +r(991)
+    //   overflow-x: hidden
   &__outer
     width: 100%
     display: block
     height: 100%
-    +r(991)
-      overflow-x: hidden
+
   &__header
     position: fixed
     +rem(height,100px)
@@ -115,6 +112,16 @@ body, .out,html
     transition: height .3s, padding .3s,box-shadow .3s
     will-change: height, padding, box-shadow
     +rem(padding,32.5px 50px 30px 50px)
+    &.inner
+      .header__navs--nav
+        display: none
+      +r(991)
+        .header__logo
+          margin: auto
+          +rem(width,60px)
+          +rem(height,60px)
+          padding: 0
+          transform: translateY(-10px)
     &.is-hidden
       +rm(991)
         +rem(height,70px)
@@ -479,6 +486,7 @@ body, .out,html
     margin-right: 2%
     padding-bottom: 5%
     +rem(margin-top,-25px)
+    height: 100%
     +rem(margin-bottom,-25px)
     cursor: pointer
     +r(991)
@@ -521,6 +529,8 @@ body, .out,html
     position: relative
     +rem(margin-top,-55px)
     +tr(padding .3s)
+    +rm(1650)
+      padding-left: 10.2%
     +r(991)
       margin: auto
       padding-left: 12.8%
@@ -587,7 +597,9 @@ body, .out,html
         +rem(padding,16px 25px 15px 25px)
       .cart
         display: inline-block
-        
+      .stcart
+        fill: transparent
+        +tr(fill .3s)
       &.active
         background: $text
         &:hover
@@ -600,6 +612,11 @@ body, .out,html
             color: #8a8a8a !important
         .stcart1,.stcart
           stroke: $white
+      &:not(.active):hover
+        .stcart
+          fill: $text
+        .u-number
+          color: $white
     &--nav
       display: flex
       align-items: center
@@ -954,6 +971,7 @@ body, .out,html
           +rem(margin-bottom,20px)
       
     .developer
+      +nosel
       &:hover
         .flex
           fill: red
@@ -1077,10 +1095,10 @@ body, .out,html
 .box-full
   +rm(991)
     overflow: hidden
-  &:not(.gray ),&:not(.black),&:not(.box-section)
+  &:not(.gray):not(.black):not(.box-section)
     +rm(991)
-      +rem(padding-right,30px)
-      +rem(margin-right,-30px)
+      +rem(padding-right,25px)
+      +rem(margin-right,-25px)
   &.gray 
     +rem(margin,0 -50px)
     +r(1150)
@@ -1123,29 +1141,33 @@ body, .out,html
   +rem(right, 50px)
   +rem(bottom, 40px)
   transform: translateY(100px)
-  +tr(transform .3s)
+  transition: transform .3s, opacity .3s
+  cursor: pointer
+  .stop2
+    +tr(transform .3s)
   +r(544)
     +rem(width,40px)
     +rem(height,40px)
     +rem(right, 25px)
   &:hover
-    &:before
-      background: #e6e6e6
+    opacity: 0.7
+    .stop2
+      transform: translateY(-3px)
   &.visible
     transform: translateY(0)
-  &:before
-    +rem(width,40px)
-    +rem(height,40px)
-    +rem(margin-top,4px)
-    +rem(margin-left,4px)
-    background: $white
-    border-radius: 50%
-    content: ''
-    display: inline-block
-    +tr(background .3s)
-    +r(544)
-      +rem(width,30px)
-      +rem(height,30px)
+  // &:before
+  //   +rem(width,40px)
+  //   +rem(height,40px)
+  //   +rem(margin-top,4px)
+  //   +rem(margin-left,4px)
+  //   background: $white
+  //   border-radius: 50%
+  //   content: ''
+  //   display: inline-block
+  //   +tr(background .3s)
+  //   +r(544)
+  //     +rem(width,30px)
+  //     +rem(height,30px)
 .index
   &-slider
     opacity: 0
@@ -1475,7 +1497,7 @@ body, .out,html
     color: $text
     &:not(.no-arr)
       +r(544)
-        +rem(padding,9px 32px 7px 17px)
+        +rem(padding,10px 32px 7px 17px)
     &:before,&:after
       content: ''
       position: absolute
@@ -1627,37 +1649,51 @@ body, .out,html
   position: relative
   &:hover
     .dropdown-target
-      transition-delay: 0.15s
-      +rem(max-height,1000px)
-      +rem(padding-top,15px)
-      +rem(padding-bottom,15px)
+      transition-delay: .15s
+      transform: translateY(0)
+      opacity: 1
+      visibility: visible
+      // transition-delay: 0.15s
+      // +rem(max-height,1000px)
+      // +rem(padding-top,15px)
+      // +rem(padding-bottom,15px)
 .dropdown-target.active
   // overflow: visible
-  transition-delay: 0.15s
-  +rem(max-height,1000px)
-  +rem(padding-bottom,15px)
-
+  // transition-delay: 0.15s
+  // +rem(max-height,1000px)
+  // +rem(padding-bottom,15px)
+  transform: translateY(0)
+  opacity: 1
+  visibility: visible
 .js-select-trigger.active,.js-select-item.active,.js-select-custom.active,.input-wrapper.in-focus
   .dropdown-target
-    transition-delay: 0.15s
-    +rem(max-height,1000px)
-    +rem(padding, 15px 15px 15px 15px) 
+    // transition-delay: 0.15s
+    // +rem(max-height,1000px)
+    // +rem(padding, 15px 15px 15px 15px) 
+    transform: translateY(0)
+    opacity: 1
+    visibility: visible
 .dropdown-target
+  +gpu
   position: absolute
   overflow: hidden
   z-index: 5
   +rem(margin,-15px)
   +padlr(15px)
   +rem(padding-top,15px)
-  max-height: 0
+  // max-height: 0
   left: 0
   right: 0
-  transition-property: max-height,padding-top,padding-bottom,background
-  transition-timing-function: $tr
-  transition-duration: .35s
-  transition-delay: 0s ,.35s, .35s,.15s
-  will-change: max-height, padding,background
-  +gpu
+  opacity: 0
+  transform: translateY(5%)
+  transition: opacity .25s, transform .25s, visibility .25s
+  visibility: hidden
+  // transition-property: max-height,padding-top,padding-bottom,background
+  // transition-timing-function: $tr
+  // transition-duration: .35s
+  // transition-delay: 0s ,.35s, .35s,.15s
+  // will-change: max-height, padding,background
+
   +clr
   .dropdown-inner
     +rem(margin-top,10px)
@@ -1707,8 +1743,7 @@ body, .out,html
       color: $lightgray
       +rem(font-size,16px)
       position: relative
-      +rem(padding-bottom,10px)
-      +rem(margin-bottom,5px)
+      +rem(padding-bottom,15px)
       display: inline-block
       width: 100%
       &:after
@@ -1798,13 +1833,14 @@ body, .out,html
       +rem(padding-top,45px)
     & + .i-arrows
       display: none
-    &.slick-initialized + .i-arrows
-      display: block
       & + .box-standart
-        +rem(margin-top,35px)
+        +rem(margin-top,40px)
         +r(544)
           text-align: center
           +rem(margin-top,15px)
+    &.slick-initialized + .i-arrows
+      display: block
+
     &.main-grid
       .menu-item-wrap
         width: 20%
@@ -2041,28 +2077,6 @@ body, .out,html
 
   &-item
     +rem(padding-top,55px)
-    &.slick-current
-      .review-text
-        .text2
-          opacity: 1
-          transform: translateY(0)
-      .review-who-img
-        transform: scale(1)
-      .h-title,.social
-        opacity: 1
-        transform: translateY(0)
-      .star-item
-        opacity: 1
-        &:nth-child(1)
-          transition-delay: .3s
-        &:nth-child(2)
-          transition-delay: .45s
-        &:nth-child(3)
-          transition-delay: .60s
-        &:nth-child(4)
-          transition-delay: .70s
-        &:nth-child(5)
-          transition-delay: .80s
   &-content
     display: flex
     flex-flow: row nowrap
@@ -2070,7 +2084,6 @@ body, .out,html
     align-items: stretch
     +r(768)
       flex-flow: row wrap
-
   &-who
     +rem(width,300px)
     text-align: center
@@ -2081,33 +2094,22 @@ body, .out,html
       +rem(padding,30px 25px)
       display: flex
       flex-flow: row wrap
-
     &-img
       display: inline-block
       +rem(width,50px)
       +rem(height,50px)
       border-radius: 50%
       overflow: hidden
-      transform: scale(0)
-      +tr(transform .35s .2s $tr)
       +rm(768)
         +rem(margin-top,-55px)
         +rem(width,110px)
         +rem(height,110px)
-
       img
         display: block
         max-width: 100%
         max-height: 100%
         margin: 0 auto
         transform: none
-    .h-title,.social
-      opacity: 0
-      +rm(768)
-        transform: translateY(-125%)
-      transition: transform .3s .5s, opacity .3s .5s
-      +r(768)
-        transform: translateX(-5%)
     .h-title
       +rem(margin,25px 0 18px)
       +r(768)
@@ -2156,13 +2158,6 @@ body, .out,html
       +rem(top,-44px)
       +r(768)
         +rem(top,-150px)
-    .star-item
-      opacity: 0
-      +tr(opacity .15s $tr)
-    .text2
-      transform: translateY(5%)
-      opacity: 0
-      transition: transform .3s .7s, opacity .3s .7s
   &-title
     +rem(font-size,24px)
     font-weight: 700
@@ -2560,14 +2555,14 @@ body, .out,html
           margin: 30px auto 15px
           justify-content: center
   &-base
-    margin-left: 9%
-    flex: 1 1 22.5rem
-    width: 55%
+    padding-left: 9%
+    // flex: 1 1 22.5rem
+    width: 72%
     +rem(padding-right,30px)
     +r(1450)
-      margin-left: 2%
+      padding-left: 2%
     +r(1280)
-      margin: 0
+      padding: 0
     +r(991)
       order: 2
       padding: 0
@@ -2639,7 +2634,7 @@ body, .out,html
         &:nth-child(3n-1)
           margin-top: -9%
       +screen(991px,1560px)
-        width: 50%
+        width: 49.9%
         &:nth-child(2n)
           margin-top: -6%
       +r(991)
@@ -2656,7 +2651,7 @@ body, .out,html
       +screen(544px,889px)     
         &:nth-child(2n)
           margin-top: -8%
-    &:not(:last-child)
+    &:not(:last-of-type)
       border-bottom: 1px solid $borderd
       +rem(padding,73px 0)
       +r(768)
@@ -2666,16 +2661,19 @@ body, .out,html
       +r(768)
         +rem(padding,35px 0 0)
   &-side
-    flex: 0 0 25.5rem
+    // flex: 0 0 25.5rem
     +rem(margin-top,-280px)
     position: relative
-    +r(1450)
-      flex: 0 0 20.5rem
+    width: 28%
     +r(991)
       flex: 1 0 0
       +rem(margin, 20px auto 0)
       order: 1
+      +rem(min-width,300px)
+      +rem(max-width,415px)
+      width: 80%
     +r(544)
+      min-width: 100%
       .checkbox-item,.checkbox-outer,.input-fake
         width: 100%
         text-align: center
@@ -2684,6 +2682,17 @@ body, .out,html
       +rem(top,110px)
       z-index: 3
       .white-box 
+        .h-title
+          .icon-link
+            float: right
+            +rem(margin-top,3px)
+            +rm(991)
+              display: none
+            i 
+              margin-right: 0
+              &:after
+                +rem(width,25px)
+                +rem(height,31px)
         +rem(padding,39px 48px)
         +r(1450)
           +rem(padding,30px 40px)
@@ -2759,6 +2768,8 @@ body, .out,html
       z-index: 1
       background: rgba(0,0,0, .3)
     .inner-content
+      .half
+        justify-content: flex-start
       +r(991)
         .half-base
           flex: 1 1 13.5rem !important
@@ -2774,9 +2785,12 @@ body, .out,html
       text-transform: uppercase 
       +rem(letter-spacing,-1.8px)
       +r(544)
-        +rem(font-size,64px)
+        +rem(font-size,60px)
+        +padlr(5px)
+        +rem(margin-top,5px)
+        hyphens: auto
       +r(321)
-        +rem(font-size,48px)
+        +rem(font-size,52px)
     .u-number
       display: block
       font-weight: 100  
@@ -2915,7 +2929,7 @@ body, .out,html
       
 .slider
   &-wrap
-    +rem(margin-bottom,45px)
+    +rem(margin-bottom,40px)
   &-text-wrapper
     font-size: 0
     +rem(margin-bottom,20px)
@@ -3258,11 +3272,8 @@ body, .out,html
     cursor: pointer
     &:hover
       background-color: #000
-    +r(544)
-      +rem(left,10px)
-      +rem(bottom,20px)
-      +rem(width,50px)
-      +rem(height,50px)
+    +r(991)
+      display: none
   &-icon
     display: inline-block
     width: 100%
@@ -3303,6 +3314,8 @@ body, .out,html
 .center
   &-content
     +rem(margin-top, -110px)
+    position: relative
+    z-index: 2
   &-box
     display: block
     width: 100%
@@ -4929,3 +4942,16 @@ blockquote
       +rem(font-size,207px)
     +r(480)  
        +rem(font-size,110px)  
+.programm-offer-button
+  background-color: $text
+  text-transform: uppercase
+  color: $white
+  font-weight: 600
+  display: block
+  text-align: center
+  +rem(line-height, 75px)
+  +rem(font-size,20px)
+  +rm(991)
+    display: none
+  +r(544)
+    +rem(margin,0 -15px)

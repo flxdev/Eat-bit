@@ -548,52 +548,6 @@ if (window.jQuery) {
 }else if(d===e)return!0;return!1},"undefined"!=typeof jQuery&&null!==jQuery&&(jQuery.fn.dropzone=function(b){return this.each(function(){return new a(this,b)})}),"undefined"!=typeof module&&null!==module?module.exports=a:window.Dropzone=a,a.ADDED="added",a.QUEUED="queued",a.ACCEPTED=a.QUEUED,a.UPLOADING="uploading",a.PROCESSING=a.UPLOADING,a.CANCELED="canceled",a.ERROR="error",a.SUCCESS="success",e=function(a){var b,c,d,e,f,g,h,i,j,k;for(h=a.naturalWidth,g=a.naturalHeight,c=document.createElement("canvas"),c.width=1,c.height=g,d=c.getContext("2d"),d.drawImage(a,0,0),e=d.getImageData(0,0,1,g).data,k=0,f=g,i=g;i>k;)b=e[4*(i-1)+3],0===b?f=i:k=i,i=f+k>>1;return j=i/g,0===j?1:j},f=function(a,b,c,d,f,g,h,i,j,k){var l;return l=e(b),a.drawImage(b,c,d,f,g,h,i,j,k/l)},d=function(a,b){var c,d,e,f,g,h,i,j,k;if(e=!1,k=!0,d=a.document,j=d.documentElement,c=d.addEventListener?"addEventListener":"attachEvent",i=d.addEventListener?"removeEventListener":"detachEvent",h=d.addEventListener?"":"on",f=function(c){return"readystatechange"!==c.type||"complete"===d.readyState?(("load"===c.type?a:d)[i](h+c.type,f,!1),!e&&(e=!0)?b.call(a,c.type||c):void 0):void 0},g=function(){var a;try{j.doScroll("left")}catch(b){return a=b,void setTimeout(g,50)}return f("poll")},"complete"!==d.readyState){if(d.createEventObject&&j.doScroll){try{k=!a.frameElement}catch(l){}k&&g()}return d[c](h+"DOMContentLoaded",f,!1),d[c](h+"readystatechange",f,!1),a[c](h+"load",f,!1)}},a._autoDiscoverFunction=function(){return a.autoDiscover?a.discover():void 0},d(window,a._autoDiscoverFunction)}).call(this);
 $(document).ready(function() {
 
-// function scrollToTop (){
-// 	var _isScrolling = false;
-// 	// Append Button
-// 	$('.out').append($('<a />').addClass('scroll-to-top').attr({'href': '#', 'id': 'top'}));
-// 	$('.scroll-to-top').click(function(e){
-// 		e.preventDefault();
-// 		$('.out').animate({scrollTop : 0}, 500);
-// 		return false;
-// 	});
-// 	// Show/Hide Button on Window Scroll event.
-// 	$('.out').scroll(function(){
-// 		if(!_isScrolling) {
-// 			_isScrolling = true;
-// 			if($('.out').scrollTop() > 100){
-// 				$('.scroll-to-top').stop(true, true).addClass('visible');
-// 				_isScrolling = false;
-// 			}
-// 			else{
-// 				$('.scroll-to-top').stop(true, true).removeClass('visible');
-// 				_isScrolling = false;
-// 			}
-// 			checkScrollToTop();
-// 		}
-// 	});
-// } scrollToTop();
-
-// checkScrollToTop = function(){
-// 	var bottom = 50,
-// 		scrollVal = $('.out').scrollTop(),
-// 		windowHeight = $(window).height(),
-// 		footerOffset = $('.page__footer').offset().top ,
-// 		footer = $('.footer__footer').height() - 25;
-// 		console.log(scrollVal,windowHeight,footerOffset)
-
-
-
-// 	if(scrollVal > footerOffset){
-// 		$('.scroll-to-top').css('bottom', footer);
-// 	}
-// 	else if(parseInt($('.scroll-to-top').css('bottom')) > bottom){
-// 		$('.scroll-to-top').css('bottom', bottom);
-// 	}
-// }
-// $(window).resize(function(){
-// 	scrollToTop();
-// });
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
@@ -607,7 +561,7 @@ $(document).ready(function() {
 		scrollDelta = 5,
 		scrollOffset = 100;
 
-	$(window).on('scroll', function(){
+	$(document).add('.out').on('scroll', function(){
 		if( !scrolling ) {
 			scrolling = true;
 			(!window.requestAnimationFrame)
@@ -646,14 +600,13 @@ $(document).ready(function() {
 		}
 	}
 })();
-$('.out').scroll(function() { 
+$(document).add('.out').scroll(function() { 
 	var scroll = $(this).scrollTop(),
-		hDoc = $('.page__outer').height(),
+		hDoc = $('.page__wrapper').height(),
 		hWind = $(window).height(),
 		hFooter = $('.footer__footer').height(),
 		scrolltop  = $('.scroll-to-top'),
 		scroll_position = hDoc - hWind - hFooter;
-
 	if (scroll > 100) {
 		scrolltop.addClass('visible');
 		$(window).resize(function() {
@@ -678,7 +631,7 @@ $('.out').scroll(function() {
 	}
 });
 	$('.scroll-to-top').on('click', function() {
-		$('html, body').animate({
+		$('html, body, .out').animate({
 			scrollTop: 0
 		}, 800);
 	});
@@ -1007,7 +960,7 @@ function subscribe(){
 	});
 	parent.trigger('reinit');
 }subscribe();
-$(".header__navs--nav a").on('click', function () {
+$(".js-scroll").on('click', function () {
     var elementClick = $(this).attr("href")
     var destination = $(elementClick).offset().top;
     console.log(elementClick,destination )
@@ -1640,7 +1593,7 @@ function reviews(){
 			draggable: false,
 			touchMove: false,
 			fade: true,
-			speed: 300,
+			speed: 500,
 			infinite: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,

@@ -1,51 +1,5 @@
 $(document).ready(function() {
 
-// function scrollToTop (){
-// 	var _isScrolling = false;
-// 	// Append Button
-// 	$('.out').append($('<a />').addClass('scroll-to-top').attr({'href': '#', 'id': 'top'}));
-// 	$('.scroll-to-top').click(function(e){
-// 		e.preventDefault();
-// 		$('.out').animate({scrollTop : 0}, 500);
-// 		return false;
-// 	});
-// 	// Show/Hide Button on Window Scroll event.
-// 	$('.out').scroll(function(){
-// 		if(!_isScrolling) {
-// 			_isScrolling = true;
-// 			if($('.out').scrollTop() > 100){
-// 				$('.scroll-to-top').stop(true, true).addClass('visible');
-// 				_isScrolling = false;
-// 			}
-// 			else{
-// 				$('.scroll-to-top').stop(true, true).removeClass('visible');
-// 				_isScrolling = false;
-// 			}
-// 			checkScrollToTop();
-// 		}
-// 	});
-// } scrollToTop();
-
-// checkScrollToTop = function(){
-// 	var bottom = 50,
-// 		scrollVal = $('.out').scrollTop(),
-// 		windowHeight = $(window).height(),
-// 		footerOffset = $('.page__footer').offset().top ,
-// 		footer = $('.footer__footer').height() - 25;
-// 		console.log(scrollVal,windowHeight,footerOffset)
-
-
-
-// 	if(scrollVal > footerOffset){
-// 		$('.scroll-to-top').css('bottom', footer);
-// 	}
-// 	else if(parseInt($('.scroll-to-top').css('bottom')) > bottom){
-// 		$('.scroll-to-top').css('bottom', bottom);
-// 	}
-// }
-// $(window).resize(function(){
-// 	scrollToTop();
-// });
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
@@ -59,7 +13,7 @@ $(document).ready(function() {
 		scrollDelta = 5,
 		scrollOffset = 100;
 
-	$(window).on('scroll', function(){
+	$(document).add('.out').on('scroll', function(){
 		if( !scrolling ) {
 			scrolling = true;
 			(!window.requestAnimationFrame)
@@ -98,14 +52,13 @@ $(document).ready(function() {
 		}
 	}
 })();
-$('.out').scroll(function() { 
+$(document).add('.out').scroll(function() { 
 	var scroll = $(this).scrollTop(),
-		hDoc = $('.page__outer').height(),
+		hDoc = $('.page__wrapper').height(),
 		hWind = $(window).height(),
 		hFooter = $('.footer__footer').height(),
 		scrolltop  = $('.scroll-to-top'),
 		scroll_position = hDoc - hWind - hFooter;
-
 	if (scroll > 100) {
 		scrolltop.addClass('visible');
 		$(window).resize(function() {
@@ -130,7 +83,7 @@ $('.out').scroll(function() {
 	}
 });
 	$('.scroll-to-top').on('click', function() {
-		$('html, body').animate({
+		$('html, body, .out').animate({
 			scrollTop: 0
 		}, 800);
 	});
@@ -459,7 +412,7 @@ function subscribe(){
 	});
 	parent.trigger('reinit');
 }subscribe();
-$(".header__navs--nav a").on('click', function () {
+$(".js-scroll").on('click', function () {
     var elementClick = $(this).attr("href")
     var destination = $(elementClick).offset().top;
     console.log(elementClick,destination )
@@ -1092,7 +1045,7 @@ function reviews(){
 			draggable: false,
 			touchMove: false,
 			fade: true,
-			speed: 300,
+			speed: 500,
 			infinite: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,

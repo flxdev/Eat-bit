@@ -4,7 +4,9 @@ block title
 	title Программа
 
 block content
-	.pagehead-wrap.text-left(style='background-image: url(img/hbg.png)')
+	- var value = 1
+	a(href="#zakaz").programm-offer-button.js-scroll Заказать
+	.pagehead-wrap.text-left(style='background-image: url(img/hbg.jpg)')
 		.inner-content
 			.half
 				.half-base
@@ -272,10 +274,12 @@ block content
 								span Калькулятор
 				button.btn-calc-fixed.js-popup-button(type='button',data-modal='calc')
 					.btn-calc-icon
-			.half-side
+			#zakaz.half-side
 				.sticky-wrap.js-sticky
 					.white-box
 						.h-title.h2 Заказать
+							a(href="#",data-modal="calc").icon-link.calc.js-popup-button
+								i
 						form(action=" ").js-validate
 							ul.checkbox-wrap
 								mixin Check(name)

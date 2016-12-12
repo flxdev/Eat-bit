@@ -14,7 +14,8 @@ html
 		.out#top
 			.page__outer
 				.page__wrapper
-					header.page__header.cd-auto-hide-header
+					//.inner для всех страниц кроме главной
+					header.page__header.cd-auto-hide-header(class={inner: value === 1})
 						include includes/_header.pug
 					main.page__content
 						block content
