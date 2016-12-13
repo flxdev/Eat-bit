@@ -128,21 +128,6 @@ if($('.sort_wrapper').length){
 	sortItem();
  } 
 
-
-// $(window).on('load resize', function(){
-// 	if(window.matchMedia("(min-width: 545px)").matches){
-// 		Grid();
-// 		setTimeout(function(){
-// 			$('.menu-grid').isotope('resize').isotope('layout');
-// 		},10)
-		
-// 	}
-// 	 else{
-// 		if($('.menu-grid').attr("style")){
-// 			$('.menu-grid').isotope('destroy');
-// 		}
-// 	}
-// })
 function stick(){
 	// $(".white-box").Stickyfill();
 	var stickyElements = document.getElementsByClassName('js-sticky');
@@ -440,6 +425,7 @@ function compareHeight(){
 }compareHeight();
 
 if($('#map').length){
+
 	ymaps.ready(init);
 	function init() {
 
@@ -751,6 +737,61 @@ $(".js-dropzone").dropzone({
 	maxFilesize: '2',
 	addRemoveLinks :true
 });
+function number() {
+	var number = $('.js-number');
+	number.each(function(){
+		var max_number = $(this).attr("data-max-number");
+		var input = $(this).find("input");
+		var plus = $(this).find(".js-plus-number");
+		var minus = $(this).find(".js-minus-number");
+		var add = $(this).parent().find('.js-add');
+		plus.on("click", function(){
+			var val = parseFloat(input.val());
+			console.log(val)
+			if (val >= max_number) {
+				return false
+			}
+			else {
+				val += 1;
+				input.val(val);
+			};				
+			input.trigger('change');
+		});
+		minus.on("click", function(){
+			var val = parseFloat(input.val());
+			if (val > 0) {
+				val -= 1;
+				input.val(val);
+			}
+			input.trigger('change');
+			return false;
+		});
+		input.on("change", function(){
+			var val = +$(this).val();
+			// if (val > max_number) {
+			// 	val = max_number;
+			// 	$(this).val(val);
+			// }
+			if (val == '' || val < 0 || !val > max_number) {
+				val = 0;
+				$(this).val(val);
+			}
+		});
+		// input.on("paste", function(event){
+		// 	event.preventDefault();
+		// });
+		input.keypress(function(event){
+			var key, keyChar;
+			if(!event) var event = window.event;
+			if (event.keyCode) key = event.keyCode;
+			else if(event.which) key = event.which;
+			if(key==null || key==0 || key==8 || key==13 || key==9 || key==37 || key==39 ) return true;
+			keyChar=String.fromCharCode(key);
+			if(!/\d/.test(keyChar))	return false;
+		});
+	});
+} number();
+
 //слайдер новостей
 function newsSlider(){
      $(".news-inner-slider").each( function() {
@@ -927,8 +968,16 @@ function Menu() {
 		body = $('body'),
 		OpenClass = 'open';
 	trigger.add(target).on('click', function(){
-		trigger.add(target).toggleClass(OpenClass);
-		body.toggleClass('modal_open');
+		if(!trigger.hasClass('anim')){
+			trigger.addClass('anim');
+			trigger.add(target).toggleClass(OpenClass);
+			body.toggleClass('modal_open');
+			setTimeout(function(){
+				trigger.removeClass('anim')
+			},500);
+		}
+
+
 	})
 	$('.header__menu--cont').click(function(e){
 	  e.stopPropagation();
@@ -1012,6 +1061,8 @@ function gridslider(item){
 				infinite: false,
 				slidesToShow: 1,
 				slidesToScroll: 1,
+				variableWidth: false,
+				// centerMode: true,
 				mobileFirst: true,
 				appendArrows: item.siblings('.i-arrows'),
 				nextArrow:'<button type="button" class="carousel-next"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>',

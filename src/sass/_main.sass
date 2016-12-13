@@ -1,5 +1,9 @@
 input[type='number']
   -moz-appearance: textfield;
+input[type='submit']
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;  
 input::-webkit-clear-button,
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button 
@@ -219,7 +223,7 @@ body, .out,html
   font-weight: 300
   line-height: 1.438
 .title
-  font-weight: 300
+  font-weight: 100
 .h-title
   font-family: cera
   font-weight: 100
@@ -300,6 +304,8 @@ body, .out,html
         .footer-mailto
           .u-light
             +rem(font-size,24px)
+            +r(375)
+              +rem(font-size,20px)
       &-contact,&-head
         +rm(991)
           display: none
@@ -484,10 +490,11 @@ body, .out,html
     // +rem(padding-top,20px)
     padding-right: 8.5%
     margin-right: 2%
-    padding-bottom: 5%
-    +rem(margin-top,-25px)
-    height: 100%
-    +rem(margin-bottom,-25px)
+
+    // padding-bottom: 5%
+    // +rem(margin-top,-25px)
+    // height: 100%
+    // +rem(margin-bottom,-25px)
     cursor: pointer
     +r(991)
       +rem(padding-bottom,25px)
@@ -534,23 +541,20 @@ body, .out,html
     +r(991)
       margin: auto
       padding-left: 12.8%
-      transform: translateX(-18%)
+      transform: translateX(-20%)
     +r(768)
       padding-left: 17.8%
-      transform: translateX(-15%)
-    +r(480)
-      transform: translateX(-8%)
-      // transform: translateX(5%)
-    +r(375)
-      transform: translateX(10%)
+
     .logo-outer
       position: absolute
       left: 0
       right: 0
       top: 0
+      z-index: 1
       .logo-middle
         position: relative
         padding-bottom: 85.5%
+        z-index: 5
         &:before
           content: ''
           position: absolute
@@ -559,15 +563,17 @@ body, .out,html
           background: $white
           width: 70%
           height: 80%
+          z-index: 10
         .logo-inner
           position: absolute
           left: 0
           right: 0
           bottom: 0
           top: 0
-          z-index: 10
+          z-index: 15
           background-image: url(../img/icons/logo.svg)
           +contain 
+          // +gpu
   &__navs
     width: 80%
     display: flex
@@ -593,8 +599,11 @@ body, .out,html
       transition: margin .3s, padding .3s, background .3s
       will-change: margin, padding
       +r(991)
-        +rem(margin,-16px -25px -15px 0)
-        +rem(padding,16px 25px 15px 25px)
+        // +rem(margin,-16px -25px -15px 0)
+        // +rem(padding,16px 25px 15px 25px)
+        +rem(height,60px)
+        +rem(margin,0 -25px 0 0)
+        +rem(padding, 18px 25px 12px 25px)
       .cart
         display: inline-block
       .stcart
@@ -705,13 +714,14 @@ body, .out,html
 .hamburger
   +rem(width, 42px)
   +rem(height, 20px)
-  position: absolute
+  // position: absolute
   // +rem(left, 25px)
   // +rem(top, 28px)
-  top: 39%
+  +rem(top, 35px)
   left: 0
-  +r(1366)
-    top: 35%   
+  // +r(1366)
+  //   top: 35%   
+  // will-change: transform
   +r(991)
     +rem(top, 15px)
   &-inner 
@@ -759,12 +769,12 @@ body, .out,html
       position: absolute
       opacity: 1
       left: 0
-      will-change: transform
+      +gpu
       transform: rotate(0deg)
       transition: 0.2s ease-in
+      z-index: 1
       &:nth-child(1) 
         top: 0
-
       &:nth-child(2)
         +rem(top, 10px)
       &:nth-child(3)
@@ -1141,7 +1151,7 @@ body, .out,html
   +rem(right, 50px)
   +rem(bottom, 40px)
   transform: translateY(100px)
-  transition: transform .3s, opacity .3s
+  transition: transform .3s, opacity .3s, bottom .3s
   cursor: pointer
   .stop2
     +tr(transform .3s)
@@ -1185,6 +1195,8 @@ body, .out,html
     &.white
       .title,.list li
         color: $white
+      .list li:before
+        background-image: url(../img/icons/listw.svg)
     +r(1600)
       padding-bottom: 5.4%
     +r(991)
@@ -1354,6 +1366,7 @@ body, .out,html
     transition: color .3s
     display: inline-block
     vertical-align: top
+    white-space: nowrap
     &:after
       content: ''
       display: inline-block
@@ -1676,7 +1689,6 @@ body, .out,html
 .dropdown-target
   +gpu
   position: absolute
-  overflow: hidden
   z-index: 5
   +rem(margin,-15px)
   +padlr(15px)
@@ -1705,6 +1717,9 @@ body, .out,html
     box-shadow: 2px 3.464px 15px 0px rgba( 0, 0, 0,0.17 );
 .sort-select
   position: relative
+  &:hover,&.active
+    .sort-select-title
+      border-color: $text
   &.active
     .bread-arrow
       transform: scale(1, -1)
@@ -1719,6 +1734,9 @@ body, .out,html
     cursor: pointer
     position: relative
     z-index: 7
+    +tr(border-color .3s)
+    &:hover,&.active
+      border-color: $text
     .name,.value
       +rem(font-size,14px)
       text-transform: uppercase
@@ -1735,10 +1753,9 @@ body, .out,html
   &-item
     &.active
       a 
-        font-weight: 700
-        color: $lightgray
+        color: #000
         &:after
-          opacity: .5
+          opacity: .7
     a
       color: $lightgray
       +rem(font-size,16px)
@@ -2330,9 +2347,11 @@ body, .out,html
         +r(480)
           +rem(padding,0 15px)
       .header__hamburger
-        position: absolute
+        position: fixed
         +rem(right,50px)
         +rem(top,37px)
+        padding-right: 0
+        margin-right: 0
         +r(480)
           +rem(right,25px)
           +rem(top,25px)     
@@ -2413,6 +2432,8 @@ body, .out,html
           background-image: url(../img/icons/close_popupw.svg)
       .modal-container-content
         +rem(padding,38px 43px 60px)
+        +r(544)
+          +rem(margin-top,20px)
         .h-title
           +rem(margin-bottom,24px)
           +rem(letter-spacing,-1.2px)
@@ -2433,6 +2454,10 @@ body, .out,html
           +rem(margin-bottom,35px)
         .soc-btn
           +rem(margin-right,10px)
+          +r(544)
+            +rem(margin,20px auto)
+            display: block
+            
         
 
     &-content,&-header 
@@ -2582,7 +2607,8 @@ body, .out,html
         padding: 0
     .sort-select
       margin: 0 auto
-      +rem(max-width,250px)
+      +rem(max-width,260px)
+      white-space: nowrap
       +rm(544)
         display: none  
     .menu-nav-inner
@@ -2611,10 +2637,10 @@ body, .out,html
       +rem(width,290px)
       +rem(height,290px)
       .color-block-icon
-        +rem(margin, 20px auto 35px)
+        +rem(margin, 30px auto 35px)
       &.calc 
         .box-title
-          +rem(margin-top,20px)
+          +rem(margin-top,35px)
           +rem(padding,0 15px)
         +r(544)
           +rem(max-height,200px)
@@ -2631,8 +2657,6 @@ body, .out,html
     .menu-item-wrap
       +rm(1560)
         width: 33.33%
-        &:nth-child(3n-1)
-          margin-top: -9%
       +screen(991px,1560px)
         width: 49.9%
         &:nth-child(2n)
@@ -2645,19 +2669,38 @@ body, .out,html
         width: 100%
         +rem(padding, 12px 0)
         margin: 0
-      +screen(890px,991px)
-        &:nth-child(3n-1)
-          margin-top: -9%
-      +screen(544px,889px)     
-        &:nth-child(2n)
-          margin-top: -8%
+    .menu-grid
+      &.slick-initialized
+        display: block
+        .slick-track
+          display: block
+          white-space: nowrap
+          font-size: 0
+        .menu-item
+          min-width: 0
+        .menu-item-wrap
+          display: inline-block
+          vertical-align: top   
+          &.total
+            +rem(padding, 20px 0)
+      &:not(.slick-initialized)
+        .menu-item-wrap
+          +rm(1560)
+            &:nth-child(3n-1)
+              margin-top: -9%
+          +screen(890px,991px)
+            &:nth-child(3n-1)
+              margin-top: -9%
+          +screen(544px,889px)     
+            &:nth-child(2n)
+              margin-top: -8%
     &:not(:last-of-type)
       border-bottom: 1px solid $borderd
       +rem(padding,73px 0)
       +r(768)
-        +rem(padding,35px 0)
-    &:last-child
-      +rem(padding-top,75px)
+        +rem(padding,20px 0)
+    &:last-of-type
+      +rem(padding-top,55px)
       +r(768)
         +rem(padding,35px 0 0)
   &-side
@@ -2706,6 +2749,8 @@ body, .out,html
           +rem(padding,35px 50px 0)
         &+.offer-feachure
           +rem(padding, 0 45px)
+          +r(544)
+            +rem(padding, 0 10px)
           .footer-nav-payment
             +rem(margin,40px 0 20px)
             +r(544)
@@ -2758,6 +2803,7 @@ body, .out,html
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    z-index: 1
     +rm(1024)
       background-attachment: fixed
     +r(544)
@@ -3019,6 +3065,7 @@ body, .out,html
     width: 50%
     font-size: 0
     justify-content: space-between
+    display: flex
   &-text
     +rem(font-size,20px)
     line-height: 1.4
@@ -3033,13 +3080,14 @@ body, .out,html
     background-size: contain
     +rem(max-width,173px)
     width: 40%
-    height: 100%
+    min-height: 100%
     background-position: right center
     background-repeat: no-repeat
     display: inline-block
     vertical-align: top
     float: right
-    
+    position: relative
+    z-index: 5
 .soc-btn
   +rem(font-size,14px)
   text-transform: uppercase
@@ -3456,6 +3504,8 @@ body, .out,html
     +r(580)
       display: block
       width: 100%
+      &:not(:last-of-type)
+        border-bottom: 1px solid $borderl
     .table-item
       +rem(padding,15px 0)
   &-name
@@ -3493,9 +3543,10 @@ body, .out,html
   position: relative;
   display: table
   width: 100%
-  border-collapse: collapse
   +clr
+  white-space: nowrap
   &-wrap
+    display: table-row
   &__minus,&__plus 
     +rem(width,29px);
     background-color: #fff;
@@ -3519,6 +3570,9 @@ body, .out,html
     background-color: #fff;
     +rem(line-height,28px)
     +rem(width,60px)
+    +rem(font-size,20px)
+    font-family: cera
+    font-weight: 300
     text-align: center;
     color: #000000;
     border: 0;
@@ -4000,7 +4054,7 @@ select
     background-image: url(../img/icons/calendar.svg)
     background-position: bottom 15px center 
     background-repeat: no-repeat
-    +rem(background-size, 22px 22px)
+    +rem(background-size, 22px 25px)
     +rem(width,30px)
     z-index: 0
   .input-main
@@ -4062,6 +4116,8 @@ select
       line-height: 1
       +rem(letter-spacing,0.4px)
       transform: translateY(-4px)
+      +r(544)
+        width: 85%
     .smalllight
       +tr(opacity .3s)
       opacity: 0
@@ -4259,18 +4315,18 @@ select
   font-weight: 300
   color: $text
   +rem(margin-top, -5px)
-  +rem(margin-bottom, 40px)
+  +rem(margin-bottom, 38px)
   +rem(padding-left,45px)
   +rem(letter-spacing, -0.4px)
   position: relative
   .form-i
     position: absolute
     display: inline-block
-    +rem(width,31px)
-    +rem(height,31px)
+    +rem(width,32px)
+    +rem(height,32px)
     +contain
     left: 0
-    top: -1px
+    top: -3px
   &.succ
     .form-i
       background-image: url(../img/icons/success.svg)
@@ -4458,6 +4514,8 @@ blockquote
     &.about-delivery
       counter-reset: num
       +rem(padding, 15px 0 85px)
+      +r(544)
+        +rem(padding, 0 0 25px)
       .about-item
         counter-increment: num
         .text2
@@ -4526,6 +4584,8 @@ blockquote
     +rem(margin-top,10px)
 #map
   +rem(height,600px)
+  +r(544)
+    +rem(height,400px)
 .map-wrapper,.bg-wrapper
   &+ .content-box
     margin-bottom: 0
@@ -4819,10 +4879,9 @@ blockquote
         +rem(margin-bottom,17px)
     img
       display: block
-      width: 100%
+      max-width: 100%
       +rem(margin,16px auto)
-      +r(544)
-        +rem(margin,0 -15px)
+
   &-nav
     display: flex
     justify-content: space-between
