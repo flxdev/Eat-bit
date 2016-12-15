@@ -1354,8 +1354,8 @@ body, .out,html
       +tr(stroke .15s)
     
 .icon-link
-  font-weight: 100
-  color: $text
+  font-weight: 300
+  color: #585858
   display: inline-block
   +rem(font-size,16px)
   cursor: pointer
@@ -1398,6 +1398,7 @@ body, .out,html
       transition: opacity .3s
       left: 0
   &:hover
+    color: #000
     i
       &:after
         opacity: 1  
@@ -1829,7 +1830,7 @@ body, .out,html
     &:after
       right: 0
       +rem(top,1.5px)
-  &:hover
+  &:not(.disabled):hover
     opacity: 1
   &:after
     content: ''
@@ -2028,7 +2029,6 @@ body, .out,html
     .icon-link
       display: block
       margin: 0 auto
-      color: $text
       
 .circle-elem
   +rem(width,70px)

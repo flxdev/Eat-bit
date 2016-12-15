@@ -1,0 +1,96 @@
+extends _layout
+
+block title
+  title Новости
+
+block content
+
+  .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.jpg)')
+    .inner-content
+      .pagehead-content
+        h1.h-title.h1.u-white Новости
+      .bread-container
+        mixin bread(name)
+          a(href="#").icon-link
+            i 
+            span #{name}
+        +bread('Главная')
+        +bread('Новости')
+  .acc-wrap
+    .box-standart
+      .mobile-dropdowm-trigger
+        span.u-bold Открыть меню
+        i.arrow-icon
+      .acc-menu
+        mixin accmenu(val)
+          - var current = "Новости"
+          a(href="#").acc-menu-item(class={active: val === current})
+             span #{val}
+        +accmenu('О сервисе')
+        +accmenu('Доставка')
+        +accmenu('Способы оплаты')
+        +accmenu('Отзывы')
+        +accmenu('Подарочные сертификаты')
+        +accmenu('Новости')
+  article.news-inner-wrapper
+    .news-inner-text
+      h2.box-title Встречайте новинку
+        br 
+        |в нашем меню
+      time.smalllight 12 октября 2016
+      .box-title-small  Лучший десерт — это натуральные фрукты и всевоз- можные их сочетания! Поэтому смузи, как нельзя лучше можно назвать идеальным десертом.
+      .news-inner-slider-wrapper
+        .news-inner-slider
+          mixin innerslide(img)
+            .news-inner-slider-item(style='background-image: url(img/news/'+img+')')
+          +innerslide('1.jpg')
+          +innerslide('2.jpg')
+          +innerslide('3.jpg')
+          +innerslide('2.jpg')
+        .i-arrows
+          .slider-counter
+            .slider-curr
+            .slider-divider /
+            .slider-total
+      p Смузи — это холодный десерт, который представляет собой измель- чённые в блендере фрукты и ягоды, с добавлением сливок, сока или холодного чая, и кубиков льда в летнюю жару. Но помните свежие фрукты лучше всего употреблять через 15-20 минут после или до основного приёма пищи, чтобы они хорошо и легко усвоились.
+      img(src="img/mbg.jpg", alt="")
+      p Вариантов смузи может быть бесчисленное множество, лучше всего этот напиток готовить из сезонных фруктов! Сегодня мы предлагаем, так 
+        a(href="#") называемый
+        |  зимний вариант. Так как за окном ещё совсем не лето, то лучшее сочетание для витаминного напитка — это апельсины, грейпфрут и бананы для сладости! Давайте вкусно и полезно перекусим!
+      .news-image-cont
+        .image-left
+          .news-image-item(style='background-image:url(img/new1.jpg)')
+          .news-image-item(style='background-image:url(img/new3.jpg)')
+        .image-right
+          .news-image-item(style='background-image:url(img/new2.jpg)')
+          .news-image-item(style='background-image:url(img/new3.jpg)')
+          .news-image-item(style='background-image:url(img/new2.jpg)')
+      p Такой рацион даст организму весь необходмый суточный набор белков, жиров и углеводов. Кроме этого вы получите:
+      ul
+         li Ускорение метаболизма.
+         li Безопасное похудение без вреда организму.
+         li Быстрый и стабильный результат.
+         li Профилактика заболеваний в будущем.
+         li Здоровый сияющий внешний вид.
+         li Стройная фигура.
+         li Хорошее настроение и заряд энергии.
+    .news-inner-nav
+      .m-nav-link.left все новости
+      .soc-share-wrap
+        button(type='button').soc-btn.vk.small 548
+        button(type='button').soc-btn.fb.small 43
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

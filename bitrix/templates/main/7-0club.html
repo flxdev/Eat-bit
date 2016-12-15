@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Новости</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="True" name="HandheldFriendly">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2d2d2d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2d2d2d">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="shortcut icon" href="img/fav/48x48.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/fav/57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
+    <link rel="stylesheet" media="all" href="css/screen.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <!--BEGIN out-->
+    <div class="out" id="top">
+      <div class="page__outer">
+        <div class="page__wrapper">
+          <!--.inner для всех страниц кроме главной-->
+          <header class="page__header cd-auto-hide-header">
+            <div class="header__hamburger js-menu">
+              <div class="hamburger">
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="header__logo">
+              <div class="logo-outer">
+                <div class="logo-middle"><a class="logo-inner" href="#"></a></div>
+              </div>
+            </div>
+            <div class="header__navs">
+              <div class="header__navs--phone"><a class="link-tel" href="tel:89260201481"> <span class="u-number">8 (926) 02-01-481</span></a></div>
+              <nav class="header__navs--nav"><a class="nav-link js-scroll" href="#programms">Программы питания </a><a class="nav-link js-scroll" href="#menu">Меню </a><a class="nav-link js-scroll" href="#about">О сервисе</a></nav>
+              <!-- .active когда товар добавлен-->
+              <div class="header__navs--cart active">
+                <!--.js-popup-button когда нужна модалка логина, когда человек уже зашел, убираем ее-->
+                <div class="header__navs--login dropdown-trigger js-popup-button" data-modal="login"><a class="u-reg u-halfgray s-small" href="#">Войти</a>
+                  <div class="dropdown-target">
+                    <div class="dropdown-inner">
+                      <div class="dropdown-content"><a class="menu-item" href="#">История заказов</a><a class="menu-item active" href="#">Мои данные</a><a class="menu-item" href="#">Изменить пароль</a><a class="menu-item" href="#">Выйти</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="header__navs--cart-inner"><a class="cart" href="#">
+                    <div class="cart-icon"><i class="cart-i">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 33.5 27.5" style="enable-background:new 0 0 33.5 27.5" xml:space="preserve">
+                          <style type="text/css">
+                            .stcart{fill:none;stroke:#2D2D2D;stroke-width:1.5;stroke-miterlimit:10;}
+                            .stcart1{fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}
+                          </style>
+                          <g>
+                            <g>
+                              <path class="stcart" d="M31.5,9.1c0,0-29.4,0-29.5,0c-0.4,0-1.1,0.3-1.1,2.9c0,2.1,1.6,2,1.6,2.2L6,25.8c0,0.5,0.5,1,1,1h19.4									c0.6,0,1-0.4,1-1l4.2-11.6c0-0.2,1.2-0.1,1.2-2.2C32.7,9.3,32.1,9.1,31.5,9.1L31.5,9.1z"></path>
+                            </g>
+                          </g>
+                          <path class="stcart1" d="M8,9.3l8.7-8.4l8.7,8.4"></path>
+                        </svg></i><span class="u-number s-small u-halfgray"> 0</span></div>
+                    <div class="u-light s-text u-halfgray">Мой заказ</div>
+                    <div class="u-number u-halfgray s-small">45 000 ₽</div></a></div>
+              </div>
+            </div>
+            <div class="header__menu--wrap">
+              <div class="header__menu--cont">
+                <div class="header__menu-mobile-head"><a class="header__menu-mobile-login" href="#">Войти</a></div>
+                <div class="header__content-wrap">
+                  <div class="header__menu-mobile-contact"><a class="u-number u-white h2" href="tel:89260201481">8 (926) 02-01-481</a>
+                    <div class="footer-mailto">
+                      <div class="u-light u-white s-text">Обратная связь </div><span class="dot-divider u-light u-white s-text">. </span><a class="u-light u-white" href="mailto:info@eat-bit.ru">info@eat-bit.ru</a>
+                    </div>
+                  </div>
+                  <div class="header__menu--inner">
+                    <div class="header__menu__links">
+                      <div class="header__menu__links-item">
+                        <div class="header__menu__links-head">Программы
+                          <ul>
+                            <li><a href="#">1000-1600 ккал </a></li>
+                            <li><a href="#">1600-2000 ккал </a></li>
+                            <li><a href="#">2100-2300 ккал</a></li>
+                            <li><a href="#">2300-3500 ккал</a></li>
+                            <li><a href="#">3500-4500 ккал </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="header__menu__links-item">
+                        <div class="header__menu__links-head">О сервисе
+                          <ul>
+                            <li><a href="#">Доставка </a></li>
+                            <li><a href="#">Способы оплаты </a></li>
+                            <li><a href="#">Отзывы </a></li>
+                            <li><a href="#">Подарочные сертификаты </a></li>
+                            <li><a href="#">Новости</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="header__menu__links-bold">
+                        <ul>
+                          <li><a href="#">Клуб Eat-bit  </a></li>
+                          <li><a href="#">Контакты</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="header__menu__footer">
+                      <div class="social">
+                        <div class="soc-icon-wrapp fb"><a class="soc-icon-item" href="#">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                              <style type="text/css">
+                                .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                                .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                              </style>
+                              <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                              <path class="stsoc1" d="M16.1,23.5h-3.4c-0.2,0-0.4-0.2-0.4-0.4v-7.4h-1.5c-0.2,0-0.4-0.2-0.4-0.4v-3c0-0.2,0.2-0.4,0.4-0.4h1.5l0-1.9									c0-1.1,0.3-2,0.9-2.6c0.7-0.7,1.7-1,3.1-1h2.7c0.2,0,0.4,0.2,0.4,0.4v3c0,0.2-0.2,0.4-0.4,0.4h-2c-0.2,0-0.5,0.2-0.6,0.4l0,1.5H19									c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3c-0.1,1.5-0.3,3-0.3,3c0,0.2-0.2,0.3-0.4,0.3h-2.2v7.4C16.5,23.3,16.3,23.5,16.1,23.5z									"></path>
+                            </svg></a></div>
+                        <div class="soc-icon-wrapp vk"><a class="soc-icon-item" href="#">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                              <style type="text/css">
+                                .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+                                .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                              </style>
+                              <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                              <path class="stsoc1" d="M15,21h1.1c0,0,0.3,0,0.5-0.2c0.2-0.2,0.2-0.5,0.2-0.5s0-1.6,0.7-1.9c0.7-0.2,1.6,1.6,2.5,2.3									c0.7,0.5,1.2,0.4,1.2,0.4l2.5,0c0,0,1.3-0.1,0.7-1.2c-0.1-0.1-0.4-0.8-1.8-2.3c-1.5-1.6-1.3-1.3,0.5-4c1.1-1.7,1.6-2.7,1.4-3.1									c-0.1-0.4-1-0.3-1-0.3l-2.8,0c0,0-0.2,0-0.4,0.1c-0.1,0.1-0.2,0.4-0.2,0.4s-0.4,1.3-1,2.4c-1.2,2.3-1.7,2.4-1.9,2.3									c-0.5-0.3-0.4-1.3-0.4-2c0-2.2,0.3-3.2-0.6-3.4c-0.3-0.1-0.5-0.1-1.3-0.1c-1,0-1.8,0-2.3,0.3c-0.3,0.2-0.6,0.5-0.4,0.6									c0.2,0,0.6,0.1,0.8,0.5c0.3,0.4,0.3,1.4,0.3,1.4s0.2,2.6-0.4,2.9c-0.4,0.2-0.9-0.2-2-2.3c-0.6-1.1-1-2.3-1-2.3s-0.1-0.2-0.2-0.3									C9.5,10,9.2,10,9.2,10l-2.6,0c0,0-0.4,0-0.5,0.2c-0.1,0.2,0,0.5,0,0.5s2.1,5.3,4.4,8C12.6,21.1,15,21,15,21z">        </path>
+                            </svg></a></div>
+                        <div class="soc-icon-wrapp insta"><a class="soc-icon-item" href="#">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 34 34" style="enable-background:new 0 0 34 34" xml:space="preserve">
+                              <style type="text/css">.stsoc1{fill:#2D2D2D;}</style>
+                              <g>
+                                <path class="stsoc1" d="M26.5,6h-1C24.7,6,24,6.7,24,7.5v1c0,0.8,0.7,1.5,1.5,1.5h1c0.8,0,1.5-0.7,1.5-1.5v-1C28,6.7,27.3,6,26.5,6										L26.5,6z"></path>
+                              </g>
+                              <g>
+                                <path class="stsoc1" d="M17,12.5c3,0,5.5,2.5,5.5,5.5S20,23.5,17,23.5S11.5,21,11.5,18S14,12.5,17,12.5 M17,10c-4.4,0-8,3.6-8,8										s3.6,8,8,8s8-3.6,8-8S21.4,10,17,10L17,10z"></path>
+                              </g>
+                              <g>
+                                <path class="stsoc1" d="M25,2.5c3.6,0,6.5,2.9,6.5,6.5v16c0,3.6-2.9,6.5-6.5,6.5H9c-3.6,0-6.5-2.9-6.5-6.5V9c0-3.6,2.9-6.5,6.5-6.5H25										M25,0H9C4,0,0,4,0,9v16c0,5,4,9,9,9h16c5,0,9-4,9-9V9C34,4,30,0,25,0L25,0z"></path>
+                              </g>
+                            </svg></a></div>
+                      </div>
+                      <button class="icon-link acc" type="button"><i></i><span>Личный кабинет</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <main class="page__content">
+            <div class="pagehead-wrap text-center pagehead-center" style="background-image: url(img/hbg.jpg)">
+              <div class="inner-content">
+                <div class="pagehead-content">
+                  <h1 class="h-title h1 u-white">Новости</h1>
+                </div>
+                <div class="bread-container"><a class="icon-link" href="#"><i> </i><span>Главная</span></a><a class="icon-link" href="#"><i> </i><span>Новости</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="acc-wrap">
+              <div class="box-standart">
+                <div class="mobile-dropdowm-trigger"><span class="u-bold">Открыть меню</span><i class="arrow-icon"></i></div>
+                <div class="acc-menu"><a class="acc-menu-item" href="#"><span>О сервисе</span></a><a class="acc-menu-item" href="#"><span>Доставка</span></a><a class="acc-menu-item" href="#"><span>Способы оплаты</span></a><a class="acc-menu-item" href="#"><span>Отзывы</span></a><a class="acc-menu-item" href="#"><span>Подарочные сертификаты</span></a><a class="acc-menu-item active" href="#"><span>Новости</span></a>
+                </div>
+              </div>
+            </div>
+            <article class="news-inner-wrapper">
+              <div class="news-inner-text">
+                <h2 class="box-title">Встречайте новинку<br>в нашем меню</h2>
+                <time class="smalllight">12 октября 2016</time>
+                <div class="box-title-small"> Лучший десерт — это натуральные фрукты и всевоз- можные их сочетания! Поэтому смузи, как нельзя лучше можно назвать идеальным десертом.</div>
+                <div class="news-inner-slider-wrapper">
+                  <div class="news-inner-slider">
+                                        <div class="news-inner-slider-item" style="background-image: url(img/news/1.jpg)"></div>
+                                        <div class="news-inner-slider-item" style="background-image: url(img/news/2.jpg)"></div>
+                                        <div class="news-inner-slider-item" style="background-image: url(img/news/3.jpg)"></div>
+                                        <div class="news-inner-slider-item" style="background-image: url(img/news/2.jpg)"></div>
+                  </div>
+                  <div class="i-arrows">
+                    <div class="slider-counter">
+                      <div class="slider-curr"></div>
+                      <div class="slider-divider">/</div>
+                      <div class="slider-total"></div>
+                    </div>
+                  </div>
+                </div>
+                <p>Смузи — это холодный десерт, который представляет собой измель- чённые в блендере фрукты и ягоды, с добавлением сливок, сока или холодного чая, и кубиков льда в летнюю жару. Но помните свежие фрукты лучше всего употреблять через 15-20 минут после или до основного приёма пищи, чтобы они хорошо и легко усвоились.</p><img src="img/mbg.jpg" alt="">
+                <p>Вариантов смузи может быть бесчисленное множество, лучше всего этот напиток готовить из сезонных фруктов! Сегодня мы предлагаем, так <a href="#">называемый</a> зимний вариант. Так как за окном ещё совсем не лето, то лучшее сочетание для витаминного напитка — это апельсины, грейпфрут и бананы для сладости! Давайте вкусно и полезно перекусим!</p>
+                <div class="news-image-cont">
+                  <div class="image-left">
+                    <div class="news-image-item" style="background-image:url(img/new1.jpg)"></div>
+                    <div class="news-image-item" style="background-image:url(img/new3.jpg)"></div>
+                  </div>
+                  <div class="image-right">
+                    <div class="news-image-item" style="background-image:url(img/new2.jpg)"></div>
+                    <div class="news-image-item" style="background-image:url(img/new3.jpg)"></div>
+                    <div class="news-image-item" style="background-image:url(img/new2.jpg)"></div>
+                  </div>
+                </div>
+                <p>Такой рацион даст организму весь необходмый суточный набор белков, жиров и углеводов. Кроме этого вы получите:</p>
+                <ul>
+                  <li>Ускорение метаболизма.</li>
+                  <li>Безопасное похудение без вреда организму.</li>
+                  <li>Быстрый и стабильный результат.</li>
+                  <li>Профилактика заболеваний в будущем.</li>
+                  <li>Здоровый сияющий внешний вид.</li>
+                  <li>Стройная фигура.</li>
+                  <li>Хорошее настроение и заряд энергии.</li>
+                </ul>
+              </div>
+              <div class="news-inner-nav">
+                <div class="m-nav-link left">все новости</div>
+                <div class="soc-share-wrap">
+                  <button class="soc-btn vk small" type="button">548</button>
+                  <button class="soc-btn fb small" type="button">43</button>
+                </div>
+              </div>
+            </article>
+          </main>
+          <footer class="page__footer" style="background-image: url(img/fbg.jpg)">
+            <div class="footer__main">
+              <div class="footer__main-content">
+                <!--левая колонка-->
+                <div class="footer-content-block">
+                                    <div class="footer-list">
+                                      <div class="u-bold u-white">Программы</div>
+                                      <ul>
+                                        <li><a class="u-light s-text u-white" href="#">1000-1600 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">1600-2000 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">2100-2300 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">2300-3500 ккал</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">3500-4500 ккал</a></li>
+                                      </ul>
+                                    </div>
+                                    <div class="footer-list">
+                                      <div class="u-bold u-white">О сервисе</div>
+                                      <ul>
+                                        <li><a class="u-light s-text u-white" href="#">Доставка</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Способы оплаты</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Отзывы</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Подарочные сертификаты</a></li>
+                                        <li><a class="u-light s-text u-white" href="#">Новости</a></li>
+                                      </ul>
+                                    </div>
+                  <div class="footer-nav-block">
+                    <ul>
+                      <li><a class="u-bold u-white" href="#">Клуб Eat-bit</a></li>
+                      <li><a class="u-bold u-white" href="#">Личный кабинет</a></li>
+                      <li><a class="u-bold u-white" href="#">Карта сайта</a></li>
+                      <li><a class="u-bold u-white" href="#">Контакты</a></li>
+                    </ul>
+                    <!-- картинок 2 штуки в каждом блоке, загрейскейлили не все-->
+                    <div class="footer-nav-payment">
+                                            <div class="payment-item"><img src="img/payment/visa.svg" alt=""><img alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/masterm.png" alt=""><img src="img/payment/master.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/maestrom.png" alt=""><img src="img/payment/maestro.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/ya2m.png" alt=""><img src="img/payment/ya2.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/webmm.png" alt=""><img src="img/payment/webm.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/qiwi2m.png" alt=""><img src="img/payment/qiwi2.png" alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/am.png" alt=""><img alt=""></div>
+                                            <div class="payment-item"><img src="img/payment/bpsm.png" alt=""><img alt=""></div>
+                    </div>
+                  </div>
+                </div>
+                <!--правая колонка      -->
+                <div class="footer-contact-block">
+                  <div class="footer-contact-svyaz">
+                    <div class="describe-text">Свяжитесь с нами</div><a class="u-number u-white h2" href="tel:89260201481">8 (926) 02-01-481</a>
+                    <div class="footer-mailto"><a class="u-light u-white s-text" href="#" data-popup="callback">Обратная связь </a><span class="dot-divider u-light u-white s-text">. </span><a class="u-light u-white" href="mailto:info@eat-bit.ru">info@eat-bit.ru</a></div>
+                  </div>
+                  <div class="footer-contact-mail">
+                    <div class="describe-text">Подпишитесь на акции, обещаем только полезную информацию! </div>
+                    <form class="footer-form js-validate">
+                      <input class="footer-form-input" type="email" placeholder="E-mail" data-validation="email">
+                      <button class="footer-form-submit u-bold u-white s-text" type="submit">Подписаться</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer__footer">
+              <div class="box-standart">
+                <div class="content-wrapp">
+                  <div class="copyright u-light s-text u-white">© 2016 Eat-bit.ru</div>
+                  <div class="social">
+                    <div class="soc-icon-wrapp fb"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                          <style type="text/css">
+                            .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                            .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                          </style>
+                          <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                          <path class="stsoc1" d="M16.1,23.5h-3.4c-0.2,0-0.4-0.2-0.4-0.4v-7.4h-1.5c-0.2,0-0.4-0.2-0.4-0.4v-3c0-0.2,0.2-0.4,0.4-0.4h1.5l0-1.9							c0-1.1,0.3-2,0.9-2.6c0.7-0.7,1.7-1,3.1-1h2.7c0.2,0,0.4,0.2,0.4,0.4v3c0,0.2-0.2,0.4-0.4,0.4h-2c-0.2,0-0.5,0.2-0.6,0.4l0,1.5H19							c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3c-0.1,1.5-0.3,3-0.3,3c0,0.2-0.2,0.3-0.4,0.3h-2.2v7.4C16.5,23.3,16.3,23.5,16.1,23.5z							"></path>
+                        </svg></a></div>
+                    <div class="soc-icon-wrapp vk"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30" style="enable-background:new 0 0 30 30" xml:space="preserve">
+                          <style type="text/css">
+                            .stsoc{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+                            .stsoc1{fill-rule:evenodd;clip-rule:evenodd;fill:#000000;}
+                          </style>
+                          <path class="stsoc" d="M1.5,0h27C29.3,0,30,0.7,30,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27C0.7,30,0,29.3,0,28.5v-27C0,0.7,0.7,0,1.5,0z"></path>
+                          <path class="stsoc1" d="M15,21h1.1c0,0,0.3,0,0.5-0.2c0.2-0.2,0.2-0.5,0.2-0.5s0-1.6,0.7-1.9c0.7-0.2,1.6,1.6,2.5,2.3							c0.7,0.5,1.2,0.4,1.2,0.4l2.5,0c0,0,1.3-0.1,0.7-1.2c-0.1-0.1-0.4-0.8-1.8-2.3c-1.5-1.6-1.3-1.3,0.5-4c1.1-1.7,1.6-2.7,1.4-3.1							c-0.1-0.4-1-0.3-1-0.3l-2.8,0c0,0-0.2,0-0.4,0.1c-0.1,0.1-0.2,0.4-0.2,0.4s-0.4,1.3-1,2.4c-1.2,2.3-1.7,2.4-1.9,2.3							c-0.5-0.3-0.4-1.3-0.4-2c0-2.2,0.3-3.2-0.6-3.4c-0.3-0.1-0.5-0.1-1.3-0.1c-1,0-1.8,0-2.3,0.3c-0.3,0.2-0.6,0.5-0.4,0.6							c0.2,0,0.6,0.1,0.8,0.5c0.3,0.4,0.3,1.4,0.3,1.4s0.2,2.6-0.4,2.9c-0.4,0.2-0.9-0.2-2-2.3c-0.6-1.1-1-2.3-1-2.3s-0.1-0.2-0.2-0.3							C9.5,10,9.2,10,9.2,10l-2.6,0c0,0-0.4,0-0.5,0.2c-0.1,0.2,0,0.5,0,0.5s2.1,5.3,4.4,8C12.6,21.1,15,21,15,21z">        </path>
+                        </svg></a></div>
+                    <div class="soc-icon-wrapp insta"><a class="soc-icon-item" href="#">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 34 34" style="enable-background:new 0 0 34 34" xml:space="preserve">
+                          <style type="text/css">.stsoc1{fill:#2D2D2D;}</style>
+                          <g>
+                            <path class="stsoc1" d="M26.5,6h-1C24.7,6,24,6.7,24,7.5v1c0,0.8,0.7,1.5,1.5,1.5h1c0.8,0,1.5-0.7,1.5-1.5v-1C28,6.7,27.3,6,26.5,6								L26.5,6z"></path>
+                          </g>
+                          <g>
+                            <path class="stsoc1" d="M17,12.5c3,0,5.5,2.5,5.5,5.5S20,23.5,17,23.5S11.5,21,11.5,18S14,12.5,17,12.5 M17,10c-4.4,0-8,3.6-8,8								s3.6,8,8,8s8-3.6,8-8S21.4,10,17,10L17,10z"></path>
+                          </g>
+                          <g>
+                            <path class="stsoc1" d="M25,2.5c3.6,0,6.5,2.9,6.5,6.5v16c0,3.6-2.9,6.5-6.5,6.5H9c-3.6,0-6.5-2.9-6.5-6.5V9c0-3.6,2.9-6.5,6.5-6.5H25								M25,0H9C4,0,0,4,0,9v16c0,5,4,9,9,9h16c5,0,9-4,9-9V9C34,4,30,0,25,0L25,0z"></path>
+                          </g>
+                        </svg></a></div>
+                  </div><a class="developer" href="#">
+                    <div class="dev-icon">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 200 186.5" style="enable-background:new 0 0 200 186.5" xml:space="preserve">
+                        <style type="text/css">.flex{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;stroke:#FFFFFF;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}</style>
+                        <path class="flex" d="M165.5,165v-39L100,164.7L34.5,126v39L3,183.5V77.4l97,56.1l97-56.1v105.8L165.5,165z"></path>
+                        <path class="flex" d="M100,90.2L3,34.1V3l97,56.1L197,3v30.8L100,90.2z"></path>
+                      </svg>
+                    </div>
+                    <div class="dev-text">
+                      <div class="u-bold u-white s-text">FLEX.MEDIA</div>
+                      <div class="smalllight">Разработка сервиса</div>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-to-top">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 48 48" style="enable-background:new 0 0 48 48" xml:space="preserve">
+                <style type="text/css">
+                  .stop0{fill-rule:evenodd;clip-rule:evenodd;fill:#EFEFEF;}
+                  .stop1{fill:#F9F9FA;}
+                  .stop2{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#585858;stroke-miterlimit:10;}
+                </style>
+                <path class="stop0" d="M24,4.7c10.7,0,19.3,8.7,19.3,19.3c0,10.7-8.7,19.3-19.3,19.3C13.3,43.3,4.7,34.7,4.7,24		C4.7,13.3,13.3,4.7,24,4.7z"></path>
+                <g>
+                  <path class="stop1" d="M24,1c12.7,0,23,10.3,23,23S36.7,47,24,47S1,36.7,1,24S11.3,1,24,1 M24,0C10.7,0,0,10.7,0,24s10.7,24,24,24			s24-10.7,24-24S37.3,0,24,0L24,0z"></path>
+                </g>
+                <path class="stop2" d="M16.9,25.5l7.4-6.9l7.4,6.9"></path>
+                <path class="stop2" d="M16.9,29.4l7.4-6.9l7.4,6.9"></path>
+              </svg>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="modals">
+      <div class="modal-layout js-popup-container" data-modal="subscribe">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Вы подписались на рассылку новостей от Eat-bit. Настроить подписку вы можете в личном кабинете.</div>
+          </div>
+        </div>
+      </div>
+      <!--модалка обратной связи после заполнения формы в контактах, такой же блок есть в отдельной модалке обратной связи-->
+      <div class="modal-layout js-popup-container" data-modal="callback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  </div>
+          </div>
+        </div>
+      </div>
+      <!--модалка после оставленного отзыва-->
+      <div class="modal-layout js-popup-container" data-modal="feedback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Мы очень рады, что вы оставили отзыв о нашем проекте. После прохождения модерации ваш отзыв будет опубликован.</div>
+          </div>
+        </div>
+      </div>
+      <!--модалка после сертификата-->
+      <div class="modal-layout js-popup-container" data-modal="sertificat">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за заказ сертификата. В ближайшее время с вами свяжется наш менеджер.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="callback">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Обратная связь</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя</label>
+              </div>
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="input-wrapper req">
+                <textarea class="input-main" rows="4" data-validation="length required" data-validation-error-msg="Не заполнено"></textarea>
+                <label class="input-label">Сообщение  </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить  </button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Благодарим вас за прояленный интерес к нашей компании. С вами свяжется наш менеджер для решения вашего вопроса.  </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="login">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Войти в кабинет</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail      </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="password" data-validation="required" data-validation-error-msg="Это обязательное поле">
+                <label class="input-label">Пароль </label>
+                <div class="link-pass-wrap">
+                  <button class="link-pass-forgot" type="button">Забыл(а) пароль</button>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки  -->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="form modal-form js-validate">
+              <div class="input-wrapper">
+                <input class="input-main" type="email" data-validation="email" data-validation-error-msg="Не заполнено">
+                <label class="input-label">E-mail    </label>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Отправить     </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Восстановление пароля</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">На ваш e-mail отправлено письмо для восстановления пароля. Проверьте вашу почту.              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="oneclick">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small">
+          <div class="modal-container-header">
+            <div class="h-title h2">Купить в 1 клик</div>
+            <div class="text1">
+               Программа:<span class="u-number">2300-2600 ккал</span></div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form js-validate">
+              <div class="input-wrapper req">
+                <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Ваше имя    </label>
+              </div>
+              <div class="input-wrapper req">
+                <input class="input-main" type="tel" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Телефон </label>
+              </div>
+              <div class="form-footer">
+                <div class="form-total"> 
+                  <div class="form-total-count">45 000 ₽</div>
+                  <div class="form-total-week s-medium u-halfgray">за 2 недели</div>
+                </div>
+                <div class="form-buttons">
+                  <button class="btn no-arr btn-black" type="submit">Заказать</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container modal-small" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Спасибо</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="text1">Спасибо. Заказ принят. С вами свяжется наш менеджер.</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout modal-right js-popup-container" data-modal="calc">
+        <!--контейнер модалки-->
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="h-title h2">Калькулятор</div>
+            <div class="header__hamburger closePopup open">
+              <div class="hamburger">
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <form class="js-validate">
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Мужской"><span class="btn-name">Ваш пол</span><span class="btn-text">Мужской</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group" value="val1"><span>Мужской</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group" value="val2"><span>Женский</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Возраст</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Рост</label>
+              </div>
+              <div class="input-wrapper w33 req">
+                <input class="input-main" type="number" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
+                <label class="input-label">Вес</label>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Ваша цель</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group1" value="val1"><span>Сохранение формы</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val2"><span>Похудение</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group1" value="val3"><span>Набор массы</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper select-check js-select-custom req">
+                <button class="selects" data-placeholder="Выберите"><span class="btn-name">Уровень физических нагрузок</span><span class="btn-text">Выберите</span><i class="select-img"></i></button>
+                <div class="dropdown-target">
+                  <div class="dropdown-inner">
+                    <div class="dropdown-content">
+                      <div class="select-u-body select-list">
+                        <label class="option">
+                          <input type="radio" name="group2" value="val1"><span>Сидячий образ жизни</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val2"><span>Тренировки 1-2 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val3"><span>Тренировки 3-5 р. в неделю</span>
+                        </label>
+                        <label class="option">
+                          <input type="radio" name="group2" value="val4"><span>Тренировки 6-7 р. в неделю</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn no-arr btn-black" type="submit">Рассчитать                                      </button>
+            </form>
+          </div>
+        </div>
+        <!--контейнер модалки-->
+        <div class="modal-container" style="display: none">
+          <div class="modal-container-header">
+            <div class="h-title h2">Результат</div>
+            <div class="header__hamburger closePopup open">
+              <div class="hamburger">
+                <div class="hamburger-inner"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-container-content">
+            <div class="calc-result">
+              <div class="u-light u-halfgray s-text">Ваша дневная норма<span class="result">2300 ккал</span></div>
+            </div>
+            <div class="color-block inner"><a class="color-block-main" href="#">
+                <div class="u-light u-halfgray s-text">Подходящий рацион</div>
+                <div class="u-light result-price"><span class="u-number h2">1600–2000</span><span>Ккал/день</span></div>
+                <buttom class="btn btn-go" type="buttom">от  <span class="u-number">2000</span> ₽/день</buttom></a></div>
+            <div class="menu-nav">
+              <div class="menu-nav-inner">
+                <div class="m-nav-link left">Новый расчёт</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="programm">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium">
+          <div class="modal-container-header">
+            <div class="h-title h2">Добавить программу</div><i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <form class="modal-form">
+              <ul class="checkbox-wrap">
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="800-1000 ккал"><span class="input-fake">800-1000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1000-1200 ккал"><span class="input-fake">1000-1200 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1400-1600 ккал"><span class="input-fake">1400-1600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1600-1800 ккал"><span class="input-fake">1600-1800 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="1800-2000 ккал"><span class="input-fake">1800-2000 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2100-2300 ккал"><span class="input-fake">2100-2300 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2300-2600 ккал"><span class="input-fake">2300-2600 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2600-2900 ккал"><span class="input-fake">2600-2900 ккал</span>
+                                  </label>
+                                </li>
+                                <li class="checkbox-item">
+                                  <label class="checkbox-outer"> 
+                                    <input class="input-real" type="radio" name="group" value="2900-3200 ккал"><span class="input-fake">2900-3200 ккал</span>
+                                  </label>
+                                </li>
+              </ul>
+              <div class="slider-wrap js-slider-wrap">
+                <div class="slider-text-wrapper">
+                  <div class="slider-weeks"><span class="js-slider-info js-slider-week" data-index-1="1 день" data-index-2="1 неделя" data-index-3="2 недели" data-index-5="1 месяц"></span>
+                    <!--размер скидки--><span class="discount js-slider-info" data-index-1="0%" data-index-2="-4%" data-index-3="-16%" data-index-5="-32%"></span>
+                  </div>
+                  <div class="slider-amount">
+                    <!-- цена--><span class="js-slider-info js-slider-price" data-index-1="1600" data-index-2="1500" data-index-3="1400" data-index-5="1300"></span>₽/день
+                    <!--цена * значение отсюда =  .form-total-count-->
+                    <div class="js-slider-info js-slider-x" data-index-1="1" data-index-2="7" data-index-3="15" data-index-5="30"></div>
+                  </div>
+                </div>
+                <div class="rangeinput"><i class="dot dot25"></i><i class="dot dot50"></i><i class="dot dot0"></i><i class="dot dot100"></i></div>
+              </div>
+              <div class="form-footer">
+                <div class="form-total">
+                  <!--сюда сумма -->
+                  <div class="form-total-count"></div>
+                  <!--сюда недели-->
+                  <div class="form-total-week s-medium u-halfgray"></div>
+                </div>
+                <div class="form-buttons"><a class="btn btn-black" href="#">Добавить</a></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-layout js-popup-container" data-modal="promo">
+        <!--контейнер модалки-->
+        <div class="modal-container modal-medium modal-promo">
+          <div class="modal-container-header" style="background-image:url(img/news/3.jpg)"><i class="small-link pop-close closePopup"></i></div>
+          <div class="modal-container-content">
+            <div class="h-title h2">Скидка 5% за репост</div>
+            <div class="text2">Сделайте репост при помощи кнопки «Поделиться» и сообщите об этом нашему менеджеру. И вы получите промокод на следующий заказ.</div>
+            <ul class="list promo-list">
+              <li>Профиль должен быть открыт</li>
+              <li>Репост можно сделать только 1 раз</li>
+            </ul>
+            <div class="soc-btns">
+              <button class="soc-btn fb share" type="button">поделиться</button>
+              <button class="soc-btn vk share" type="button">поделиться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END out-->
+  </body>
+</html>
