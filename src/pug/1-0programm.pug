@@ -25,6 +25,13 @@ block content
 						+bread('Программы питания')
 						+bread('2300-2600 ккал/день')
 	.inner-content
+		script.
+			function changed(){
+				$('.page__header').addClass('inner');
+				$('.header__navs--cart ').removeClass('active');
+				$('.header__navs--login').removeClass('dropdown-trigger');
+
+			}changed();
 		.half
 			.half-base
 				.half-section

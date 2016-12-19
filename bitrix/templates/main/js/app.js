@@ -946,11 +946,16 @@ function subscribe(){
 	parent.trigger('reinit');
 }subscribe();
 $(".js-scroll").on('click', function () {
-    var elementClick = $(this).attr("href")
+    var elementClick = $(this).attr("href");
     var destination = $(elementClick).offset().top;
-    console.log(elementClick,destination )
-    $("body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
-	});
+    console.log(elementClick,destination );
+    if(elementClick == '#zakaz'){
+    	$("body:not(:animated), .out:not(:animated)").animate({scrollTop: 300}, 500);
+    }else{
+    	$("body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
+    }
+    
+});
 function FocusInput(){
 var input = $('.js-focus');
 	input.each(function(){

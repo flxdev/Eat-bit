@@ -78,7 +78,6 @@ body
 body, .out,html
   width: 100%
   height: 100%
-
   &.modal_open
     overflow: hidden
 .out
@@ -93,7 +92,7 @@ body, .out,html
     display: flex
     flex-wrap: nowrap
     flex-direction: column
-    // height: 100%
+    min-height: 100%
     // +r(991)
     //   overflow-x: hidden
   &__outer
@@ -126,6 +125,8 @@ body, .out,html
           +rem(height,60px)
           padding: 0
           transform: translateY(-10px)
+        .header__navs
+          margin-left: 10.5%
     &.is-hidden
       +rm(991)
         +rem(height,70px)
@@ -302,6 +303,7 @@ body, .out,html
         .u-white
           color: $text
         .footer-mailto
+          display: block
           .u-light
             +rem(font-size,24px)
             +r(375)
@@ -1147,7 +1149,7 @@ body, .out,html
   border-radius: 50%
   border: 1px solid #777777
   position: fixed
-  z-index: 2
+  z-index: 4
   +rem(right, 50px)
   +rem(bottom, 40px)
   transform: translateY(100px)
@@ -1182,31 +1184,44 @@ body, .out,html
   &-slider
     opacity: 0
     +tr(opacity .25s)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 100%
     &.slick-initialized
       opacity: 1
+    .slick-list,.slick-track
+      height: 100%
     &-wrapper
+      padding-bottom: 45%
       position: relative
+      +r(1600)
+        padding-bottom: 43%
+      +r(1376)
+        padding-bottom: 44%        
       +r(991)
+        padding-bottom: 65%
         +rem(margin-left,-25px)
         +rem(margin-right,-25px)
+      +r(768)
+        padding-bottom: 85%
+      +r(600)
+        padding-bottom: 100%
+      +r(475)
+        padding-bottom: 120%
+      +r(400)
+        padding-bottom: 140%
+      +r(350)
+        padding-bottom: 170%
   &-slide
     position: relative
-    padding-bottom: 5.6%
+    height: 100%
     &.white
       .title,.list li
         color: $white
       .list li:before
         background-image: url(../img/icons/listw.svg)
-    +r(1600)
-      padding-bottom: 5.4%
-    +r(991)
-      padding-bottom: 7.5%
-    +r(768)
-      padding-bottom: 10.5%
-    +r(544)
-      padding-bottom: 15.5%
-    +r(350)
-      padding-bottom: 17.5%     
     &-text
       position: absolute
       left: 12.9%
@@ -1493,6 +1508,7 @@ body, .out,html
   display: inline-block
   position: relative
   font-weight: 600  
+  line-height: 1
   white-space: nowrap
   transition: background .3s, box-shadow .3s, color .3s
   &> .u-number
@@ -2191,6 +2207,7 @@ body, .out,html
     +rem(height,23px)
     +contain
     background-image: url(../img/icons/star-gray.svg)
+
     &:not(:first-child)
       +rem(margin-left,3px)
     &.active
@@ -2744,9 +2761,27 @@ body, .out,html
         .checkbox-wrap
           +rem(margin-top,35px)
           +rem(margin-bottom,28px)
+          +screen(991,1570)
+            +rem(margin-left, -15px)
+            +rem(margin-right, -15px)
+        .checkbox-item
+          +rm(991)
+            margin-right: 0
+            margin-left: 0
+            +rem(padding-right,2px)
+            +rem(padding-left,2px)
+            width: 50%
+            text-align: center
+          +screen(991,1320)
+            .input-fake
+              +rem(padding-top,5px)
+              +rem(padding-bottom,5px)
         .form-footer
           +rem(margin,0 -50px)
           +rem(padding,35px 50px 0)
+          +r(1450)
+            +rem(margin,0 -40px)
+            +rem(padding,35px 25px 0)
         &+.offer-feachure
           +rem(padding, 0 45px)
           +r(544)
@@ -2762,6 +2797,7 @@ body, .out,html
               +rem(margin-top,30px)
     .payment-item
       width: 25%
+      min-width: 0
       img
         opacity: 1 !important
 
@@ -4709,6 +4745,8 @@ blockquote
   .star-item
     cursor: pointer
     +nosel
+    &:hover
+      transform: scale(1.2)
   .input-label
     +rem(padding-right,20px)
     +r(544)
@@ -4893,11 +4931,20 @@ blockquote
       +rem(margin-top,35px)
 
 .news-inner-slider
+  padding-bottom: 50%
+  position: relative
+  .slick-list
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+  .slick-list,.slick-track
+    height: 100%
+  +r(544)
+    padding-bottom: 70.6%
   &-item
     +cover
-    padding-bottom: 8.3%
-    +r(544)
-      padding-bottom: 9.6%
   &-wrapper
     +rem(margin, 50px 0)
     +r(544)
@@ -5008,9 +5055,20 @@ blockquote
   font-weight: 600
   display: block
   text-align: center
-  +rem(line-height, 75px)
+  position: fixed
+  +rem(top, 60px)
+  left: 0
+  right: 0
+  z-index: 10
+  +rem(line-height, 65px)
   +rem(font-size,20px)
   +rm(991)
     display: none
-  +r(544)
-    +rem(margin,0 -15px)
+  +r(991)
+    &+ .pagehead-wrap
+      +rem(padding-top,75px)
+  // +r(544)
+  //   +rem(margin,0 -15px)
+#zakaz
+  position: relative
+  

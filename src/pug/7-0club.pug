@@ -1,21 +1,21 @@
 extends _layout
 
 block title
-  title Новости
+  title Клуб Eat-bit
 
 block content
 
   .pagehead-wrap.text-center.pagehead-center(style='background-image: url(img/hbg.jpg)')
     .inner-content
       .pagehead-content
-        h1.h-title.h1.u-white Новости
+        h1.h-title.h1.u-white Клуб Eat-bit
       .bread-container
         mixin bread(name)
           a(href="#").icon-link
             i 
             span #{name}
         +bread('Главная')
-        +bread('Новости')
+        +bread('Клуб Eat-bit')
   .acc-wrap
     .box-standart
       .mobile-dropdowm-trigger
