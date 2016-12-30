@@ -25,6 +25,7 @@ block content
 						+bread('Программы питания')
 						+bread('2300-2600 ккал/день')
 	.inner-content
+		//скрипт для тани, чтобы показать 2 вид шапки
 		script.
 			function changed(){
 				$('.page__header').addClass('inner');
@@ -321,7 +322,7 @@ block content
 									//сюда недели
 									.form-total-week.s-medium.u-halfgray
 								.form-buttons
-									a(href="#").btn.btn-black Заказать
+									input(type='submit' value='Заказать').btn.btn-black
 									a(href="#").icon-link.js-popup-button(type='button',data-modal='oneclick')
 										span Купить в 1 клик
 					.offer-feachure

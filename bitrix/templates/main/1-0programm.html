@@ -16,7 +16,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
     <link rel="stylesheet" media="all" href="css/screen.css">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
     <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/app.js"></script>
   </head>
@@ -164,6 +163,7 @@
               </div>
             </div>
             <div class="inner-content">
+              <!--скрипт для тани, чтобы показать 2 вид шапки-->
               <script>
                 function changed(){
                 	$('.page__header').addClass('inner');
@@ -750,7 +750,9 @@
                             <!--сюда недели-->
                             <div class="form-total-week s-medium u-halfgray"></div>
                           </div>
-                          <div class="form-buttons"><a class="btn btn-black" href="#">Заказать</a><a class="icon-link js-popup-button" href="#" type="button" data-modal="oneclick"><span>Купить в 1 клик</span></a></div>
+                          <div class="form-buttons">
+                            <input class="btn btn-black" type="submit" value="Заказать"><a class="icon-link js-popup-button" href="#" type="button" data-modal="oneclick"><span>Купить в 1 клик</span></a>
+                          </div>
                         </div>
                       </form>
                     </div>

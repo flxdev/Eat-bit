@@ -16,56 +16,57 @@ block content
         +bread('Главная')
         +bread('Мой заказ')
   .inner-content.center-content
-    .center-box
-      .white-box
-        .h-title.h2 Программы в заказе
-        .table
-          .table-head
-            .table-item.table-name Рацион
-            .table-item.table-period Период
-            .table-item.table-count Кол-во
-            .table-item.table-total Стоимость
-            .table-item.table-delete
-            mixin cartTable(name,period,total)
-              .table-row
-                .table-item.table-name
-                  .elem-price #{name}
-                    span.s-medium.u-reg.u-halfgray ккал/день
-                .table-item.table-period
-                  .text1
-                    | #{period}
-                .table-item.table-count
-                  .number-wrap
-                    .number.js-number(data-max-number='100', data-step='1')
-                      button.number__minus.js-minus-number(type='button', tabindex='0')
-                      input.number__input.js-price-input(type='number', tabindex='0',value='0')
-                      button.number__plus.js-plus-number(type='button', tabindex='0')
-                .table-item.table-total
-                  .elem-price
-                    |#{total}
-                .table-item.table-delete
-                  i.small-link.close
-          +cartTable('2300-2600','2 недели','45 000 ₽')
-          +cartTable('2300-2600','2 недели','45 000 ₽')
-          +cartTable('2300-2600','2 недели','45 000 ₽')
-          +cartTable('2300-2600','2 недели','45 000 ₽')
-        .u-light.s-medium.u-halfgray Внимание: заказ обмену или возврату не подлежит.
-        .form-footer
-          .form-buttons
-            //.error для ошибки, .succes ,чтобы появилась кнопка ниже, либо какой класс попросишь
-            form.promo-form
-              input(type="text" placeholder='Промокод').promo-form-input.js-focus
-              button(type="submit").promo-form-submit.u-bold.u-white.s-text Ок
-            button.trans-btn.cancel Отменить промокод
-          .form-total 
-            .form-total-count 45 000 ₽
-            .form-total-week.s-medium.u-halfgray 90 000 ₽, Скидка -5%
-      .menu-nav
-        .menu-nav-inner
-          button.trans-btn.add.js-popup-button(type='button',data-modal='programm') Добавить программу
-          a(href="#").btn.btn-black.btn-big Оформить Заказ
-          //ну пусть для красоты будет
-          button.trans-btn.add(style='opacity: 0; ponter-events: none') Добавить программу
+    form
+      .center-box
+        .white-box
+          .h-title.h2 Программы в заказе
+          .table
+            .table-head
+              .table-item.table-name Рацион
+              .table-item.table-period Период
+              .table-item.table-count Кол-во
+              .table-item.table-total Стоимость
+              .table-item.table-delete
+              mixin cartTable(name,period,total)
+                .table-row
+                  .table-item.table-name
+                    .elem-price #{name}
+                      span.s-medium.u-reg.u-halfgray ккал/день
+                  .table-item.table-period
+                    .text1
+                      | #{period}
+                  .table-item.table-count
+                    .number-wrap
+                      .number.js-number(data-max-number='100', data-step='1')
+                        button.number__minus.js-minus-number(type='button', tabindex='0')
+                        input.number__input.js-price-input(type='number', tabindex='0',value='0')
+                        button.number__plus.js-plus-number(type='button', tabindex='0')
+                  .table-item.table-total
+                    .elem-price
+                      |#{total}
+                  .table-item.table-delete
+                    i.small-link.close
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+            +cartTable('2300-2600','2 недели','45 000 ₽')
+          .u-light.s-medium.u-halfgray Внимание: заказ обмену или возврату не подлежит.
+          .form-footer
+            .form-buttons
+              //.error для ошибки, .succes ,чтобы появилась кнопка ниже, либо какой класс попросишь
+              form.promo-form
+                input(type="text" placeholder='Промокод').promo-form-input.js-focus
+                button(type="submit").promo-form-submit.u-bold.u-white.s-text Ок
+              button.trans-btn.cancel Отменить промокод
+            .form-total 
+              .form-total-count 45 000 ₽
+              .form-total-week.s-medium.u-halfgray 90 000 ₽, Скидка -5%
+        .menu-nav
+          .menu-nav-inner
+            button.trans-btn.add.js-popup-button(type='button',data-modal='programm') Добавить программу
+            input(type="submit" value="Оформить Заказ").btn.btn-black.btn-big 
+            //ну пусть для красоты будет
+            button.trans-btn.add(style='opacity: 0; ponter-events: none') Добавить программу
 
 
 

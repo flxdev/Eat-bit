@@ -27,7 +27,7 @@ a
 *
   -webkit-tap-highlight-color: transparent
   +placeholder 
-    font-family: 'cerar'
+    font-family: 'cera'
 
     +rem(letter-spacing, 0.2px)
     font-size: 11px
@@ -132,7 +132,7 @@ body, .out,html
         +rem(height,70px)
         +rem(padding-top,15px)
         +rem(padding-bottom,15px)
-        box-shadow: 0px 0px 32px 0px rgba( 0, 0, 0,.2 );
+        box-shadow: 0px 0px 18px 0px rgba( 0, 0, 0,.2 );
         // .header__navs--nav
         //   width: 0
         //   margin: 0
@@ -209,8 +209,6 @@ body, .out,html
   line-height: 1.4
 
 .u-number
-  font-family: 'Fira Sans', sans-serif;
-  +rem(letter-spacing,0.3px)
 //size types
 
 .text1
@@ -1002,7 +1000,7 @@ body, .out,html
             +rem(width,33px)
             +rem(height,34px)
           .flex
-            +tr(fill .3s)
+            transition: fill.3s, stroke .3s
       .u-bold
         +tr(color .3s)
       .u-bold,.smalllight
@@ -1274,7 +1272,7 @@ body, .out,html
   &-add
     background-color: $text
     +rem(width,225px)
-    +rem(padding,15px 22px 20px 20px)
+    +rem(padding,15px 15px 20px 20px)
     order: 2
     +r(991)
       display: none
@@ -1355,12 +1353,14 @@ body, .out,html
       line-height: 0.5
     .slider-total
       +rem(font-size,16px)
+      +rem(margin-top,-4px)
     .slider-divider
       +rem(font-size,16px)
+      +rem(margin-top,-4px)
   .slick-arrow
     background: 0 0
     +rem(padding,10px)
-    +rem(margin-top,8px)
+    // +rem(margin-top,8px)
     .icon
       display: inline-block
       +rem(width,7px)
@@ -2042,6 +2042,8 @@ body, .out,html
       +rem(margin-bottom,20px)
       +rem(max-width,405px)
       display: inline-block
+      span
+        font-weight: 700
     .icon-link
       display: block
       margin: 0 auto
@@ -2059,7 +2061,9 @@ body, .out,html
   display: inline-block
   &:before
     content: counter(num)
-    display: inline-block
+    display: block
+    +rm(544)
+      +rem(margin-top,-3px)
     
 .props
   +rem(margin,15px 0)
@@ -2722,7 +2726,7 @@ body, .out,html
         +rem(padding,35px 0 0)
   &-side
     // flex: 0 0 25.5rem
-    +rem(margin-top,-280px)
+    +rem(margin-top,-285px)
     position: relative
     width: 28%
     +r(991)
@@ -2877,13 +2881,16 @@ body, .out,html
       display: block
       font-weight: 100  
       font-family: cera
-      line-height: .5 
+      line-height: .8
+      +rem(margin-bottom,-8px)
       .programm-value
         font-family:  cera
         display: inline-block
         vertical-align: middle
-        +rem(font-size,14px)
-        +rem(padding-left,5px)
+        font-weight: 400
+        +rem(font-size,16px)
+        +rem(letter-spacing,0.6px)
+        +rem(padding-left,6px)
         line-height: 1  
   &-wrap
     .inner-content
@@ -2893,7 +2900,7 @@ body, .out,html
 .white-box
   background: $white
   box-shadow: 
-  box-shadow: 0px 5px 43px 0px rgba( 0, 0, 0,.15 );
+  box-shadow: 0px 5px 21px 0px rgba( 0, 0, 0,.15 );
   .h-title
     +rem(letter-spacing, -1px)
     +r(544)
@@ -2942,8 +2949,9 @@ body, .out,html
       display: inline-block
       border: 2px solid $borderl
       +rem(font-size,14px)
+      +rem(letter-spacing,0.5px)
       color: $text
-      +rem(padding, 10px 17px)
+      +rem(padding, 9px 17px)
       +rem(border-radius, 30px)
       transition: background .3s, border-color .3s
       text-transform: uppercase 
@@ -3038,6 +3046,7 @@ body, .out,html
     +clr
   &-total-count
     +rem(font-size,24px)
+    +rem(letter-spacing,0.5px)
     font-weight: 700
     color: $text
     text-transform: uppercase
@@ -3431,6 +3440,7 @@ body, .out,html
       .form-total
         text-align: right
         +rem(padding-right,55px)
+
         +r(544)
           padding: 0  
           text-align: center
@@ -4584,6 +4594,8 @@ blockquote
     .text2
       +rem(max-width,450px)
       margin: 0 auto
+      span
+        font-weight: 700
 .box-full.gray
   &+ .box-service
     +rem(padding-top,90px)

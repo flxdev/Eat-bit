@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
