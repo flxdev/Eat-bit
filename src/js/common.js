@@ -819,6 +819,7 @@ function newsSlider(){
 Menu();
 ToClose();
 isMobile();
+AddBlock();
 //end of document ready
 });
 //end of document ready
@@ -1160,3 +1161,35 @@ function insta(){
 		reverse(_this);
 	}); 
 } 
+function AddBlock(){
+	var btnAdd = $('.js-add-block-btn'),
+		form = btnAdd.parents('form'),
+		mainParent = form.parent(),
+		blockFirst = mainParent.find('.more-block'),
+		inClass = 'form-in',
+		addedClass = 'more-block',
+		target = mainParent.find('.is-hide .form-in');
+	btnAdd.on('click',function(){
+		var _ = $(this);
+		setTimeout(function(){
+			$.validate({
+				form : '.js-validate'
+			});
+		}, 100);
+		// console.log(form.length,mainParent.length,blockFirst.length,target.length)
+		if(target.hasClass('white-box')){
+			//пока
+			return false
+		}
+		if(target.hasClass('input-item')){
+			var cont = form.find('.inputs-cont');
+			console.log(cont.length)
+			target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+			// blockFirst.addClass('form-in');
+			// blockFirst.first().removeClass('form-in');
+			return false;
+		}
+		
+	})
+
+}

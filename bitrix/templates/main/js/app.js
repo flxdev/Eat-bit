@@ -548,6 +548,7 @@ if (window.jQuery) {
 }else if(d===e)return!0;return!1},"undefined"!=typeof jQuery&&null!==jQuery&&(jQuery.fn.dropzone=function(b){return this.each(function(){return new a(this,b)})}),"undefined"!=typeof module&&null!==module?module.exports=a:window.Dropzone=a,a.ADDED="added",a.QUEUED="queued",a.ACCEPTED=a.QUEUED,a.UPLOADING="uploading",a.PROCESSING=a.UPLOADING,a.CANCELED="canceled",a.ERROR="error",a.SUCCESS="success",e=function(a){var b,c,d,e,f,g,h,i,j,k;for(h=a.naturalWidth,g=a.naturalHeight,c=document.createElement("canvas"),c.width=1,c.height=g,d=c.getContext("2d"),d.drawImage(a,0,0),e=d.getImageData(0,0,1,g).data,k=0,f=g,i=g;i>k;)b=e[4*(i-1)+3],0===b?f=i:k=i,i=f+k>>1;return j=i/g,0===j?1:j},f=function(a,b,c,d,f,g,h,i,j,k){var l;return l=e(b),a.drawImage(b,c,d,f,g,h,i,j,k/l)},d=function(a,b){var c,d,e,f,g,h,i,j,k;if(e=!1,k=!0,d=a.document,j=d.documentElement,c=d.addEventListener?"addEventListener":"attachEvent",i=d.addEventListener?"removeEventListener":"detachEvent",h=d.addEventListener?"":"on",f=function(c){return"readystatechange"!==c.type||"complete"===d.readyState?(("load"===c.type?a:d)[i](h+c.type,f,!1),!e&&(e=!0)?b.call(a,c.type||c):void 0):void 0},g=function(){var a;try{j.doScroll("left")}catch(b){return a=b,void setTimeout(g,50)}return f("poll")},"complete"!==d.readyState){if(d.createEventObject&&j.doScroll){try{k=!a.frameElement}catch(l){}k&&g()}return d[c](h+"DOMContentLoaded",f,!1),d[c](h+"readystatechange",f,!1),a[c](h+"load",f,!1)}},a._autoDiscoverFunction=function(){return a.autoDiscover?a.discover():void 0},d(window,a._autoDiscoverFunction)}).call(this);
 $(document).ready(function() {
 
+
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
@@ -954,7 +955,6 @@ $(".js-scroll").on('click', function () {
     }else{
     	$("body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
     }
-    
 });
 function FocusInput(){
 var input = $('.js-focus');
@@ -1367,6 +1367,7 @@ function newsSlider(){
 Menu();
 ToClose();
 isMobile();
+AddBlock();
 //end of document ready
 });
 //end of document ready
@@ -1708,3 +1709,35 @@ function insta(){
 		reverse(_this);
 	}); 
 } 
+function AddBlock(){
+	var btnAdd = $('.js-add-block-btn'),
+		form = btnAdd.parents('form'),
+		mainParent = form.parent(),
+		blockFirst = mainParent.find('.more-block'),
+		inClass = 'form-in',
+		addedClass = 'more-block',
+		target = mainParent.find('.is-hide .form-in');
+	btnAdd.on('click',function(){
+		var _ = $(this);
+		setTimeout(function(){
+			$.validate({
+				form : '.js-validate'
+			});
+		}, 100);
+		// console.log(form.length,mainParent.length,blockFirst.length,target.length)
+		if(target.hasClass('white-box')){
+			//пока
+			return false
+		}
+		if(target.hasClass('input-item')){
+			var cont = form.find('.inputs-cont');
+			console.log(cont.length)
+			target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+			// blockFirst.addClass('form-in');
+			// blockFirst.first().removeClass('form-in');
+			return false;
+		}
+		
+	})
+
+}

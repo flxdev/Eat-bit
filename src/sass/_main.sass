@@ -3,7 +3,9 @@ input[type='number']
 input[type='submit']
    -webkit-appearance: none;
    -moz-appearance: none;
-   appearance: none;  
+   appearance: none; 
+input[type='url'] 
+  +rem(letter-spacing,4px)
 input::-webkit-clear-button,
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button 
@@ -99,7 +101,6 @@ body, .out,html
     width: 100%
     display: block
     height: 100%
-
   &__header
     position: fixed
     +rem(height,100px)
@@ -377,6 +378,8 @@ body, .out,html
     &__links
       align-self: center
       +rem(margin-top,100px)
+      &>div
+        display: inline-block
       +r(544)
         +rem(margin-top,20px)       
       &-item,.header__menu__links-bold
@@ -647,6 +650,7 @@ body, .out,html
       +rem(padding-top,40px)
       +rem(padding-bottom,40px)
       +tr(color .3s)
+      white-space: nowrap
       &:hover
         color: #000
     &--login
@@ -851,6 +855,8 @@ body, .out,html
         +rem(height,35px)
         border: 1px solid $white
         +rem(margin-top,21px)
+        position: relative
+        font-size: 0
         &:hover
           +rm(991)
             box-shadow: 0px 1.5px 8px 0px rgba(255, 255, 255, 0.35);
@@ -859,6 +865,7 @@ body, .out,html
           color: $white
           +rem(padding,0 17px)
           font-family: cera
+          +rem(border-radius,17px)
           +placeholder
             font-family: cera
           +r(480)
@@ -866,10 +873,23 @@ body, .out,html
         &-submit
           background: 0 0
           +rem(padding,0 17px)
+          text-align: center
+          font-weight: 700
           border-left: 1px solid $white
           +rem(width,140px)
           text-transform: uppercase
           +rem(font-size,14px)
+          +rem(letter-spacing,-0.4px)
+          +rem(border-top-right-radius,17px)
+          +rem(border-bottom-right-radius,17px)
+        .help-block
+          position: absolute
+          z-index: -1
+          height: 0;
+          width: 0;
+          top: 100px;
+          left: 100px;
+          display: none
 
   &-mailto
     .u-light
@@ -943,11 +963,13 @@ body, .out,html
           top: 0
           left: 0
           +tr(opacity .3s)
+          will-change: opacity
           &:last-child
             opacity: 0
             z-index: 1
   &-list
-    width: 36% 
+    width: 36%
+    +rem(min-width,150px)
     +r(991)
       width: 50%
     &:hover
@@ -1746,7 +1768,7 @@ body, .out,html
   &-title
     +rem(border-radius,35px)
     display: inline-block
-    +rem(padding, 8px 20px 8px 20px)
+    +rem(padding, 9px 20px 9px 20px)
     border: 1px solid $borderl
     cursor: pointer
     position: relative
@@ -1821,7 +1843,11 @@ body, .out,html
         &.left
           +rem(left,10px)
         &.right
-          +rem(right,10px)      
+          +rem(right,10px) 
+    +r(544)
+      .m-nav-link   
+        &:after
+          +rem(top,-1px) 
 .m-nav-link
   +rem(font-size,14px)
   text-transform: uppercase
@@ -1857,6 +1883,12 @@ body, .out,html
     +rem(width,7px)
   &:after
     background-image: url(../img/icons/arrow_forwardb.svg)
+.menu_reload
+  & + .box-standart
+    +rem(margin-top,40px)
+    +r(544)
+      text-align: center
+      +rem(margin-top,15px)
 .menu
   &-grid 
     +rem(padding,110px 0 0 0)
@@ -1867,14 +1899,8 @@ body, .out,html
       +rem(padding-top,45px)
     & + .i-arrows
       display: none
-      & + .box-standart
-        +rem(margin-top,40px)
-        +r(544)
-          text-align: center
-          +rem(margin-top,15px)
     &.slick-initialized + .i-arrows
       display: block
-
     &.main-grid
       .menu-item-wrap
         width: 20%
@@ -2670,11 +2696,11 @@ body, .out,html
         +rem(bottom, 5px)
       +r(544)
         +rem(bottom, -30px)  
-    .menu-grid
-      & + .i-arrows
-        &+ .box-standart
-          .u-light
-            text-align: right
+    .menu_reload
+      &+ .box-standart
+        +rem(margin-top,8px)
+        .u-light
+          text-align: right
     .menu-item-wrap
       +rm(1560)
         width: 33.33%
@@ -2786,8 +2812,13 @@ body, .out,html
           +r(1450)
             +rem(margin,0 -40px)
             +rem(padding,35px 25px 0)
+          +r(544)
+            +rem(margin,0 -22px)
         &+.offer-feachure
-          +rem(padding, 0 45px)
+          +rem(padding, 0 35px)
+          +rem(margin-top,20px)
+          +r(1400)
+            +rem(padding, 0 25px)
           +r(544)
             +rem(padding, 0 10px)
           .footer-nav-payment
@@ -2798,7 +2829,7 @@ body, .out,html
           li
             color: $text
             &:not(:first-child)
-              +rem(margin-top,30px)
+              +rem(margin-top,15px)
     .payment-item
       width: 25%
       min-width: 0
@@ -2955,6 +2986,8 @@ body, .out,html
       +rem(border-radius, 30px)
       transition: background .3s, border-color .3s
       text-transform: uppercase 
+      +r(1400)
+        +rem(padding, 6px 8px)
       sup
         display: inline-block
         vertical-align: top
@@ -4418,6 +4451,7 @@ select
     align-items: stretch
     align-content: stretch
     height: 100%
+    overflow: hidden
     +r(650)
       flex-direction: column
       align-content: flex-end
@@ -4461,7 +4495,7 @@ select
         +rem(bottom,20px) 
       +r(544)
         bottom: auto
-        +rem(top, 105px)
+        +rem(top, 115px)
   &-text
     +rem(flex-basis, 450px)
     flex-shrink: 1
@@ -4491,6 +4525,8 @@ select
       +r(544)
         +rem(padding-bottom,40px)
     .text2
+      +rem(max-height,184px)
+      overflow: hidden
       +rm(991)
         +rem(margin, 0 -30px)
     .h-title
@@ -4531,7 +4567,7 @@ blockquote
   +rem(max-width,800px)
   display: inline-block
   color: $text
-  font-style: italic
+  // font-style: italic
   text-align: center
   line-height: 1.35
   font-weight: 900
@@ -4548,13 +4584,13 @@ blockquote
       .about-item
         .circle-elem
           border: 0
-        &:nth-of-type(1)
+        &:nth-of-type(3n+1)
           .circle-elem
             background-color: #94f7b0
-        &:nth-of-type(2)
+        &:nth-of-type(3n+2)
           .circle-elem
             background-color: #f6fa86       
-        &:nth-of-type(3)
+        &:nth-of-type(3n+3)
           .circle-elem
             background-color: #ffd67f
     &.about-delivery
@@ -4582,6 +4618,9 @@ blockquote
     text-align: center
     width: 33.33%
     +rem(padding, 0 25px)
+    &:nth-child(n+4)
+      +rm(991)
+        +rem(margin-top,20px)
     +r(991)
       width: 100%
       +rem(padding, 20px 55px)
@@ -4597,9 +4636,18 @@ blockquote
       span
         font-weight: 700
 .box-full.gray
+  .sort_wrapper
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    .sort-select
+      +rem(margin-bottom,-25px)
+      +r(768)
+        +rem(margin-bottom,0px)
   &+ .box-service
     +rem(padding-top,90px)
     padding-bottom: 0
+
 .team
   &-wrap
     +rem(margin-right,-20px)
@@ -4610,6 +4658,8 @@ blockquote
     vertical-align: top
     width: 33.33%
     +rem(padding-right,20px)
+    &:nth-child(n+4)
+      +rem(margin-top,20px)
     +r(544)
       width: 100%
       &:not(:last-child)
@@ -5083,4 +5133,10 @@ blockquote
   //   +rem(margin,0 -15px)
 #zakaz
   position: relative
+sup
+  display: inline-block
+  vertical-align: top
+.is-hide
+  display: none
+  
   

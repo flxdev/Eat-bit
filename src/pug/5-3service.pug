@@ -141,11 +141,11 @@ block content
                 .input-wrapper.req
                   input.input-main(type="text",data-validation="required",data-validation-error-msg="Не заполнено")
                   label.input-label Ваше имя и фамилия
-              .input-item.s-100
+              .input-item.s-100.more-block
                 .input-wrapper.req
-                  input.input-main(type="url",data-validation="required url",data-validation-error-msg="Не заполнено")
+                  input.input-main(name='sdad' type="url",data-validation="required url",data-validation-error-msg="Не заполнено")
                   label.input-label Ссылка на соц.сеть
-            button(type='button').trans-btn.add.borderb
+            button(type='button').trans-btn.add.borderb.js-add-block-btn
               span Добавить ссылку
             button(type='button').link-dotted.light Добавить фото
             .js-dropzone
@@ -153,6 +153,11 @@ block content
           .menu-nav
             .menu-nav-inner
               input(type="submit", value='оставить отзыв').btn.btn-black
+        .is-hide
+          .input-item.s-100.form-in
+            .input-wrapper.req
+              input.input-main(name='sdad' type="url",data-validation="required url",data-validation-error-msg="Не заполнено")
+              label.input-label Ссылка на соц.сеть 
 
 
 

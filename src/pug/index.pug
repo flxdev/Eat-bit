@@ -77,93 +77,95 @@ block content
 	section#menu.box-full.box-section.gray
 		h2.box-title Меню на завтра
 		.box-title-small Наше меню полностью сбалансировано по нутриентам. Ваш рацион каждый день будет максимально разнообразным и необычными. 
-		.menu-nav
-			.menu-nav-inner
-				.m-nav-link.left.disabled Предыдущий день
-				.sort_wrapper
-					.sort-select.js-select-item
-						.sort-select-title
-							span.name Рацион: 
-							span.value.u-number 1000-1200 ккал
-							i.bread-arrow
-						.dropdown-target
-							.dropdown-inner
-								.dropdown-content
-									.sort-select-item
-										a(href="#",data-text="1000-1200 ккал")
-											span.u-number 1000-1200
-											|ккал
-									.sort-select-item
-										a(href="#",data-text="1400-1600 ккал")
-											span.u-number 1400-1600
-											|ккал
-									.sort-select-item
-										a(href="#",data-text="1600-1800 ккал")
-											span.u-number 1600-1800
-											|ккал
-									.sort-select-item.active
-										a(href="#",data-text="1800-2000 ккал")
-											span.u-number 1800-2000
-											|ккал
-									.sort-select-item
-										a(href="#",data-text="2100-2300 ккал")
-											span.u-number 2100-2300
-											|ккал
-									.sort-select-item
-										a(href="#",data-text="2300-2500 ккал")
-											span.u-number 2300-2500
-											|ккал
-									.sort-select-item
-										a(href="#",data-text="2700-2900 ккал")
-											span.u-number 2700-2900
-											|ккал                  
-									.sort-select-item
-										a(href="#",data-text="2900-3200 ккал")
-											span.u-number 2900-3200
-											|ккал
-				.m-nav-link.right Следующий день
-		.menu-grid.main-grid
-			mixin menuItems(img, type,name,val ,bgu)
-				.menu-item-wrap
+		.sort_wrapper
+			.sort-select.js-select-item
+				.sort-select-title
+					span.name Рацион: 
+					span.value.u-number 1000-1200 ккал
+					i.bread-arrow
+				.dropdown-target
+					.dropdown-inner
+						.dropdown-content
+							.sort-select-item
+								a(href="#",data-text="1000-1200 ккал")
+									span.u-number 1000-1200
+									|ккал
+							.sort-select-item
+								a(href="#",data-text="1400-1600 ккал")
+									span.u-number 1400-1600
+									|ккал
+							.sort-select-item
+								a(href="#",data-text="1600-1800 ккал")
+									span.u-number 1600-1800
+									|ккал
+							.sort-select-item.active
+								a(href="#",data-text="1800-2000 ккал")
+									span.u-number 1800-2000
+									|ккал
+							.sort-select-item
+								a(href="#",data-text="2100-2300 ккал")
+									span.u-number 2100-2300
+									|ккал
+							.sort-select-item
+								a(href="#",data-text="2300-2500 ккал")
+									span.u-number 2300-2500
+									|ккал
+							.sort-select-item
+								a(href="#",data-text="2700-2900 ккал")
+									span.u-number 2700-2900
+									|ккал                  
+							.sort-select-item
+								a(href="#",data-text="2900-3200 ккал")
+									span.u-number 2900-3200
+									|ккал
+		.menu_reload
+			.menu-nav
+				.menu-nav-inner
+					.m-nav-link.left.disabled Предыдущий день
+					
+					.m-nav-link.right Следующий день
+			.menu-grid.main-grid
+				mixin menuItems(img, type,name,val ,bgu)
+					.menu-item-wrap
+						.menu-item
+							.menu-type-wrap
+								.menu-type-item #{type}
+							.menu-img-wrap
+								.menu-img-img(style='background-image:url(img/menu/'+img+')')
+								.menu-item-bgu #{bgu}
+							.menu-text-wrap
+								.menu-text-name #{name}
+								.menu-text-val
+									span.u-number #{val}
+									| ккал
+				+menuItems('1.png','Завтрак','Английский завтрак из 3-х яиц','180 г / 306.8','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('2.png','Перекус 1','Пудинг творожный х1,5','260 г / 389','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('3.png','Перекус 2','Ролл с курицей','210 г / 347.9','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('4.png','Обед','Тыквенный крем суп','250 г / 153.7','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('6.png','Обед','Орзо паста с морепродуктами','200 г / 305.2','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('5.png','Перекус 3','Куриный рулет с томатами','150 г / 148.5','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('7.png','Перекус 4','Тар-тар с гречкой и авокадо','225 г / 314','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				+menuItems('8.png','Ужин','Котлета по киевски с рататуем','190 г / 177','БЖУ: 19.9 г, 10.9 г, 42.5 г')
+				.menu-item-wrap.total
 					.menu-item
-						.menu-type-wrap
-							.menu-type-item #{type}
-						.menu-img-wrap
-							.menu-img-img(style='background-image:url(img/menu/'+img+')')
-							.menu-item-bgu #{bgu}
-						.menu-text-wrap
-							.menu-text-name #{name}
-							.menu-text-val
-								span.u-number #{val}
-								| ккал
-			+menuItems('1.png','Завтрак','Английский завтрак из 3-х яиц','180 г / 306.8','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('2.png','Перекус 1','Пудинг творожный х1,5','260 г / 389','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('3.png','Перекус 2','Ролл с курицей','210 г / 347.9','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('4.png','Обед','Тыквенный крем суп','250 г / 153.7','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('6.png','Обед','Орзо паста с морепродуктами','200 г / 305.2','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('5.png','Перекус 3','Куриный рулет с томатами','150 г / 148.5','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('7.png','Перекус 4','Тар-тар с гречкой и авокадо','225 г / 314','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			+menuItems('8.png','Ужин','Котлета по киевски с рататуем','190 г / 177','БЖУ: 19.9 г, 10.9 г, 42.5 г')
-			.menu-item-wrap.total
-				.menu-item
-					.box-title Итого
-					.props
-						.props-item
-							|Белки:
-							span 93.9 г 
-						.props-item
-							|Жиры:
-							span 59.2 г
-						.props-item
-							|Углеводы:
-							span 151.8 г
-					.menu-text-name Всего ккал: 2298.2
-					a(href="#").btn.btn-go Попробовать рацион
-		.i-arrows
-			.slider-counter
-				.slider-curr
-				.slider-divider /
-				.slider-total
+						.box-title Итого
+						.props
+							.props-item
+								|Белки:
+								span 93.9 г 
+							.props-item
+								|Жиры:
+								span 59.2 г
+							.props-item
+								|Углеводы:
+								span 151.8 г
+						.menu-text-name Всего ккал: 2298.2
+						a(href="#").btn.btn-go Попробовать рацион
+			.i-arrows
+				.slider-counter
+					.slider-curr
+					.slider-divider /
+					.slider-total
 		.box-standart
 			.u-light.s-small.u-halfgray Внимание: рекомендуем хранить еду при температуре +2 …+4 градуса!
 	script.
