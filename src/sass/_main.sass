@@ -872,7 +872,7 @@ body, .out,html
             width: 50%
         &-submit
           background: 0 0
-          +rem(padding,0 17px)
+          +rem(padding,0 0 0.5px)
           text-align: center
           font-weight: 700
           border-left: 1px solid $white
@@ -998,10 +998,14 @@ body, .out,html
       align-content: center
       +rem(padding,30px 0 35px)
       .copyright
+        +rem(max-width,160px)
+        white-space: nowrap
         +r(544)
           width: 100%
+          min-width: 100%
           +rem(margin-bottom,20px)
-      
+    .social
+      margin-left: 0
     .developer
       +nosel
       &:hover
@@ -1041,6 +1045,7 @@ body, .out,html
       +rem(width,52px)
       +rem(height,30px)
       +rem(padding,0 11px)
+
       &:not(.insta)
         svg
           border-radius: 100%
@@ -1860,6 +1865,7 @@ body, .out,html
   cursor: pointer
   &.disabled
     opacity: .5
+    pointer-events: none
   &.left
     +rem(padding-left,20px)
     text-align: left
@@ -2670,6 +2676,8 @@ body, .out,html
       text-align: center
       .soc-btns
         text-align: center
+      .soc-btn
+        display: inline-block
       .link-tel 
         display: block
         text-align: center
@@ -2840,16 +2848,16 @@ body, .out,html
 .profit
   &-wrap
     font-size: 0
+    text-align: center
   &-item
     display: inline-block
     vertical-align: top
     width: 33%
     text-align: center
-    +rem(padding, 0 15px)
-    &:last-child
-      +rem(padding, 0 0 0 30px)
-      +r(544)
-        padding: 0
+    +rem(padding, 0 16px)
+    &:nth-child(n+4)
+      +rm(544)
+        +rem(margin-top,20px)
     +r(544)
       width: 100%
       +rem(margin-top,20px)
@@ -2945,8 +2953,8 @@ body, .out,html
   &-item
     display: inline-block
     vertical-align: top
-    +rem(margin-left,1.5px)
-    +rem(margin-right,1.5px)
+    +rem(margin-left,3px)
+    +rem(margin-right,3px)
     +rem(margin-bottom,9px)
     &.link
       .checkbox-outer 
@@ -3175,6 +3183,7 @@ body, .out,html
   +rem(padding,13px 27px 13px 60px)
   +rem(border-radius, 20px)
   +tr(background-color .3s)
+  cursor: pointer
   &:before
     content: ''
     position: absolute
@@ -5143,6 +5152,14 @@ sup
   &.form-in
     .trans-btn.add.borderb,.notify-btn.dropdown-trigger,.icon-link.close
       display: none
+.news-wrap
+  .news-item-wrap
+    +rm(768)
+      &:nth-child(n+4)
+        +rem(margin-top,20px)
       
+.old-price
+  text-decoration: line-through
+  +rem(padding-right,3px)
   
   

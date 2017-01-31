@@ -54,13 +54,16 @@ block content
           .form-footer
             .form-buttons
               //.error для ошибки, .succes ,чтобы появилась кнопка ниже, либо какой класс попросишь
-              form.promo-form
+              .promo-form
                 input(type="text" placeholder='Промокод').promo-form-input.js-focus
                 button(type="submit").promo-form-submit.u-bold.u-white.s-text Ок
               button.trans-btn.cancel Отменить промокод
             .form-total 
               .form-total-count 45 000 ₽
-              .form-total-week.s-medium.u-halfgray 90 000 ₽, Скидка -5%
+              .form-total-week.s-medium.u-halfgray 
+                span.old-price 90 000
+                |₽, Скидка -
+                span 5%
         .menu-nav
           .menu-nav-inner
             button.trans-btn.add.js-popup-button(type='button',data-modal='programm') Добавить программу
