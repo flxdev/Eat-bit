@@ -36,7 +36,7 @@ block content
               .input-wrapper.req
                 input.input-main(type="tel",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
                 label.input-label Телефон 
-        .white-box
+        .white-box.more-block
           .h-title.h2 Адрес доставки
           .h-title.h5 Дата и адрес доставки
           .inputs-cont
@@ -87,10 +87,11 @@ block content
                 label.input-label Комментарий для курьера
           .h-title.h5 Удобное время для доставки
           ul.checkbox-wrap
+            //в name будет меняться только последняя цифраЖ 1,2 ...
             mixin Check(name,name2)
               li.checkbox-item
                 label.checkbox-outer 
-                  input.input-real(type="radio",name='group',value = name,data-validation="required")
+                  input.input-real(type="radio",name='time-group1',value = name,data-validation="required")
                   span.input-fake.small
                     span #{name}
                       sup 00
@@ -105,16 +106,74 @@ block content
             +Check('07','08')
           p.helptext Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.
           p.helptext Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.
-          button(type='button').trans-btn.add.borderb
+          button(type='button').trans-btn.add.borderb.js-add-block-btn
             span Добавить адрес доставки
           .notify-btn.dropdown-trigger
             .dropdown-target
               .dropdown-inner
                .dropdown-content
                   .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
+        
         .white-box
+          .h-title.h2 Способ оплаты
+          .h-title.h5 При получении курьеру
+          ul.checkbox-wrap.payment-check
+            li.checkbox-item
+              label.checkbox-outer 
+                input.input-real(type="radio",name='payment-method',value = 'nal',data-validation="required")
+                span.input-fake Наличные
+          .h-title.h5 Online платежи
+          ul.checkbox-wrap.payment-check
+            li.checkbox-item
+              label.checkbox-outer 
+                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                span.input-fake Банковские карты
+              .checkbox-img-wrap
+                .checkbox-img-item
+                  img(src="img/paysmall/1.jpg", alt="")
+            li.checkbox-item
+              label.checkbox-outer 
+                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                span.input-fake Электронные деньги
+              .checkbox-img-wrap
+                .checkbox-img-item
+                  img(src="img/paysmall/2.jpg", alt="")
+            li.checkbox-item
+              label.checkbox-outer 
+                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                span.input-fake Интернет-банкинг
+              .checkbox-img-wrap
+                .checkbox-img-item
+                  img(src="img/paysmall/3.jpg", alt="")
+        .white-box
+          .h-title.h2 Итого к оплате
+          dl.result-offer
+            dt.text2 
+              span Заказ на сумму
+            dd.text1 
+              span 90 000 ₽
+          dl.result-offer
+            dt.text2 
+              span Скидка по промокоду
+            dd.text1 
+              span 4 500 ₽
+          dl.result-offer
+            dt.text2 
+              span Доставка
+                span.s-text.h5.u-halfgray 250 ₽ х 2 недели
+            dd.text1 
+              span 3 500 ₽       
+          dl.result-offer
+            dt.text2 
+            dd.form-total-count 
+              span 3 500 ₽         
+        .menu-nav
+          .menu-nav-inner
+            input(type="submit", value=' Оформить Заказ').btn.btn-black.btn-big
+      .is-hide
+        .white-box.form-in
           .h-title.h2 Дополнительный адрес
-            button(type="button").icon-link.close.js-popup-button
+            button(type="button").icon-link.close.js-remove-block-btn
               i
               span Удалить
           .h-title.h5 Дата и адрес доставки
@@ -169,7 +228,7 @@ block content
             mixin Check(name,name2)
               li.checkbox-item
                 label.checkbox-outer 
-                  input.input-real(type="radio",name='group',value = name,data-validation="required")
+                  input.input-real(type="radio",name='time-group1',value = name,data-validation="required")
                   span.input-fake.small
                     span #{name}
                       sup 00
@@ -184,70 +243,13 @@ block content
             +Check('07','08')
           p.helptext Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.
           p.helptext Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.
-          button(type='button').trans-btn.add.borderb
+          button(type='button').trans-btn.add.borderb.js-add-block-btn
             span Добавить адрес доставки
           .notify-btn.dropdown-trigger
             .dropdown-target
               .dropdown-inner
                .dropdown-content
                   .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.                  
-        .white-box
-          .h-title.h2 Способ оплаты
-          .h-title.h5 При получении курьеру
-          ul.checkbox-wrap.payment-check
-            li.checkbox-item
-              label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'nal',data-validation="required")
-                span.input-fake Наличные
-          .h-title.h5 Online платежи
-          ul.checkbox-wrap.payment-check
-            li.checkbox-item
-              label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
-                span.input-fake Банковские карты
-              .checkbox-img-wrap
-                .checkbox-img-item
-                  img(src="img/paysmall/1.jpg", alt="")
-            li.checkbox-item
-              label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
-                span.input-fake Электронные деньги
-              .checkbox-img-wrap
-                .checkbox-img-item
-                  img(src="img/paysmall/2.jpg", alt="")
-            li.checkbox-item
-              label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
-                span.input-fake Интернет-банкинг
-              .checkbox-img-wrap
-                .checkbox-img-item
-                  img(src="img/paysmall/3.jpg", alt="")
-        .white-box
-          .h-title.h2 Итого к оплате
-          dl.result-offer
-            dt.text2 
-              span Заказ на сумму
-            dd.text1 
-              span 90 000 ₽
-          dl.result-offer
-            dt.text2 
-              span Скидка по промокоду
-            dd.text1 
-              span 4 500 ₽
-          dl.result-offer
-            dt.text2 
-              span Доставка
-                span.s-text.h5.u-halfgray 250 ₽ х 2 недели
-            dd.text1 
-              span 3 500 ₽       
-          dl.result-offer
-            dt.text2 
-            dd.form-total-count 
-              span 3 500 ₽         
-        .menu-nav
-          .menu-nav-inner
-            input(type="submit", value=' Оформить Заказ').btn.btn-black.btn-big
-
 
 
 

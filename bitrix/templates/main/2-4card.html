@@ -186,7 +186,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="white-box">
+                  <div class="white-box more-block">
                     <div class="h-title h2">Адрес доставки</div>
                     <div class="h-title h5">Дата и адрес доставки</div>
                     <div class="inputs-cont">
@@ -260,40 +260,41 @@
                     </div>
                     <div class="h-title h5">Удобное время для доставки</div>
                     <ul class="checkbox-wrap">
+                      <!--в name будет меняться только последняя цифраЖ 1,2 ...-->
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="06" data-validation="required"><span class="input-fake small"><span>06<sup>00</sup></span>- <span>07<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="06" data-validation="required"><span class="input-fake small"><span>06<sup>00</sup></span>- <span>07<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="08" data-validation="required"><span class="input-fake small"><span>08<sup>00</sup></span>- <span>09<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="08" data-validation="required"><span class="input-fake small"><span>08<sup>00</sup></span>- <span>09<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="10" data-validation="required"><span class="input-fake small"><span>10<sup>00</sup></span>- <span>11<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="10" data-validation="required"><span class="input-fake small"><span>10<sup>00</sup></span>- <span>11<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                     </ul>
                     <p class="helptext">Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.</p>
                     <p class="helptext">Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.</p>
-                    <button class="trans-btn add borderb" type="button"><span>Добавить адрес доставки</span></button>
+                    <button class="trans-btn add borderb js-add-block-btn" type="button"><span>Добавить адрес доставки</span></button>
                     <div class="notify-btn dropdown-trigger">
                       <div class="dropdown-target">
                         <div class="dropdown-inner">
@@ -305,8 +306,72 @@
                     </div>
                   </div>
                   <div class="white-box">
+                    <div class="h-title h2">Способ оплаты</div>
+                    <div class="h-title h5">При получении курьеру</div>
+                    <ul class="checkbox-wrap payment-check">
+                      <li class="checkbox-item">
+                        <label class="checkbox-outer"> 
+                          <input class="input-real" type="radio" name="payment-method" value="nal" data-validation="required"><span class="input-fake">Наличные</span>
+                        </label>
+                      </li>
+                    </ul>
+                    <div class="h-title h5">Online платежи</div>
+                    <ul class="checkbox-wrap payment-check">
+                      <li class="checkbox-item">
+                        <label class="checkbox-outer"> 
+                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Банковские карты</span>
+                        </label>
+                        <div class="checkbox-img-wrap">
+                          <div class="checkbox-img-item"><img src="img/paysmall/1.jpg" alt=""></div>
+                        </div>
+                      </li>
+                      <li class="checkbox-item">
+                        <label class="checkbox-outer"> 
+                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Электронные деньги</span>
+                        </label>
+                        <div class="checkbox-img-wrap">
+                          <div class="checkbox-img-item"><img src="img/paysmall/2.jpg" alt=""></div>
+                        </div>
+                      </li>
+                      <li class="checkbox-item">
+                        <label class="checkbox-outer"> 
+                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Интернет-банкинг</span>
+                        </label>
+                        <div class="checkbox-img-wrap">
+                          <div class="checkbox-img-item"><img src="img/paysmall/3.jpg" alt=""></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="white-box">
+                    <div class="h-title h2">Итого к оплате</div>
+                    <dl class="result-offer">
+                      <dt class="text2"> <span>Заказ на сумму</span></dt>
+                      <dd class="text1"> <span>90 000 ₽</span></dd>
+                    </dl>
+                    <dl class="result-offer">
+                      <dt class="text2"> <span>Скидка по промокоду</span></dt>
+                      <dd class="text1"> <span>4 500 ₽</span></dd>
+                    </dl>
+                    <dl class="result-offer">
+                      <dt class="text2"> <span>Доставка<span class="s-text h5 u-halfgray">250 ₽ х 2 недели</span></span></dt>
+                      <dd class="text1"> <span>3 500 ₽       </span></dd>
+                    </dl>
+                    <dl class="result-offer">
+                      <dt class="text2"> </dt>
+                      <dd class="form-total-count"> <span>3 500 ₽         </span></dd>
+                    </dl>
+                  </div>
+                  <div class="menu-nav">
+                    <div class="menu-nav-inner">
+                      <input class="btn btn-black btn-big" type="submit" value=" Оформить Заказ">
+                    </div>
+                  </div>
+                </form>
+                <div class="is-hide">
+                  <div class="white-box form-in">
                     <div class="h-title h2">Дополнительный адрес
-                      <button class="icon-link close js-popup-button" type="button"><i></i><span>Удалить</span></button>
+                      <button class="icon-link close js-remove-block-btn" type="button"><i></i><span>Удалить</span></button>
                     </div>
                     <div class="h-title h5">Дата и адрес доставки</div>
                     <div class="inputs-cont">
@@ -382,38 +447,38 @@
                     <ul class="checkbox-wrap">
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="06" data-validation="required"><span class="input-fake small"><span>06<sup>00</sup></span>- <span>07<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="06" data-validation="required"><span class="input-fake small"><span>06<sup>00</sup></span>- <span>07<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="08" data-validation="required"><span class="input-fake small"><span>08<sup>00</sup></span>- <span>09<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="08" data-validation="required"><span class="input-fake small"><span>08<sup>00</sup></span>- <span>09<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="10" data-validation="required"><span class="input-fake small"><span>10<sup>00</sup></span>- <span>11<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="10" data-validation="required"><span class="input-fake small"><span>10<sup>00</sup></span>- <span>11<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                                             <li class="checkbox-item">
                                               <label class="checkbox-outer"> 
-                                                <input class="input-real" type="radio" name="group" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
+                                                <input class="input-real" type="radio" name="time-group1" value="07" data-validation="required"><span class="input-fake small"><span>07<sup>00</sup></span>- <span>08<sup>00</sup></span></span>
                                               </label>
                                             </li>
                     </ul>
                     <p class="helptext">Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250 ₽.</p>
                     <p class="helptext">Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250 ₽ в период до 1200.</p>
-                    <button class="trans-btn add borderb" type="button"><span>Добавить адрес доставки</span></button>
+                    <button class="trans-btn add borderb js-add-block-btn" type="button"><span>Добавить адрес доставки</span></button>
                     <div class="notify-btn dropdown-trigger">
                       <div class="dropdown-target">
                         <div class="dropdown-inner">
@@ -424,69 +489,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="white-box">
-                    <div class="h-title h2">Способ оплаты</div>
-                    <div class="h-title h5">При получении курьеру</div>
-                    <ul class="checkbox-wrap payment-check">
-                      <li class="checkbox-item">
-                        <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="nal" data-validation="required"><span class="input-fake">Наличные</span>
-                        </label>
-                      </li>
-                    </ul>
-                    <div class="h-title h5">Online платежи</div>
-                    <ul class="checkbox-wrap payment-check">
-                      <li class="checkbox-item">
-                        <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Банковские карты</span>
-                        </label>
-                        <div class="checkbox-img-wrap">
-                          <div class="checkbox-img-item"><img src="img/paysmall/1.jpg" alt=""></div>
-                        </div>
-                      </li>
-                      <li class="checkbox-item">
-                        <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Электронные деньги</span>
-                        </label>
-                        <div class="checkbox-img-wrap">
-                          <div class="checkbox-img-item"><img src="img/paysmall/2.jpg" alt=""></div>
-                        </div>
-                      </li>
-                      <li class="checkbox-item">
-                        <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Интернет-банкинг</span>
-                        </label>
-                        <div class="checkbox-img-wrap">
-                          <div class="checkbox-img-item"><img src="img/paysmall/3.jpg" alt=""></div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="white-box">
-                    <div class="h-title h2">Итого к оплате</div>
-                    <dl class="result-offer">
-                      <dt class="text2"> <span>Заказ на сумму</span></dt>
-                      <dd class="text1"> <span>90 000 ₽</span></dd>
-                    </dl>
-                    <dl class="result-offer">
-                      <dt class="text2"> <span>Скидка по промокоду</span></dt>
-                      <dd class="text1"> <span>4 500 ₽</span></dd>
-                    </dl>
-                    <dl class="result-offer">
-                      <dt class="text2"> <span>Доставка<span class="s-text h5 u-halfgray">250 ₽ х 2 недели</span></span></dt>
-                      <dd class="text1"> <span>3 500 ₽       </span></dd>
-                    </dl>
-                    <dl class="result-offer">
-                      <dt class="text2"> </dt>
-                      <dd class="form-total-count"> <span>3 500 ₽         </span></dd>
-                    </dl>
-                  </div>
-                  <div class="menu-nav">
-                    <div class="menu-nav-inner">
-                      <input class="btn btn-black btn-big" type="submit" value=" Оформить Заказ">
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
           </main>

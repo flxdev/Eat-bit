@@ -89,26 +89,42 @@ $(document).add('.out').scroll(function() {
 		}, 800);
 	});
 
-if($('.sort_wrapper').length){
 
-	var sortItem = function(){
-		var trigger = $('.js-select-item');
+var sortItem = function(){
+	var trigger = $('.js-select-item');
 
-		trigger.on('click', function(){
-			var _ = $(this);
-			var textCont = _.find('.value');
-			var target = _.parent().find('.dropdown-target');
-			var item = target.find('.sort-select-item a');
-
+	trigger.each(function(){
+		var _ = $(this),
+			textCont = _.find('.value'),
+			target = _.parent().find('.dropdown-target'),
+			item = target.find('.sort-select-item a');
+		_.on('click', function(){
 			_.toggleClass('active');
+		});	
 
-			item.on('click',function(e){
-				var _ = $(this),
-					altLext = _.data('text');
+		item.each(function(){
+			var _ = $(this);
+
+			_.on('click',function(e){
+				var altLext = _.data('text');
 
 				textCont.text(altLext);
 
 				_.parent().addClass('active').siblings().removeClass('active');
+				if(_.hasClass('program_change')){
+					var sect_id = _.data('id');
+					$.ajax({
+						type: "POST",
+						url: '/include/main_menu.php',
+						data: 'sect_id=' + sect_id,
+						dataType: "html",
+						success: function(data){
+							replace = $(data).find('.menu_reload').html();
+							$('.menu_reload').html(replace);
+							menu_reload();
+						}
+					});
+				}
 				e.preventDefault();
 				setTimeout(function(){
 
@@ -117,6 +133,8 @@ if($('.sort_wrapper').length){
 
 				},300);
 			});
+		})
+
 		$(document).on('mouseup', function (e){
 			if (!trigger.is(e.target)
 				&& trigger.has(e.target).length === 0) {
@@ -124,10 +142,9 @@ if($('.sort_wrapper').length){
 			}
 		});
 
-		});
-	};
-	sortItem();
- } 
+	});
+};
+sortItem();
 
 function stick(){
 	// $(".white-box").Stickyfill();
@@ -200,51 +217,7 @@ function mobileFilter(){
 	})
 }mobileFilter();
 
-function updateToSelectMenu() {
-	$('.ui-datepicker-title select').selectmenu({
-	select: function(e) {
-	  $(this).trigger('change');
-	  updateToSelectMenu();
-	}
-  })
-  $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
-}
 
-function datepick(){
-
-var item = $( ".datepicker" );
-	item.each(function(){
-		var _ = $(this);
-		_.datepicker({
-			changeMonth: true,
-			changeYear: true,
-			dayNamesMin: ["Вс" , "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-			monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-			dateFormat: 'dd.mm.yy',
-			firstDay: 1,
-			minDate: 0,
-			beforeShow: function() {
-				setTimeout(function() {
-					updateToSelectMenu()
-				},0);
-			},
-			onChangeMonthYear: function() {
-				setTimeout(function() {
-					updateToSelectMenu()
-				},0);
-		   }
-		});
-	})
-$("body").add('.out').add('.page__outer').scroll(function() {
-  item.datepicker('hide');
-  $('#datepicker').blur();
-});
-
-$(window).resize(function() {
-  item.datepicker('hide');
-  $('#datepicker').blur();
-});
-}datepick();
 
 function FocusI(){
 	var input = $('.input-main');
@@ -820,6 +793,7 @@ Menu();
 ToClose();
 isMobile();
 AddBlock();
+datepick();
 //end of document ready
 });
 //end of document ready
@@ -1161,35 +1135,121 @@ function insta(){
 		reverse(_this);
 	}); 
 } 
+function updateToSelectMenu() {
+	$('.ui-datepicker-title select').selectmenu({
+	select: function(e) {
+	  $(this).trigger('change');
+	  updateToSelectMenu();
+	}
+  })
+  $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
+}
+
+function datepick(){
+
+var item = $( ".datepicker" );
+	item.each(function(){
+
+		var _ = $(this);
+		_.datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dayNamesMin: ["Вс" , "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+			monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+			dateFormat: 'dd.mm.yy',
+			firstDay: 1,
+			minDate: 0,
+			beforeShow: function() {
+				setTimeout(function() {
+					updateToSelectMenu()
+				},0);
+			},
+			onChangeMonthYear: function() {
+				setTimeout(function() {
+					updateToSelectMenu()
+				},0);
+		   }
+		});
+		_.datepicker('refresh');
+	})
+$("body").add('.out').add('.page__outer').scroll(function() {
+  item.datepicker('hide');
+  $('.datepicker').blur();
+});
+
+$(window).resize(function() {
+  item.datepicker('hide');
+  $('.datepicker').blur();
+});
+}
 function AddBlock(){
 	var btnAdd = $('.js-add-block-btn'),
+		btnRemove = $('.js-remove-block-btn'),
 		form = btnAdd.parents('form'),
 		mainParent = form.parent(),
 		blockFirst = mainParent.find('.more-block'),
 		inClass = 'form-in',
 		addedClass = 'more-block',
 		target = mainParent.find('.is-hide .form-in');
-	btnAdd.on('click',function(){
-		var _ = $(this);
-		setTimeout(function(){
-			$.validate({
-				form : '.js-validate'
-			});
-		}, 100);
-		// console.log(form.length,mainParent.length,blockFirst.length,target.length)
-		if(target.hasClass('white-box')){
-			//пока
-			return false
-		}
-		if(target.hasClass('input-item')){
-			var cont = form.find('.inputs-cont');
-			console.log(cont.length)
-			target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
-			// blockFirst.addClass('form-in');
-			// blockFirst.first().removeClass('form-in');
-			return false;
-		}
-		
-	})
 
+	form.each(function(){
+		//добавление блока
+		$(this).on('click','.js-add-block-btn',function(){
+			var _ = $(this);
+			setTimeout(function(){
+				$.validate({
+					form : '.js-validate'
+				});
+			}, 100);
+			// console.log(form.length,mainParent.length,blockFirst.length,target.length)
+			//для блоков в форме заказа
+			if(target.hasClass('white-box')){
+				var cont = form.find('.more-block').last(),
+					daters = mainParent.find('.datepicker'),
+					blockAddbtn = cont.find(btnAdd);
+				ChangeInputsGroup(cont,target);
+				$('.datepicker').removeAttr('id').datepicker('destroy');
+				target.clone().insertAfter(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+				datepick();
+				$('.datepicker').datepicker('refresh');
+				
+				return false;
+			}
+			//для инпута соц сетей в отзывах
+			if(target.hasClass('input-item')){
+				var cont = form.find('.inputs-cont');
+				target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+				return false;
+			}
+			
+		});
+		$(this).on('click','.js-remove-block-btn',function(){
+			var cont = form.find('.more-block').last();
+			cont.prev().removeClass(inClass);
+			cont.remove();
+		});
+		//меняем послежднюю цифру инпута
+		function ChangeInputsGroup(elem,block){
+			var inputsPrev = block.find('input[type=radio]').attr('name'),
+				inputsNew = elem.find('input[type=radio]').attr('name'),
+				inputsPrevId = +inputsPrev.charAt(inputsPrev.length -1),
+				inputsNewId = +inputsNew.charAt(inputsNew.length -1);
+				// console.log(inputsPrevId,inputsNewId)
+
+				var newRes = inputsNew.slice(0, -1) + incrementId(inputsPrevId,inputsNewId);;
+				block.find('input[type=radio]').each(function(){
+					$(this)[0].setAttribute('name', newRes);
+				})
+				
+				console.log(newRes);
+			}
+		
+		function incrementId(gpold,gpnew){
+
+			gpnew <= gpold ? gpnew = gpold + 1 :  gpnew;
+			console.log(gpnew)
+			return gpnew
+			
+		}
+	});
 }

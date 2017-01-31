@@ -1398,6 +1398,7 @@ body, .out,html
   cursor: pointer
   background: 0 0
   +rem(padding-bottom, 3px)
+  white-space: nowrap
   &>span
     position: relative
     transition: color .3s
@@ -2818,7 +2819,7 @@ body, .out,html
           +rem(padding, 0 35px)
           +rem(margin-top,20px)
           +r(1400)
-            +rem(padding, 0 25px)
+            +rem(padding, 0 20px)
           +r(544)
             +rem(padding, 0 10px)
           .footer-nav-payment
@@ -5138,5 +5139,10 @@ sup
   vertical-align: top
 .is-hide
   display: none
+.white-box.more-block
+  &.form-in
+    .trans-btn.add.borderb,.notify-btn.dropdown-trigger,.icon-link.close
+      display: none
+      
   
   
