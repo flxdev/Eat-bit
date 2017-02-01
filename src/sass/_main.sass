@@ -1854,7 +1854,7 @@ body, .out,html
       .m-nav-link   
         &:after
           +rem(top,-1px) 
-.m-nav-link
+.m-nav-link,.btn-press-back
   +rem(font-size,14px)
   text-transform: uppercase
   font-weight: 700
@@ -3185,6 +3185,7 @@ body, .out,html
   +rem(border-radius, 20px)
   +tr(background-color .3s)
   cursor: pointer
+
   &:before
     content: ''
     position: absolute
@@ -3211,6 +3212,8 @@ body, .out,html
     +rem(padding,5px 17px 5px 37px)
     +rem(font-size,12px)
     +rem(min-height,22px)
+    display: inline-block
+    vertical-align: top
     &:before
       +rem(width,16px)
       +rem(height,10px)
@@ -5157,9 +5160,9 @@ sup
   vertical-align: top
 .is-hide
   display: none
-.white-box.more-block
+.white-box
   &.form-in
-    .trans-btn.add.borderb,.notify-btn.dropdown-trigger,.icon-link.close
+    .trans-btn.add.borderb,.notify-btn.dropdown-trigger
       display: none
 .news-wrap:not(.js-news)
   .news-item-wrap
@@ -5170,5 +5173,11 @@ sup
 .old-price
   text-decoration: line-through
   +rem(padding-right,3px)
-  
+.js-stars.has-error
+  border: none
+  .input-label
+    color: red
+    font-weight: 400
+    font-size: 1.25rem;
+
   

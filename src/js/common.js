@@ -174,237 +174,11 @@ function stopStick(){
 		Stickyfill.init('.js-sticky');
 	}
 }stopStick();
-function popUpsInit() {
-	var _this = this;
-	_this.b = {open: $('.js-popup-button')};
-	_this.c = {
-		popup: $('.js-popup-container'),
-		body: $('body')
-	};
-	_this.f = {};
-	_this.conf = {
-		body_class: 'modal_open',
-		active_class: 'active',
-		close_selector: '.closePopup',
-		initial_class: 'popup-initialed'
-	};
-	_this.f.initModalActions = function (_popup) {
-		/**
-		 * Close buttons.
-		 */
-		_popup.find(_this.conf.close_selector).off('click.popup').on('click.popup', function () {
-			_this.f.closePopup(_popup);
-		});
-	};
-	_this.f.closePopup = function (_popup) {
-		_popup.removeClass(_this.conf.active_class);
-		_this.c.body.removeClass(_this.conf.body_class);
-	};
-	_this.f.openPopup = function (_popup) {
-		_popup.addClass(_this.conf.active_class);
-		_this.c.body.addClass(_this.conf.body_class);
-	};
-	/**
-	 * Initial.
-	 */
-	$.each(_this.c.popup.not('.' + _this.conf.initial_class), function () {
-		var _popup = $(this);
-		_this.f.initModalActions(_popup);
-		_popup.off('reinit').on('reinit', function() {
-			_this.f.initModalActions(_popup);
-		});
-		_popup.addClass(_this.conf.initial_class);
-	});
-	_this.b.open.off('click.popup').on('click.popup', function () {
-		var _b = $(this),
-			_popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');
-			if(_b.hasClass('fastbuy')){
-				var id = _b.data('id'),
-					name = _b.data('program');
-				$.ajax({
-					type: "POST",
-					url: "/include/form/oneclick.php",
-					data: 'name='+ name +'&id=' + id,
-					dataType: "html",
-					success: function(filter){
-						$('.oneclick_reload').html(filter);
-						validateForms();
-					}
-				});
-			}
-		_this.f.openPopup(_popup);
-		return false;
-	});
-}
-function ajaxpostshow(urlres, datares, wherecontent, form){
-	$.ajax({
-		type: "POST",
-		url: urlres,
-		data: datares,
-		dataType: "html",
-		success: function(fillter){
-			$(wherecontent).html(fillter);
-			validateForms();
-			if( $("div").is('.js-subscribe') ){
-				subscribe();
-			}
-		}
-	});
-}
-function ajaxpost(urlres, datares, wherecontent, callback){
-	$.ajax({
-		type: "POST",
-		url: urlres,
-		data: datares,
-		dataType: "html",
-		success: function(fillter){
-			$(wherecontent).html(fillter);
-			BX.closeWait();
-			number();
-			deleteProducts();
-			popUpsInit();
-			if (!(callback && callback instanceof Function && typeof callback === 'function')) {
-				return false;
-			}
-			callback(fillter);
-		}
-	});
-}
-function ajaxpostshow1(urlres, datares, popup, form){
-	$.ajax({
-		type: "POST",
-		url: urlres,
-		data: datares,
-		dataType: "html",
-		success: function(fillter){
-			$('.js-popup-container').filter('[data-modal="' + popup + '"]').addClass('active');
-			$('body').addClass('modal_open');
-			$(form)[0].reset();
-			JS_ClearDropZone();
-			$('.star-item').removeClass('active');
-		}
-	});
-}
-function ajaxSubmit(form){
-	var formsubscrube = $(form).serialize(),
-		target_block = $(form).data('block'),
-		target_php = $(form).data('php'),
-		target_popup = $(form).data('success'),
-		formsubscrube = formsubscrube + '&action=ajax';
-	if(target_popup === undefined){
-		ajaxpostshow(target_php, formsubscrube, target_block, form);
-	}else{
-		ajaxpostshow1(target_php, formsubscrube, target_popup, form);
-	}
-	return false;
-}
-function addToBasket(){
-	var b_ = $('.addtocart');
-	b_.each(function(){
-		$(this).on('click', function(){
-			var $this = $(this),
-				ajaxaddid = $(this).data('id'),
-				timeout;
-			$.ajax({
-				type: "POST",
-				url: "/include/small_basket.php",
-				data: 'ajaxaction=add' + '&ajaxaddid=' + ajaxaddid,
-				dataType: "html",
-				success: function(filter){
-					$('.header__navs--cart-inner').html(filter);
-					if($this.parents('form').hasClass('modal-form')){
-						clearTimeout(timeout);
-						timeout = setTimeout(function() {
-							BX.showWait();
-							ajaxpost("/include/basket.php", "", ".ajax-cart__area");
-						}, 10);
-					}
-				}
-			});
-			return false;
-		});
-	});
-}
-addToBasket();
-function deleteProducts(){
-	$('.table-delete').each(function() {
-		var this_  	= $(this),
-			btn 	= this_.find('.close');
-		btn.on('click', function() {
-			// removal imitation
-			var parent 	= $(this).parents('.table-row');
-			parent.remove();
-			BX.showWait();
-			var data = $(this).data("link");
-			var ajaxcount = data;
-			ajaxpost("/include/basket.php", ajaxcount, ".ajax-cart__area");
-		});
-	});
-}
-deleteProducts();
-$('#zakaz .input-fake').on('click', function () {
-	var input = $(this).parent().find('.input-real'),
-		val = input.val();
-	$.ajax({
-		type: "POST",
-		url: location.href,
-		data: 'ajaxaction=change' + '&item=' + val,
-		dataType: "html",
-		success: function(data){
-			replace = $(data).find('.order_inner').html();
-			$('.order_inner').html(replace);
-			sliderRange();
-			addToBasket();
-			if(!$(data).find('form').hasClass('modal-form')){
-				popUpsInit();
-			}
-		}
-	});
-});
-$('.program_menu .input-fake').on('click', function () {
-	var _ = $(this),
-		parent = _.parent(),
-		sect_id = parent.data('id');
-		$('.program_menu .checkbox-outer').removeClass('active')
-		parent.addClass('active');
-	$.ajax({
-		type: "POST",
-		url: location.href,
-		data: 'sect_id=' + sect_id,
-		dataType: "html",
-		success: function(data){
-			replace = $(data).find('.menu_reload').html();
-			$('.menu_reload').html(replace);
-			menu_reload();
-		}
-	});
-	return false;
-});
-function menu_reload(){
-	$('.menu-nav .m-nav-link').each(function(){
-		var _ = $(this);
-		if ($('.sort-select-item').is(':visible')) {
-			var sect_id = $('.sort-select-item.active a').data('id');
-		}else if($('.program_menu').is(':visible')){
-			var sect_id = $('.program_menu .checkbox-outer.active').data('id');
-		}
-		_.on('click', function(){
-			if( $(this).attr('href') !== undefined ){
-				var link = $(this).attr('href');
-				$.get(link, {sect_id: sect_id}, function(data){
-					replace = $(data).find('.menu_reload').html();
-					$('.menu_reload').html(replace);
-					menu_reload();
-				});
-				return false;
-			}
-		});
-	});
-}menu_reload();
-validateForms();
+
+
 
 function Accordeon(){
-if($('.js-accordion-trigger').length){
+	if($('.js-accordion-trigger').length){
 	var maintrigger = $('.js-accordion-trigger'),
 		body = $('.js-accordion-body'),
 		truetrigger = maintrigger;
@@ -448,71 +222,6 @@ function FocusI(){
 		})
 } FocusI();
 
-function initCustomSelectList() {
-var _conf = {
-		initClass: 'cs-active',
-		f: {}
-	},
-	_items = $('.js-select-custom');
-$.each(_items, function () {
-	var _select = $(this),
-		_button = _select.find('button'),
-		placeholder = _button.data('placeholder'),
-		_list = _select.find('.select-list');
-	_select.on('reinit', function() {
-		var _active = _list.find('input:checked');
-		CheckForSelect($(this).parents('form'));
-		if(_active.length) {
-			_select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
-		}
-		else {
-			_button.children('.btn-text').text(_button.data('placeholder')).parent().removeClass('is-checked');
-		}
-	});
-	_button.on('click', function() {
-	   _button.parent().toggleClass('active').siblings().removeClass('active');
-		return(false);
-	});
-	_select.on('click', 'label', function() {
-	   var _label = $(this),
-		   _input = _label.find('input');
-		_input.prop('checked', true);
-		_select.trigger('reinit');
-		_button.parent().removeClass('active');
-		if(_select.hasClass('certificate_programs')){
-			var program_id = _input.val(),
-				program_text = _label.text().trim();
-			$('.sertificat-total').css('visibility', 'hidden');
-			$("input[name='RATION").val(program_text);
-			$.ajax({
-				type: "POST",
-				url: "/include/form/backend/certificate_period_sku.php",
-				data: 'program_id=' + program_id,
-				dataType: "html",
-				success: function(data){
-					$('.period_reload').html(data)
-				}
-			});
-			return false;
-		}
-		if(_select.hasClass('certificate_period')){
-			var price = _input.data('price'),
-				period_text = _label.text().trim();
-			$("input[name='PERIOD").val(period_text);
-			$('.form-total-count').html(price + ' ₽');
-			$('.sertificat-total').css('visibility', 'visible');
-		}
-	});
-	_select.trigger('reinit');
-	_select.addClass(_conf.initClass);
-	 $(document).on('mouseup', function (e){
-		if (!_select.is(e.target)
-			&& _select.has(e.target).length === 0) {
-			_select.removeClass('active');
-		}
-	});
-});
-} initCustomSelectList() ;
 
 //extends jquery-ui slider drag animation
 (function( $, undefined ) {
@@ -578,7 +287,7 @@ function calcWeek(value,slider){
 	one_click.data("id", id);
 	totalSum.text(x +' ₽');
 }
-popUpsInit();
+
 
 function subscribe(){
 	var parent = $('.js-subscribe'),
@@ -921,9 +630,9 @@ if($('#map').length){
 function stars(){
 	var parent = $('.js-stars'),
 		items = parent.find('.star-item');
-
+// parent.closest('.input-wrapper').addClass('has-error');
 items.click(function(e) {
-	$(this).closest('.input-wrapper').addClass('has-success');
+	$(this).closest('.input-wrapper').removeClass('has-error').addClass('has-success');
 	e.preventDefault();
 	num = parseInt($(this).data("num"));
 	i = 1;
@@ -938,6 +647,7 @@ items.click(function(e) {
 	return false;
 });
 }stars()
+
 $(".js-dropzone").dropzone({
 	url: "/fileupl.php",
 	dictFileTooBig : 'Файл слишком большой',
@@ -958,87 +668,6 @@ $(".js-dropzone").dropzone({
 		addRemoveLinks: true
 	});
 
-function JS_ClearDropZone(){
-	if($("div").is(".js-dropzone")){
-		var objDZ = Dropzone.forElement(".js-dropzone");
-		objDZ.emit("resetFiles");
-	}
-}
-function number() {
-	var number = $('.js-number');
-	number.each(function(){
-		if(!$(this).hasClass('init')){
-			var max_number = +($(this).attr('data-max-number'));
-			var min_number = +($(this).attr('data-min-number'));
-			var input = $(this).find("input");
-			var plus = $(this).find(".js-plus-number");
-			var minus = $(this).find(".js-minus-number");
-			var add = $(this).parent().find('.js-add');
-			var timeout;
-			var countbasketid = input.attr('id');
-			plus.on("click", function(){
-				var val = +(input.val());
-				if (val >= max_number) {
-					return false;
-				}
-				else {
-					val += 1;
-					input.val(val);
-				};
-				input.trigger('input');
-				return false;
-			});
-			minus.on("click", function(){
-				var val = +(input.val());
-				if (val > min_number) {
-					val -= 1;
-					input.val(val);
-				}
-				else {
-					input.val(min_number);
-					return false;
-				}
-				input.trigger('input');
-				return false;
-			});
-			input.on("input", function(){
-				var val = +$(this).val();
-				if ( val == '' || val < min_number) {
-					input.val(min_number);
-				}
-				if (val > max_number) {
-					val = max_number;
-					input.val(val);
-				}
-				if(input.hasClass('in_cart')){
-					clearTimeout(timeout);
-					timeout = setTimeout(function() {
-						BX.showWait();
-						var countbasketcount = input.val();
-						var ajaxcount = countbasketid + '&ajaxbasketcount=' + countbasketcount;
-						ajaxpost("/include/basket.php", ajaxcount, ".ajax-cart__area");
-					}, 500);
-				}
-			});
-			// input.on("paste", function(event){
-			// 	event.preventDefault();
-			// });
-			input.keypress(function(event){
-				var key, keyChar;
-				if(!event) var event = window.event;
-				if (event.keyCode) key = event.keyCode;
-				else if(event.which) key = event.which;
-				if(key==null || key==0 || key==8 || key==13 || key==9 || key==37 || key==39 ) return true;
-				keyChar=String.fromCharCode(key);
-				if(!/\d/.test(keyChar))	return false;
-			});
-			$(this).addClass('init');
-		} else {
-			return;
-		}
-	});
-} number();
-
 //слайдер новостей
 function newsSlider(){
      $(".news-inner-slider").each( function() {
@@ -1058,15 +687,24 @@ function newsSlider(){
         }); 
     }); 
 }
+
+number();
 newsSlider();
 Menu();
 ToClose();
 isMobile();
 AddBlock();
 datepick();
+addToBasket();
+deleteProducts();
+menu_reload();
+validateForms();
+popUpsInit();
+initCustomSelectList();
 //end of document ready
 });
 //end of document ready
+
 function reverse(elem){
 	elem.on("afterChange breakpoint", function(event, slick, currentSlide) { 
 		slidesShown = parseInt(slick.slickGetOption('slidesToShow'));
@@ -1215,9 +853,9 @@ function news(){
 	}); 
 }
 function isMobile()
-{
-   return (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
-}
+	{
+	   return (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) );
+	}
 function GridorSlider(){
 	$( ".menu-grid").each(function(){
 		var _this = $(this);
@@ -1341,6 +979,253 @@ function insta(){
 		reverse(_this);
 	}); 
 } 
+function number() {
+	var number = $('.js-number');
+	number.each(function(){
+		if(!$(this).hasClass('init')){
+			var max_number = +($(this).attr('data-max-number'));
+			var min_number = +($(this).attr('data-min-number'));
+			var input = $(this).find("input");
+			var plus = $(this).find(".js-plus-number");
+			var minus = $(this).find(".js-minus-number");
+			var add = $(this).parent().find('.js-add');
+			var timeout;
+			var countbasketid = input.attr('id');
+			plus.on("click", function(){
+				var val = +(input.val());
+				if (val >= max_number) {
+					return false;
+				}
+				else {
+					val += 1;
+					input.val(val);
+				};
+				input.trigger('input');
+				return false;
+			});
+			minus.on("click", function(){
+				var val = +(input.val());
+				if (val > min_number) {
+					val -= 1;
+					input.val(val);
+				}
+				else {
+					input.val(min_number);
+					return false;
+				}
+				input.trigger('input');
+				return false;
+			});
+			input.on("input", function(){
+				var val = +$(this).val();
+				if ( val == '' || val < min_number) {
+					input.val(min_number);
+				}
+				if (val > max_number) {
+					val = max_number;
+					input.val(val);
+				}
+				if(input.hasClass('in_cart')){
+					clearTimeout(timeout);
+					timeout = setTimeout(function() {
+						BX.showWait();
+						var countbasketcount = input.val();
+						var ajaxcount = countbasketid + '&ajaxbasketcount=' + countbasketcount;
+						ajaxpost("/include/basket.php", ajaxcount, ".ajax-cart__area");
+					}, 500);
+				}
+			});
+			// input.on("paste", function(event){
+			// 	event.preventDefault();
+			// });
+			input.keypress(function(event){
+				var key, keyChar;
+				if(!event) var event = window.event;
+				if (event.keyCode) key = event.keyCode;
+				else if(event.which) key = event.which;
+				if(key==null || key==0 || key==8 || key==13 || key==9 || key==37 || key==39 ) return true;
+				keyChar=String.fromCharCode(key);
+				if(!/\d/.test(keyChar))	return false;
+			});
+			$(this).addClass('init');
+		} else {
+			return;
+		}
+	});
+}
+
+function popUpsInit() {
+	var _this = this;
+	_this.b = {open: $('.js-popup-button')};
+	_this.c = {
+		popup: $('.js-popup-container'),
+		body: $('body')
+	};
+	_this.f = {};
+	_this.conf = {
+		body_class: 'modal_open',
+		active_class: 'active',
+		close_selector: '.closePopup',
+		initial_class: 'popup-initialed'
+	};
+	_this.f.initModalActions = function (_popup) {
+		/**
+		 * Close buttons.
+		 */
+		_popup.find(_this.conf.close_selector).off('click.popup').on('click.popup', function () {
+			_this.f.closePopup(_popup);
+		});
+	};
+	_this.f.closePopup = function (_popup) {
+		_popup.removeClass(_this.conf.active_class);
+		_this.c.body.removeClass(_this.conf.body_class);
+	};
+	_this.f.openPopup = function (_popup) {
+		_popup.addClass(_this.conf.active_class);
+		_this.c.body.addClass(_this.conf.body_class);
+	};
+	/**
+	 * Initial.
+	 */
+	$.each(_this.c.popup.not('.' + _this.conf.initial_class), function () {
+		var _popup = $(this);
+		_this.f.initModalActions(_popup);
+		_popup.off('reinit').on('reinit', function() {
+			_this.f.initModalActions(_popup);
+		});
+		_popup.addClass(_this.conf.initial_class);
+	});
+	_this.b.open.off('click.popup').on('click.popup', function () {
+		var _b = $(this),
+			_popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');
+			if(_b.hasClass('fastbuy')){
+				var id = _b.data('id'),
+					name = _b.data('program');
+				$.ajax({
+					type: "POST",
+					url: "/include/form/oneclick.php",
+					data: 'name='+ name +'&id=' + id,
+					dataType: "html",
+					success: function(filter){
+						$('.oneclick_reload').html(filter);
+						validateForms();
+					}
+				});
+			}
+		_this.f.openPopup(_popup);
+		return false;
+	});
+}
+
+function ajaxpostshow(urlres, datares, wherecontent, form){
+	$.ajax({
+		type: "POST",
+		url: urlres,
+		data: datares,
+		dataType: "html",
+		success: function(fillter){
+			$(wherecontent).html(fillter);
+			validateForms();
+			if( $("div").is('.js-subscribe') ){
+				subscribe();
+			}
+		}
+	});
+}
+
+function ajaxpost(urlres, datares, wherecontent, callback){
+	$.ajax({
+		type: "POST",
+		url: urlres,
+		data: datares,
+		dataType: "html",
+		success: function(fillter){
+			$(wherecontent).html(fillter);
+			BX.closeWait();
+			number();
+			deleteProducts();
+			popUpsInit();
+			if (!(callback && callback instanceof Function && typeof callback === 'function')) {
+				return false;
+			}
+			callback(fillter);
+		}
+	});
+}
+
+function ajaxpostshow1(urlres, datares, popup, form){
+	$.ajax({
+		type: "POST",
+		url: urlres,
+		data: datares,
+		dataType: "html",
+		success: function(fillter){
+			$('.js-popup-container').filter('[data-modal="' + popup + '"]').addClass('active');
+			$('body').addClass('modal_open');
+			$(form)[0].reset();
+			JS_ClearDropZone();
+			$('.star-item').removeClass('active');
+		}
+	});
+}
+
+function ajaxSubmit(form){
+	var formsubscrube = $(form).serialize(),
+		target_block = $(form).data('block'),
+		target_php = $(form).data('php'),
+		target_popup = $(form).data('success'),
+		formsubscrube = formsubscrube + '&action=ajax';
+	if(target_popup === undefined){
+		ajaxpostshow(target_php, formsubscrube, target_block, form);
+	}else{
+		ajaxpostshow1(target_php, formsubscrube, target_popup, form);
+	}
+	return false;
+}
+
+function addToBasket(){
+	var b_ = $('.addtocart');
+	b_.each(function(){
+		$(this).on('click', function(){
+			var $this = $(this),
+				ajaxaddid = $(this).data('id'),
+				timeout;
+			$.ajax({
+				type: "POST",
+				url: "/include/small_basket.php",
+				data: 'ajaxaction=add' + '&ajaxaddid=' + ajaxaddid,
+				dataType: "html",
+				success: function(filter){
+					$('.header__navs--cart-inner').html(filter);
+					if($this.parents('form').hasClass('modal-form')){
+						clearTimeout(timeout);
+						timeout = setTimeout(function() {
+							BX.showWait();
+							ajaxpost("/include/basket.php", "", ".ajax-cart__area");
+						}, 10);
+					}
+				}
+			});
+			return false;
+		});
+	});
+}
+
+function deleteProducts(){
+	$('.table-delete').each(function() {
+		var this_  	= $(this),
+			btn 	= this_.find('.close');
+		btn.on('click', function() {
+			// removal imitation
+			var parent 	= $(this).parents('.table-row');
+			parent.remove();
+			BX.showWait();
+			var data = $(this).data("link");
+			var ajaxcount = data;
+			ajaxpost("/include/basket.php", ajaxcount, ".ajax-cart__area");
+		});
+	});
+}
 function updateToSelectMenu() {
 	$('.ui-datepicker-title select').selectmenu({
 	select: function(e) {
@@ -1388,6 +1273,130 @@ $(window).resize(function() {
   $('.datepicker').blur();
 });
 }
+$('#zakaz .input-fake').on('click', function () {
+	var input = $(this).parent().find('.input-real'),
+		val = input.val();
+	$.ajax({
+		type: "POST",
+		url: location.href,
+		data: 'ajaxaction=change' + '&item=' + val,
+		dataType: "html",
+		success: function(data){
+			replace = $(data).find('.order_inner').html();
+			$('.order_inner').html(replace);
+			sliderRange();
+			addToBasket();
+			if(!$(data).find('form').hasClass('modal-form')){
+				popUpsInit();
+			}
+		}
+	});
+});
+$('.program_menu .input-fake').on('click', function () {
+	var _ = $(this),
+		parent = _.parent(),
+		sect_id = parent.data('id');
+		$('.program_menu .checkbox-outer').removeClass('active')
+		parent.addClass('active');
+	$.ajax({
+		type: "POST",
+		url: location.href,
+		data: 'sect_id=' + sect_id,
+		dataType: "html",
+		success: function(data){
+			replace = $(data).find('.menu_reload').html();
+			$('.menu_reload').html(replace);
+			menu_reload();
+		}
+	});
+	return false;
+});
+function menu_reload(){
+	$('.menu-nav .m-nav-link').each(function(){
+		var _ = $(this);
+		if ($('.sort-select-item').is(':visible')) {
+			var sect_id = $('.sort-select-item.active a').data('id');
+		}else if($('.program_menu').is(':visible')){
+			var sect_id = $('.program_menu .checkbox-outer.active').data('id');
+		}
+		_.on('click', function(){
+			if( $(this).attr('href') !== undefined ){
+				var link = $(this).attr('href');
+				$.get(link, {sect_id: sect_id}, function(data){
+					replace = $(data).find('.menu_reload').html();
+					$('.menu_reload').html(replace);
+					menu_reload();
+				});
+				return false;
+			}
+		});
+	});
+}
+function initCustomSelectList() {
+var _conf = {
+		initClass: 'cs-active',
+		f: {}
+	},
+	_items = $('.js-select-custom');
+$.each(_items, function () {
+	var _select = $(this),
+		_button = _select.find('button'),
+		placeholder = _button.data('placeholder'),
+		_list = _select.find('.select-list');
+	_select.on('reinit', function() {
+		var _active = _list.find('input:checked');
+		CheckForSelect($(this).parents('form'));
+		if(_active.length) {
+			_select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
+		}
+		else {
+			_button.children('.btn-text').text(_button.data('placeholder')).parent().removeClass('is-checked');
+		}
+	});
+	_button.on('click', function() {
+	   _button.parent().toggleClass('active').siblings().removeClass('active');
+		return(false);
+	});
+	_select.on('click', 'label', function() {
+	   var _label = $(this),
+		   _input = _label.find('input');
+		_input.prop('checked', true);
+		_select.trigger('reinit');
+		_button.parent().removeClass('active');
+		if(_select.hasClass('certificate_programs')){
+			var program_id = _input.val(),
+				program_text = _label.text().trim();
+			$('.sertificat-total').css('visibility', 'hidden');
+			$("input[name='RATION").val(program_text);
+			$.ajax({
+				type: "POST",
+				url: "/include/form/backend/certificate_period_sku.php",
+				data: 'program_id=' + program_id,
+				dataType: "html",
+				success: function(data){
+					$('.period_reload').html(data)
+				}
+			});
+			return false;
+		}
+		if(_select.hasClass('certificate_period')){
+			var price = _input.data('price'),
+				period_text = _label.text().trim();
+			$("input[name='PERIOD").val(period_text);
+			$('.form-total-count').html(price + ' ₽');
+			$('.sertificat-total').css('visibility', 'visible');
+		}
+	});
+	_select.trigger('reinit');
+	_select.addClass(_conf.initClass);
+	 $(document).on('mouseup', function (e){
+		if (!_select.is(e.target)
+			&& _select.has(e.target).length === 0) {
+			_select.removeClass('active');
+		}
+	});
+});
+}
 function validateForms(){
 	var form_form = $('.js-validate');
 	if (form_form.length) {
@@ -1403,6 +1412,7 @@ function validateForms(){
 				},
 				onValidate : function($form) {
 					CheckForSelect(form_this);
+					checkStars(form_this);
 				},
 			});
 		});
@@ -1410,25 +1420,30 @@ function validateForms(){
 }
 function CheckForSelect(form){
 	if(form.find('.select-check').length){
-		var wrap = $('.select-check');
-			wrap.each(function(){
-				var _ = $(this),
-					btn = _.find('.selects'),
-					option = _.find('.option.has-error'),
-					input = _.find('.option').find('input').attr('name');
-					
-				if(option.length){
-					btn.parent().addClass('error');
-
-					return false
-				}else{
-					btn.parent().removeClass('error');
-					console.log(input)
-					return true
-				}
-
-			});
-
+		var wrap = form.find('.select-check');
+		wrap.each(function(){
+			var _ = $(this),
+				btn = _.find('.selects'),
+				option = _.find('.option.has-error');
+			if(option.length){
+				_.addClass('error');
+				
+			}else{
+				_.removeClass('error');
+			}
+		});
+		wrap.hasClass('error') ? false : true
+	}
+}
+function checkStars(form){
+	if(form.find('.star-item').length){
+		var stars = $('.js-stars');
+		if(stars.hasClass('has-success')){
+			return true
+		}else{
+			stars.addClass('has-error');
+			return false
+		}
 	}
 }
 function AddBlock(){
@@ -1439,6 +1454,8 @@ function AddBlock(){
 		blockFirst = mainParent.find('.more-block'),
 		inClass = 'form-in',
 		addedClass = 'more-block',
+		checkClass = 'block-loaded',
+		deletedName = 'DELETE_ADDRESS[]',
 		target = mainParent.find('.is-hide .form-in');
 
 	form.each(function(){
@@ -1448,7 +1465,6 @@ function AddBlock(){
 			setTimeout(function(){
 				validateForms();
 			}, 100);
-			// console.log(form.length,mainParent.length,blockFirst.length,target.length)
 			//для блоков в форме заказа
 			if(target.hasClass('white-box')){
 				var cont = form.find('.more-block').last(),
@@ -1469,12 +1485,22 @@ function AddBlock(){
 				target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
 				return false;
 			}
-			
+	
 		});
 		$(this).on('click','.js-remove-block-btn',function(){
-			var cont = form.find('.more-block').last();
-			cont.prev().removeClass(inClass);
-			cont.remove();
+			var _ = $(this),
+				block =  _.parents('.'+addedClass);
+			if(block.hasClass(checkClass)){
+				var controlInput = block.find('input[type="hidden"]');
+				controlInput.attr('name',deletedName).detach().appendTo(form);
+				console.log('input found',controlInput.attr('name'));
+			}
+			if(!block.hasClass(inClass)){
+				block.prev().removeClass(inClass);
+				block.remove();
+			}else{
+				block.remove();
+			}
 		});
 		//меняем послежднюю цифру инпута
 		function ChangeInputsGroup(elem,block){
@@ -1490,7 +1516,6 @@ function AddBlock(){
 					});
 				}
 			}
-		
 		function incrementId(gpold,gpnew){
 			gpnew <= gpold ? gpnew = gpold + 1 :  gpnew;
 			return gpnew
@@ -1498,3 +1523,9 @@ function AddBlock(){
 		}
 	});
 };
+function JS_ClearDropZone(){
+	if($("div").is(".js-dropzone")){
+		var objDZ = Dropzone.forElement(".js-dropzone");
+		objDZ.emit("resetFiles");
+	}
+}
