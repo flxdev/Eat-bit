@@ -949,23 +949,7 @@ function menu_reload(){
 		});
 	});
 }menu_reload();
-function validateForms(){
-	var form_form = $('.js-validate');
-	if (form_form.length) {
-		form_form.each(function () {
-			var form_this = $(this);
-			$.validate({
-				form : form_this,
-				borderColorOnError : true,
-				scrollToTopOnError : false,
-				onSuccess : function($form) {
-					ajaxSubmit($form);
-					return false;
-				},
-			});
-		});
-	};
-}validateForms();
+validateForms();
 
 function Accordeon(){
 if($('.js-accordion-trigger').length){
@@ -1025,6 +1009,7 @@ $.each(_items, function () {
 		_list = _select.find('.select-list');
 	_select.on('reinit', function() {
 		var _active = _list.find('input:checked');
+		CheckForSelect($(this).parents('form'));
 		if(_active.length) {
 			_select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
 		}
@@ -1910,7 +1895,7 @@ function updateToSelectMenu() {
 	  $(this).trigger('change');
 	  updateToSelectMenu();
 	}
-  })
+  });
   $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
 }
 
@@ -1951,6 +1936,49 @@ $(window).resize(function() {
   $('.datepicker').blur();
 });
 }
+function validateForms(){
+	var form_form = $('.js-validate');
+	if (form_form.length) {
+		form_form.each(function () {
+			var form_this = $(this);
+			$.validate({
+				form : form_this,
+				borderColorOnError : true,
+				scrollToTopOnError : false,
+				onSuccess : function($form) {
+					ajaxSubmit($form);
+					return false;
+				},
+				onValidate : function($form) {
+					CheckForSelect(form_this);
+				},
+			});
+		});
+	};
+}
+function CheckForSelect(form){
+	if(form.find('.select-check').length){
+		var wrap = $('.select-check');
+			wrap.each(function(){
+				var _ = $(this),
+					btn = _.find('.selects'),
+					option = _.find('.option.has-error'),
+					input = _.find('.option').find('input').attr('name');
+					
+				if(option.length){
+					btn.parent().addClass('error');
+
+					return false
+				}else{
+					btn.parent().removeClass('error');
+					console.log(input)
+					return true
+				}
+
+			});
+
+	}
+}
 function AddBlock(){
 	var btnAdd = $('.js-add-block-btn'),
 		btnRemove = $('.js-remove-block-btn'),
@@ -1966,9 +1994,7 @@ function AddBlock(){
 		$(this).on('click','.js-add-block-btn',function(){
 			var _ = $(this);
 			setTimeout(function(){
-				$.validate({
-					form : '.js-validate'
-				});
+				validateForms();
 			}, 100);
 			// console.log(form.length,mainParent.length,blockFirst.length,target.length)
 			//для блоков в форме заказа
@@ -1976,6 +2002,7 @@ function AddBlock(){
 				var cont = form.find('.more-block').last(),
 					daters = mainParent.find('.datepicker'),
 					blockAddbtn = cont.find(btnAdd);
+
 				ChangeInputsGroup(cont,target);
 				$('.datepicker').removeAttr('id').datepicker('destroy');
 				target.clone().insertAfter(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
@@ -1999,16 +2026,17 @@ function AddBlock(){
 		});
 		//меняем послежднюю цифру инпута
 		function ChangeInputsGroup(elem,block){
-			var inputsPrev = block.find('input[type=radio]').attr('name'),
-				inputsNew = elem.find('input[type=radio]').attr('name'),
-				inputsPrevId = +inputsPrev.charAt(inputsPrev.length -1),
-				inputsNewId = +inputsNew.charAt(inputsNew.length -1);
+				if(block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').length){
+				var inputsPrev = block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
+					inputsNew = elem.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
+					inputsPrevId = +inputsPrev.charAt(inputsPrev.length -1),
+					inputsNewId = +inputsNew.charAt(inputsNew.length -1);
 
-				var newRes = inputsNew.slice(0, -1) + incrementId(inputsPrevId,inputsNewId);;
-				block.find('input[type=radio]').each(function(){
-					$(this)[0].setAttribute('name', newRes);
-				})
-				
+					var newRes = inputsNew.slice(0, -1) + incrementId(inputsPrevId,inputsNewId);;
+					block.find('input[type=radio]').each(function(){
+						$(this)[0].setAttribute('name', newRes);
+					});
+				}
 			}
 		
 		function incrementId(gpold,gpnew){
@@ -2017,4 +2045,4 @@ function AddBlock(){
 			
 		}
 	});
-}
+};

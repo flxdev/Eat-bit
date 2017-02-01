@@ -51,7 +51,7 @@ block content
               .input-wrapper.req.disabled
                 input.input-main(type="tel",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
                 label.input-label Телефон 
-        .white-box
+        .white-box.more-block
           .h-title.h2 Основной адрес
           .inputs-cont
             .input-item.s-50
@@ -90,16 +90,20 @@ block content
               .input-wrapper.req
                 input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
                 label.input-label Домофон 
-          button(type='button').trans-btn.add.borderb
+          button(type='button').trans-btn.add.borderb.js-add-block-btn
             span Добавить дополнительный адрес
           .notify-btn.dropdown-trigger
             .dropdown-target
               .dropdown-inner
                .dropdown-content
-                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
-        .white-box
+                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.          
+        .menu-nav
+          .menu-nav-inner
+            a(href="#").btn.btn-black.btn-big Сохранить
+      .is-hide
+        .white-box.form-in
           .h-title.h2 Дополнительный адрес
-            button(type="button").icon-link.close
+            button(type="button").icon-link.close.js-remove-block-btn
               i
               span Удалить
           .inputs-cont
@@ -139,53 +143,13 @@ block content
               .input-wrapper.req
                 input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
                 label.input-label Домофон 
-        .white-box
-          .h-title.h2 Дополнительный адрес
-            button(type="button").icon-link.close
-              i
-              span Удалить
-          .inputs-cont
-            .input-item.s-50
-              .input-wrapper.req.js-text-input
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Город
-                .dropdown-target
-                  .dropdown-inner
-                    .dropdown-content
-                      p сюда выплевываем список городов
-            .input-item.s-50
-              .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Улица
-            .input-item.s-25
-              .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Дом   
-            .input-item.s-25      
-              .input-wrapper.req
-                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
-                label.input-label Корпус
-            .input-item.s-25
-              .input-wrapper.req
-                input.input-main(type="number required",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
-                label.input-label Подъезд
-            .input-item.s-25
-              .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Кв./оф
-            .input-item.s-25
-              .input-wrapper.req
-                input.input-main(type="number",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
-                label.input-label Этаж
-            .input-item.s-25
-              .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Домофон                              
-        .menu-nav
-          .menu-nav-inner
-            a(href="#").btn.btn-black.btn-big Сохранить
-
-
+          button(type='button').trans-btn.add.borderb.js-add-block-btn
+            span Добавить дополнительный адрес    
+          .notify-btn.dropdown-trigger
+            .dropdown-target
+              .dropdown-inner
+               .dropdown-content
+                  .text2 Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.
 
 
 

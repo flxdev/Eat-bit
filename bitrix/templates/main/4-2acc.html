@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
     <link rel="stylesheet" media="all" href="css/screen.css">
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
@@ -191,7 +191,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="white-box">
+                  <div class="white-box more-block">
                     <div class="h-title h2">Основной адрес</div>
                     <div class="inputs-cont">
                       <div class="input-item s-50">
@@ -250,20 +250,25 @@
                         </div>
                       </div>
                     </div>
-                    <button class="trans-btn add borderb" type="button"><span>Добавить дополнительный адрес</span></button>
+                    <button class="trans-btn add borderb js-add-block-btn" type="button"><span>Добавить дополнительный адрес</span></button>
                     <div class="notify-btn dropdown-trigger">
                       <div class="dropdown-target">
                         <div class="dropdown-inner">
                           <div class="dropdown-content">
-                            <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.</div>
+                            <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.          </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="white-box">
+                  <div class="menu-nav">
+                    <div class="menu-nav-inner"><a class="btn btn-black btn-big" href="#">Сохранить</a></div>
+                  </div>
+                </form>
+                <div class="is-hide">
+                  <div class="white-box form-in">
                     <div class="h-title h2">Дополнительный адрес
-                      <button class="icon-link close" type="button"><i></i><span>Удалить</span></button>
+                      <button class="icon-link close js-remove-block-btn" type="button"><i></i><span>Удалить</span></button>
                     </div>
                     <div class="inputs-cont">
                       <div class="input-item s-50">
@@ -322,73 +327,18 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="white-box">
-                    <div class="h-title h2">Дополнительный адрес
-                      <button class="icon-link close" type="button"><i></i><span>Удалить</span></button>
-                    </div>
-                    <div class="inputs-cont">
-                      <div class="input-item s-50">
-                        <div class="input-wrapper req js-text-input">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Город</label>
-                          <div class="dropdown-target">
-                            <div class="dropdown-inner">
-                              <div class="dropdown-content">
-                                <p>сюда выплевываем список городов</p>
-                              </div>
-                            </div>
+                    <button class="trans-btn add borderb js-add-block-btn" type="button"><span>Добавить дополнительный адрес    </span></button>
+                    <div class="notify-btn dropdown-trigger">
+                      <div class="dropdown-target">
+                        <div class="dropdown-inner">
+                          <div class="dropdown-content">
+                            <div class="text2">Нет возможности получать ежедневно заказ только по одному адресу? Доба- вьте пожалуйста дополнительный адрес, чтобы наш менеджер смог уточнить, где вы находитесь.</div>
                           </div>
                         </div>
                       </div>
-                      <div class="input-item s-50">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Улица</label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Дом   </label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">     
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Корпус</label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="number required" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Подъезд</label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Кв./оф</label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="number" data-validation="custom required" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Этаж</label>
-                        </div>
-                      </div>
-                      <div class="input-item s-25">
-                        <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
-                          <label class="input-label">Домофон                              </label>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                  <div class="menu-nav">
-                    <div class="menu-nav-inner"><a class="btn btn-black btn-big" href="#">Сохранить</a></div>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
           </main>
@@ -745,7 +695,7 @@
                     <div class="dropdown-content">
                       <div class="select-u-body select-list">
                         <label class="option">
-                          <input type="radio" name="group1" value="val1"><span>Сохранение формы</span>
+                          <input type="radio" name="group1" value="val1" data-validation="required"><span>Сохранение формы</span>
                         </label>
                         <label class="option">
                           <input type="radio" name="group1" value="val2"><span>Похудение</span>
@@ -765,7 +715,7 @@
                     <div class="dropdown-content">
                       <div class="select-u-body select-list">
                         <label class="option">
-                          <input type="radio" name="group2" value="val1"><span>Сидячий образ жизни</span>
+                          <input type="radio" name="group2" value="val1" data-validation="required"><span>Сидячий образ жизни</span>
                         </label>
                         <label class="option">
                           <input type="radio" name="group2" value="val2"><span>Тренировки 1-2 р. в неделю</span>

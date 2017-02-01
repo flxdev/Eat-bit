@@ -2764,6 +2764,7 @@ body, .out,html
     +rem(margin-top,-285px)
     position: relative
     width: 28%
+    z-index: 4
     +r(991)
       flex: 1 0 0
       +rem(margin, 20px auto 0)
@@ -2991,7 +2992,7 @@ body, .out,html
       +rem(font-size,14px)
       +rem(letter-spacing,0.5px)
       color: $text
-      +rem(padding, 9px 17px)
+      +rem(padding, 9px 16px)
       +rem(border-radius, 30px)
       transition: background .3s, border-color .3s
       text-transform: uppercase 
@@ -3209,6 +3210,7 @@ body, .out,html
   &.small
     +rem(padding,5px 17px 5px 37px)
     +rem(font-size,12px)
+    +rem(min-height,22px)
     &:before
       +rem(width,16px)
       +rem(height,10px)
@@ -3320,11 +3322,11 @@ body, .out,html
     &.w33 
       width: 30%
       vertical-align: top
-    &.w33:nth-child(3)
-        margin: 0 5%
+    &.w33:nth-of-type(3)
+      margin: 0 5%
     &.in-focus
       border: 1.5px solid $text
-    &.has-error
+    &.has-error,&.error
       border: 1.5px solid red
       &.in-focus
         border: 1.5px solid #ca0000
@@ -3436,7 +3438,7 @@ body, .out,html
       +rem(padding-top,85px)
       +r(544)
         +rem(padding-top,35px)
-  &.pagehead-center
+  &.pagehead-center:not(.text-left)
     +rem(padding-bottom,0px)
     +rem(padding-top,20px)
     .pagehead-content
@@ -3688,6 +3690,8 @@ body, .out,html
     +contain
     cursor: pointer
     background-image: url(../img/icons/question.svg)
+    +r(544)
+      display: none
     .dropdown-target
       transition-delay: 0s
       +rem(width,380px)
@@ -3695,8 +3699,7 @@ body, .out,html
       left: auto
       +rem(margin-top,15px)
       padding-top:  0
-      +r(544)
-        width: 130%
+
   .dropdown-content
     white-space: normal
     background: $white
@@ -3912,6 +3915,9 @@ body, .out,html
     +rem(margin-bottom,30px)
   .trans-btn.add.borderb
     +rem(margin,40px 0 35px)
+    +r(380)
+      +rem(margin,30px 0 25px)
+        
 
 .inputs-cont
   font-size: 0
@@ -4453,7 +4459,10 @@ select
     &-img
       +rem(margin-bottom,25px)
 .povor
+  &-wrap
+    overflow: hidden
   &-slider
+    
   &-item
     height: 100%
   &-inner
@@ -4461,7 +4470,7 @@ select
     align-items: stretch
     align-content: stretch
     height: 100%
-    overflow: hidden
+    
     +r(650)
       flex-direction: column
       align-content: flex-end
@@ -5152,7 +5161,7 @@ sup
   &.form-in
     .trans-btn.add.borderb,.notify-btn.dropdown-trigger,.icon-link.close
       display: none
-.news-wrap
+.news-wrap:not(.js-news)
   .news-item-wrap
     +rm(768)
       &:nth-child(n+4)
