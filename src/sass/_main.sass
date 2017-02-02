@@ -2449,11 +2449,11 @@ body, .out,html
     &.modal-small
       +rem(max-width,490px)
       .modal-container-content
-        +rem(padding,0 45px 42px 45px)   
+        +rem(padding,0 45px 60px 45px)   
     &.modal-medium
-      +rem(max-width,692px)
+      +rem(max-width,690px)
       .modal-container-content
-        +rem(padding,0 40px 40px 40px) 
+        +rem(padding,0 40px 62px 40px) 
         +r(544)
            +rem(padding,0 20px 20px 20px)  
       .form-footer
@@ -2517,7 +2517,7 @@ body, .out,html
     &-content,&-header 
       text-align: left
     &-header
-      +rem(padding,30px 45px 20px)
+      +rem(padding,48px 45px 22px)
       position: relative
       .text1
         display: block
@@ -3395,7 +3395,9 @@ body, .out,html
     opacity: .5
     pointer-events: none
 .modal-form
-  +rem(margin-top,20px)
+  +rem(margin-top,15px)
+  .input-wrapper:last-of-type
+    +rem(margin-bottom,32px)
 .btn-calc
   &-fixed
     display: inline-block
@@ -5179,5 +5181,36 @@ sup
     color: red
     font-weight: 400
     font-size: 1.25rem;
+.address
+  &-region
+    font-size: 0
+    +nosel
+    visibility: hidden
+    margin: 0!important
+    padding: 0 !important
+    height: 0
+.suggestions
+  &-wrapper
+    position: absolute !important
+    left: 0
+    right: 0
+    +rem(bottom, -10px)
+  &-suggestions
+    +rem(font-size,15px)
+    +rem(padding,17px 10px 17px 20px)
+    background: $white
+    box-shadow: 2px 3.464px 15px 0px rgba( 0, 0, 0,0.17 );
+    border: 0 !important
+    +rem(margin-top,10px)
+    & > *
+      +rem(font-size,16px)
+      color: $text
+      // +rem(padding, 7px 5px 8px )
+      cursor: pointer
+      &:hover
+        color: #000
+        background: $white !important
+      strong
+        font-weight: 500 !important
+        color: #000 !important
 
-  

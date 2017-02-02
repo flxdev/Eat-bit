@@ -222,24 +222,8 @@ function FocusI(){
 		})
 } FocusI();
 
-
-//extends jquery-ui slider drag animation
-(function( $, undefined ) {
-	$.extend($.ui.slider.prototype.options, {
-		dragAnimate: true
-	});
-	var _mouseCapture = $.ui.slider.prototype._mouseCapture;
-	$.widget("ui.slider", $.extend({}, $.ui.slider.prototype, {
-		_mouseCapture: function(event) {
-			_mouseCapture.apply(this, arguments);
-			this.options.dragAnimate ? this._animateOff = false : this._animateOff = true;
-			return true;
-		}
-	}));
-}(jQuery));
-
 function sliderRange(){
-	var slider = $(".rangeinput" );
+	var slider = $(".rangeinput");
 	slider.each(function(){
 		var _ = $(this);
 		_.slider({
@@ -265,8 +249,22 @@ function sliderRange(){
 		});
 	})
    
-}sliderRange();
-
+}
+sliderRange();
+//extends jquery-ui slider drag animation
+(function( $, undefined ) {
+	$.extend($.ui.slider.prototype.options, {
+		dragAnimate: true
+	});
+	var _mouseCapture = $.ui.slider.prototype._mouseCapture;
+	$.widget("ui.slider", $.extend({}, $.ui.slider.prototype, {
+		_mouseCapture: function(event) {
+			_mouseCapture.apply(this, arguments);
+			this.options.dragAnimate ? this._animateOff = false : this._animateOff = true;
+			return true;
+		}
+	}));
+}(jQuery));
 function calcWeek(value,slider){
 	var values = slider.parent().find('.js-slider-info'),
 		totalSum = slider.parent().siblings().find('.form-total-count'),
@@ -627,6 +625,7 @@ if($('#map').length){
 } 
 
 }
+
 function stars(){
 	var parent = $('.js-stars'),
 		items = parent.find('.star-item');
@@ -701,6 +700,7 @@ menu_reload();
 validateForms();
 popUpsInit();
 initCustomSelectList();
+AddressInput();
 //end of document ready
 });
 //end of document ready
@@ -1236,6 +1236,8 @@ function updateToSelectMenu() {
   $('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
 }
 
+
+
 function datepick(){
 
 var item = $( ".datepicker" );
@@ -1476,7 +1478,7 @@ function AddBlock(){
 				target.clone().insertAfter(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
 				datepick();
 				$('.datepicker').datepicker('refresh');
-				
+				AddressInput();
 				return false;
 			}
 			//для инпута соц сетей в отзывах
@@ -1528,4 +1530,70 @@ function JS_ClearDropZone(){
 		var objDZ = Dropzone.forElement(".js-dropzone");
 		objDZ.emit("resetFiles");
 	}
+}
+function AddressInput(){
+	var addresBlock = $('.more-block'),
+		serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+		token = "c1dfceac2bc6837d11061b8e48f5e6abcaf72adb",
+		type = "ADDRESS";
+
+	addresBlock.each(function(){
+		var _ = $(this),
+			$region = _.find(".address-region"),
+			$city   = _.find(".address-city"),
+			$street = _.find(".address-street"),
+			$house  = _.find(".address-house"),
+			area =  [
+		      // Москва
+		      {
+		        // locations: { region: 'Москва' },
+		        locations: { kladr_id: '77' },
+		        deletable: true
+		      },
+		      // Московская область
+		      {
+		        // label: 'МО',
+		        locations: { kladr_id: '50' },
+		        deletable: true
+		      }
+		    ];
+		$region.suggestions({
+		  serviceUrl: serviceUrl,
+		  token: token,
+		  type: type,
+		  hint: false,
+		  bounds: "region-area",
+		  constraints: area
+		});
+
+		// город и населенный пункт
+		$city.suggestions({
+		  serviceUrl: serviceUrl,
+		  token: token,
+		  type: type,
+		  hint: false,
+		  preventBadQueries: true,
+		  bounds: "city-settlement",
+		  constraints: $region,
+		});
+
+		// улица
+		$street.suggestions({
+		  serviceUrl: serviceUrl,
+		  token: token,
+		  type: type,
+		  hint: false,
+		  preventBadQueries: true,
+		  bounds: "street",
+		  constraints: $city,
+		      
+		});
+		//обнуляем регионы если ввод начинается заново
+		$($city).on('input',function(){
+			var val = $(this).val();
+			val.length === 0 ? $region.suggestions('clear') : false
+		});
+
+	})
+
 }

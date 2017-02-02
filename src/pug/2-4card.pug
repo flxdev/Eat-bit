@@ -40,26 +40,23 @@ block content
           .h-title.h2 Адрес доставки
           .h-title.h5 Дата и адрес доставки
           .inputs-cont
+            //вот этот скрытый инпут, такой же находится в .is-hide
+            input.input-main.address-region(type="text",data-validation="length required", name="region")
             .input-item.s-50
               .input-wrapper.req.date
                 input.datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
                 label.input-label Дата первой доставки
-
-            .input-item.s-50
-              .input-wrapper.req.js-text-input
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Город
-                .dropdown-target
-                  .dropdown-inner
-                    .dropdown-content
-                      p сюда выплевываем список городов
             .input-item.s-50
               .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                input.input-main.address-city(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name = "city")
+                label.input-label Город
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main.address-street(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name="street")
                 label.input-label Улица
             .input-item.s-25
               .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                input.input-main.address-house(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name="house")
                 label.input-label Дом   
             .input-item.s-25      
               .input-wrapper.req
@@ -126,21 +123,21 @@ block content
           ul.checkbox-wrap.payment-check
             li.checkbox-item
               label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                input.input-real(type="radio",name='payment-method',value = 'sdf',data-validation="required")
                 span.input-fake Банковские карты
               .checkbox-img-wrap
                 .checkbox-img-item
                   img(src="img/paysmall/1.jpg", alt="")
             li.checkbox-item
               label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                input.input-real(type="radio",name='payment-method',value = 'sdf',data-validation="required")
                 span.input-fake Электронные деньги
               .checkbox-img-wrap
                 .checkbox-img-item
                   img(src="img/paysmall/2.jpg", alt="")
             li.checkbox-item
               label.checkbox-outer 
-                input.input-real(type="radio",name='group1',value = 'sdf',data-validation="required")
+                input.input-real(type="radio",name='payment-method',value = 'sdf',data-validation="required")
                 span.input-fake Интернет-банкинг
               .checkbox-img-wrap
                 .checkbox-img-item
@@ -178,26 +175,22 @@ block content
               span Удалить
           .h-title.h5 Дата и адрес доставки
           .inputs-cont
+            input.input-main.address-region(type="text",data-validation="length required", name="region")
             .input-item.s-50
               .input-wrapper.req.date
                 input.datepicker.input-main(type="text",readonly="true",data-validation="required",data-validation-error-msg="Не заполнено")
                 label.input-label Дата первой доставки
-
-            .input-item.s-50
-              .input-wrapper.req.js-text-input
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-                label.input-label Город
-                .dropdown-target
-                  .dropdown-inner
-                    .dropdown-content
-                      p сюда выплевываем список городов
             .input-item.s-50
               .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                input.input-main.address-city(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name="city")
+                label.input-label Город
+            .input-item.s-50
+              .input-wrapper.req
+                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name="street")
                 label.input-label Улица
             .input-item.s-25
               .input-wrapper.req
-                input.input-main(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+                input.input-main.address-house(type="text",data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено", name="house")
                 label.input-label Дом   
             .input-item.s-25      
               .input-wrapper.req

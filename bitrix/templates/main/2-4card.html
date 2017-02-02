@@ -18,6 +18,12 @@
     <link rel="stylesheet" media="all" href="css/screen.css">
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/app.js"></script>
+    <input id="address" name="address" type="text" size="100">
+    <link href="https://cdn.jsdelivr.net/jquery.suggestions/16.10/css/suggestions.css" type="text/css" rel="stylesheet">
+    <!--if lt IE 10script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js')
+    -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/16.10/js/jquery.suggestions.min.js"></script>
+    <script type="text/javascript"></script>
   </head>
   <body>
     <!--BEGIN out-->
@@ -190,6 +196,8 @@
                     <div class="h-title h2">Адрес доставки</div>
                     <div class="h-title h5">Дата и адрес доставки</div>
                     <div class="inputs-cont">
+                      <!--вот этот скрытый инпут, такой же находится в .is-hide-->
+                      <input class="input-main address-region" type="text" data-validation="length required" name="region">
                       <div class="input-item s-50">
                         <div class="input-wrapper req date">
                           <input class="datepicker input-main" type="text" readonly="true" data-validation="required" data-validation-error-msg="Не заполнено">
@@ -197,27 +205,20 @@
                         </div>
                       </div>
                       <div class="input-item s-50">
-                        <div class="input-wrapper req js-text-input">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                        <div class="input-wrapper req">
+                          <input class="input-main address-city" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="city">
                           <label class="input-label">Город</label>
-                          <div class="dropdown-target">
-                            <div class="dropdown-inner">
-                              <div class="dropdown-content">
-                                <p>сюда выплевываем список городов</p>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <div class="input-item s-50">
                         <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <input class="input-main address-street" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="street">
                           <label class="input-label">Улица</label>
                         </div>
                       </div>
                       <div class="input-item s-25">
                         <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <input class="input-main address-house" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="house">
                           <label class="input-label">Дом   </label>
                         </div>
                       </div>
@@ -319,7 +320,7 @@
                     <ul class="checkbox-wrap payment-check">
                       <li class="checkbox-item">
                         <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Банковские карты</span>
+                          <input class="input-real" type="radio" name="payment-method" value="sdf" data-validation="required"><span class="input-fake">Банковские карты</span>
                         </label>
                         <div class="checkbox-img-wrap">
                           <div class="checkbox-img-item"><img src="img/paysmall/1.jpg" alt=""></div>
@@ -327,7 +328,7 @@
                       </li>
                       <li class="checkbox-item">
                         <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Электронные деньги</span>
+                          <input class="input-real" type="radio" name="payment-method" value="sdf" data-validation="required"><span class="input-fake">Электронные деньги</span>
                         </label>
                         <div class="checkbox-img-wrap">
                           <div class="checkbox-img-item"><img src="img/paysmall/2.jpg" alt=""></div>
@@ -335,7 +336,7 @@
                       </li>
                       <li class="checkbox-item">
                         <label class="checkbox-outer"> 
-                          <input class="input-real" type="radio" name="group1" value="sdf" data-validation="required"><span class="input-fake">Интернет-банкинг</span>
+                          <input class="input-real" type="radio" name="payment-method" value="sdf" data-validation="required"><span class="input-fake">Интернет-банкинг</span>
                         </label>
                         <div class="checkbox-img-wrap">
                           <div class="checkbox-img-item"><img src="img/paysmall/3.jpg" alt=""></div>
@@ -375,6 +376,7 @@
                     </div>
                     <div class="h-title h5">Дата и адрес доставки</div>
                     <div class="inputs-cont">
+                      <input class="input-main address-region" type="text" data-validation="length required" name="region">
                       <div class="input-item s-50">
                         <div class="input-wrapper req date">
                           <input class="datepicker input-main" type="text" readonly="true" data-validation="required" data-validation-error-msg="Не заполнено">
@@ -382,27 +384,20 @@
                         </div>
                       </div>
                       <div class="input-item s-50">
-                        <div class="input-wrapper req js-text-input">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                        <div class="input-wrapper req">
+                          <input class="input-main address-city" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="city">
                           <label class="input-label">Город</label>
-                          <div class="dropdown-target">
-                            <div class="dropdown-inner">
-                              <div class="dropdown-content">
-                                <p>сюда выплевываем список городов</p>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                       <div class="input-item s-50">
                         <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="street">
                           <label class="input-label">Улица</label>
                         </div>
                       </div>
                       <div class="input-item s-25">
                         <div class="input-wrapper req">
-                          <input class="input-main" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+                          <input class="input-main address-house" type="text" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено" name="house">
                           <label class="input-label">Дом   </label>
                         </div>
                       </div>
