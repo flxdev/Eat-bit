@@ -1883,70 +1883,86 @@ function menu_reload(){
 	});
 }
 function initCustomSelectList() {
-var _conf = {
-		initClass: 'cs-active',
-		f: {}
-	},
-	_items = $('.js-select-custom');
-$.each(_items, function () {
-	var _select = $(this),
-		_button = _select.find('button'),
-		placeholder = _button.data('placeholder'),
-		_list = _select.find('.select-list');
-	_select.on('reinit', function() {
-		var _active = _list.find('input:checked');
-		CheckForSelect($(this).parents('form'));
-		if(_active.length) {
-			_select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
-		}
-		else {
-			_button.children('.btn-text').text(_button.data('placeholder')).parent().removeClass('is-checked');
-		}
-	});
-	_button.on('click', function() {
-	   _button.parent().toggleClass('active').siblings().removeClass('active');
-		return(false);
-	});
-	_select.on('click', 'label', function() {
-	   var _label = $(this),
-		   _input = _label.find('input');
-		_input.prop('checked', true);
-		_select.trigger('reinit');
-		_button.parent().removeClass('active');
-		if(_select.hasClass('certificate_programs')){
-			var program_id = _input.val(),
-				program_text = _label.text().trim();
-			$('.sertificat-total').css('visibility', 'hidden');
-			$("input[name='RATION").val(program_text);
-			$.ajax({
-				type: "POST",
-				url: "/include/form/backend/certificate_period_sku.php",
-				data: 'program_id=' + program_id,
-				dataType: "html",
-				success: function(data){
-					$('.period_reload').html(data)
+	var _conf = {
+			initClass: 'cs-active',
+			f: {}
+		},
+		_items = $('.js-select-custom');
+	$.each(_items, function () {
+		var _select = $(this),
+			_button = _select.find('button'),
+			placeholder = _button.data('placeholder'),
+			_list = _select.find('.select-list');
+		_select.on('reinit', function() {
+			var _active = _list.find('input:checked');
+			
+			if($(this).parents('.input-item').length){
+				if(_active.length){
+					var item = $(this).closest('.input-item'),
+						next = item.next('.input-item').find('.select-check');
+						next.removeClass('disabled').find('input').prop('checked', false);
+						next.trigger('reinit');
+				}else{
+					var item = $(this).closest('.input-item'),
+						next = item.next('.input-item').find('.select-check');
+						next.addClass('disabled').find('input').prop('checked', false);
+						next.trigger('reinit');
 				}
-			});
-			return false;
-		}
-		if(_select.hasClass('certificate_period')){
-			var price = _input.data('price'),
-				period_text = _label.text().trim();
-			$("input[name='PERIOD").val(period_text);
-			$('.form-total-count').html(price + ' ₽');
-			$('.sertificat-total').css('visibility', 'visible');
-		}
+			}
+			if(_active.length) {
+				_select.parent().hasClass('input-wrapper') ?_button.children('.btn-text').text(''+_active.siblings('span').text()+'').parent().addClass('is-checked') : _button.children('.btn-text').text(''+ _active.siblings('span').text()+'').parent().addClass('is-checked')
+			}
+			else {
+				_button.children('.btn-text').text(_button.data('placeholder')).parent().removeClass('is-checked');
+			}
+			CheckForSelect($(this).parents('form'));
+		});
+		_button.on('click', function() {
+		   _button.parent().toggleClass('active').siblings().removeClass('active');
+			return(false);
+		});
+		_select.on('click', 'label', function() {
+		   var _label = $(this),
+			   _input = _label.find('input');
+			_input.prop('checked', true);
+			_select.trigger('reinit');
+			_button.parent().removeClass('active').removeClass('error');
+			if(_select.hasClass('certificate_programs')){
+				var program_id = _input.val(),
+					program_text = _label.text().trim();
+				$('.sertificat-total').css('visibility', 'hidden');
+				$("input[name='RATION").val(program_text);
+				$.ajax({
+					type: "POST",
+					url: "/include/form/backend/certificate_period_sku.php",
+					data: 'program_id=' + program_id,
+					dataType: "html",
+					success: function(data){
+						$('.period_reload').html(data);
+						$('.certificate_programs').trigger('reinit');
+					}
+				});
+				return false;
+			}
+			if(_select.hasClass('certificate_period')){
+				var price = _input.data('price'),
+					period_text = _label.text().trim();
+				$("input[name='PERIOD").val(period_text);
+				$('.form-total-count').html(price + ' ₽');
+				$('.sertificat-total').css('visibility', 'visible');
+			}
+		});
+		_select.trigger('reinit');
+		_select.addClass(_conf.initClass);
+		 $(document).on('mouseup', function (e){
+			if (!_select.is(e.target)
+				&& _select.has(e.target).length === 0) {
+				_select.removeClass('active');
+			}
+		});
 	});
-	_select.trigger('reinit');
-	_select.addClass(_conf.initClass);
-	 $(document).on('mouseup', function (e){
-		if (!_select.is(e.target)
-			&& _select.has(e.target).length === 0) {
-			_select.removeClass('active');
-		}
-	});
-});
 }
+
 function validateForms(){
 	var form_form = $('.js-validate');
 	if (form_form.length) {
@@ -2043,7 +2059,6 @@ function AddBlock(){
 			if(block.hasClass(checkClass)){
 				var controlInput = block.find('input[type="hidden"]');
 				controlInput.attr('name',deletedName).detach().appendTo(form);
-				console.log('input found',controlInput.attr('name'));
 			}
 			if(!block.hasClass(inClass)){
 				block.prev().removeClass(inClass);
@@ -2080,68 +2095,75 @@ function JS_ClearDropZone(){
 	}
 }
 function AddressInput(){
-	var addresBlock = $('.more-block'),
-		serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
-		token = "c1dfceac2bc6837d11061b8e48f5e6abcaf72adb",
-		type = "ADDRESS";
+	console.log('s')
+	if(window.suggestions != 'undefined'){
+		console.log('11')
+		var addresBlock = $('.more-block'),
+			serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+			token = "c1dfceac2bc6837d11061b8e48f5e6abcaf72adb",
+			type = "ADDRESS";
 
-	addresBlock.each(function(){
-		var _ = $(this),
-			$region = _.find(".address-region"),
-			$city   = _.find(".address-city"),
-			$street = _.find(".address-street"),
-			$house  = _.find(".address-house"),
-			area =  [
-		      // Москва
-		      {
-		        // locations: { region: 'Москва' },
-		        locations: { kladr_id: '77' },
-		        deletable: true
-		      },
-		      // Московская область
-		      {
-		        // label: 'МО',
-		        locations: { kladr_id: '50' },
-		        deletable: true
-		      }
-		    ];
-		$region.suggestions({
-		  serviceUrl: serviceUrl,
-		  token: token,
-		  type: type,
-		  hint: false,
-		  bounds: "region-area",
-		  constraints: area
+		addresBlock.each(function(){
+			var _ = $(this),
+				$region = _.find(".address-region"),
+				$city   = _.find(".address-city"),
+				$street = _.find(".address-street"),
+				$house  = _.find(".address-house"),
+				area =  [
+					// Москва
+					{
+						locations: { region: 'Москва' },
+						deletable: true
+					},
+					// Московская область
+					{
+						// label: 'МО',
+						locations: { kladr_id: '50' },
+						deletable: true
+					}
+				];
+			$region.suggestions({
+			  serviceUrl: serviceUrl,
+			  token: token,
+			  type: type,
+			  hint: false,
+			  bounds: "region-area",
+			  constraints: area
+			});
+			// город и населенный пункт
+			$city.suggestions({
+				serviceUrl: serviceUrl,
+				token: token,
+				type: type,
+				hint: false,
+				preventBadQueries: true,
+				bounds: "city-settlement",
+				constraints: $region,
+			});
+			// улица
+			$street.suggestions({
+				serviceUrl: serviceUrl,
+				token: token,
+				type: type,
+				hint: false,
+				preventBadQueries: true,
+				bounds: "street",
+				constraints: $city,
+			});
+			//дом
+			$house.suggestions({
+				serviceUrl: serviceUrl,
+				token: token,
+				type: type,
+				hint: false,
+				bounds: "house",
+				constraints: $street
+			});
+			//обнуляем регионы если ввод начинается заново
+			$($city).on('input',function(){
+				var val = $(this).val();
+				val.length === 0 ? $region.suggestions('clear') : false
+			});
 		});
-
-		// город и населенный пункт
-		$city.suggestions({
-		  serviceUrl: serviceUrl,
-		  token: token,
-		  type: type,
-		  hint: false,
-		  preventBadQueries: true,
-		  bounds: "city-settlement",
-		  constraints: $region,
-		});
-
-		// улица
-		$street.suggestions({
-		  serviceUrl: serviceUrl,
-		  token: token,
-		  type: type,
-		  hint: false,
-		  preventBadQueries: true,
-		  bounds: "street",
-		  constraints: $city,
-		      
-		});
-		//обнуляем регионы если ввод начинается заново
-		$($city).on('input',function(){
-			var val = $(this).val();
-			val.length === 0 ? $region.suggestions('clear') : false
-		});
-
-	})
-
+	}
 }
