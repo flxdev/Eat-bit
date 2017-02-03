@@ -147,33 +147,36 @@ var sortItem = function(){
 sortItem();
 
 function stick(){
-	// $(".white-box").Stickyfill();
-	var stickyElements = document.getElementsByClassName('js-sticky');
 
-	for (var i = stickyElements.length - 1; i >= 0; i--) {
-		Stickyfill.add(stickyElements[i]);
-	}
-	$(window).on('resize',function(){
-		if(window.matchMedia("(min-width: 991px)").matches){
-			Stickyfill.stop('.js-sticky');
-		}else{
-			Stickyfill.init('.js-sticky');
+	var stickyElements = document.getElementsByClassName('js-sticky');
+	if(stickyElements.length){
+		for (var i = stickyElements.length - 1; i >= 0; i--) {
+			Stickyfill.add(stickyElements[i]);
 		}
-	})
+		$(window).on('resize',function(){
+			if(window.matchMedia("(min-width: 991px)").matches){
+				Stickyfill.stop('.js-sticky');
+			}else{
+				Stickyfill.init('.js-sticky');
+			}
+		})
+		$(window).on('resize',function(){
+			stopStick();
+			Stickyfill.rebuild('.js-sticky');
+		});
+		function stopStick(){
+			if(window.matchMedia("(max-width: 991px)").matches){
+				Stickyfill.stop('.js-sticky');
+			}else{
+				Stickyfill.init('.js-sticky');
+			}
+		}stopStick();
+	} else return false
 }stick();
 
-$(window).on('resize',function(){
-	stopStick();
-	Stickyfill.rebuild('.js-sticky');
-});
 
-function stopStick(){
-	if(window.matchMedia("(max-width: 991px)").matches){
-		Stickyfill.stop('.js-sticky');
-	}else{
-		Stickyfill.init('.js-sticky');
-	}
-}stopStick();
+
+
 
 
 
@@ -224,30 +227,32 @@ function FocusI(){
 
 function sliderRange(){
 	var slider = $(".rangeinput");
-	slider.each(function(){
-		var _ = $(this);
-		_.slider({
-			animate: true,
-			range: "min",
-			value: 1,
-			step: 1,
-			dragAnimate: true,
-			min: 1,
-			max: 5,
-			create: function( event, ui ) {
-				calcWeek(ui.value,_)
-			},
-			slide: function(event, ui) {
-				if(ui.value > 3 && ui.value <= 4){
-					return false;
+	if(slider.length){
+		slider.each(function(){
+			var _ = $(this);
+			_.slider({
+				animate: true,
+				range: "min",
+				value: 1,
+				step: 1,
+				dragAnimate: true,
+				min: 1,
+				max: 5,
+				create: function( event, ui ) {
+					calcWeek(ui.value,_)
+				},
+				slide: function(event, ui) {
+					if(ui.value > 3 && ui.value <= 4){
+						return false;
+					}
+					calcWeek(ui.value,_)
+				},
+				change: function( event, ui ) {
+					
 				}
-				calcWeek(ui.value,_)
-			},
-			change: function( event, ui ) {
-				
-			}
+			});
 		});
-	})
+	}
    
 }
 sliderRange();
@@ -288,27 +293,29 @@ function calcWeek(value,slider){
 
 
 function subscribe(){
-	var parent = $('.js-subscribe'),
-		trigger = parent.find('.select-u-item'),
-		target = parent.find('.input-item'),
-		targetType = target.data('type');
+	if($('.js-subscribe').length){
+		var parent = $('.js-subscribe'),
+			trigger = parent.find('.select-u-item'),
+			target = parent.find('.input-item'),
+			targetType = target.data('type');
 
-	trigger.each(function(){
-		var _ = $(this);
-		_.on('click', function(){
-			parent.trigger('reinit');
-		})
-	})
-	parent.on('reinit', function(){
-		target.hide();
-		var checked = trigger.find('input:checked');
-			checked.each(function(){
-				var _ = $(this),
-					type = _.val();
-				parent.find('[data-type='+ type +']').show();
+		trigger.each(function(){
+			var _ = $(this);
+			_.on('click', function(){
+				parent.trigger('reinit');
 			})
-	});
-	parent.trigger('reinit');
+		})
+		parent.on('reinit', function(){
+			target.hide();
+			var checked = trigger.find('input:checked');
+				checked.each(function(){
+					var _ = $(this),
+						type = _.val();
+					parent.find('[data-type='+ type +']').show();
+				})
+		});
+		parent.trigger('reinit');
+	}
 }subscribe();
 $(".js-scroll").on('click', function () {
     var elementClick = $(this).attr("href");
@@ -1465,80 +1472,82 @@ function checkStars(form){
 	}
 }
 function AddBlock(){
-	var btnAdd = $('.js-add-block-btn'),
-		btnRemove = $('.js-remove-block-btn'),
-		form = btnAdd.parents('form'),
-		mainParent = form.parent(),
-		blockFirst = mainParent.find('.more-block'),
-		inClass = 'form-in',
-		addedClass = 'more-block',
-		checkClass = 'block-loaded',
-		deletedName = 'DELETE_ADDRESS[]',
-		target = mainParent.find('.is-hide .form-in');
+	if($('.js-add-block-btn').length){
+		var btnAdd = $('.js-add-block-btn'),
+			btnRemove = $('.js-remove-block-btn'),
+			form = btnAdd.parents('form'),
+			mainParent = form.parent(),
+			blockFirst = mainParent.find('.more-block'),
+			inClass = 'form-in',
+			addedClass = 'more-block',
+			checkClass = 'block-loaded',
+			deletedName = 'DELETE_ADDRESS[]',
+			target = mainParent.find('.is-hide .form-in');
 
-	form.each(function(){
-		//добавление блока
-		$(this).on('click','.js-add-block-btn',function(){
-			var _ = $(this);
-			setTimeout(function(){
-				validateForms();
-			}, 100);
-			//для блоков в форме заказа
-			if(target.hasClass('white-box')){
-				var cont = form.find('.more-block').last(),
-					daters = mainParent.find('.datepicker'),
-					blockAddbtn = cont.find(btnAdd);
+		form.each(function(){
+			//добавление блока
+			$(this).on('click','.js-add-block-btn',function(){
+				var _ = $(this);
+				setTimeout(function(){
+					validateForms();
+				}, 100);
+				//для блоков в форме заказа
+				if(target.hasClass('white-box')){
+					var cont = form.find('.more-block').last(),
+						daters = mainParent.find('.datepicker'),
+						blockAddbtn = cont.find(btnAdd);
 
-				ChangeInputsGroup(cont,target);
-				$('.datepicker').removeAttr('id').datepicker('destroy');
-				target.clone().insertAfter(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
-				datepick();
-				$('.datepicker').datepicker('refresh');
-				AddressInput();
-				return false;
-			}
-			//для инпута соц сетей в отзывах
-			if(target.hasClass('input-item')){
-				var cont = form.find('.inputs-cont');
-				target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
-				return false;
-			}
-	
-		});
-		$(this).on('click','.js-remove-block-btn',function(){
-			var _ = $(this),
-				block =  _.parents('.'+addedClass);
-			if(block.hasClass(checkClass)){
-				var controlInput = block.find('input[type="hidden"]');
-				controlInput.attr('name',deletedName).detach().appendTo(form);
-			}
-			if(!block.hasClass(inClass)){
-				block.prev().removeClass(inClass);
-				block.remove();
-			}else{
-				block.remove();
-			}
-		});
-		//меняем послежднюю цифру инпута
-		function ChangeInputsGroup(elem,block){
-				if(block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').length){
-				var inputsPrev = block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
-					inputsNew = elem.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
-					inputsPrevId = +inputsPrev.charAt(inputsPrev.length -1),
-					inputsNewId = +inputsNew.charAt(inputsNew.length -1);
-
-					var newRes = inputsNew.slice(0, -1) + incrementId(inputsPrevId,inputsNewId);;
-					block.find('input[type=radio]').each(function(){
-						$(this)[0].setAttribute('name', newRes);
-					});
+					ChangeInputsGroup(cont,target);
+					$('.datepicker').removeAttr('id').datepicker('destroy');
+					target.clone().insertAfter(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+					datepick();
+					$('.datepicker').datepicker('refresh');
+					AddressInput();
+					return false;
 				}
+				//для инпута соц сетей в отзывах
+				if(target.hasClass('input-item')){
+					var cont = form.find('.inputs-cont');
+					target.clone().appendTo(cont).addClass(addedClass).removeClass(inClass).prevAll('.'+addedClass).addClass(inClass);
+					return false;
+				}
+		
+			});
+			$(this).on('click','.js-remove-block-btn',function(){
+				var _ = $(this),
+					block =  _.parents('.'+addedClass);
+				if(block.hasClass(checkClass)){
+					var controlInput = block.find('input[type="hidden"]');
+					controlInput.attr('name',deletedName).detach().appendTo(form);
+				}
+				if(!block.hasClass(inClass)){
+					block.prev().removeClass(inClass);
+					block.remove();
+				}else{
+					block.remove();
+				}
+			});
+			//меняем послежднюю цифру инпута
+			function ChangeInputsGroup(elem,block){
+					if(block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').length){
+					var inputsPrev = block.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
+						inputsNew = elem.find('.checkbox-wrap:not(.day-check)').find('input[type=radio]').attr('name'),
+						inputsPrevId = +inputsPrev.charAt(inputsPrev.length -1),
+						inputsNewId = +inputsNew.charAt(inputsNew.length -1);
+
+						var newRes = inputsNew.slice(0, -1) + incrementId(inputsPrevId,inputsNewId);;
+						block.find('input[type=radio]').each(function(){
+							$(this)[0].setAttribute('name', newRes);
+						});
+					}
+				}
+			function incrementId(gpold,gpnew){
+				gpnew <= gpold ? gpnew = gpold + 1 :  gpnew;
+				return gpnew
+				
 			}
-		function incrementId(gpold,gpnew){
-			gpnew <= gpold ? gpnew = gpold + 1 :  gpnew;
-			return gpnew
-			
-		}
-	});
+		});
+	}
 };
 function JS_ClearDropZone(){
 	if($("div").is(".js-dropzone")){
@@ -1547,9 +1556,7 @@ function JS_ClearDropZone(){
 	}
 }
 function AddressInput(){
-	console.log('s')
 	if(window.suggestions != 'undefined'){
-		console.log('11')
 		var addresBlock = $('.more-block'),
 			serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
 			token = "c1dfceac2bc6837d11061b8e48f5e6abcaf72adb",

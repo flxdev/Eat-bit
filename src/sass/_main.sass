@@ -58,6 +58,8 @@ html
     font-size: 14px
   +r(991)
     font-size: 16px
+    // &:not(.bx-ios)
+    overflow-x: hidden
   +r(769)
     font-size: 15px
   +r(544)
@@ -377,14 +379,15 @@ body, .out,html
         +rem(padding,0 30px)
     &__links
       align-self: center
-      +rem(margin-top,100px)
+      +rem(margin-top,97px)
       &>div
         display: inline-block
       +r(544)
-        +rem(margin-top,20px)       
+        +rem(margin-top,20px)
       &-item,.header__menu__links-bold
         display: inline-block
         vertical-align: top
+
         li 
           font-size: 0
         a 
@@ -396,7 +399,7 @@ body, .out,html
           display: inline-block
           width: 100%
           height: 100%
-          +rem(padding,8.5px 0)
+          +rem(padding,8px 0 8px)
           +r(544)
             +rem(font-size,24px)   
           &:hover
@@ -431,7 +434,7 @@ body, .out,html
           text-align: center
             
         li 
-          +rem(margin-bottom,20px)
+          +rem(margin-bottom,18px)
         a:first-child
           padding-top: 0
       &-head,.header__menu__links-bold a
@@ -439,6 +442,9 @@ body, .out,html
         font-weight: 300
         color: #747474
         line-height: 1.667;
+        ul 
+          +rem(margin-top,3px)
+          display: block
         +r(544)
           +rem(font-size,40px)
     &__footer
@@ -773,7 +779,7 @@ body, .out,html
       position: absolute
       opacity: 1
       left: 0
-      +gpu
+      will-change: transform
       transform: rotate(0deg)
       transition: 0.2s ease-in
       z-index: 1
@@ -2036,6 +2042,7 @@ body, .out,html
     counter-reset: num
     +rm(991)
       +rem(padding-top,65px)
+      +rem(margin-bottom,10px)
   &-row
     display: flex
     flex-flow: row wrap 
@@ -2058,7 +2065,7 @@ body, .out,html
     +r(544)
       padding-bottom: 60%
   &-content 
-    +rem(padding,35px 60px 110px 60px)
+    +rem(padding,35px 60px 106px 60px)
     text-align: center
     width: 51%
     +r(991)
@@ -2123,7 +2130,7 @@ body, .out,html
   +r(991)
     +rem(margin,0 -30px)
   .box-bg
-    +rem(height,440px)
+    +rem(height,436px)
   &+ .box-standart
     +rem(padding-top,60px)
   &-content
@@ -2131,7 +2138,7 @@ body, .out,html
     z-index: 2
     display: block
     +rem(max-width,875px)
-    +rem(margin,-215px auto 0)
+    +rem(margin,-210px auto 0)
     .i-arrows
       position: absolute
       +rem(right,-10px)
@@ -2139,6 +2146,7 @@ body, .out,html
       z-index: 2
       +r(991)
         +rem(right,10px) 
+        +rem(top,14px)
 .review
   &-slider
     width: 100%
@@ -2781,7 +2789,7 @@ body, .out,html
       position: sticky
       +rem(top,110px)
       z-index: 3
-      .white-box 
+      .white-box
         .h-title
           .icon-link
             float: right
@@ -2821,7 +2829,7 @@ body, .out,html
           +rem(padding,35px 50px 0)
           +r(1450)
             +rem(margin,0 -40px)
-            +rem(padding,35px 25px 0)
+            +rem(padding,35px 30px 0)
           +r(544)
             +rem(margin,0 -22px)
         &+.offer-feachure
@@ -2845,7 +2853,15 @@ body, .out,html
       min-width: 0
       img
         opacity: 1 !important
-
+.sticky-wrap
+  .white-box.feedback_ajax
+    .form-footer
+      +r(1450)
+        +rem(margin,0 -50px)
+        +rem(padding,35px 50px 0)
+      +r(544)
+        +rem(margin,0 -22px)
+        +rem(padding,35px 22px 0)
 .profit
   &-wrap
     font-size: 0
@@ -3883,6 +3899,8 @@ body, .out,html
       +rem(padding-bottom,60px)
       .h-title
         +rem(margin-bottom, 23px)
+        +r(544)
+          +rem(margin-top, 10px)
         & + .text1
           +r(544)
             text-align: justify
