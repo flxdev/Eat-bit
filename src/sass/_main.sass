@@ -343,6 +343,7 @@ body, .out,html
       transition: opacity .2s,transform .2s,visibility .2s,-webkit-transform .2s;
       font-size: 0;
       text-align: left
+      contain: paint
       &.open
         opacity: 1
         visibility: visible
@@ -997,6 +998,7 @@ body, .out,html
     background: #000
     position: relative
     z-index: 1
+    contain: paint
     .content-wrapp
       display: flex
       flex-flow: row wrap
@@ -1127,7 +1129,9 @@ body, .out,html
   +rem(padding, 80px 20px)
   +r(991)
     +rem(padding, 30px 0)
-  &>.repeat
+#programms
+  contain: paint
+  .repeat
     +rem(margin,20px auto)
     display: block
     +rem(width,180px)
@@ -1487,6 +1491,8 @@ body, .out,html
       +rem(width,25px)
       +rem(height,25px)
       +rem(margin-right,15px)
+      +r(544)
+        +rem(margin-top,-2px)
       &:after,&:before
         +rem(width,25px)
         +rem(height,25px)
@@ -1494,12 +1500,14 @@ body, .out,html
       &:after
         background-image: url(../img/icons/repeat.svg) 
     &.small
-      i  
+      i
         &:after,&:before           
           +rem(width,20px)
           +rem(height,20px)
           +rem(top, -3px)
           +rem(left,10px)
+          +r(544)
+            +rem(top, -5px)
     &:hover
       i 
         &:after
@@ -1585,6 +1593,8 @@ body, .out,html
         opacity: 1
     &.no-arr
       +rem(padding,8px 25px)
+      +r(544)
+        +rem(padding,10px 25px 6px)
       &:before,&:after
         display: none
   &.btn-black
@@ -1610,6 +1620,7 @@ body, .out,html
     align-items: stretch
     align-content: stretch
     justify-content: center
+    
   &-block
     +rem(width,390px)
     position: relative
@@ -1673,9 +1684,12 @@ body, .out,html
       +cover
       +tr(transform .3s)
       transform: scale(0.9)
+      +r(991)
+        display: none
     &-main
       +tr(background .3s)
       +rem(padding,50px 0 40px)
+      backface-visibility: hidden
       .u-light
         color: $text
         span
@@ -1684,6 +1698,8 @@ body, .out,html
         .u-number
           display: block
           font-weight: 300
+      .btn
+        will-change: opacity
       .doptext
         opacity: 0
         +tr(opacity .3s)
@@ -1847,6 +1863,7 @@ body, .out,html
     justify-content: space-between
     align-items: center
     position: relative
+    z-index: 2
     +r(768)
       justify-content: center
       .m-nav-link
@@ -1897,6 +1914,7 @@ body, .out,html
   &:after
     background-image: url(../img/icons/arrow_forwardb.svg)
 .menu_reload
+  contain: paint
   & + .box-standart
     +rem(margin-top,40px)
     +r(544)
@@ -2320,6 +2338,7 @@ body, .out,html
     position: relative
     overflow: hidden
     white-space: nowrap
+    contain: paint
     +rm(544)
       +rem(padding, 70px 0)
     +rm(991)
@@ -2331,8 +2350,10 @@ body, .out,html
         +rem(margin-bottom,-40px)
         overflow-y: visible
     &+ .arrow-wrapper
+      +rem(margin-top,10px)
       +rm(544)
         display: none
+
 
   &-column
     +rem(width,294px)
@@ -2358,6 +2379,7 @@ body, .out,html
     padding-bottom: 100%
     font-size: 0  
     +cover
+    overflow: hidden
     // +r(544)
     //   width: 50%  
 .simply-scroll-clip  
@@ -2367,6 +2389,8 @@ body, .out,html
   padding-bottom: 0 
   .btn 
     +rem(margin-top,25px)
+    +r(544)
+      +rem(padding, 10px )
 
 .modal-layout
   position: fixed
@@ -2383,6 +2407,7 @@ body, .out,html
   visibility: hidden
   transition: opacity .2s, transform .2s, visibility .2s
   +vertical
+  contain: paint
   &.modal-right
     text-align: right
     &:before
@@ -3014,11 +3039,17 @@ body, .out,html
       text-transform: uppercase 
       +r(1400)
         +rem(padding, 6px 8px)
+      +r(544)
+        +rem(padding, 8px 8px 4px) 
       sup
         display: inline-block
         vertical-align: top
+        +r(544)
+          +rem(margin-top,-1px)
       &.small
         +rem(padding,10px 12px)
+        +r(544)
+          +rem(padding, 12px 12px 8px) 
 //ui-slider styles
 .ui
   &-slider
@@ -3381,6 +3412,9 @@ body, .out,html
     transition: 0.2s ease all; 
     -moz-transition: 0.2s ease all; 
     -webkit-transition: 0.2s ease all;
+    z-index: 1
+    +r(544)
+      +rem(top,22px)
     &:before
       +rem(font-size,12px)
 
@@ -3555,6 +3589,12 @@ body, .out,html
     +rem(margin,11px 0 0 21px)
     opacity: 0
     pointer-events: none
+    +r(544)
+      +rem(margin, 12px auto)
+      float: none
+      display: block
+  &:not(.succes)
+    +rem(margin-bottom,12px)   
   &.succes
     &+.trans-btn
       opacity: 1
