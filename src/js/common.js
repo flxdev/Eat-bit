@@ -1,6 +1,21 @@
 $(document).ready(function() {
+function checkForFlex(){
+	var curAddress = window.location.toString(),
+		targetAddress = "http://localhost:8080/zagl.html";
+		console.log(curAddress,targetAddress)
+	function NaiveFlexBoxSupport(d){
+	  var f = "flex", e = d.createElement('b');
+	  e.style.display = f;
+	  return e.style.display == f;
+	}
 
-
+	if (NaiveFlexBoxSupport(document) == false && (targetAddress.toString() != curAddress)){
+		console.log('redirect')
+		window.location.replace(targetAddress);
+	}else{
+		console.log('nope')
+	}
+}checkForFlex();
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
