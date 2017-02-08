@@ -29,7 +29,7 @@ block content
             .input-item.s-50
               .input-wrapper.req.disabled.has-success
                 input.input-main(type="email",data-validation="email required",data-validation-error-msg="Не заполнено", value='es@flxmd.by')
-                label.input-label E-mail 
+                label.input-label
             .input-item.s-50
               .input-wrapper.req
                 input.input-main(type="tel",data-validation="custom required",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
@@ -42,7 +42,7 @@ block content
                 .select-u-item
                   .input_label
                     span.input_main
-                      span.input-real
+                      input.input-real(type="checkbox", name='deliveryAddress', value ='1',data-validation="required")
                       span.input-checked
                 .text1 г. Москва, ул. Арбат, д. 20, кв./оф. 120
                 .smalllight Подъезд: 3, Этаж: 4 
@@ -51,11 +51,11 @@ block content
                 ul.checkbox-wrap.day-check
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="radio",name='firstday',value = 'sdf',data-validation="required")
                       span.input-fake Первый день
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="checkbox",name='nextAddress',value = 'sdf')
                       span.input-fake Другой день
                 .inputs-cont
                   .input-item.s-50
@@ -89,7 +89,7 @@ block content
                 .select-u-item
                   .input_label
                     span.input_main
-                      span.input-real
+                      input.input-real(type="checkbox", name='deliveryAddress',value ='2',data-validation="required")
                       span.input-checked
                 .text1 г. Москва, ул. Мележа, д. 4, кв./оф. 15
                 .smalllight Подъезд: 3, Этаж: 4 
@@ -98,11 +98,11 @@ block content
                 ul.checkbox-wrap.day-check
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="radio",name='firstday',value = 'sdf',data-validation="required")
                       span.input-fake Первый день
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="checkbox",name='nextAddress',value = 'sdf')
                       span.input-fake Другой день
                 .inputs-cont
                   .input-item.s-50
@@ -136,7 +136,7 @@ block content
                 .select-u-item
                   .input_label
                     span.input_main
-                      span.input-real
+                      input.input-real(type="checkbox", name='deliveryAddress', value ='3',data-validation="required")
                       span.input-checked
                 .text1 г. Москва, ул. Кольцова, д. 87, корп. 4, кв./оф. 540
                 .smalllight Подъезд: 3, Этаж: 4 
@@ -145,11 +145,11 @@ block content
                 ul.checkbox-wrap.day-check
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="radio",name='firstday',value = 'sdf',data-validation="required")
                       span.input-fake Первый день
                   li.checkbox-item
                     label.checkbox-outer 
-                      input.input-real(type="radio",name='group4',value = 'sdf',data-validation="required")
+                      input.input-real(type="checkbox",name='nextAddress',value = 'sdf')
                       span.input-fake Другой день
                 .inputs-cont
                   .input-item.s-50

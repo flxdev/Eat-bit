@@ -1,21 +1,26 @@
 $(document).ready(function() {
-function checkForFlex(){
-	var curAddress = window.location.toString(),
-		targetAddress = "http://localhost:8080/zagl.html";
-		console.log(curAddress,targetAddress)
-	function NaiveFlexBoxSupport(d){
-	  var f = "flex", e = d.createElement('b');
-	  e.style.display = f;
-	  return e.style.display == f;
-	}
+// function checkForFlex(){
+// 	var curAddress = window.location.toString(),
+// 		// поменять ссылку
+// 		targetAddress = "http://localhost:8080/zagl.html";
+// 	function NaiveFlexBoxSupport(d){
+// 		var f = "flex", e = d.createElement('b');
+// 		e.style.display = f;
+// 		return e.style.display == f;
+// 	}
 
-	if (NaiveFlexBoxSupport(document) == false && (targetAddress.toString() != curAddress)){
-		console.log('redirect')
-		window.location.replace(targetAddress);
-	}else{
-		console.log('nope')
+// 	if (NaiveFlexBoxSupport(document) == false && (targetAddress.toString() != curAddress)){
+// 		window.location.replace(targetAddress);
+// 	}
+// }checkForFlex();
+function openOnLoad(){
+	var scrollItem = window.location.hash;
+	if($(scrollItem).length){
+    	var destination = $(scrollItem).offset().top;
+		$("html,body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
 	}
-}checkForFlex();
+	return false
+}openOnLoad();
 (function(){
 
 	var mainHeader = $('.out .cd-auto-hide-header'),
@@ -189,12 +194,6 @@ function stick(){
 	} else return false
 }stick();
 
-
-
-
-
-
-
 function Accordeon(){
 	if($('.js-accordion-trigger').length){
 	var maintrigger = $('.js-accordion-trigger'),
@@ -203,15 +202,36 @@ function Accordeon(){
 		maintrigger.not('.active').siblings(body).hide();
 		truetrigger.on('click',function(event){
 			var parent = $(this).parent(),
-				target = parent.find(body);
+				target = parent.find(body),
+				inp = $(this).find('input'),
+				otherday = target.find('input[name="nextAddress"]');
+				
 			if(parent.hasClass('active')){
+
+				inp.prop('checked',false);
 				parent.removeClass('active').find(body).slideUp(300);
+				var checklength = $('.address-wrapper').children('.active').length;
+				Nexdate($('.address-item '),checklength);
+				// otherday.data('validation','required').data('data-validation-qty',"min" + (checklength-1))
 			}else{
-				parent.addClass('active').find(body).slideDown(300, function(){
-				});
+				parent.addClass('active').find(body).slideDown(300);
+				inp.prop('checked',true);
+				var checklength = $('.address-wrapper').children('.active').length;
+				Nexdate($('.address-item'),checklength);
 			}
+			// console.log(inp.prop('checked'));
 		});
 	}
+	truetrigger.each(function(){
+		var _ = $(this),
+			cls = 'active';
+		_.on('reinit', function(){
+			var inp = _.find('input');
+
+			_.hasClass(cls) ? inp.prop('checked', true) : inp.prop('checked', false)
+		});
+	});
+	truetrigger.trigger('reinit');
 }Accordeon();
 
 function mobileFilter(){
@@ -222,6 +242,18 @@ function mobileFilter(){
 	})
 }mobileFilter();
 
+function Nexdate(block,val){
+	console.log(val)
+	block.each(function(){
+		if(val > 1){
+			$(this).find('input[name="nextAddress"]').attr('data-validation','required').attr('data-validation-qty',"min" + (val -1 ));
+		}else{
+			$(this).find('input[name="nextAddress"]').removeAttr('data-validation data-validation-qty');
+		}
+		
+	});
+	
+}
 
 
 function FocusI(){
@@ -335,11 +367,10 @@ function subscribe(){
 $(".js-scroll").on('click', function () {
     var elementClick = $(this).attr("href");
     var destination = $(elementClick).offset().top;
-    console.log(elementClick,destination );
     if(elementClick == '#zakaz'){
-    	$("body:not(:animated), .out:not(:animated)").animate({scrollTop: 300}, 500);
+    	$("html, body:not(:animated), .out:not(:animated)").animate({scrollTop: 300}, 500);
     }else{
-    	$("body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
+    	$("html, body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
     }
 });
 function FocusInput(){
@@ -723,6 +754,7 @@ validateForms();
 popUpsInit();
 initCustomSelectList();
 AddressInput();
+AddressValid();
 //end of document ready
 });
 //end of document ready
@@ -1447,6 +1479,7 @@ function validateForms(){
 				borderColorOnError : true,
 				scrollToTopOnError : false,
 				onSuccess : function($form) {
+					console.log('success')
 					ajaxSubmit($form);
 					return false;
 				},
@@ -1641,3 +1674,26 @@ function AddressInput(){
 		});
 	}
 }
+// function addressCheck(form){
+// 	if(form.find('.address-item').length){
+
+// 		var item = $('.address-item.active');
+// 		if(item.length > 1){
+// 			item.each(function(){
+// 				var _ = $(this),
+// 				firstdayinp = _.find('input[name="firstday"]');
+				
+// 			});
+// 			item.hasClass('error') ? false : true
+// 		}
+// 	}else{
+// 		return true
+// 	}
+// }
+function AddressValid(){
+	var cont = $('.day-check');
+	items = cont.find('.checkbox-item');
+	items.on('click','label' , function(){
+		$(this).parent().siblings().find('input').prop('checked', false);
+	});
+};

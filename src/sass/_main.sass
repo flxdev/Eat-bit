@@ -25,6 +25,7 @@ button
 a
   text-decoration: none
   transition: color .3s
+  color: $text
   // &:hover
 *
   -webkit-tap-highlight-color: transparent
@@ -388,7 +389,6 @@ body, .out,html
       &-item,.header__menu__links-bold
         display: inline-block
         vertical-align: top
-
         li 
           font-size: 0
         a 
@@ -406,20 +406,20 @@ body, .out,html
           &:hover
             color: #000
       &-item
-        width: 40%
+        width: 38%
         +r(991)
           width: 33.33%
         +r(544)
           width: 100%
           text-align: center                
-        &:first-child
+        &:first-of-type
           width: 38%
           +r(991)
             width: 33.33%
           +r(544)
             width: 100%
             text-align: center            
-        &:nth-child(2)
+        &:nth-of-type(2)
           width: 42%
           +r(991)
             width: 33.33%    
@@ -891,12 +891,12 @@ body, .out,html
           +rem(border-bottom-right-radius,17px)
         .help-block
           position: absolute
-          z-index: -1
-          height: 0;
-          width: 0;
-          top: 100px;
-          left: 100px;
-          display: none
+          +rem(bottom, -18px)
+          top: auto
+          color: red
+          +rem(font-size,13px)
+          left: 0
+          opacity: 1
 
   &-mailto
     .u-light
@@ -2100,6 +2100,8 @@ body, .out,html
       +rem(margin-bottom,20px)
       +rem(max-width,405px)
       display: inline-block
+      a 
+        color: $text
       span
         font-weight: 700
     .icon-link
@@ -2897,7 +2899,7 @@ body, .out,html
     width: 33%
     text-align: center
     +rem(padding, 0 16px)
-    &:nth-child(n+4)
+    &:nth-child(n+5)
       +rm(544)
         +rem(margin-top,20px)
     +r(544)
@@ -3042,7 +3044,6 @@ body, .out,html
       +r(544)
         +rem(padding, 8px 8px 4px) 
       sup
-        display: inline-block
         vertical-align: top
         +r(544)
           +rem(margin-top,-1px)
@@ -3050,6 +3051,10 @@ body, .out,html
         +rem(padding,10px 12px)
         +r(544)
           +rem(padding, 12px 12px 8px) 
+.bx-firefox
+  .checkbox-outer .input-fake sup
+    display: inline-block
+    +rem(margin-top,-3px)      
 //ui-slider styles
 .ui
   &-slider
@@ -4243,10 +4248,10 @@ select
   &-item
     border-bottom: 1px solid $borderl
     &.active
-      .input-checked:before
-        opacity: 1;
-      .input-checked
-        border: 1px solid $borderl; 
+      // .input-checked:before
+      //   opacity: 1;
+      // .input-checked
+      //   border: 1px solid $borderl; 
       .address-head
         .smalllight
           opacity: 1
@@ -4282,6 +4287,9 @@ select
       display: block
       +rem(margin-top,5px)
       +rem(padding-left,35px)
+    .input_main.has-error
+      .input-checked
+        border-color: red
 
 .select-u-item
   display: inline-block;
@@ -4647,9 +4655,10 @@ blockquote
   +rem(font-size,24px)
   +rem(padding,50px 20px 66px)
   +rem(max-width,800px)
-  display: inline-block
+  display: block
   color: $text
-  // font-style: italic
+  margin-left: auto
+  margin-right: auto
   text-align: center
   line-height: 1.35
   font-weight: 900
@@ -4700,6 +4709,7 @@ blockquote
     text-align: center
     width: 33.33%
     +rem(padding, 0 25px)
+
     &:nth-child(n+4)
       +rm(991)
         +rem(margin-top,20px)
@@ -4717,6 +4727,9 @@ blockquote
       margin: 0 auto
       span
         font-weight: 700
+      a
+        font-weight: 700
+        color: $text
 .box-full.gray
   .sort_wrapper
     display: flex
@@ -5216,7 +5229,6 @@ blockquote
 #zakaz
   position: relative
 sup
-  display: inline-block
   vertical-align: top
 .is-hide
   display: none
