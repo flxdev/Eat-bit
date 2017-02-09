@@ -84,11 +84,10 @@ block content
                 label.input-label Комментарий для курьера
           .h-title.h5 Удобное время для доставки
           ul.checkbox-wrap
-            //в name будет меняться только последняя цифраЖ 1,2 ...
             mixin Check(name,name2)
               li.checkbox-item
                 label.checkbox-outer 
-                  input.input-real(type="radio",name='time-group1',value = name,data-validation="required")
+                  input.input-real(type="radio",name='DELIVERY_USER[TIME][]',value = name,data-validation="required")
                   span.input-fake.small
                     span #{name}
                       sup 00

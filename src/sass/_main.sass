@@ -952,12 +952,7 @@ body, .out,html
         position: relative
         +r(768)
            +rem(min-width,50px)
-        &:hover
-          +rm(991)
-            img:first-child
-              opacity: 0
-            img:last-child
-              opacity: 1
+
         &:nth-child(n+4)
           +rem(width,50px)
           min-width: 0
@@ -973,7 +968,8 @@ body, .out,html
           will-change: opacity
           &:last-child
             opacity: 0
-            z-index: 1
+            display: none
+            
   &-list
     width: 36%
     +rem(min-width,150px)
@@ -1948,11 +1944,11 @@ body, .out,html
           +rm(1500)
             &:nth-of-type(2),&:nth-of-type(5)
               margin-top: -5%
-            &:nth-of-type(7)
+            &:nth-of-type(7),&:nth-of-type(10),&:nth-of-type(12),&:nth-of-type(15),&:nth-of-type(17),&:nth-of-type(20)
               margin-top: -8.6%
             &:nth-child(4)
               margin-top: 3.5%
-            &:nth-child(6),&:nth-child(8)
+            &:nth-child(6),&:nth-child(8),&:nth-of-type(11),&:nth-of-type(13),&:nth-of-type(16),&:nth-of-type(18),&:nth-of-type(21)
               margin-top: -3.8%
           +screen(1150px,1499px)
             &:nth-child(even)
@@ -4279,6 +4275,7 @@ select
       line-height: 1
       +rem(letter-spacing,0.4px)
       transform: translateY(-4px)
+      max-width: 93%
       +r(544)
         width: 85%
     .smalllight
