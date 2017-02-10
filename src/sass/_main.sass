@@ -386,25 +386,30 @@ body, .out,html
         display: inline-block
       +r(544)
         +rem(margin-top,20px)
+      &-item
+        li 
+          a
+            +rem(font-size,16px)
+            color: #747474
+            font-weight: 300
+            line-height: 1.438;
+            +tr(color .3s)
+            display: inline-block
+            width: 100%
+            height: 100%
+            +rem(padding,8px 0 8px)
+            +r(544)
+              +rem(font-size,24px)   
+            
       &-item,.header__menu__links-bold
         display: inline-block
         vertical-align: top
         li 
           font-size: 0
-        a 
-          +rem(font-size,16px)
-          color: #747474
-          font-weight: 300
-          line-height: 1.438;
-          +tr(color .3s)
-          display: inline-block
-          width: 100%
-          height: 100%
-          +rem(padding,8px 0 8px)
-          +r(544)
-            +rem(font-size,24px)   
-          &:hover
+          a:hover
             color: #000
+        .header__menu__links-head:hover
+          color: #000
       &-item
         width: 38%
         +r(991)
@@ -425,7 +430,10 @@ body, .out,html
             width: 33.33%    
           +r(544)
             width: 100%
-            text-align: center      
+            text-align: center
+        ul 
+          +rem(margin-top,3px)
+          display: block    
       .header__menu__links-bold
         width: 20%
         +r(991)
@@ -443,9 +451,7 @@ body, .out,html
         font-weight: 300
         color: #747474
         line-height: 1.667;
-        ul 
-          +rem(margin-top,3px)
-          display: block
+        display: block
         +r(544)
           +rem(font-size,40px)
     &__footer
@@ -926,11 +932,11 @@ body, .out,html
         li 
           +tr(opacity .25s)
           +r(768)
-            +rem(padding,10px 0)
+            a
+              +rem(padding,10px 0)
       .u-bold
         text-transform: uppercase
-        +rem(padding-bottom,8px)
-        +rem(margin-bottom,13px)
+        +rem(padding-bottom,21px)
         +rem(font-size,14px)
     &-payment
       display: flex
@@ -945,23 +951,40 @@ body, .out,html
       //   width: 100%
       //   justify-content: center
       .payment-item
-        +rem(min-width,80px)
+        +rem(min-width,87px)
         +rem(height,45px)
         +rem(margin-right,0px)
         +rem(padding-bottom,20px)
         position: relative
+        +r(991)
+          +rem(padding-right,10px)
+          img
+            margin: 0 auto 0 0
+        &:nth-of-type(4)
+          +rm(991)
+            +rem(min-width,48px)
+            img
+              margin: 0 0 0 auto !important
+        &:first-of-type
+          +rm(991)
+            img
+              margin: 0 auto 0 0
+        &:nth-of-type(2)
+          +rm(991)
+            +rem(padding-left,10px)
         +r(768)
            +rem(min-width,50px)
-
-        &:nth-child(n+4)
-          +rem(width,50px)
-          min-width: 0
+        &:nth-child(n+5)
+          +rm(991)
+            +rem(width,66px)
+            min-width: 0
+            img 
+              margin: 0 auto 0 0
         img
           display: block
           +rem(max-width,70px)
           +rem(max-height,25px)
           margin: 0 auto
-          position: absolute
           top: 0
           left: 0
           +tr(opacity .3s)
@@ -977,18 +1000,19 @@ body, .out,html
       width: 50%
     &:hover
       +rm(991)
-        li:not(:hover)
+        a:not(:hover)
           opacity: 0.5
     .u-bold
-      +rem(margin-bottom,20px)
+      +rem(padding-bottom,20px)
       text-transform: uppercase
       +rem(font-size,14px)
-    li
-      +rem(margin-bottom,10px)
-      line-height: 1.07
+      display: block
       +tr(opacity .25s)
+    li
+      line-height: 1.07
       a 
-        +rem(padding,5px 0 10px)       
+        +rem(padding,10px 0 15px) 
+        +tr(opacity .25s)      
 
   &__footer
     background: #000
@@ -3370,6 +3394,27 @@ body, .out,html
     +tr(border .3s)
     +rem(border-radius,2px)
     +rem(margin-bottom,25px)
+    .block-remover
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      background-color: #FFF
+      +vertical
+      +rem(width, 57px)
+      cursor: pointer
+      &:hover
+        i
+          opacity: 1
+      i 
+        display: inline-block
+        vertical-align: middle
+        +rem(width,12px)
+        +rem(height,12px)
+        opacity: .7
+        +tr(opacity .3s)
+        +contain
+        background-image: url(../img/icons/close_menu.svg)
     &.w33 
       width: 30%
       vertical-align: top
@@ -3531,6 +3576,12 @@ body, .out,html
             +rem(width,160px)
             +rem(margin, 20px auto 0)
             float: none
+          &.close
+            i 
+              margin-right: .55rem
+              +rem(margin-top,2px)
+
+
       .table
         +rem(margin-bottom,20px)
       .form-buttons,.form-total

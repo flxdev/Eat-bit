@@ -747,14 +747,17 @@ function Accordeon(){
 		var maintrigger = $('.js-accordion-trigger'),
 			body = $('.js-accordion-body'),
 			truetrigger = maintrigger;
+
 		maintrigger.not('.active').siblings(body).hide();
-		truetrigger.on('click',function(event){
+		truetrigger.off('click').on('click',function(event){
 			var parent = $(this).parent(),
 				target = parent.find(body),
 				inp = $(this).find('input');
+
 			if(parent.hasClass('active')){
 				parent.removeClass('active').find(body).slideUp(300);
 				inp.prop('checked',false);
+				parent.find(body).find('.datepicker').val('').parent().removeClass('has-success');
 				//var checklength = $('.address-wrapper').children('.active').length;
 				//Nexdate($('.address-item '),checklength);
 			}else{
@@ -764,6 +767,18 @@ function Accordeon(){
 				//Nexdate($('.address-item'),checklength);
 			}
 		});
+		truetrigger.each(function(){
+
+			var _ = $(this),
+				cls = 'active',
+				inp = _.find('input');
+				console.log(_.find('input').prop('checked'));
+
+			_.on('reinit', function(){
+				inp.prop('checked') == true ? _.addClass(cls).siblings(body).show() : _.removeClass(cls).siblings(body).hide()
+			});
+		});
+		truetrigger.trigger('reinit');
 	}
 }Accordeon();
 
@@ -1879,7 +1894,7 @@ var item = $( ".datepicker" );
 			monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
 			dateFormat: 'dd.mm.yy',
 			firstDay: 1,
-			minDate: 0,
+			minDate: 1,
 			beforeShow: function() {
 				setTimeout(function() {
 					updateToSelectMenu()
@@ -2149,6 +2164,11 @@ function AddBlock(){
 					block.remove();
 				}
 			});
+			$(this).on('click','.js-block-delete',function(){
+				var _ = $(this),
+					block =  _.closest('.'+addedClass);
+					block.remove();
+			});
 			//меняем послежднюю цифру инпута
 			function ChangeInputsGroup(oldblock){
 				if(oldblock.find('.checkbox-wrap:not(.day-check)').find('input[name^="DELIVERY_TIME_"]').length){
@@ -2257,10 +2277,12 @@ function AddressInput(){
 				var val = $(this).val();
 				val.length === 0 ? $region.suggestions('clear') : false
 			});
-
+			$house.add($street).on('focus',function(){
+				
+			});
 			// должно срабатывать, если поля заполнены
 			// console.log($region.val().length,$city.val().length,$street.val().length,$house.val().length)
-			if($city.val().length != 0 && $street.val().length != 0 && $house.val().length != 0 && !$city.parents('.is-hide').length != 0){
+			if($city.val() != undefined   && $street.val() != undefined && $house.val() != undefined ){
 				$house.suggestions().fixData();
 			}
 		});
