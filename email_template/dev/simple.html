@@ -1,0 +1,83 @@
+{% extends "extends/simple.html" %}
+{% include "macro/macro.html" %}
+
+{% block content %}
+
+    {% markdown %}
+
+    # Здравствуйте, Екатерина Егорова! 
+
+    {% endmarkdown %}
+    <p>Спасибо, что выбрали Eat-Bit! </p>
+    <p>Ваш заказ №123 на комплексную программу здорового питания успешно принят в обработку. Наш менеджер обязательно свяжется с вами в течение рабочего дня для уточнения всех деталей.</p>
+    <p class='small'>График работы: ежедневно с 10<sup>00</sup> до 18<sup>00</sup></p>
+    <div class="offer-container">
+        <h2>Детали заказа</h2>
+        <table class="offer-table" cellpadding="0" align="center">
+            <tr>
+                <td>Рацион</td>
+                <td>2300-2600 ккал.</td>
+            </tr>
+            <tr>
+                <td>Длительность</td>
+                <td>2 недели</td>
+            </tr>
+            <tr>
+                <td>Контактный телефон</td>
+                <td>+7 (495) 561-45-45</td>
+            </tr>
+        </table>
+        <h2>Доставка</h2>
+        <table class="offer-table" cellpadding="0" align="center">
+            <tr>
+                <td>Дата первой доставки</td>
+                <td>06.02.2017</td>
+            </tr>
+            <tr>
+                <td>Адрес доставки</td>
+                <td>г. Москва, ул. Арбат, д. 120, под. 3, кв. 145, эт. 15</td>
+            </tr>
+            <tr>
+                <td>Время доставки</td>
+                <td>07<sup>00</sup>–08<sup>00</sup></td>
+            </tr>
+        </table>
+        <div class="result">
+            <table class="offer-table" cellpadding="0" align="center">
+                <tr>
+                    <td>Стоимость</td>
+                    <td>23 000 ₽</td>
+                </tr>
+            </table>
+        </div>
+        <table class='notify-block'>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="images/i.png" alt="">
+                    </td>
+                    <td>Внимание: заказ обмену или возврату не подлежит.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images/i.png" alt="">
+                    </td>
+                    <td>Если мы не сможем связаться с вами в течении 20 минут в пределах указанного временного промежутка доставки — курьер едет на следующую точку доставки. Повторный приезд +250р.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images/i.png" alt="">
+                    </td>
+                    <td>Смена адреса доставки возможна не позднее 1800 дня, предшествующего заказу. Позднее — доставка платная +250р. в период до 12<sup>00</sup>.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="dopinfo">
+        Благодарим за ваш выбор. Питайтесь вкусно и сбалансировано!
+        <br>
+        Администрация сервиса здорового питания <a href="#">Eat Bit</a>.<br>
+        <span>+7 (926) 02-01-48</span>
+    </p>
+
+{% endblock %}

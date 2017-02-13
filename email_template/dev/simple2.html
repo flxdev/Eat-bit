@@ -1,0 +1,25 @@
+{% extends "extends/simple.html" %}
+{% include "macro/macro.html" %}
+
+{% block content %}
+
+    {% markdown %}
+
+    # Здравствуйте, Константин!
+
+    Мы рады, что Вы присоединились к нам!
+    {% endmarkdown %}
+    <div class="bordercont">
+        <p>Для завершения регистрации осталось всего лишь активировать Ваш аккаунт, перейдя по ссылке или нажав на кнопку:</p>
+        <a href="">https://polesie-market.by/?call=auth&action=registration_co=40320&tken=
+39971dd6848c87572dc599718c0d48bf&return=https%3A%2F%2</a>
+        <div>{{ button('http://google.com', 'Подтвердить') }}</div>
+    </div>
+    <p class="dopinfo">
+        По всем возникающим вопросам вы можете обратиться к нашему менеджеру по работе с клиентами по телефону
+        <span>
+           +375 29 605 05 05 
+        </span>
+    </p>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <style type="text/css">
+        {% include "styles.css" %}
+    </style>
+    <!--[if (gte mso 9)|(IE)]>
+    <style type="text/css">
+        table { border-collapse: collapse; }
+        .button { padding:0 !important; }
+    </style>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="body">
+        {{ msoStart('600', 'top', '600', 'padding-left: 50px; padding-right:50px;') }}
+        <table class="layout" cellpadding="0" align="center">
+            <tr>
+            <!-- стартуем -->
+                <td class="row head">
+                    <div class="column">
+                        <table width="100%">
+                            <tr>
+                                <td class="cell">
+                                    {% include "partials/header.html" %}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <!-- контент стартует отсюда -->
+            <tr>
+                <td class="row content">
+                    <div class="column">
+                        <table width="100%">
+                            <tr>
+                                <td class="cell">
+                                    {% block content %}{% endblock %}
+                                    {% block goods %}{% endblock %}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <!-- футер стартует отсюда -->
+            <tr>
+                <td class="row">
+                    <div class="column">
+                        <div class="divider"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="row footer">
+                    <div class="column footer-column">
+                        <table width="100%">
+                            <tr>
+                                <td class="cell" valign='middle'>
+                                    <table width="100%">
+                                        <tr'>
+                                            <td class="col-50" style='width:60%;'>
+                                                 <p class="credits">Давайте дружить! Всё самое интересное и полезное вы найдёте в наших группах</p>    
+                                            </td>
+                                            <td class="col-50" style="text-align: right;">
+                                                <a class="social" target="_blank" href="#"><img src="images/fb.png" alt="facebook"/></a>
+                                                <a class="social" target="_blank" href="#"><img src="images/inst.png" alt="youtube"/></a>
+                                            </td>                                         
+                                        </tr>
+                                        <tr>
+                                            <td colspan="100">
+                                                <p>Это письмо было отправлено автоматически. Если вы считаете, что получили его по ошибке, просто проигнорируйте его.</p> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        {{ msoEnd() }}
+    </div>
+</body>
+
+</html>
