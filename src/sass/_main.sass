@@ -13,6 +13,9 @@ input::-webkit-inner-spin-button
 input[type="password"]
   font: small-caption
   line-height: 1.65
+  &+.input-label
+    +r(544)
+      +rem(top,25px)
 .input-wrapper.has-success
   input[type="password"]
     line-height: 1.6
@@ -34,15 +37,7 @@ a
 
     +rem(letter-spacing, 0.2px)
     font-size: 11px
-  +rm(768)
-    +scrollbar
-      +rem(width,4px)
-      // background: $graybg
-    ::-webkit-scrollbar-thumb 
-      +rem(width,6px)
-      +rem(border-radius,3px)
-      background: #888888
-      cursor: pointer
+
 textarea
   line-height: 1.5
   resize: none
@@ -91,6 +86,17 @@ body, .out,html
   +r(991)
     overflow-x: hidden
 // main page layout
+.header-fixed-wrap
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  z-index: 10
+  visibility: hidden
+  // overflow-x: hidden
+  // overflow-y: visible
+  +rm(991)
+    +rem(height,160px)
 .page
   &__wrapper
     background-color: #fff
@@ -105,20 +111,20 @@ body, .out,html
     display: block
     height: 100%
   &__header
-    position: fixed
-    +rem(height,100px)
-    left: 0
-    right: 0
-    top: 0
     background: $white
     display: flex
     flex-wrap: nowrap
     justify-content: space-between
     align-items: center
-    z-index: 20
+    position: relative
+    visibility: visible
+    // +gpu
+    // height: 100%
+    +rem(height,100px)
     transition: height .3s, padding .3s,box-shadow .3s
     will-change: height, padding, box-shadow
     +rem(padding,32.5px 50px 30px 50px)
+    // backface-visibility: hidden
     &.inner
       .header__navs--nav
         display: none
@@ -137,12 +143,6 @@ body, .out,html
         +rem(padding-top,15px)
         +rem(padding-bottom,15px)
         box-shadow: 0px 0px 18px 0px rgba( 0, 0, 0,.2 );
-        // .header__navs--nav
-        //   width: 0
-        //   margin: 0
-        //   opacity: 0
-        // .header__navs--phone
-        //   +rem(margin-right,50px)
         .header__logo
           padding-left: 8%
         .header__navs--cart
@@ -150,6 +150,7 @@ body, .out,html
           +rem(padding-bottom, 11px)
           +rem(margin-top, -18px)
           +rem(margin-bottom, -18px)
+
     +r(1150)
       +rem(padding,32.5px 25px 30px 25px)
     +r(991)
@@ -167,6 +168,16 @@ body, .out,html
     background: $white
     +rem(padding,100px 50px 103px 50px)
     flex: 1 0 auto
+    * 
+      +rm(768)
+        +scrollbar
+          +rem(width,4px)
+          // background: $graybg
+        ::-webkit-scrollbar-thumb 
+          +rem(width,6px)
+          +rem(border-radius,3px)
+          background: #888888
+          cursor: pointer
     +r(991)
       overflow-x: hidden
     +r(1150)
@@ -613,8 +624,10 @@ body, .out,html
       +rem(margin,-42px -50px -19px 0)
       +rem(padding,42px 50px 25px 40px)
       height: 100%  
+      backface-visibility: hidden
       transition: margin .3s, padding .3s, background .3s
       will-change: margin, padding
+
       +r(991)
         // +rem(margin,-16px -25px -15px 0)
         // +rem(padding,16px 25px 15px 25px)
@@ -880,6 +893,7 @@ body, .out,html
           +rem(padding,0 17px)
           font-family: cera
           +rem(border-radius,17px)
+          width: calc(100% - 8.75rem)
           +placeholder
             font-family: cera
           +r(480)
@@ -1205,7 +1219,7 @@ body, .out,html
   border-radius: 50%
   border: 1px solid #777777
   position: fixed
-  z-index: 4
+  z-index: 8
   +rem(right, 50px)
   +rem(bottom, 40px)
   transform: translateY(100px)
@@ -1359,7 +1373,8 @@ body, .out,html
         .slick-arrow
           +rm(991)
             // margin-top: 0
-            height: 100%   
+            height: 100%
+            +rem(min-height,98px)
         +r(991)
           background: transparent
     .u-light
@@ -1615,7 +1630,7 @@ body, .out,html
     &.no-arr
       +rem(padding,8px 25px)
       +r(544)
-        +rem(padding,10px 25px 6px)
+        +rem(padding,8px 25px 6px)
       &:before,&:after
         display: none
   &.btn-black
@@ -1627,6 +1642,8 @@ body, .out,html
     +rem(letter-spacing,0.8px)
     &:hover
       opacity: 1
+    +r(544)
+      +rem(padding,13px 40px 11px 40px)
   &.btn-big
     +rem(padding,23px 82px)
     +rem(border-radius,40px)
@@ -1915,14 +1932,18 @@ body, .out,html
     text-align: left
     &:after
       left: 0
-      +rem(top,1.5px)
+      +rem(top,1px)
       transform: scale(-1,1)
+      +r(544)
+        +rem(left,5px)
   &.right
     +rem(padding-right,20px)
     text-align: right
     &:after
       right: 0
-      +rem(top,1.5px)
+      +rem(top,1px)
+      +r(544)
+        +rem(right,5px)
   &:not(.disabled):hover
     opacity: 1
   &:after
@@ -2143,8 +2164,8 @@ body, .out,html
   &:before
     content: counter(num)
     display: block
-    +rm(544)
-      +rem(margin-top,-3px)
+    +r(544)
+      +rem(margin-top,2px)
     
 .props
   +rem(margin,15px 0)
@@ -2872,6 +2893,10 @@ body, .out,html
             .input-fake
               +rem(padding-top,5px)
               +rem(padding-bottom,5px)
+          +r(1650)
+            .input-fake
+              +rem(padding-left,12px)
+              +rem(padding-right,12px)
         .form-footer
           +rem(margin,0 -50px)
           +rem(padding,35px 50px 0)
@@ -2991,7 +3016,7 @@ body, .out,html
       .programm-value
         font-family:  cera
         display: inline-block
-        vertical-align: middle
+        // vertical-align: middle
         font-weight: 400
         +rem(font-size,16px)
         +rem(letter-spacing,0.6px)
@@ -3060,10 +3085,10 @@ body, .out,html
       +rem(border-radius, 30px)
       transition: background .3s, border-color .3s
       text-transform: uppercase 
-      +r(1400)
-        +rem(padding, 6px 8px)
-      +r(544)
-        +rem(padding, 8px 8px 4px) 
+      // +r(1400)
+      //   +rem(padding, 6px 8px)
+      // +r(544)
+      //   +rem(padding, 8px 8px 4px) 
       sup
         vertical-align: top
         +r(544)
@@ -3614,7 +3639,7 @@ body, .out,html
           +rem(padding,19px 79px)
           +rem(min-width,273px)
           +r(480)
-            +rem(padding,19px 49px)
+            +rem(padding,21px 49px 18px)
 .promo-form
   width: 100%
   +rem(max-width,270px)

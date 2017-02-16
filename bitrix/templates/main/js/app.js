@@ -561,6 +561,9 @@ $(document).ready(function() {
 // 		window.location.replace(targetAddress);
 // 	}
 // }checkForFlex();
+// $('body').add('.out').add('.page__outer').on('touchstart', function(){
+// 	console.log(1)
+// });
 function openOnLoad(){
 	var scrollItem = window.location.hash;
 	if($(scrollItem).length){
@@ -573,7 +576,7 @@ function openOnLoad(){
 }openOnLoad();
 (function(){
 
-	var mainHeader = $('.out .cd-auto-hide-header'),
+	var mainHeader = $('.cd-auto-hide-header'),
 		secondaryNavigation = $('.cd-secondary-nav'),
 		belowNavHeroContent = $('.sub-nav-hero'),
 		headerHeight = mainHeader.height();
@@ -949,32 +952,21 @@ if($('#map').length){
 			mkad = wrap.data('mkad'),
 			at20km = wrap.data('20km'),
 			at30km = wrap.data('30km');
-			console.log(mkad,at20km,at30km)
 		var myMap = new ymaps.Map("map", {
-	            center: [55.73, 37.75],
-	            zoom: 8,
-	            controls: ['smallMapDefaultSet'],
-	        }, {
-	            
-	            balloonMaxWidth: 210
-	        }),
-	    		moscowPolygon,
-	    		moscowPolygon20,
-	    		moscowPolygon30;
-	    	// var myPlacemark11 = new ymaps.Placemark(
-		    //     [55.73, 37.75], {
-		    //         balloonContent: 'aaaaaaaa'
-		    //     }, {
-		    //         draggable: false,
-		    //         hideIconOnBallon: true,
-		    //     });
-			
-			
-	 		myMap.behaviors.disable(['rightMouseButtonMagnifier','ruler','scrollZoom']);
-	        myMap.controls.remove('typeSelector');
-	        myMap.controls.remove('searchControl');
-	        myMap.controls.remove('GeolocationControl');
-	        // myMap.geoObjects.add(myPl+acemark11);
+				center: [55.73, 37.75],
+				zoom: 8,
+				controls: ['smallMapDefaultSet'],
+			},{
+				balloonMaxWidth: 210
+			}),
+				moscowPolygon,
+				moscowPolygon20,
+				moscowPolygon30;
+
+			myMap.behaviors.disable(['rightMouseButtonMagnifier','ruler','scrollZoom']);
+			myMap.controls.remove('typeSelector');
+			myMap.controls.remove('searchControl');
+			myMap.controls.remove('GeolocationControl');
 	function onPolygonLoad30 (json) {
 		moscowPolygon30 = new ymaps.Polygon(json.coordinates, {},{
 			fillColor: '#ff980080',
@@ -1017,78 +1009,41 @@ if($('#map').length){
 
 	myMap.geoObjects.events.add('click', function (e) {
 		var target = e.get('target');
-        if (!myMap.balloon.isOpen()) {
-            var coords = e.get('coords');
-            var id = target.properties.get('id');
-            if(target == moscowPolygon){
+		if (!myMap.balloon.isOpen()) {
+			var coords = e.get('coords');
+			var id = target.properties.get('id');
+			if(target == moscowPolygon){
 				myMap.balloon.open(coords, {
 					contentHeader:'',
 					contentBody:'<p class="baloon-head">Стоимость доставки</p>' +
 					'<p class="baloon-content"><b>'+mkad+'</b></p>',
 					contentFooter:'<sup></sup>'
-				});     	
-            }
-            if(target == moscowPolygon20){
+				});
+			}
+			if(target == moscowPolygon20){
 				myMap.balloon.open(coords, {
 					contentHeader:'',
 					contentBody:'<p class="baloon-head">Стоимость доставки</p>' +
 					'<p class="baloon-content"><b>'+at20km+'</b></p>',
 					contentFooter:'<sup></sup>'
 				});     	
-            }
-            if(target == moscowPolygon30){
+			}
+			if(target == moscowPolygon30){
 				myMap.balloon.open(coords, {
 					contentHeader:'',
 					contentBody:'<p class="baloon-head">Стоимость доставки</p>' +
 					'<p class="baloon-content"><b>'+at30km+'</b></p>',
 					contentFooter:'<sup></sup>'
-				});     	
-            }
-            // if(myMap.geoObjects.geometry.contains(moscowPolygon)){
-            // 	console.log(1)
-
-            // }
-        }
-        else {
-            myMap.balloon.close();
-        }
-     //    if(target.geometry.getType() === 'Polygon') {
-     //    	console.log(1)
-   		// }
-    });
-    myMap.events.add('balloonopen', function (e) {
-        myMap.hint.close();
-    });
-
-// 	myMap.geoObjects.events.add('click', function(e) {
-
-// 	   var target = e.get('target');
-// 	   if(target.geometry.getType() === 'Polygon') {
-
-// 	     console.log(e.getIndex)
-
-// 	}
-
-// });
-
-    // myMap.geoObjects.events.add('click', function (e) {
-    // 	console.log(geoObjects.properties);
-    //     if (!myMap.balloon.isOpen()) {
-    //         var coords = e.get('coords');
-    //         myMap.balloon.open(coords, {
-    //             contentHeader:'Событие!',
-    //             contentBody:'<p>Кто-то щелкнул по карте.</p>' +
-    //                 '<p>Координаты щелчка: ' + [
-    //                 coords[0].toPrecision(6),
-    //                 coords[1].toPrecision(6)
-    //                 ].join(', ') + '</p>',
-    //             contentFooter:'<sup>Щелкните еще раз</sup>'
-    //         });
-    //     }
-    //     else {
-    //         myMap.balloon.close();
-    //     }
-    // });
+				});
+			}		
+		}
+		else {
+			myMap.balloon.close();
+		}
+	});
+	myMap.events.add('balloonopen', function (e) {
+		myMap.hint.close();
+	});
 } 
 
 }

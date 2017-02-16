@@ -11,12 +11,16 @@ html
 		include includes/_head.pug
 	body
 		//BEGIN out
+
 		.out#top
+			
+
 			.page__outer
 				.page__wrapper
-					//.inner для всех страниц кроме главной
-					header.page__header.cd-auto-hide-header(class={inner: value === 1})
-						include includes/_header.pug
+					//!!!!!!!нужен для решения бага сафари!!!!!
+					.header-fixed-wrap
+						header.page__header.cd-auto-hide-header
+							include includes/_header.pug			
 					main.page__content
 						block content
 					footer.page__footer(style='background-image: url(img/fbg.jpg);')
