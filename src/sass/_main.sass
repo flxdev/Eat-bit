@@ -91,7 +91,7 @@ body, .out,html
   left: 0
   right: 0
   top: 0
-  z-index: 10
+  z-index: 20
   visibility: hidden
   // overflow-x: hidden
   // overflow-y: visible
@@ -2685,6 +2685,9 @@ body, .out,html
       .form-footer
         border: 0
         padding-top: 0 !important
+        +r(1450)
+          margin: 0 -3.125rem !important
+          padding: 0 3.125rem 0 !important
         .btn
           +rem(margin-bottom,25px)
     .side-title
@@ -3361,7 +3364,8 @@ body, .out,html
   +rem(padding,14px 20px 11px);
   text-align: left
   font-family: cera
-
+  &:active
+    color: #1e2521
   .select-img
     position: absolute
     +rem(right,20px)
@@ -3569,7 +3573,7 @@ body, .out,html
     +rem(padding-bottom,0px)
     +rem(padding-top,20px)
     .pagehead-content
-      +rem(padding-bottom,85px)
+      +rem(padding-bottom,55px)
       +r(544)
         +rem(padding-bottom,25px)
     .inner-content
@@ -3698,7 +3702,7 @@ body, .out,html
     width: 25%
     +rem(max-width,65px)
     text-align: center
-
+    line-height: 1
 .elem-price
   font-weight: 700
   +rem(font-size,20px)
@@ -4928,9 +4932,9 @@ blockquote
         display: inline-block
         vertical-align: top
         +padlr(5px)
-        +rem(margin-top,4px)
+        +rem(margin-top,5px)
         &-item
-          +rem(width,35px)
+          +rem(width,41px)
           +rem(height,25px)
           display: inline-block
           +rem(line-height,25px)
@@ -4950,6 +4954,8 @@ blockquote
         .dots
           display: inline-block
           +rem(font-size,17px)
+          vertical-align: text-bottom
+          
   &-arr
     display: inline-block
     vertical-align: top
