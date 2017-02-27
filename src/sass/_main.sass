@@ -2164,8 +2164,8 @@ body, .out,html
   &:before
     content: counter(num)
     display: block
-    +r(544)
-      +rem(margin-top,2px)
+    +rm(544)
+      +rem(margin-top,-3px)
     
 .props
   +rem(margin,15px 0)
@@ -3101,9 +3101,11 @@ body, .out,html
         +r(544)
           +rem(padding, 12px 12px 8px) 
 .bx-firefox
+  .content-box sup,.news-inner-wrapper sup,.text2 sup
+    line-height: 1.55
   .checkbox-outer .input-fake sup
     display: inline-block
-    +rem(margin-top,-3px)      
+    +rem(margin-top,-1px)      
 //ui-slider styles
 .ui
   &-slider
