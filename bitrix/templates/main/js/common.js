@@ -16,10 +16,17 @@ $(document).ready(function() {
 // }checkForFlex();
 function openOnLoad(){
 	var scrollItem = window.location.hash;
+	setTimeout(function() {
+		window.scrollTo(0, 0);
+	}, 1);
 	if($(scrollItem).length){
-		var destination = $(scrollItem).position().top;
-		console.log(destination)
-		$("html,body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);	
+
+		setTimeout(function() {
+			var destination = $(scrollItem).position().top;
+			//console.log(destination)
+			$("html,body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
+		}, 100);
+
 	}
 }openOnLoad();
 (function(){
@@ -141,7 +148,17 @@ var sortItem = function(){
 	});
 };
 sortItem();
+function notReqInputs(){
+	var form = $('form');
+	form.on('blur','.input-main', function(){
+		var _ = $(this),
+			par = _.parent();
+			if(!par.hasClass('req')){
+				_.val().length != 0 ? par.addClass('has-success') : par.removeClass('has-success');
+			}
+	});
 
+}notReqInputs();
 function stick(){
 
 	var stickyElements = document.getElementsByClassName('js-sticky');
@@ -268,14 +285,16 @@ var input = $('.input-main');
 		}
 	}));
 }(jQuery));
-
 function sliderRange(){
-	var slider = $(".rangeinput" );
+	var slider = $(".rangeinput" ),
+		btn = slider.closest('form').find('.addtocart'),
+		link = "<a href='/cart/' class='btn btn-black'>В корзину</a>";
 	if(slider.length){
+		var h = 5;
 		slider.each(function(){
 			var _ = $(this);
 			_.slider({
-				animate: true,
+				animate: 'slow',
 				range: "min",
 				value: 1,
 				step: 1,
@@ -283,17 +302,28 @@ function sliderRange(){
 				min: 1,
 				max: 5,
 				create: function( event, ui ) {
-					calcWeek(ui.value,_)
+					calcWeek(ui.value,_);
+					replaceBtn(0,btn, link);
 				},
 				slide: function(event, ui) {
-					if(ui.value > 3 && ui.value <= 4){
-						return false;
+					if(ui.value > 3 && ui.value != 5){
+					_.slider('value',h)
+					return false
 					}
-					calcWeek(ui.value,_)
+					calcWeek(ui.value,_);
+					replaceBtn(0,btn, link);
+
 				},
 				change: function( event, ui ) {
+					if(ui.value > 3 && ui.value != 5){
+					_.slider('value',h)
+					return false
+					}
+					calcWeek(ui.value,_);
+					replaceBtn(0,btn, link);
 				}
 			});
+
 		});
 	}
 }sliderRange();
@@ -302,6 +332,7 @@ function calcWeek(value,slider){
 		totalSum = slider.parent().siblings().find('.form-total-count'),
 		totalWeek = slider.parent().siblings().find('.form-total-week'),
 		buy_btn = slider.parent().siblings().find('.addtocart'),
+		link = "<a href='/cart/' class='btn btn-black'>В корзину</a>",
 		one_click = slider.parent().siblings().find('.fastbuy');
 	values.each(function(){
 		var _ = $(this);
@@ -458,7 +489,7 @@ if($('#map').length){
 					contentBody:'<p class="baloon-head">Стоимость доставки</p>' +
 					'<p class="baloon-content">'+at20km+'</p>',
 					contentFooter:'<sup></sup>'
-				});     	
+				});
 			}
 			if(target == moscowPolygon30){
 				myMap.balloon.open(coords, {
@@ -467,7 +498,7 @@ if($('#map').length){
 					'<p class="baloon-content">'+at30km+'</p>',
 					contentFooter:'<sup></sup>'
 				});
-			}		
+			}
 		}
 		else {
 			myMap.balloon.close();
@@ -538,6 +569,10 @@ function newsSlider(){
 		});
 	});
 }
+$('.social-likes-order').socialLikes({
+    counters: false,
+});
+
 newsSlider();
 Menu();
 number();
@@ -1160,6 +1195,7 @@ function addToBasket(){
 		$(this).on('click', function(){
 			var $this = $(this),
 				ajaxaddid = $(this).data('id'),
+				link = "<a href='/cart/' class='btn btn-black'>В корзине</a>",
 				timeout;
 			$.ajax({
 				type: "POST",
@@ -1169,18 +1205,32 @@ function addToBasket(){
 				success: function(filter){
 					$('.header__navs--cart-inner').html(filter);
 					if($this.parents('form').hasClass('modal-form')){
+						link = "<a href='/cart/' class='btn btn-black closePopup'>В корзине</a>",
 						clearTimeout(timeout);
 						timeout = setTimeout(function() {
 							BX.showWait();
 							ajaxpost("/include/basket.php", "", ".ajax-cart__area");
 						}, 10);
 					}
+					replaceBtn(1,b_, link);
 				}
 			});
 			return false;
 		});
 	});
 }
+function replaceBtn(state,btn, link){
+	var a = $(link);
+	if(state === 1 && btn.attr('type','submit')){
+		btn.attr('type','hidden');
+		btn.parent().prepend(a);
+	}
+	if(state === 0 && btn.attr('type','hidden')){
+		btn.parent().find('a.btn-black').remove();
+		btn.attr('type','submit');
+	}
+}
+
 function updateToSelectMenu() {
 	$('.ui-datepicker-title select').selectmenu({
 		select: function(e) {
@@ -1196,7 +1246,15 @@ function datepick(){
 var item = $( ".datepicker" );
 	item.each(function(){
 
-		var _ = $(this);
+		var _ = $(this),
+            cur_date = new Date(),
+            hours = cur_date.getHours(),
+			offset;
+		if(hours >= 18){
+			offset = 2;
+        } else {
+			offset = 1;
+        }
 		_.datepicker({
 			changeMonth: true,
 			changeYear: true,
@@ -1204,7 +1262,7 @@ var item = $( ".datepicker" );
 			monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
 			dateFormat: 'dd.mm.yy',
 			firstDay: 1,
-			minDate: 1,
+			minDate: offset,
 			beforeShow: function() {
 				setTimeout(function() {
 					updateToSelectMenu()
@@ -1427,7 +1485,7 @@ function ajaxpostshow1(urlres, datares, popup, form){
 			$('body').addClass('modal_open');
 			$(form)[0].reset();
 			JS_ClearDropZone();
-			$('.star-item').removeClass('active');
+			$(form).find('.star-item').removeClass('active');
 		}
 	});
 }
@@ -1567,22 +1625,24 @@ function AddressInput(){
 		});
 	//}
 }
+
 function get_max_value(){
 	var order_form = $("#order_form_content"),
 		addresBlock = $('.more-block');
 	if(order_form){
 		var target_input = order_form.find("input[name='ORDER_PROP_5']"),
+			delivery = order_form.find("input[name='ORDER_PROP_6']"),
 			arr = [];
 		addresBlock.each(function(){
 			var _ = $(this),
 				addr_input = _.find('.addr_dist');
 				if(addr_input.length > 1){
 					addr_input.each(function() {
-						var dist_input = $(this);;
+						var dist_input = $(this);
 						if(dist_input.parents('.address-item').hasClass('active')){
 							val = dist_input.val();
 						}else{
-							val = 0;
+							val = "0";
 						}
 						arr.push(val);
 					});
@@ -1591,7 +1651,38 @@ function get_max_value(){
 					arr.push(val);
 				}
 		});
-		var max = Math.max.apply(null, arr);
-		target_input.val(max);
+
+		var msk = arr.indexOf("0"),
+			max = Math.max.apply(null, arr),
+            arr_unique = unique(arr),
+			result;
+
+		if(msk != -1 && max <= 30 && arr_unique.length > 1) {
+			result = 0;
+			delivery.val('Y');
+		} else if(msk != -1 && max <= 30 && arr_unique.length == 1){
+			result = 0;
+			delivery.val('N');
+        } else {
+			result = max;
+			delivery.val('N');
+		}
+
+		target_input.val(result);
 	}
+}
+
+function getCoupon(){
+	$('.social-likes-order .soc-btn').on('click', function(){
+		var val = $('#order_id').val();
+		$.post( "/include/share.php", { "id": val } );
+	});
+}
+
+function unique(list) {
+	var result = [];
+	$.each(list, function(i, e) {
+		if ($.inArray(e, result) == -1) result.push(e);
+	});
+	return result;
 }
