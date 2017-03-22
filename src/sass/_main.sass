@@ -180,6 +180,7 @@ body, .out,html
     +cover
     position: relative
     flex: 0 0 auto
+    contain: paint
     &:before
       content: ''
       +coverdiv
@@ -395,7 +396,7 @@ body, .out,html
       text-align: left;
       background: $white
       display: flex
-      align-items: flex-end
+      align-items: stretch
       justify-content: center
       +r(991)
         +rem(padding-top,58.5px)
@@ -408,12 +409,21 @@ body, .out,html
       flex-shrink: 1
       +rem(flex-basis,735px)
       +rem(padding,0 20px)
+      +rm(991)
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100%;
+        justify-content: space-between;
+        position: relative;
       +r(991)
         width: 100%
         +rem(padding,0 30px)
     &__links
       align-self: center
       +rem(margin-top,97px)
+      +rm(991)
+        margin: auto;
+        width: 100%;
       &>div
         display: inline-block
       +r(544)
@@ -493,8 +503,14 @@ body, .out,html
       +rem(padding, 50px 0 90px)
       border-top: 1px solid $borderl
       margin-top: 21%
-      +rm(1620)
-        margin-top: 31%
+      +rm(991)
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        +padlr(15px)
+      // +rm(1620)
+      //   margin-top: 31%
       +r(768)
         +rem(margin-top,30px)
         +rem(padding, 45px 0 45px)
@@ -554,15 +570,7 @@ body, .out,html
             span
               &:nth-child(2) 
                 transform: translateX(8px)
-
-        &.toclose
-          .hamburger-inner
-            &:before,&:after
-              opacity: 1
-            &:before
-              animation: hovone .1s .2s linear forwards
-            &:after
-              animation: hovtwo .1s .3s linear forwards     
+  
     &.open
       position: relative
       z-index: 50
@@ -782,31 +790,31 @@ body, .out,html
     cursor: pointer
     position: relative
     text-align: center
-    &:before,&:after
-      content: ''
-      height: 8px
-      width: 108%
-      display: block
-      background-color: #FFF
-      position: absolute
-      bottom: 0
-      opacity: 0
-      +tr(transform .15s)
+    // &:before,&:after
+    //   content: ''
+    //   height: 8px
+    //   width: 108%
+    //   display: block
+    //   background-color: #FFF
+    //   position: absolute
+    //   bottom: 0
+    //   opacity: 0
+    //   +tr(transform .15s)
 
-    &:before
-      +rem(right,-38px)
-      +rem(bottom,-8px)
-      // +rem(right,-34px)
-      transform: rotate(-135deg)    
-      transform-origin: 0 0
-      z-index: 5
-    &:after
-      +rem(left,-39px)
-      // +rem(left,-35px)
-      // +rem(top, -3px)
-      transform: rotate(135deg) 
-      transform-origin: 100%
-      z-index: 3
+    // &:before
+    //   +rem(right,-38px)
+    //   +rem(bottom,-8px)
+    //   // +rem(right,-34px)
+    //   transform: rotate(-135deg)    
+    //   transform-origin: 0 0
+    //   z-index: 5
+    // &:after
+    //   +rem(left,-39px)
+    //   // +rem(left,-35px)
+    //   // +rem(top, -3px)
+    //   transform: rotate(135deg) 
+    //   transform-origin: 100%
+    //   z-index: 3
     div 
       display: block
       position: relative
@@ -850,6 +858,7 @@ body, .out,html
     +rem(padding,90px 10px 85px)
     position: relative
     z-index: 1
+    contain: paint
     +r(544)
       +rem(padding,40px 10px 50px)
     &-content 
@@ -1252,7 +1261,7 @@ body, .out,html
   border: 1px solid #777777
   position: fixed
   z-index: 8
-  +rem(right, 50px)
+  +rem(left, 50px)
   +rem(bottom, 40px)
   transform: translateY(100px)
   transition: transform .3s, opacity .3s, bottom .3s
@@ -1262,7 +1271,7 @@ body, .out,html
   +r(544)
     +rem(width,40px)
     +rem(height,40px)
-    +rem(right, 25px)
+    +rem(left, 25px)
   &:hover
     opacity: 0.7
     .stop2
@@ -1298,8 +1307,11 @@ body, .out,html
     &-wrapper
       padding-bottom: 45%
       position: relative
-      +r(1600)
-        padding-bottom: 43%
+      +rm(1300)
+        padding-bottom: 0
+        height: calc(100vh - 9.375rem)
+      +r(1680)
+        padding-bottom: 45%
       +r(1376)
         padding-bottom: 44%        
       +r(991)
@@ -1319,17 +1331,18 @@ body, .out,html
   &-slide
     position: relative
     height: 100%
-    &.white
-      .title,.list li
-        color: $white
-      .list li:before
-        background-image: url(../img/icons/listw.svg)
     &-text
       position: absolute
       left: 12.9%
       top: 25%
       +rem(max-width,515px)
       width: 38%
+      pointer-events: none
+      &.white
+        .title,.list li
+          color: $white
+        .list li:before
+          background-image: url(../img/icons/listw.svg)
       +r(1460)
         top: 15%
         width: 38%
@@ -1351,6 +1364,7 @@ body, .out,html
         width: 95%
       .title
         margin-bottom: 11%
+        +tr(color .3s)
         +r(1150)
           +rem(font-size,45px)
         +r(768)
@@ -1358,6 +1372,7 @@ body, .out,html
           margin-bottom: 5%
       .btn 
         margin-top: 7%
+        pointer-events: all
         +r(768)
           +rem(padding,15px 20px 12px)
       .list
@@ -1369,6 +1384,7 @@ body, .out,html
           +rem(padding-bottom,17px)
           line-height: 1.3 
           text-align: left
+          +tr(color .3s)
 
     &-inner
       +cover
@@ -1701,6 +1717,40 @@ body, .out,html
     position: relative
     +rem(height,390px)
     text-align: center
+    &-link
+      display: block
+      height: 100%
+      width: 100%
+    .doptext
+      opacity: 0
+      +tr(opacity .3s)
+      color: #585858
+      +rem(margin,15px auto 0)
+      text-align: center
+      position: absolute
+      +rem(bottom, 40px)
+      left: 50%
+      transform: translateX(-50%)
+      z-index: 4
+      &:hover
+        span 
+          &:after
+            right: auto
+            width: 0
+      span
+        position: relative
+        display: inline-block
+        text-transform: none
+        &:after
+          content: ''
+          position: absolute
+          +rem(height,1px)
+          left: 0
+          right: 0
+          width: 100%
+          background: #585858
+          +rem(bottom, -2px)
+          +tr(width .3s)
     &.disabled
       opacity: 0.5
       pointer-events: none
@@ -1775,25 +1825,6 @@ body, .out,html
           font-weight: 300
       .btn
         will-change: opacity
-      .doptext
-        opacity: 0
-        +tr(opacity .3s)
-        color: #585858
-        +rem(margin,15px auto 0)
-        text-align: center
-        span
-          position: relative
-          display: inline-block
-          text-transform: none
-          &:after
-            content: ''
-            position: absolute
-            +rem(height,1px)
-            left: 0
-            right: 0
-            width: 100%
-            background: #585858
-            +rem(bottom, -2px)
   &-text
     +rem(max-width,236px)
     +rem(height,75px) 
@@ -2045,6 +2076,11 @@ body, .out,html
   &-item
     +rem(min-width,275px)
     position: relative
+    display: inline-block
+    width: 100%
+    height: 100%
+    +r(991)
+      pointer-events: none
     &:hover
       +rm(991)
         .menu-item-bgu
@@ -2052,7 +2088,8 @@ body, .out,html
         .menu-img-img
           &:after
             opacity: 1
-
+          &:before
+            transform: translateY(0)
     &-wrap
       +rem(padding,12.5px)
       display: inline-block
@@ -2069,6 +2106,9 @@ body, .out,html
           white-space: normal
           text-align: center
           +rem(margin-bottom,25px)
+        .btn
+          +r(991)
+            pointer-events: all
     &-bgu
       position: absolute
       +rem(bottom,20px)
@@ -2109,6 +2149,7 @@ body, .out,html
     &-img
       +coverdiv
       +cover
+      position: relative
       &:after
         content: ''
         +coverdiv
@@ -2116,6 +2157,20 @@ body, .out,html
         opacity: 0
         z-index: 1
         +tr(opacity .3s)
+      &:before
+        content: ''
+        position: absolute
+        display: inline-block
+        +rem(width,23px)
+        +rem(height,23px)
+        +contain
+        background-image: url(../img/icons/looopa.svg)
+        +rem(right,15px)
+        +rem(top,15px)
+        z-index: 2
+        +tr(transform .3s $tr)
+        transform: translateY(-260%)
+
   &-text
     &-wrap
       background: $white
@@ -2185,6 +2240,10 @@ body, .out,html
       display: inline-block
       a 
         color: $text
+        font-weight: 700
+        +tr(opacity .3s)
+        &:hover
+          opacity: .7
       span
         font-weight: 700
     .icon-link
@@ -2528,10 +2587,12 @@ body, .out,html
       text-align: left
       .modal-container-header
         position: static
+        +r(470)
+          +rem(padding-left,15px)
       .modal-container-content
         +rem(margin-top,20px)
         +rem(padding,0 50px)
-        +r(480)
+        +r(470)
           +rem(padding,0 15px)
       .header__hamburger
         position: fixed
@@ -2831,6 +2892,8 @@ body, .out,html
     .color-block
       +rem(width,290px)
       +rem(height,290px)
+      .doptext
+        +rem(bottom,30px)
       .color-block-icon
         +rem(margin, 30px auto 35px)
       &.calc 
@@ -2907,7 +2970,7 @@ body, .out,html
     +rem(margin-top,-285px)
     position: relative
     width: 28%
-    z-index: 10
+    z-index: 9
     +r(991)
       flex: 1 0 500px
       +rem(margin, 20px auto 0)
@@ -2934,8 +2997,8 @@ body, .out,html
           .icon-link
             float: right
             +rem(margin-top,3px)
-            +rm(991)
-              display: none
+            // +rm(991)
+            //   display: none
             i 
               margin-right: 0
               &:after
@@ -3613,7 +3676,7 @@ body, .out,html
     +rem(margin-bottom,32px)
 .btn-calc
   &-fixed
-    display: inline-block
+    display: none
     position: fixed
     +rem(left,50px)
     +rem(bottom,100px)
@@ -4916,6 +4979,9 @@ blockquote
       a
         font-weight: 700
         color: $text
+        +tr(opacity .3s)
+        &:hover
+          opacity: .7
 .box-full.gray
   .sort_wrapper
     display: flex
@@ -5359,7 +5425,10 @@ blockquote
     +rem(width,25px)
     +rem(height,25px)
     left: 0
-  &.tel 
+  &.tel
+    display: block
+    &:hover
+      color: #000
     &:before
       background-image: url(../img/icons/phone.svg)
   &.mail
@@ -5508,6 +5577,109 @@ ymaps p
   visibility: hidden
   .slider-weeks,.slider-amount.rangeinput,.form-total,.form-buttons
     visibility: visible
+.fancybox-bg
+  background: rgba(0,0,0,.3);
+.fancybox-slider-wrap
+  +vertical
+  // pointer-events: none
+.fancybox-button, .fancybox-infobar__body
+  background: 0 0
+.fancybox-slider-outer
+  width: 100%
+  height: 100%
+  position: relative
+  display: inline-block
+  vertical-align: middle
+  +rem(max-width,975px)
+  +rem(max-height,775px)
+  font-family: cera
+  // overflow: hidden
+  +gpu
+.fancybox-slide.fancybox-slide--image
+  transition: all 0.35s ease !important;
+  will-change: transform
+  backface-visibility: hidden
+.fancybox-slide.fancybox-slide--image.fancybox-slide--complete
+  transition: all 0.35s ease !important;
+.fancybox-button--play,.fancybox-button--fullscreen,.fancybox-button--thumbs
+  display: none !important
+.fancybox-slider-content
+  height: 100%
+  width: 100%
+  position: relative
+.fancybox-button--close
+  background-color: transparent !important
+  background-image: url(../img/icons/close_popupw.svg)
+  +contain
+  opacity: .8
+  +tr(opacity .3s)
+  position: fixed
+  z-index: 2
+  +rm(1024)
+     +rem(right,-44px)
+  &:before,&:after
+    display: none
+  &:hover
+    background-color: transparent !important
+    background-image: url(../img/icons/close_popupw.svg)
+    opacity: 1
+.fancybox-slider-content
+  overflow: hidden
+.fancybox-caption-wrap
+  background: #fff
+  +rem(padding,36px )
+  pointer-events: all
+  .menu-text-val
+    text-align: left
+    color: #585858
+  .fancybox-caption
+    padding: 0
+    display: inline-block
+    vertical-align: top
+    width: calc(100% - 10rem)
+    +rem(padding-right,20px)
+    font-family: cera
+  .fancybox-infobar
+    display: inline-block
+    vertical-align: middle
+    +rem(width,160px)
+    text-align: right
+    +rem(margin-top,5px)
+    +rem(margin-right,-5px)
+    .slider-curr,.slider-divider,.slider-total
+      color: #2d2d2d
+      font-family: cera !important
+      line-height: 1
+      vertical-align: middle
+    .slider-divider,.slider-total
+      +rem(margin-top,-10px)
+    .slider-counter
+      white-space: nowrap
+    .slick-arrow
+      transform: scale(-1,1)
+      height: 100%
+    .slider-curr
+      line-height: .6
+  .menu-text-name 
+    text-align: left
+    color: #2d2d2d
+.fancybox-slider--image
+  +tr(transform .35s ease-in)
+.hide-btn
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 50%
+  opacity 0
+  z-index: 99994
+  &:first-of-type
+    left: 0
+  &:last-of-type
+    right: 0
+.fancybox-slider-elem
+  position: relative
+  width: 100%
+  height: 100%
 //==============================================
 //стили заглушки, вставлены инлайново
 //==============================================

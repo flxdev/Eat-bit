@@ -7,4 +7,5 @@
 //=include lib/sticky-fill.js
 //=include lib/jquery.form-validator.min.js
 //=include lib/dropzone.min.js
+//=include lib/jquery.fancybox.min.js
 //=include common.js

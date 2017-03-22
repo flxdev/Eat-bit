@@ -258,19 +258,20 @@ block content
 					//.disabled для отсутсвующего блока
 					.color-wrapper
 						mixin colorBlock(kal,icon,value,img,color)
-							a(href="#").color-block
-								.color-block-bg(style='background-image: url('+img+')')
-								.color-block-main(style='background-color:#'+color+';')
-									.u-light
-										span.u-number.h2 #{kal}
-										span Ккал/день
-									.color-block-icon
-										i(style='background-image: url(img/smalli/'+icon+')')
-									buttom(type='buttom').btn.btn-go от  
-										span.u-number #{value}
-										|  ₽/день
-									.u-light.s-text.u-halfgray.doptext 
-										span Меню на 2 недели
+							.color-block
+								a(href="#").color-block-link
+									.color-block-bg(style='background-image: url('+img+')')
+									.color-block-main(style='background-color:#'+color+';')
+										.u-light
+											span.u-number.h2 #{kal}
+											span Ккал/день
+										.color-block-icon
+											i(style='background-image: url(img/smalli/'+icon+')')
+										buttom(type='buttom').btn.btn-go от  
+											span.u-number #{value}
+											|  ₽/день
+								a(href="#").u-light.s-text.u-halfgray.doptext 
+									span Посмотреть меню
 						+colorBlock('800–1600','1.png','1500','img/index-slide/bg1.png','fcf7eb')
 						+colorBlock('1600–2000','2.png','1700','img/index-slide/bg1.png','eaf6ef')
 						+colorBlock('2100–2300','3.png','1750','img/index-slide/bg1.png','e3e9f9')
