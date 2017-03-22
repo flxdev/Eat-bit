@@ -920,65 +920,6 @@ function mobileFilter(){
 		$(this).toggleClass('active');
 	})
 }mobileFilter();
-	function initBludoBlya(){
-		if(!$(".menu-grid").hasClass('slick-slider')){
-			console.log('343434')
-			$('[data-fancybox]').fancybox({
-				speed : 600,
-				loop : false,
-				margin: [0,0],
-				gutter : 0,
-				focus : false,
-				slideShow  : false,
-				fullScreen : false,
-				touch : false,
-				thumbs     : false,
-				baseTpl	: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
-						'<div class="fancybox-bg"></div>' +
-						'<div class="fancybox-slider-wrap">' +
-							'<div class="fancybox-slider-outer">' +
-								'<div class="fancybox-controls">' +
-									'<div class="fancybox-buttons">' +
-										'<button data-fancybox-close class="hide-btn fancybox-button fancybox-button--close" title="Закрыть (Esc)"></button>' +
-									'</div>' +
-								'</div>' +
-								'<div class="fancybox-slider-content">' +
-									'<div class="fancybox-slider-elem">' +
-										'<button data-fancybox-previous class="hide-btn fancybox-button--left"></button>' +
-										'<div class="fancybox-slider"></div>' +
-										'<button data-fancybox-next class="hide-btn fancybox-button--right"></button>' +
-									'</div>' +
-									'<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div> '+ 
-										'<div class="fancybox-infobar i-arrows">' +
-											'<button data-fancybox-previous class="carousel-prev fancybox-button--left slick-arrow"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>' +
-											'<div class="fancybox-infobar__body slider-counter">' +
-												'<span class="js-fancybox-index slider-curr"></span>&nbsp;<span class="slider-divider">/</span>&nbsp;<span class="js-fancybox-count slider-total"></span>' +
-											'</div>' +
-											'<button data-fancybox-next class="carousel-next fancybox-button--right slick-arrow"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>' +
-										'</div>' +
-									'</div>' +
-									
-								'</div>' +
-							'</div>' +
-						'</div>' +
-					'</div>',
-
-				image : {
-					protect : true,
-					preload : false
-				}
-			});
-			$(document).on('onComplete.fb', function( e, instance, slide ) {
-				var $instance = $.fancybox.getInstance();
-				$('.fancybox-slider-wrap').on('click.cls',function(e){
-					if (e.target == this) { 
-						$.fancybox.close();
-					}
-				});		
-			});		
-		}
-	}
-initBludoBlya();
 
 
 function FocusI(){
@@ -1293,9 +1234,9 @@ function newsSlider(){
 		});
 	});
 }
-// $('.social-likes-order').socialLikes({
-//     counters: false,
-// });
+$('.social-likes-order').socialLikes({
+    counters: false,
+});
 
 newsSlider();
 Menu();
@@ -1314,9 +1255,70 @@ menu_reload();
 validateForms();
 AddressInput();
 Accordeon();
+initBludoBlya();
+
 //end of document ready
 });
 //end of document ready
+function initBludoBlya(){
+	if(!$(".menu-grid").hasClass('slick-slider')){
+		console.log('343434')
+		$('[data-fancybox]').fancybox({
+			speed : 600,
+			loop : false,
+			margin: [0,0],
+			gutter : 0,
+			focus : false,
+			slideShow  : false,
+			fullScreen : false,
+			touch : false,
+			thumbs     : false,
+			baseTpl	: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+					'<div class="fancybox-bg"></div>' +
+					'<div class="fancybox-slider-wrap">' +
+						'<div class="fancybox-slider-outer">' +
+							'<div class="fancybox-controls">' +
+								'<div class="fancybox-buttons">' +
+									'<button data-fancybox-close class="hide-btn fancybox-button fancybox-button--close" title="Закрыть (Esc)"></button>' +
+								'</div>' +
+							'</div>' +
+							'<div class="fancybox-slider-content">' +
+								'<div class="fancybox-slider-elem">' +
+									'<button data-fancybox-previous class="hide-btn fancybox-button--left"></button>' +
+									'<div class="fancybox-slider"></div>' +
+									'<button data-fancybox-next class="hide-btn fancybox-button--right"></button>' +
+								'</div>' +
+								'<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div> '+ 
+									'<div class="fancybox-infobar i-arrows">' +
+										'<button data-fancybox-previous class="carousel-prev fancybox-button--left slick-arrow"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css">.starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M0.5,0.5l6,5.6l-6,5.6"/></svg></div></button>' +
+										'<div class="fancybox-infobar__body slider-counter">' +
+											'<span class="js-fancybox-index slider-curr"></span>&nbsp;<span class="slider-divider">/</span>&nbsp;<span class="js-fancybox-count slider-total"></span>' +
+										'</div>' +
+										'<button data-fancybox-next class="carousel-next fancybox-button--right slick-arrow"><div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 7.4 12.1" style="enable-background:new 0 0 7.4 12.1;" xml:space="preserve"><style type="text/css"> .starr{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#2D2D2D;stroke-width:1.2;stroke-miterlimit:10;}</style><path class="starr" d="M6.9,11.7l-6-5.6l6-5.6"/></svg></div></button>' +
+									'</div>' +
+								'</div>' +
+								
+							'</div>' +
+						'</div>' +
+					'</div>' +
+				'</div>',
+
+			image : {
+				protect : true,
+				preload : false
+			}
+		});
+		$(document).on('onComplete.fb', function( e, instance, slide ) {
+			var $instance = $.fancybox.getInstance();
+			$('.fancybox-slider-wrap').on('click.cls',function(e){
+				if (e.target == this) { 
+					$.fancybox.close();
+				}
+			});		
+		});		
+	}
+}
+
 function Accordeon(){
 	if($('.js-accordion-trigger').length){
 		var maintrigger = $('.js-accordion-trigger'),
