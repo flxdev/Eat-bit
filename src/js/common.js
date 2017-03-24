@@ -674,9 +674,9 @@ function newsSlider(){
 		});
 	});
 }
-$('.social-likes-order').socialLikes({
-    counters: false,
-});
+// $('.social-likes-order').socialLikes({
+//     counters: false,
+// });
 
 newsSlider();
 Menu();
@@ -1272,7 +1272,7 @@ function initCustomSelectList() {
 				var program_id = _input.val(),
 					program_text = _label.text().trim();
 				$('.sertificat-total').css('visibility', 'hidden');
-				$("input[name='RATION").val(program_text);
+				$("input[name='RATION']").val(program_text);
 				$.ajax({
 					type: "POST",
 					url: "/include/form/backend/certificate_period_sku.php",
