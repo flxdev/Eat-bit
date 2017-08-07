@@ -52,8 +52,12 @@
 					label.input-label Телефон 
 				.input-wrapper.req
 					textarea.input-main(rows='4',data-validation="length required",data-validation-error-msg="Не заполнено")
-					label.input-label Сообщение  
+					label.input-label Сообщение 
 				button(type='submit').btn.no-arr.btn-black Отправить  
+				.u-light.s-medium.u-halfgray.u-notify Нажимая кнопку 'Отправить' вы соглашаетесь с условиями 
+					a(href="#") Оферты 
+					| и даете согласие на 
+					a(href="#") обработку персональных данных.
 	//контейнер модалки  
 	.modal-container.modal-small(style='display: none')
 		.modal-container-header
@@ -118,6 +122,10 @@
 						.form-total-week.s-medium.u-halfgray за 2 недели
 					.form-buttons
 						button(type='submit').btn.no-arr.btn-black Заказать
+					.u-light.s-medium.u-halfgray.u-notify Нажимая кнопку 'Отправить' вы соглашаетесь с условиями 
+						a(href="#") Оферты 
+						| и даете согласие на 
+						a(href="#") обработку персональных данных.
 	//контейнер модалки
 	.modal-container.modal-small(style='display: none')
 		.modal-container-header
